@@ -24,3 +24,14 @@ function fMascEx() {
     cpf=cpf.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
     return cpf
     }
+
+function isAdmin()
+{
+  let isAdmin = false;
+  var display = document.getElementById("listaFunc").style.display;
+  if(isAdmin)
+    document.getElementById("listaFunc").style.display ='block'
+  else 
+    document.getElementById("listaFunc").style.display = 'none'
+
+}
