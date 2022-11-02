@@ -18,4 +18,8 @@ public class usuarioController {
     public String hello(){
         return "Olá, tudo Bem";
     }
+    @GetMapping("Teste")
+    public String teste(){
+        return "Teste";
+    }
 }
