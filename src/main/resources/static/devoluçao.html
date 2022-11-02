@@ -15,7 +15,7 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
+  <script src="devolucao.js"></script>
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
+  
   <!-- Template Main CSS File -->
   <link href="css/style.css" rel="stylesheet">
 
@@ -48,7 +48,7 @@
   
         <nav id="navbar" class="navbar">
           <ul>
-            <li><a class="nav-link scrollto active" href="">Home</a></li>
+            <li><a class="nav-link scrollto active" href=".">Home</a></li>
             <li><a class="nav-link scrollto" href="">Consultar Acervo</a></li>
             <li><a class="nav-link scrollto" href="">Realizar Empréstimos</a></li>
             <li class="dropdown"><a href="#"><span>Área do Funcionário</span> <i class="bi bi-chevron-down"></i></a>
@@ -88,8 +88,16 @@
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-        <img src="img/Library.png" class="img-fluid animated" alt="">
         </div>
+        </div>
+        <div class="container h-100">
+          <div class="d-flex justify-content-center h-100">
+            <div class="searchbar">
+              <input maxlength="14" class="search_input" type="text" id="RegraValida" value="" name="RegraValida" onkeydown="fMasc( this, mCPF )" placeholder="Search...">
+              <a href="#" class="search_icon" onclick="ValidaCPF();"></i></a>
+              <!-- <input  type="submit" value="Validar" onclick="ValidaCPF();"><i class="fas fa-search"> -->
+            </div>
+          </div>
         </div>
       </div>
     
@@ -140,6 +148,7 @@
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
     <script src="assets/vendor/php-email-form/validate.js"></script>
+    
   
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
