@@ -1,31 +1,18 @@
 @import url('https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css');
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
 
-html {
-   height: 100%;
-}
 
-body {
-/* Remember to use the other versions for IE 10 and older browsers! */
-display: flex;
-justify-content: center;
-align-items: center;
-min-height: 100%;
-font-family: 'lato', sans-serif;
-color: #fff;
-background: #222222;
-background: #16222A; /* fallback for old browsers */
-background: -webkit-linear-gradient(to top, #16222A , #37517e); /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to top, #16222A , #37517e 50.52%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
 
-.container {
+
+
+.containerLog {
   background:rgba(58,63,68,0.5);
   border-radius: 5px;
   box-shadow: 0 1.5px 0 0 rgba(0,0,0,0.1);
   width:450px;
   display: flex;  
   flex-direction: column;
+  margin: 0 auto;
 }
 
 .logo{
@@ -53,18 +40,6 @@ input {
   padding: 0;
   -webkit-transition: background-color .3s;
   transition: background-color .3s;
-}
-
-.user:before {
-  content: '\f007';
-  font: 14px fontawesome;
-	color: #5b5b5b;
-}
-
-.lock:before {
-  content: '\f023';
-  font: 14px fontawesome;
-	color: #5b5b5b;
 }
 
 .form input[type="password"], .form input[type="text"], .form input[type="submit"] {
@@ -114,16 +89,6 @@ input {
 }
 
 
-.hidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
 
 .text--center {
   text-align: center;
