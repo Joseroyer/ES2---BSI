@@ -15,7 +15,7 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-  <script src="devolucao.js"></script>
+  <script src="js/devolucao.js"></script>
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -36,7 +36,7 @@
   ======================================================== -->
 </head>
 
-<body>
+<body onload="isAdmin()">
 
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top ">
@@ -51,7 +51,7 @@
             <li><a class="nav-link scrollto active" href=".">Home</a></li>
             <li><a class="nav-link scrollto" href="">Consultar Acervo</a></li>
             <li><a class="nav-link scrollto" href="">Realizar Empréstimos</a></li>
-            <li class="dropdown"><a href="#"><span>Área do Funcionário</span> <i class="bi bi-chevron-down"></i></a>
+            <li id="listaFunc" class="dropdown"><a href="#"><span>Área do Funcionário</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
                 <li><a href="#">Cadastrar Exemplares</a></li>
                 <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
