@@ -2,9 +2,6 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
 
 
-
-
-
 .containerLog {
   background:rgba(58,63,68,0.5);
   border-radius: 5px;
@@ -21,6 +18,7 @@
   text-align: center;
   padding: 20px 20px 0;
   margin:0;
+  color: white;
 }
 
 
@@ -88,9 +86,19 @@ input {
   margin-bottom: 2rem;
 }
 
-
-
 .text--center {
   text-align: center;
+}
+
+.user:before {
+  content: '\f007';
+  font: 14px fontawesome;
+	color: #5b5b5b;
+}
+
+.lock:before {
+  content: '\f023';
+  font: 14px fontawesome;
+	color: #5b5b5b;
 }
 

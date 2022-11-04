@@ -27,7 +27,7 @@ function fMascEx() {
 
 function isAdmin()
 {
-  let isAdmin = false;
+  let isAdmin = true;
   var display = document.getElementById("listaFunc").style.display;
   if(isAdmin)
     document.getElementById("listaFunc").style.display ='block'
