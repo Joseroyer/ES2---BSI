@@ -90,16 +90,16 @@
         <div class="containerLog ">
             <div class="logo">Registrar</div>
             <div class="login-item">
-                <form action="" method="post" class="form form-login">
+                <form id="fdados" class="form form-login">
                     <div class="form-field">
                         <label class="user" for="login-username"><span class="hidden"></span></label>
                         <input
                                 id="nome"
-                                name=""
+                                name="nome"
                                 type="text"
                                 class="form-input"
                                 placeholder="Nome Completo"
-                                required
+                                required=""
                         />
                     </div>
                     <div class="form-field">
@@ -107,10 +107,12 @@
                         <input
                                 id="telefone"
                                 name="telefone"
-                                type=""
+                                type="text"
                                 class="form-input"
                                 placeholder="Celular"
-                                required
+                                onkeyup="mascara('(##)####-####',this,event)"
+                                required=""
+                                onblur="validarNome()"
                         />
                     </div>
                     <div class="form-field">
@@ -121,7 +123,8 @@
                                 type="email"
                                 class="form-input"
                                 placeholder="E-mail"
-                                required
+                                required=""
+                                onblur="validarEmail()"
                         />
                     </div>
                     <div class="form-field">
@@ -132,7 +135,8 @@
                                 type="text"
                                 class="form-input"
                                 placeholder="CPF"
-                                required
+                                onkeyup="mascara('###.###.###-##',this,event)"
+                                required=""
                         />
                     </div>
                     <div class="form-field">
@@ -143,7 +147,7 @@
                                 type="text"
                                 class="form-input"
                                 placeholder="Nome de Usuário"
-                                required
+                                required=""
                         />
                     </div>
 
@@ -155,12 +159,12 @@
                                 type="password"
                                 class="form-input"
                                 placeholder="Senha"
-                                required
+                                required=""
                         />
                     </div>
 
                     <div class="form-field">
-                        <input type="submit" value="Sign Up"/>
+                        <input type="submit" value="Sign Up" onclick="gravarUsuario()"/>
                     </div>
                 </form>
             </div>
@@ -208,5 +212,6 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
+<script src="./js/signup.js"></script>
 </body>
 </html>
