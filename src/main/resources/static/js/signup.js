@@ -41,7 +41,6 @@ function validarNome() {
     nome = document.querySelector("#nome");
     if (nome.value.length < 8) {
         nome.value = "";
-        //    alert('Seu NOME precisa conter no minimo  8 caracteres!');
         nome.style.border = "solid 2px red";
         return false;
     }
@@ -54,16 +53,16 @@ function validarEmail() {
     var dotpos = email.value.lastIndexOf(".");
     if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.length) {
         email.value = "";
-
         email.style.border = "solid 2px red";
         return false;
     }
-    return true
+    return true;
 }
 
 
+//arrumar
 function validarCPF() {
-    var cpf = event.target.value;
+    var cpf = document.getElementById("CPF").value;
     var ok = 1;
     var add;
     if (cpf != "") {
@@ -101,14 +100,32 @@ function validarCPF() {
             }
         }
         if (ok == 0) {
-            // alert("Ops... Ocorreu um problema... CPF inválido!");
-            event.target.style.border = "solid 2px red";
-
+            cpf.style.border = "solid 2px red";
+            // event.target.style.border = "solid 2px red";
             // event.target.focus();
         }
     }
 }
 
+function validarUser() {
+    var user = document.getElementById("user");
+    if (user.value.length < 5) {
+        user.value = "";
+        user.style.border = "solid 2px red";
+        return false;
+    }
+    return true;
+}
+
+function validarSenha() {
+    var senha = document.getElementById("senha");
+    if (senha.value.length < 5) {
+        senha.value = "";
+        senha.style.border = "solid 2px red";
+        return false;
+    }
+    return true;
+}
 
 function esconder() {
     let resultado_nome = document.getElementById("resultado_nome");
@@ -116,6 +133,22 @@ function esconder() {
     let resultado_senha = document.getElementById("resultado_senha");
     let resulta_CPF = document.getElementById("resultado_CPF");
     let resultado_email = document.getElementById("resultado_email");
+}
+
+function verifica() {
+
+    if (!validarNome())
+        document.getElementById("resultado_nome").style.display = "";
+    if (!validarEmail())
+        document.getElementById("resultado_email").style.display = "";
+    if (!validarCPF())
+        document.getElementById("resultado_CPF").style.display = "";
+    if (!validarUser())
+        document.getElementById("resultado_user").style.display = "";
+    if (!validarSenha())
+        document.getElementById("resultado_senha").style.display = "";
+
+    return true;
 }
 
 //Nome, Email, nome, Senha
@@ -131,38 +164,29 @@ function gravarUsuario() {
     let senha = document.getElementById("senha").value;
     let user = document.getElementById("user").value;
 
-    //if verifica
-    if (!validarNome())
-        document.getElementById("resultado_nome").style.display = "";
-    else if (!validarEmail())
-        document.getElementById("resultado_email").style.display = "";
-    else if (!validarCPF())
-        document.getElementById("resultado_CPF").style.display = "";
-    else if (!validarUser())
-        document.getElementById("resultado_user").style.display = "";
-    else if (!validarSenha())
-        document.getElementById("resultado_senha").style.display = "";
-    else
-    fetch(URL, {
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        method: 'POST', body: jsontext
-    })
-        .then(function (response) {
-            return response.text();
+    if (!verifica())
+        verifica();
+    else {
+        fetch(URL, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: 'POST', body: jsontext
         })
-        .then(function (text) {
-            alert("Usuario Cadastrado");
-            nome = "";
-            celular = "";
-            email = "";
-            cpf = "";
-            senha = "";
-            user = "";
-        }).catch(function (error) {
-            console.error(error);
-        });
-
+            .then(function (response) {
+                return response.text();
+            })
+            .then(function (text) {
+                alert("Usuario Cadastrado");
+                nome = "";
+                celular = "";
+                email = "";
+                cpf = "";
+                senha = "";
+                user = "";
+            }).catch(function (error) {
+                console.error(error);
+            });
+    }
 }

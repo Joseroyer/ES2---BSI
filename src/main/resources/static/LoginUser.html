@@ -94,10 +94,12 @@
           <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
           </div>
         </div>
+        
           <div class="containerLog">
             <div class="logo">Login</div>
             <div class="login-item">
               <form action="" method="post" class="form form-login">
+                
                 <div class="form-field">
                   <label class="user" for="login-username"
                     ><span class="hidden"></span></label
@@ -109,6 +111,7 @@
                     class="form-input"
                     placeholder="Usuário"
                     required
+                    onkeypress="esconder()"
                   />
                 </div>
 
@@ -123,6 +126,7 @@
                     class="form-input"
                     placeholder="Senha"
                     required
+                    
                   />
                 </div>
 
@@ -131,6 +135,9 @@
                 </div>
                 <div class="d-flex justify-content-center"">
                     <p class="message">Não cadastrado?<a href="./SignUp.Html"> Criar Conta</a></p>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <p id="resultado_login" style="color: red; display: none; ">Usuário não encontrado ou Senha Incorreta</p>
                 </div>
               </form>
             </div>
@@ -169,7 +176,7 @@
     
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
-  
+    <script src="./js/login.js"></script>
   </body>
 
 </html>
