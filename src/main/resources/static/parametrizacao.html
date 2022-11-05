@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Library Tree - Devolução</title>
+  <title>Library Tree - Parametrização</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -15,7 +15,7 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-  <script src="js/devolucao.js"></script>
+  <script src="js/parametrizacao.js"></script>
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -27,6 +27,7 @@
   
   <!-- Template Main CSS File -->
   <link href="css/style.css" rel="stylesheet">
+  <link href="css/parametrizacao.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Arsha - v4.9.1
@@ -69,7 +70,7 @@
               </ul>
             </li>
             
-            <li><a class="getstarted scrollto" href="./LoginUser.html" target="_blank">Entre/Cadastre-se</a></li>
+            <li><a class="getstarted scrollto" href="login.html" target="_blank">Entre/Cadastre-se</a></li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
@@ -90,12 +91,78 @@
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
         </div>
         </div>
+        <div class="form-body">
+            <div class="row">
+                <div class="form-holder">
+                    <div class="form-content">
+                        <div class="form-items">
+                            <h3>Parametrização do site</h3>
+                            <p>Preencha os campos abaixo.</p>
+                            <form class="requires-validation">
+    
+                                <div class="col-md-12">
+                                   <input class="form-control" type="text" name="name" placeholder="Nome da empresa" required="Insira o nome">
+                                </div>
+    
+                                <div class="col-md-12" style="margin-top: 10px; margin-bottom: 10px;">
+                                    <input class="form-control" type="file" name="file" placeholder="Escolha a logotipo" required="">
+                                </div>
+    
+                               <!-- <div class="col-md-12">
+                                    <select class="form-select mt-3" required>
+                                          <option selected disabled value="">Position</option>
+                                          <option value="jweb">Junior Web Developer</option>
+                                          <option value="sweb">Senior Web Developer</option>
+                                          <option value="pmanager">Project Manager</option>
+                                   </select>
+                                    <div class="valid-feedback">You selected a position!</div>
+                                    <div class="invalid-feedback">Please select a position!</div>
+                               </div>
+    
+    
+                           
+    
+    
+                               <div class="col-md-12 mt-3">
+                                <label class="mb-3 mr-1" for="gender">Gender: </label>
+    
+                                <input type="radio" class="btn-check" name="gender" id="male" autocomplete="off" required>
+                                <label class="btn btn-sm btn-outline-secondary" for="male">Male</label>
+    
+                                <input type="radio" class="btn-check" name="gender" id="female" autocomplete="off" required>
+                                <label class="btn btn-sm btn-outline-secondary" for="female">Female</label>
+    
+                                <input type="radio" class="btn-check" name="gender" id="secret" autocomplete="off" required>
+                                <label class="btn btn-sm btn-outline-secondary" for="secret">Secret</label>
+                                   <div class="valid-feedback mv-up">You selected a gender!</div>
+                                    <div class="invalid-feedback mv-up">Please select a gender!</div>
+                                </div>
+     -->
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required="">
+                              <label class="form-check-label">Confirmo os dados acima</label>
+                             
+                            </div>
+                     
+    
+                                <div class="form-button mt-3">
+                                    <button id="submit" type="submit" class="btn btn-primary">Cadastrar</button>
+                                </div> 
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
         
       </div>
+      
     
       </section><!-- End Hero -->
   
     <main id="main">
+        
   
       <!-- ======= Clients Section ======= -->
       
