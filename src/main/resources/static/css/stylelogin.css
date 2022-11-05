@@ -102,3 +102,9 @@ input {
 	color: #5b5b5b;
 }
 
+.center{
+  text-align: center;
+  justify-content: center;
+  margin: auto;
+}
+

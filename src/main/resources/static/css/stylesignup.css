@@ -9,12 +9,8 @@
 
 #hero1{
   background: #37517e;
-}
+  padding-top: 0;
 
-#hero1 .container-css{
-  margin-top: auto;
-  margin-left: 30%;
-  justify-content: center;
 }
 
 .containerLog {
