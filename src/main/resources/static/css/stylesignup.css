@@ -1,16 +1,30 @@
 @import url('https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css');
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
 
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: 0;
+}
+
+#hero1{
+  background: #37517e;
+  padding-top: 0;
+
+}
 
 .containerLog {
   background:rgba(58,63,68,0.5);
   border-radius: 5px;
   box-shadow: 0 1.5px 0 0 rgba(0,0,0,0.1);
   width:450px;
+  height: auto;
   display: flex;  
   flex-direction: column;
   margin: 0 auto;
+  margin-top: 35%;
 }
+
 
 .logo{
   font-family: "museo-slab";  
@@ -42,6 +56,9 @@ input {
 
 .form input[type="password"], .form input[type="text"], .form input[type="submit"] {
   width: 100%;
+  display: block;
+  font-size: 16px;
+  /* line-height: 1px; */
 }
 
 .form-login label,
@@ -90,7 +107,7 @@ input {
   text-align: center;
 }
 
-.user:before {
+/* .user:before {
   content: '\f007';
   font: 14px fontawesome;
 	color: #5b5b5b;
@@ -100,11 +117,5 @@ input {
   content: '\f023';
   font: 14px fontawesome;
 	color: #5b5b5b;
-}
-
-.center{
-  text-align: center;
-  justify-content: center;
-  margin: auto;
-}
+} */
 
