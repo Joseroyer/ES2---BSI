@@ -22,25 +22,30 @@ public class Usuario {
     @Column(name = "usu_telefone")
     private String telefone;
 
+    @Column(name = "usu_user")
+    private String user;
+
     public Usuario() {
 
     }
 
-    public Usuario(String nome, String email, String senha, String CPF, String telefone) {
+    public Usuario(String nome, String email, String senha, String CPF, String telefone, String user) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.CPF = CPF;
         this.telefone = telefone;
+        this.user = user;
     }
 
-    public Usuario(Long id, String nome, String email, String senha, String CPF, String telefone) {
+    public Usuario(Long id, String nome, String email, String senha, String CPF, String telefone, String user) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.CPF = CPF;
         this.telefone = telefone;
+        this.user = user;
     }
 
     public Long getId() {
@@ -90,4 +95,13 @@ public class Usuario {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
 }
+
