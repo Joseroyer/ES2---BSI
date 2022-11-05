@@ -35,3 +35,15 @@ function isAdmin()
     document.getElementById("listaFunc").style.display = 'none'
 
 }
+
+function Parameters()
+{
+  let parameters = true;
+  if(!parameters)
+  {
+    alert("A parametrização não foi realizada, você será redirecionado!")
+    window.location.href="parametrizacao.html"
+    
+  }
+  
+}
