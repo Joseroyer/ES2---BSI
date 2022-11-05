@@ -100,6 +100,7 @@
                                 class="form-input"
                                 placeholder="Nome Completo"
                                 required=""
+                                onkeypress="esconder()"
                         />
                     </div>
                     <div class="form-field">
@@ -137,6 +138,7 @@
                                 placeholder="CPF"
                                 onkeyup="mascara('###.###.###-##',this,event)"
                                 required=""
+                                onkeypress="esconder()"
                         />
                     </div>
                     <div class="form-field">
@@ -148,6 +150,7 @@
                                 class="form-input"
                                 placeholder="Nome de Usuário"
                                 required=""
+                                onkeypress="esconder()"
                         />
                     </div>
 
@@ -160,9 +163,14 @@
                                 class="form-input"
                                 placeholder="Senha"
                                 required=""
+                                onkeypress="esconder()"
                         />
                     </div>
 
+                    <p id="resultado_nome" style="color:red; display: none;">Nome Completo precisa conter no mínimo 5 caracteres</p>
+                    <p id="resultado_user" style="color:red; display: none;">Nome de Usuário precisa conter no mínimo 5 caracteres</p>
+                    <p id="resultado_senha" style="color:red; display: none;">Senha precisa conter no mínimo 5 caracteres</p>
+                    <p id="resultado_CPF" style="color:red; display: none;">CPF inválido</p>                    
                     <div class="form-field">
                         <input type="submit" value="Sign Up" onclick="gravarUsuario()"/>
                     </div>

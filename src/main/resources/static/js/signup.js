@@ -5,9 +5,9 @@ function mascara(m, t, e) {
     var l = texto.length;
     var lm = m.length;
     if (window.event) {
-       id = e.keyCode;
+        id = e.keyCode;
     } else if (e.which) {
-       id = e.which;
+        id = e.which;
     }
     cursorfixo = false;
     if (cursor < l) cursorfixo = true;
@@ -16,101 +16,110 @@ function mascara(m, t, e) {
     ii = 0;
     mm = 0;
     if (!livre) {
-       if (id != 8) {
-          t.value = "";
-          j = 0;
-          for (i = 0; i < lm; i++) {
-             if (m.substr(i, 1) == "#") {
-                t.value += texto.substr(j, 1);
-                j++;
-             } else if (m.substr(i, 1) != "#") {
-                t.value += m.substr(i, 1);
-             }
-             if (id != 8 && !cursorfixo) cursor++;
-             if ((j) == l + 1) break;
- 
-          }
-       }
+        if (id != 8) {
+            t.value = "";
+            j = 0;
+            for (i = 0; i < lm; i++) {
+                if (m.substr(i, 1) == "#") {
+                    t.value += texto.substr(j, 1);
+                    j++;
+                } else if (m.substr(i, 1) != "#") {
+                    t.value += m.substr(i, 1);
+                }
+                if (id != 8 && !cursorfixo) cursor++;
+                if ((j) == l + 1) break;
+
+            }
+        }
     }
     if (cursorfixo && !livre) cursor--;
     t.setSelectionRange(cursor, cursor);
- }
+}
 
 
- function validarNome() {
+function validarNome() {
     nome = document.querySelector("#nome");
     if (nome.value.length < 8) {
-       nome.value = "";
-    //    alert('Seu NOME precisa conter no minimo  8 caracteres!');
-       nome.style.border = "solid 2px red";
-       return false;
+        nome.value = "";
+        //    alert('Seu NOME precisa conter no minimo  8 caracteres!');
+        nome.style.border = "solid 2px red";
+        return false;
     }
     return true;
- }
- 
- function validarEmail() {
+}
+
+function validarEmail() {
     email = document.querySelector("#email");
     var atpos = email.value.indexOf("@");
     var dotpos = email.value.lastIndexOf(".");
     if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.length) {
-       email.value = "";
-    //    alert('Preencha um E-MAIL correto!');
-       email.style.border = "solid 2px red";
-       return false;
+        email.value = "";
+
+        email.style.border = "solid 2px red";
+        return false;
     }
     return true
- }
+}
 
 
- function validarCPF() {
+function validarCPF() {
     var cpf = event.target.value;
     var ok = 1;
     var add;
     if (cpf != "") {
-       cpf = cpf.replace(/[^\d]+/g, '');
-       if (cpf.length != 11 ||
-          cpf == "00000000000" ||
-          cpf == "11111111111" ||
-          cpf == "22222222222" ||
-          cpf == "33333333333" ||
-          cpf == "44444444444" ||
-          cpf == "55555555555" ||
-          cpf == "66666666666" ||
-          cpf == "77777777777" ||
-          cpf == "88888888888" ||
-          cpf == "99999999999")
-          ok = 0;
-       if (ok == 1) {
-          add = 0;
-          for (i = 0; i < 9; i++)
-             add += parseInt(cpf.charAt(i)) * (10 - i);
-          rev = 11 - (add % 11);
-          if (rev == 10 || rev == 11)
-             rev = 0;
-          if (rev != parseInt(cpf.charAt(9)))
-             ok = 0;
-          if (ok == 1) {
-             add = 0;
-             for (i = 0; i < 10; i++)
-                add += parseInt(cpf.charAt(i)) * (11 - i);
-             rev = 11 - (add % 11);
-             if (rev == 10 || rev == 11)
+        cpf = cpf.replace(/[^\d]+/g, '');
+        if (cpf.length != 11 ||
+            cpf == "00000000000" ||
+            cpf == "11111111111" ||
+            cpf == "22222222222" ||
+            cpf == "33333333333" ||
+            cpf == "44444444444" ||
+            cpf == "55555555555" ||
+            cpf == "66666666666" ||
+            cpf == "77777777777" ||
+            cpf == "88888888888" ||
+            cpf == "99999999999")
+            ok = 0;
+        if (ok == 1) {
+            add = 0;
+            for (i = 0; i < 9; i++)
+                add += parseInt(cpf.charAt(i)) * (10 - i);
+            rev = 11 - (add % 11);
+            if (rev == 10 || rev == 11)
                 rev = 0;
-             if (rev != parseInt(cpf.charAt(10)))
+            if (rev != parseInt(cpf.charAt(9)))
                 ok = 0;
-          }
-       }
-       if (ok == 0) {
-          alert("Ops... Ocorreu um problema... CPF inválido!");
-          event.target.style.border = "solid 2px red";
- 
-          // event.target.focus();
-       }
-    }
- }
+            if (ok == 1) {
+                add = 0;
+                for (i = 0; i < 10; i++)
+                    add += parseInt(cpf.charAt(i)) * (11 - i);
+                rev = 11 - (add % 11);
+                if (rev == 10 || rev == 11)
+                    rev = 0;
+                if (rev != parseInt(cpf.charAt(10)))
+                    ok = 0;
+            }
+        }
+        if (ok == 0) {
+            // alert("Ops... Ocorreu um problema... CPF inválido!");
+            event.target.style.border = "solid 2px red";
 
- //Nome, Email, nome, Senha
- function gravarUsuario() {
+            // event.target.focus();
+        }
+    }
+}
+
+
+function esconder() {
+    let resultado_nome = document.getElementById("resultado_nome");
+    let resultado_user = document.getElementById("resultado_user");
+    let resultado_senha = document.getElementById("resultado_senha");
+    let resulta_CPF = document.getElementById("resultado_CPF");
+    let resultado_email = document.getElementById("resultado_email");
+}
+
+//Nome, Email, nome, Senha
+function gravarUsuario() {
     const URL = "/apis/registrar";
     var fdados = document.getElementById("fdados");
     var jsontext = JSON.stringify(Object.fromEntries(
@@ -123,27 +132,37 @@ function mascara(m, t, e) {
     let user = document.getElementById("user").value;
 
     //if verifica
-    //else faz o fetch
-        fetch(URL, {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            method: 'POST', body: jsontext
+    if (!validarNome())
+        document.getElementById("resultado_nome").style.display = "";
+    else if (!validarEmail())
+        document.getElementById("resultado_email").style.display = "";
+    else if (!validarCPF())
+        document.getElementById("resultado_CPF").style.display = "";
+    else if (!validarUser())
+        document.getElementById("resultado_user").style.display = "";
+    else if (!validarSenha())
+        document.getElementById("resultado_senha").style.display = "";
+    else
+    fetch(URL, {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method: 'POST', body: jsontext
+    })
+        .then(function (response) {
+            return response.text();
         })
-            .then(function (response) {
-                return response.text();
-            })
-            .then(function (text) {
-                alert("Usuario Cadastrado");
-                nome = "";
-                celular = "";
-                email = "";
-                cpf = "";
-                senha = "";
-                user = "";
-            }).catch(function (error) {
-                console.error(error);
-            });
-        
+        .then(function (text) {
+            alert("Usuario Cadastrado");
+            nome = "";
+            celular = "";
+            email = "";
+            cpf = "";
+            senha = "";
+            user = "";
+        }).catch(function (error) {
+            console.error(error);
+        });
+
 }
