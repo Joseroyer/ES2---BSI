@@ -113,6 +113,7 @@
                                 placeholder="Celular"
                                 onkeyup="mascara('(##)####-####',this,event)"
                                 required=""
+                                onkeypress="esconder()"
                         />
                     </div>
                     <div class="form-field">
@@ -137,7 +138,7 @@
                                 placeholder="CPF"
                                 onkeyup="mascara('###.###.###-##',this,event)"
                                 required=""
-                                onkeypress="esconder()"
+                                onblur="validarCPF()"
                         />
                     </div>
                     <div class="form-field">
@@ -166,11 +167,12 @@
                         />
                     </div>
                     <p id="resultado_nome" style="color:red; display: none;">Nome Completo precisa conter no mínimo 8 caracteres</p>
-                    <p id="resultado_email" style="color:red; display: none;">Preencha corretamente o E-mail</p>     
+                    <p id="resultado_email" style="color:red; display: none;">Preencha corretamente o E-mail</p>
+                    <p id="resultado_telefone" style="color:red; display: none;">Preencha corretamente o Número de Celular</p>          
                     <p id="resultado_CPF" style="color:red; display: none;">CPF inválido</p>
                     <p id="resultado_user" style="color:red; display: none;">Nome de Usuário precisa conter no mínimo 5 caracteres</p>
                     <p id="resultado_senha" style="color:red; display: none;">Senha precisa conter no mínimo 5 caracteres</p>
-                     
+
                     <div class="form-field">
                         <input type="submit" value="Sign Up" onclick="gravarUsuario()"/>
                     </div>

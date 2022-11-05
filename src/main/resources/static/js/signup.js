@@ -59,10 +59,9 @@ function validarEmail() {
     return true;
 }
 
-
-//arrumar
 function validarCPF() {
-    var cpf = document.getElementById("CPF").value;
+    var result = document.getElementById("resultado_CPF");
+    var cpf = event.target.value;
     var ok = 1;
     var add;
     if (cpf != "") {
@@ -100,11 +99,22 @@ function validarCPF() {
             }
         }
         if (ok == 0) {
-            cpf.style.border = "solid 2px red";
-            // event.target.style.border = "solid 2px red";
+            // cpf.style.border = "solid 2px red";
+            event.target.style.border = "solid 2px red";
+            result.style.display = "";
             // event.target.focus();
         }
     }
+}
+
+function validarTelefone() {
+    var telefone = document.getElementById("telefone");
+    if (telefone.value.length == "") {
+        telefone.display.border = "solid 2px red";
+        telefone.value = "";
+        return false;
+    }
+    return true;
 }
 
 function validarUser() {
@@ -133,21 +143,21 @@ function esconder() {
     let resultado_senha = document.getElementById("resultado_senha");
     let resulta_CPF = document.getElementById("resultado_CPF");
     let resultado_email = document.getElementById("resultado_email");
+    let resultado_telefone = document.getElementById("resultado_telefone");
 }
 
 function verifica() {
 
     if (!validarNome())
         document.getElementById("resultado_nome").style.display = "";
+    if (!validarTelefone())
+        document.getElementById("resultado_telefone").style.display = "";
     if (!validarEmail())
         document.getElementById("resultado_email").style.display = "";
-    if (!validarCPF())
-        document.getElementById("resultado_CPF").style.display = "";
     if (!validarUser())
         document.getElementById("resultado_user").style.display = "";
     if (!validarSenha())
         document.getElementById("resultado_senha").style.display = "";
-
     return true;
 }
 
@@ -163,8 +173,9 @@ function gravarUsuario() {
     let cpf = document.getElementById("CPF").value;
     let senha = document.getElementById("senha").value;
     let user = document.getElementById("user").value;
-
-    if (!verifica())
+    
+    //arrumar o if
+    if (verifica())
         verifica();
     else {
         fetch(URL, {
