@@ -6,7 +6,7 @@ import lombok.Data;
 
 @AllArgsConstructor //cria construtor
 @Data // gera get e set
-public class usuario {
+public class Usuario {
     private Long id;
     private String nome;
     private String email;
