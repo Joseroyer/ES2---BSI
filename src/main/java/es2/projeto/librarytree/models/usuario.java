@@ -9,9 +9,8 @@ import lombok.Data;
 public class usuario {
     private Long id;
     private String nome;
+    private String email;
     private String senha;
-    private String data_nasc;
     private String CPF;
     private String telefone;
-
 }

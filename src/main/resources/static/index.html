@@ -1,284 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Library Tree - Home</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
 
-  <title>Library Tree - Home</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <!-- Favicons -->
+    <link href="img/Library tree.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Favicons -->
-  <link href="img/Library tree.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="css/style.css" rel="stylesheet">
-  <script src="js/devolucao.js"></script>  
-  <script src="js/index.js"></script>
-  <!-- =======================================================
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/devolucao.js"></script>
+    <script src="js/index.js"></script>
+    <!-- =======================================================
   * Template Name: Arsha - v4.9.1
   * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-</head>
+  </head>
 
 
-<body onload="isAdmin(), Parameters()">
+  <body onload="isAdmin(), Parameters()">
 
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top ">
-    <div class="container d-flex align-items-center">
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+      <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="index.html">Library Tree</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        <h1 class="logo me-auto"><a href="index.html">Library Tree</a></h1>
 
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="">Home</a></li>
-          <li><a class="nav-link scrollto" href="">Consultar Acervo</a></li>
-          <li><a class="nav-link scrollto" href="">Realizar Empréstimos</a></li>
-          
-          <li id="listaFunc" class="dropdown"><a href="#"><span>Área do Funcionário</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Cadastrar Exemplares</a></li>
-              <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li> -->
-              <li><a href="devoluçao.html">Devolução de Exemplar</a></li>
-              <li><a href="#">Cadastro de Usuário</a></li>
-              <li><a href="#">Baixa de Exemplares</a></li>
-            </ul>
-          </li>
-          
-          <li><a class="getstarted scrollto" href="./LoginUser.html" target="_blank">Entre/Cadastre-se</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto active" href="">Home</a></li>
+            <li><a class="nav-link scrollto" href="">Consultar Acervo</a></li>
+            <li><a class="nav-link scrollto" href="">Realizar Empréstimos</a></li>
+            <li id="listaFunc" class="dropdown"><a href="#"><span>Área do
+                  Funcionário</span> <i class="bi bi-chevron-down"></i></a>
+              <ul>
+                <li><a href="#">Cadastrar Exemplares</a></li>
 
-    </div>
-  </header><!-- End Header -->
+                <li><a href="devoluçao.html">Devolução de Exemplar</a></li>
+                <li><a href="#">Cadastro de Usuário</a></li>
+                <li><a href="#">Baixa de Exemplares</a></li>
+              </ul>
+            </li>
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
+            <li><a class="getstarted scrollto" href="./LoginUser.html"
+                target="_blank">Entre/Cadastre-se</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
 
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h1>A melhor solução para sua biblioteca</h1>
-          <h2></h2>
-          <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="." class="btn-get-started scrollto">Vamos nessa</a>
-            <!-- <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
-          </div>
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-          <img src="img/Library.png" class="img-fluid animated" alt="">
-        </div>
       </div>
-    </div>
+    </header><!-- End Header -->
 
-  </section><!-- End Hero -->
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
 
-  <main id="main">
-
-    <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients section-bg">
       <div class="container">
-
-        <div class="row" data-aos="zoom-in">
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="https://miro.medium.com/max/2400/1*jn_tifOUVSMD5mtL0X6f7w.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="https://logodownload.org/wp-content/uploads/2014/10/saraiva-logo-1.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="data:image/png;base64,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" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="https://entretetizei.com.br/wp-content/uploads/2021/11/intrinseca-1.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="https://seeklogo.com/images/E/editora-scipione-logo-E42A1E8056-seeklogo.com.png" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="https://seeklogo.com/images/E/editora-abril-logo-4B80461E0C-seeklogo.com.png" class="img-fluid" alt="">
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Cliens Section -->
-
-    <!-- ======= About Us Section ======= -->
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Sobre nós</h2>
-        </div>
-
-        <div class="row content">
-          <div class="col-lg-6">
-            <p>
-             O Library Tree é um software web e open-source voltado para gerenciamento de uma biblioteca física, englobando também as funcionalidades básicas para o uso cotidiano.
-            </p>
-            <ul>
-              <li><i class="ri-check-double-line"></i> Inventariar Exemplares</li>
-              <li><i class="ri-check-double-line"></i> Cadastro de novos livros</li>
-              <li><i class="ri-check-double-line"></i> Consulta para o usuário</li>
-            </ul>
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0">
-            <p>
-              Se deseja saber mais sobre o projeto, bem como seus objetivos, funcionalidades e características, clique no botão abaixo e visualize a documentação atual do software.
-            </p>
-            <a href="https://github.com/Joseroyer/ES2---BSI/blob/main/ERS%20%20Diagramas%20%20ArthurJoseKarolLucas%206.pdf" class="btn-learn-more" target="_blank">Ler mais</a>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End About Us Section -->
-
-
-    <!-- ======= Team Section ======= -->
-    <section id="team" class="team section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Time</h2>
-          <p>Abaixo mencionamos os desenvolvedores e idealizadores do projeto, bem como a forma de os encontrar em suas respectivas redes sociais.</p>
-        </div>
-
         <div class="row">
-
-          <div class="col-lg-6">
-            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
-              <div class="pic"><img src="https://pps.whatsapp.net/v/t61.24694-24/295218276_1704424193283694_1426129468966627278_n.jpg?ccb=11-4&oh=01_AdQH1_20u67MEDS2Es0HuAhVTOxXXdoBwnzQwuSJq7XnHw&oe=636BD74E" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Arthur Figueirinha</h4>
-                <span>DEV</span>
-                <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-                <div class="social">
-                  <a href="https://www.instagram.com/ar7huuuuuur/" target="_blank"><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
-              </div>
+          <div class="col-lg-6 d-flex flex-column justify-content-center pt-4
+            pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+            <h1>A melhor solução para sua biblioteca</h1>
+            <h2></h2>
+            <div class="d-flex justify-content-center justify-content-lg-start">
+              <a href="." class="btn-get-started scrollto">Vamos nessa</a>
             </div>
           </div>
-          <div class="col-lg-6 mt-4 mt-lg-0">
-            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="200">
-              <div class="pic"><img src="https://media-exp1.licdn.com/dms/image/C4D03AQEGqJeClpAHOQ/profile-displayphoto-shrink_400_400/0/1648849722861?e=1672876800&v=beta&t=RTNvw7BEs4kDDhzhjI6bOqNP2l4IFtrq-FBHsJeRRFk" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>José Renato Royer</h4>
-                <span>DEV</span>
-                <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-                <div class="social">
-                  <a href="https://www.instagram.com/renato_royer/" target="_blank"><i class="ri-instagram-fill"></i></a>
-                  <a href="https://www.linkedin.com/in/jos%C3%A9-renato-cunha-royer-859a2b233/" target="_blank"> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
-              </div>
+          <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in"
+            data-aos-delay="200">
+            <img src="img/Library.png" class="img-fluid animated" alt="">
+          </div>
+        </div>
+      </div>
+
+    </section><!-- End Hero -->
+
+    <main id="main">
+
+      <!-- ======= Clients Section ======= -->
+      <section id="clients" class="clients section-bg">
+        <div class="container">
+
+          <div class="row" data-aos="zoom-in">
+
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center
+              justify-content-center">
+              <img
+                src="https://miro.medium.com/max/2400/1*jn_tifOUVSMD5mtL0X6f7w.png"
+                class="img-fluid" alt="">
             </div>
+
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center
+              justify-content-center">
+              <img
+                src="https://logodownload.org/wp-content/uploads/2014/10/saraiva-logo-1.png"
+                class="img-fluid" alt="">
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center
+              justify-content-center">
+              <img
+                src="data:image/png;base64,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"
+                class="img-fluid" alt="">
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center
+              justify-content-center">
+              <img
+                src="https://entretetizei.com.br/wp-content/uploads/2021/11/intrinseca-1.png"
+                class="img-fluid" alt="">
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center
+              justify-content-center">
+              <img
+                src="https://seeklogo.com/images/E/editora-scipione-logo-E42A1E8056-seeklogo.com.png"
+                class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center
+              justify-content-center">
+              <img
+                src="https://seeklogo.com/images/E/editora-abril-logo-4B80461E0C-seeklogo.com.png"
+                class="img-fluid" alt="">
+            </div>
+
           </div>
 
-          <div class="col-lg-6 mt-4">
-            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="300">
-              <div class="pic"><img src="https://media-exp1.licdn.com/dms/image/C4D03AQHFDMdUuGmbnA/profile-displayphoto-shrink_400_400/0/1652211913870?e=1672876800&v=beta&t=ClJVOLjiBD0Oco04FQqxJ4G8kOivimQMq-nzf7OMJnc" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Karolaine Mandroti</h4>
-                <span>DEV</span>
-                <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-                <div class="social">
-                  <a href="https://www.instagram.com/karolainemandroti/" target="_blank"><i class="ri-instagram-fill"></i></a>
-                  <a href="https://www.linkedin.com/in/karolaine-mandroti-882236207/" target="_blank"> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
-              </div>
-            </div>
+        </div>
+      </section><!-- End Cliens Section -->
+
+      <!-- ======= About Us Section ======= -->
+      <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+
+          <div class="section-title">
+            <h2>Sobre nós</h2>
           </div>
 
-          <div class="col-lg-6 mt-4">
-            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="400">
-              <div class="pic"><img src="https://media-exp1.licdn.com/dms/image/C5603AQFoHCrpXmDd9A/profile-displayphoto-shrink_400_400/0/1644533946851?e=1672876800&v=beta&t=yvgnImfV3kEDN2vhCLCz1BktvGnTzqFSjZQa76W0ltc" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Lucas Isquerdo</h4>
-                <span>DEV</span>
-                <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-                <div class="social">
-                  <a href="https://www.instagram.com/lucas_isquerdo/" target="_blank"><i class="ri-instagram-fill"></i></a>
-                  <a href="https://www.linkedin.com/in/lucas-isquerdo-acosta-0b0b8419a/" target="_blank"> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
-              </div>
+          <div class="row content">
+            <div class="col-lg-6">
+              <p>
+                O Library Tree é um software web e open-source voltado para
+                gerenciamento de uma biblioteca física, englobando também as
+                funcionalidades básicas para o uso cotidiano.
+              </p>
+              <ul>
+                <li><i class="ri-check-double-line"></i> Inventariar Exemplares</li>
+                <li><i class="ri-check-double-line"></i> Cadastro de novos
+                  livros</li>
+                <li><i class="ri-check-double-line"></i> Consulta para o usuário</li>
+              </ul>
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0">
+              <p>
+                Se deseja saber mais sobre o projeto, bem como seus objetivos,
+                funcionalidades e características, clique no botão abaixo e
+                visualize a documentação atual do software.
+              </p>
+              <a
+                href="https://github.com/Joseroyer/ES2---BSI/blob/main/ERS%20%20Diagramas%20%20ArthurJoseKarolLucas%206.pdf"
+                class="btn-learn-more" target="_blank">Ler mais</a>
             </div>
           </div>
 
         </div>
+      </section><!-- End About Us Section -->
 
+
+      <!-- ======= Team Section ======= -->
+      <section id="team" class="team section-bg">
+        <div class="container" data-aos="fade-up">
+
+          <div class="section-title">
+            <h2>Time</h2>
+            <p>Abaixo mencionamos os desenvolvedores e idealizadores do projeto,
+              bem como a forma de os encontrar em suas respectivas redes
+              sociais.</p>
+          </div>
+
+          <div class="row">
+
+            <div class="col-lg-6">
+              <div class="member d-flex align-items-start" data-aos="zoom-in"
+                data-aos-delay="100">
+                <div class="pic"><img
+                    src="https://pps.whatsapp.net/v/t61.24694-24/295218276_1704424193283694_1426129468966627278_n.jpg?ccb=11-4&oh=01_AdQH1_20u67MEDS2Es0HuAhVTOxXXdoBwnzQwuSJq7XnHw&oe=636BD74E"
+                    class="img-fluid" alt=""></div>
+                <div class="member-info">
+                  <h4>Arthur Figueirinha</h4>
+                  <span>DEV</span>
+                  <p>Dolorum tempora officiis odit laborum officiis et et
+                    accusamus</p>
+                  <div class="social">
+                    <a href="https://www.instagram.com/ar7huuuuuur/"
+                      target="_blank"><i class="ri-instagram-fill"></i></a>
+                    <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 mt-4 mt-lg-0">
+              <div class="member d-flex align-items-start" data-aos="zoom-in"
+                data-aos-delay="200">
+                <div class="pic"><img
+                    src="https://media-exp1.licdn.com/dms/image/C4D03AQEGqJeClpAHOQ/profile-displayphoto-shrink_400_400/0/1648849722861?e=1672876800&v=beta&t=RTNvw7BEs4kDDhzhjI6bOqNP2l4IFtrq-FBHsJeRRFk"
+                    class="img-fluid" alt=""></div>
+                <div class="member-info">
+                  <h4>José Renato Royer</h4>
+                  <span>DEV</span>
+                  <p>Dolorum tempora officiis odit laborum officiis et et
+                    accusamus</p>
+                  <div class="social">
+                    <a href="https://www.instagram.com/renato_royer/"
+                      target="_blank"><i class="ri-instagram-fill"></i></a>
+                    <a
+                      href="https://www.linkedin.com/in/jos%C3%A9-renato-cunha-royer-859a2b233/"
+                      target="_blank"> <i class="ri-linkedin-box-fill"></i> </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mt-4">
+              <div class="member d-flex align-items-start" data-aos="zoom-in"
+                data-aos-delay="300">
+                <div class="pic"><img
+                    src="https://media-exp1.licdn.com/dms/image/C4D03AQHFDMdUuGmbnA/profile-displayphoto-shrink_400_400/0/1652211913870?e=1672876800&v=beta&t=ClJVOLjiBD0Oco04FQqxJ4G8kOivimQMq-nzf7OMJnc"
+                    class="img-fluid" alt=""></div>
+                <div class="member-info">
+                  <h4>Karolaine Mandroti</h4>
+                  <span>DEV</span>
+                  <p>Dolorum tempora officiis odit laborum officiis et et
+                    accusamus</p>
+                  <div class="social">
+                    <a href="https://www.instagram.com/karolainemandroti/"
+                      target="_blank"><i class="ri-instagram-fill"></i></a>
+                    <a
+                      href="https://www.linkedin.com/in/karolaine-mandroti-882236207/"
+                      target="_blank"> <i class="ri-linkedin-box-fill"></i> </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mt-4">
+              <div class="member d-flex align-items-start" data-aos="zoom-in"
+                data-aos-delay="400">
+                <div class="pic"><img
+                    src="https://media-exp1.licdn.com/dms/image/C5603AQFoHCrpXmDd9A/profile-displayphoto-shrink_400_400/0/1644533946851?e=1672876800&v=beta&t=yvgnImfV3kEDN2vhCLCz1BktvGnTzqFSjZQa76W0ltc"
+                    class="img-fluid" alt=""></div>
+                <div class="member-info">
+                  <h4>Lucas Isquerdo</h4>
+                  <span>DEV</span>
+                  <p>Dolorum tempora officiis odit laborum officiis et et
+                    accusamus</p>
+                  <div class="social">
+                    <a href="https://www.instagram.com/lucas_isquerdo/"
+                      target="_blank"><i class="ri-instagram-fill"></i></a>
+                    <a
+                      href="https://www.linkedin.com/in/lucas-isquerdo-acosta-0b0b8419a/"
+                      target="_blank"> <i class="ri-linkedin-box-fill"></i> </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section><!-- End Team Section -->
+
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+
+
+      <div class="container footer-bottom clearfix">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Tree Library</span></strong>. Todos os
+          direitos reservados à Argus Tech
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
+        </div>
       </div>
-    </section><!-- End Team Section -->
+    </footer><!-- End Footer -->
 
-  </main><!-- End #main -->
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center
+      justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
 
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
 
-    <div class="container footer-bottom clearfix">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Tree Library</span></strong>. Todos os direitos reservados à Argus Tech
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-       
-      </div>
-    </div>
-  </footer><!-- End Footer -->
-
-  <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-</body>
+  </body>
 
 </html>
