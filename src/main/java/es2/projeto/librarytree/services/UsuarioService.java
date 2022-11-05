@@ -13,10 +13,11 @@ import java.util.List;
 public class UsuarioService {
     private final UsuarioRepository usuarioRepository;
 
-    public List<Usuario> getAll(){
+    public List<Usuario> getAll() {
         return usuarioRepository.findAll();
     }
-    public Usuario save(Usuario usuario){
-         return usuarioRepository.save(usuario);
+
+    public Usuario save(Usuario usuario) {
+        return usuarioRepository.save(usuario);
     }
 }
