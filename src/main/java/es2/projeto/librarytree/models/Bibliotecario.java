@@ -1,13 +1,28 @@
 package es2.projeto.librarytree.models;
 
+import javax.persistence.*;
+
+
+@Entity
+@Table(name = "bibliotecario")
 public class Bibliotecario {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "bi_id_b")
     private long id;
+    @OneToOne
+    @JoinColumn(name = "pessoafisica_cpf")
     private PessoaFisica pessoafisica_fk;
+    @Column(name = "bi_dta_admissao")
     private String data_admissao;
+    @Column(name = "bi_dta_demissao")
     private String data_demissao;
-    private String senha;
+    @Column(name = "bi_login")
     private String login;
+    @Column(name = "bi_senha")
+    private String senha;
+    @Column(name = "bi_status")
     private int status;
 
     public Bibliotecario() {

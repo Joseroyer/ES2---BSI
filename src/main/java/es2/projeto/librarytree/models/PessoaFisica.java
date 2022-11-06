@@ -1,11 +1,25 @@
 package es2.projeto.librarytree.models;
 
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "pessoafisica")
 public class PessoaFisica {
+    @Id
+    @Column(name = "pes_cpf")
     private String cpf;
+
+    @Column(name = "pes_nome")
     private String nome;
+    @Column(name = "pes_telefone")
     private String telefone;
+    @Column(name = "pes_email")
     private String email;
+    @Column(name = "nivel_adm")
     private int nivel_adm;
 
 
