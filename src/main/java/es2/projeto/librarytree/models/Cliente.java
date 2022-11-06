@@ -7,8 +7,9 @@ import javax.persistence.*;
 public class Cliente {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ra")
-    private String ra;
+    private Long ra;
     @Column(name = "login")
     private String login;
     @Column(name = "senha")
@@ -22,18 +23,18 @@ public class Cliente {
 
     }
 
-    public Cliente(String ra, String login, String senha, PessoaFisica pessoafisica_fk) {
+    public Cliente(Long ra, String login, String senha, PessoaFisica pessoafisica_fk) {
         this.ra = ra;
         this.login = login;
         this.senha = senha;
         this.pessoafisica_fk = pessoafisica_fk;
     }
 
-    public String getRa() {
+    public Long getRa() {
         return ra;
     }
 
-    public void setRa(String ra) {
+    public void setRa(Long ra) {
         this.ra = ra;
     }
 
