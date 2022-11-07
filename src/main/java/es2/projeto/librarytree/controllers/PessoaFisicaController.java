@@ -31,8 +31,8 @@ public class PessoaFisicaController {
     }
 
     @PostMapping("/save")
-    public PessoaFisica save(@RequestBody PessoaFisica pessoaFisica){
-        return  pessoaFisicaService.save(pessoaFisica);
+    public ResponseEntity<PessoaFisica> save(@RequestBody PessoaFisica pessoaFisica){
+        return  new ResponseEntity<>(pessoaFisicaService.save(pessoaFisica),HttpStatus.CREATED);
     }
 
 
