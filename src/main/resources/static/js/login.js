@@ -40,7 +40,7 @@ function logar()
     var login = document.getElementById("login").value;
     var senha = document.getElementById("senha").value;
     
-    const URL_TO_FETCH = `/security/autenticar?login=${login}&senha=${senha}`;
+    const URL_TO_FETCH = `/security/autenticar1?login=${login}&senha=${senha}`;
     const data = new URLSearchParams();   
     for (const pair of new FormData(document.getElementById('fdados'))) {
      data.append(pair[0], pair[1]);
@@ -50,4 +50,8 @@ function logar()
      .then(text => {alert("Logado com Sucesso");  window.location.href = "index.html"; localStorage.setItem("token", text);})
      .catch(err => resultado_login.style.display="")  
     event.preventDefault("fdados");
+}
+
+function login(){
+    
 }

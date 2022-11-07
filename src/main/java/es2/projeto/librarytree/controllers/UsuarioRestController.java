@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import es2.projeto.librarytree.models.Bibliotecario;
 import es2.projeto.librarytree.models.Cliente;
 import es2.projeto.librarytree.repositories.BibliotecarioRepository;
 import es2.projeto.librarytree.repositories.ClienteRepository;
@@ -30,7 +31,26 @@ public class UsuarioRestController {
         List <Cliente> user = clienteRepository.findAllWithFilter(senha);
         int i=0,pos=0;
         for(i=0;i<user.size();i++)
-            if (senha.equals(user.get(i).getSenha())&&login.equals(user.get(i).getLogin()))
+            if (senha.equals(user.get(i).getSenha()) && login.equals(user.get(i).getLogin()))
+                    pos=1;
+        String token="";
+        if (pos==1)
+        {
+            token = JWTTokenProvider.getToken(senha, "ADM");
+            System.out.println(token);
+            return new ResponseEntity<>(token,HttpStatus.OK);
+        }
+        else
+            return new ResponseEntity<>("ACESSO NAO PERMITIDO",HttpStatus.NOT_ACCEPTABLE);
+    }
+
+    @PostMapping("/autenticar1")
+    public ResponseEntity <Object> autenticar1(String login, String senha)
+    {
+        List <Bibliotecario> user = bibliotecarioRepository.findAllWithFilter(senha);
+        int i=0,pos=0;
+        for(i=0;i<user.size();i++)
+            if (senha.equals(user.get(i).getSenha()) && login.equals(user.get(i).getLogin()))
                     pos=1;
         String token="";
         if (pos==1)

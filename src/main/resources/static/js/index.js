@@ -1,4 +1,4 @@
-function parametrizacao()
-{
-  return alert("AAAAAAAAAAAAA")
-}
+// function parametrizacao()
+// {
+//   return alert("AAAAAAAAAAAAA")
+// }
