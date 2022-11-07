@@ -12,7 +12,7 @@ public class Bibliotecario {
     @Column(name = "bi_id_b")
     private long id;
     @OneToOne
-    @JoinColumn(name = "pessoafisica_cpf")
+    @JoinColumn(name = "pessoafisica_cpf", nullable=false)
     private PessoaFisica pessoafisica_fk;
     @Column(name = "bi_dta_admissao")
     private String data_admissao;

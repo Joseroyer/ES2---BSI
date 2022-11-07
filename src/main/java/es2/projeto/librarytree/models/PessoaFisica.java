@@ -12,7 +12,6 @@ public class PessoaFisica {
     @Id
     @Column(name = "pes_cpf")
     private String cpf;
-
     @Column(name = "pes_nome")
     private String nome;
     @Column(name = "pes_telefone")

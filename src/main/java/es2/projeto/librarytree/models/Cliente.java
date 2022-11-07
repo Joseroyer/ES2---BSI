@@ -9,7 +9,7 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ra")
-    private Long ra;
+    private int ra;
     @Column(name = "login")
     private String login;
     @Column(name = "senha")
@@ -23,18 +23,18 @@ public class Cliente {
 
     }
 
-    public Cliente(Long ra, String login, String senha, PessoaFisica pessoafisica_fk) {
+    public Cliente(int ra, String login, String senha, PessoaFisica pessoafisica_fk) {
         this.ra = ra;
         this.login = login;
         this.senha = senha;
         this.pessoafisica_fk = pessoafisica_fk;
     }
 
-    public Long getRa() {
+    public int getRa() {
         return ra;
     }
 
-    public void setRa(Long ra) {
+    public void setRa(int ra) {
         this.ra = ra;
     }
 

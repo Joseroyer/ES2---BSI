@@ -15,4 +15,8 @@ public class PessoaFisicaService {
     public List<PessoaFisica> getAll() {
         return pessoaFisicaRepository.findAll();
     }
+
+    public PessoaFisica save(PessoaFisica pessoaFisica) {
+        return pessoaFisicaRepository.save(pessoaFisica);
+    }
 }
