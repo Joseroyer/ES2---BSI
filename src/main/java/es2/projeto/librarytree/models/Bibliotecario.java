@@ -1,48 +1,60 @@
 package es2.projeto.librarytree.models;
 
 import javax.persistence.*;
-
+import java.util.Date;
 
 @Entity
-@Table(name = "bibliotecario")
+@Table(name="bibliotecario")
 public class Bibliotecario {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "bi_id_b")
-    private long id;
+    @Column(name="bi_id_b")
+    private Long id;
+
     @OneToOne
     @JoinColumn(name = "pessoafisica_cpf", nullable=false)
     private PessoaFisica pessoafisica_fk;
-    @Column(name = "bi_dta_admissao")
-    private String data_admissao;
-    @Column(name = "bi_dta_demissao")
-    private String data_demissao;
-    @Column(name = "bi_login")
+
+    @Column(name="bi_dta_admissao")
+    private Date data_admissao;
+
+    @Column(name="bi_dta_demissao")
+    private Date data_demissao;
+    @Column(name="bi_login")
     private String login;
-    @Column(name = "bi_senha")
+    @Column(name="bi_senha")
     private String senha;
-    @Column(name = "bi_status")
+    @Column(name="bi_status")
     private int status;
 
     public Bibliotecario() {
     }
 
-    public Bibliotecario(long id, PessoaFisica pessoafisica_fk, String data_admissao, String data_demissao, String senha, String login, int status) {
+
+    public Bibliotecario(PessoaFisica pessoafisica_fk, Date data_admissao, Date data_demissao, String login, String senha, int status) {
+        this.pessoafisica_fk = pessoafisica_fk;
+        this.data_admissao = data_admissao;
+        this.data_demissao = data_demissao;
+        this.login = login;
+        this.senha = senha;
+        this.status = status;
+    }
+
+    public Bibliotecario(Long id, PessoaFisica pessoafisica_fk, Date data_admissao, Date data_demissao, String login, String senha, int status) {
         this.id = id;
         this.pessoafisica_fk = pessoafisica_fk;
         this.data_admissao = data_admissao;
         this.data_demissao = data_demissao;
-        this.senha = senha;
         this.login = login;
+        this.senha = senha;
         this.status = status;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -54,28 +66,20 @@ public class Bibliotecario {
         this.pessoafisica_fk = pessoafisica_fk;
     }
 
-    public String getData_admissao() {
+    public Date getData_admissao() {
         return data_admissao;
     }
 
-    public void setData_admissao(String data_admissao) {
+    public void setData_admissao(Date data_admissao) {
         this.data_admissao = data_admissao;
     }
 
-    public String getData_demissao() {
+    public Date getData_demissao() {
         return data_demissao;
     }
 
-    public void setData_demissao(String data_demissao) {
+    public void setData_demissao(Date data_demissao) {
         this.data_demissao = data_demissao;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     public String getLogin() {
@@ -84,6 +88,14 @@ public class Bibliotecario {
 
     public void setLogin(String login) {
         this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public int getStatus() {

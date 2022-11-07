@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import es2.projeto.librarytree.repositories.BibliotecarioRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import es2.projeto.librarytree.models.Bibliotecario;
 import es2.projeto.librarytree.models.Cliente;
-import es2.projeto.librarytree.repositories.BibliotecarioRepository;
 import es2.projeto.librarytree.repositories.ClienteRepository;
 import es2.projeto.librarytree.security.JWTTokenProvider;
 import lombok.RequiredArgsConstructor;
@@ -61,7 +60,7 @@ public class UsuarioRestController {
     public ResponseEntity<Object> autenticar1(String login, String senha, boolean adm) {
         int i = 0, pos = 0;
         if (adm == true) {
-            List<Bibliotecario> user = bibliotecarioRepository.findAllWithFilter(senha, login);
+            List<Bibliotecario> user = bibliotecarioRepository.findFilterWith(senha,login);
             for (i = 0; i < user.size(); i++)
                 if (senha.equals(user.get(i).getSenha()) && login.equals(user.get(i).getLogin()))
                     pos = 1;
