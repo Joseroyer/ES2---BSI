@@ -36,6 +36,7 @@ function verificar()
 
 function logar() 
 {
+    let resultado_login = document.getElementById("resultado_login");
     var login = document.getElementById("login").value;
     var senha = document.getElementById("senha").value;
     
@@ -47,6 +48,6 @@ function logar()
     fetch(URL_TO_FETCH, {method: 'post', body: senha })
      .then(response=>{ if(response.ok) return response.text(); else throw Error("Erro ao fazer login") })
      .then(text => {alert("Logado com Sucesso");  window.location.href = "index.html"; localStorage.setItem("token", text);})
-     .catch(err => alert("Dados inválidos")) 
+     .catch(err => resultado_login.style.display="")  
     event.preventDefault("fdados");
 }
