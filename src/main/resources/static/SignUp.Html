@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Library Tree - Devolução</title>
+    <title id="title">Cadastro</title>
     <meta content="" name="description"/>
     <meta content="" name="keywords"/>
 
@@ -45,11 +45,11 @@
   ======================================================== -->
 </head>
 
-<body onload="isAdmin()">
+<body onload="isAdmin(), estilo()">
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
-        <h1 class="logo me-auto"><a href="index.html">Library Tree</a></h1>
+        <h1 class="logo me-auto" id="titulo"><a href="index.html"></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
         <nav id="navbar" class="navbar">
@@ -196,8 +196,8 @@
 <footer id="footer">
     <div class="container footer-bottom clearfix">
         <div class="copyright">
-            &copy; Copyright <strong><span>Tree Library</span></strong>. Todos os
-            direitos reservados à Argus Tech
+          &copy; Copyright <strong><span id="footer2"></span></strong>. Todos os
+          direitos reservados à <span id="empresa"></span>
         </div>
         <div class="credits">
         </div>
@@ -223,5 +223,7 @@
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
 <script src="./js/signup.js"></script>
+<script src="js/parametrizacao.js"></script>
+
 </body>
 </html>
