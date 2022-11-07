@@ -38,7 +38,7 @@ function isAdmin()
 
 function Parameters()
 {
-  let parameters = false;
+  let parameters = true;
   if(!parameters)
   {
     alert("A parametrização não foi realizada, você será redirecionado!")
