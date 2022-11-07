@@ -13,4 +13,11 @@
         }, false)
       })
     })()
-    
+
+function estilo()
+{
+  var nome = document.getElementById("nome");
+  nome = nome.value
+  document.getElementById("titulo").innerHTML = nome;
+  alert(nome);
+}
