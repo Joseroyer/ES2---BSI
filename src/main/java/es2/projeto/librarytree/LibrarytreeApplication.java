@@ -6,9 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class LibrarytreeApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(LibrarytreeApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(LibrarytreeApplication.class, args);
+    }
 
 }
 
