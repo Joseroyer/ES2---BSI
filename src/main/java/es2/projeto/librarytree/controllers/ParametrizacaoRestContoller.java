@@ -40,6 +40,21 @@ public class ParametrizacaoRestContoller {
     }
 
     @PostMapping("/params")
-    public Parametrizacao cadParams(@RequestBody Parametrizacao parametrizacao) {return this.parametrizacaoRepository.save(parametrizacao);}
+    public Parametrizacao cadParams(@RequestBody Parametrizacao parametrizacao)
+    {
+        List <Parametrizacao> params = parametrizacaoRepository.findAll();
+        if(params.isEmpty())
+           this.parametrizacaoRepository.save(parametrizacao);
+        else
+        {
+            Parametrizacao p = new Parametrizacao();
+            p.setNome_empresa(parametrizacao.getNome_empresa());
+            p.setLogotipo(parametrizacao.getLogotipo());
+            p.setId(params.get(0).getId());
+            this.parametrizacaoRepository.save(p);
+
+        }
+        return parametrizacao;
+    }
 }
 

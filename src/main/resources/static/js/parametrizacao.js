@@ -59,8 +59,6 @@ function verificar()
     fetch(URL_TO_FETCH)
     .then(response=> response.text())
     .then(result=> {
-        if(result.includes("Sim"))
-            window.location.href="index.html"
         if(result.includes("Não"))
         {
             alert("Você não realizou a parametrização!")
@@ -78,5 +76,6 @@ async function gravarParametrizacao()
     var data = JSON.stringify(Object.fromEntries(new FormData(fdados)));
     let response = await fetch("/apis/params",{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST', body: data});
     let userData = await response.text();
-    return userData; // não é necessário o await no return
+    window.location.href = "index.html";
+    return userData; // não é necessário o await no return    
 }
