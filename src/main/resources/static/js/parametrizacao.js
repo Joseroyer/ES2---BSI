@@ -42,6 +42,7 @@ function estilo()
       }`);
       
       document.adoptedStyleSheets = [sheet];
+      
       var home=`<a href="index.html">${data[0].nome_empresa}</a>`;
       var resp = data[0].nome_empresa;
       document.getElementById("titulo").innerHTML=home;
