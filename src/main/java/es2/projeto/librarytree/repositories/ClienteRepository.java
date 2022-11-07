@@ -9,6 +9,6 @@ import org.springframework.data.repository.query.Param;
 import es2.projeto.librarytree.models.Cliente;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
-    @Query(value="SELECT * FROM cliente u WHERE u.senha=senha",nativeQuery=true)
-    public List<Cliente> findAllWithFilter(@Param("senha") String senha);
+    @Query(value="SELECT * FROM cliente u WHERE u.senha=senha and u.login=login",nativeQuery=true)
+    public List<Cliente> findAllWithFilter(@Param("senha") String senha, @Param("login") String login);
 }

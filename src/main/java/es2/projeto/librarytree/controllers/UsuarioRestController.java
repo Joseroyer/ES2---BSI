@@ -42,7 +42,7 @@ public class UsuarioRestController {
     // Cliente
     @PostMapping("/autenticar")
     public ResponseEntity<Object> autenticar(String login, String senha) {
-        List<Cliente> user = clienteRepository.findAllWithFilter(senha);
+        List<Cliente> user = clienteRepository.findAllWithFilter(senha, login);
         int i = 0, pos = 0;
         for (i = 0; i < user.size(); i++)
             if (senha.equals(user.get(i).getSenha()) && login.equals(user.get(i).getLogin()))
@@ -61,7 +61,7 @@ public class UsuarioRestController {
     public ResponseEntity<Object> autenticar1(String login, String senha, boolean adm) {
         int i = 0, pos = 0;
         if (adm == true) {
-            List<Bibliotecario> user = bibliotecarioRepository.findAllWithFilter(senha);
+            List<Bibliotecario> user = bibliotecarioRepository.findAllWithFilter(senha, login);
             for (i = 0; i < user.size(); i++)
                 if (senha.equals(user.get(i).getSenha()) && login.equals(user.get(i).getLogin()))
                     pos = 1;
@@ -73,7 +73,7 @@ public class UsuarioRestController {
             } else
                 return new ResponseEntity<>("ACESSO NAO PERMITIDO", HttpStatus.NOT_ACCEPTABLE);
         } else {
-            List<Cliente> user = clienteRepository.findAllWithFilter(senha);
+            List<Cliente> user = clienteRepository.findAllWithFilter(senha, login);
             for (i = 0; i < user.size(); i++)
                 if (senha.equals(user.get(i).getSenha()) && login.equals(user.get(i).getLogin()))
                     pos = 1;

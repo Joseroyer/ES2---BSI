@@ -7,6 +7,6 @@ import org.springframework.data.repository.query.Param;
 import es2.projeto.librarytree.models.Bibliotecario;
 
 public interface BibliotecarioRepository extends JpaRepository<Bibliotecario, Long> {
-    @Query(value="SELECT * FROM bibliotecario b WHERE b.bi_senha=senha",nativeQuery=true)
-    public List<Bibliotecario> findAllWithFilter(@Param("senha") String senha);
+    @Query(value="SELECT * FROM bibliotecario b WHERE b.bi_senha=senha and b.bi_login=login",nativeQuery=true)
+    public List<Bibliotecario> findAllWithFilter(@Param("senha") String senha,@Param("login") String login);
 }
