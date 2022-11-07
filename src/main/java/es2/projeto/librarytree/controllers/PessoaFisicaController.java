@@ -1,7 +1,11 @@
 package es2.projeto.librarytree.controllers;
 
 
+import es2.projeto.librarytree.models.Bibliotecario;
+import es2.projeto.librarytree.models.Cliente;
 import es2.projeto.librarytree.models.PessoaFisica;
+import es2.projeto.librarytree.services.BibliotecarioService;
+import es2.projeto.librarytree.services.ClienteService;
 import es2.projeto.librarytree.services.PessoaFisicaService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -18,7 +22,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PessoaFisicaController {
     private final PessoaFisicaService pessoaFisicaService;
-
+    private final ClienteService clienteService;
+    private final BibliotecarioService bibliotecarioService;
 
     @GetMapping("/Ola")
     public String hello() {
@@ -34,6 +39,15 @@ public class PessoaFisicaController {
     public ResponseEntity<PessoaFisica> save(@RequestBody PessoaFisica pessoaFisica){
         return  new ResponseEntity<>(pessoaFisicaService.save(pessoaFisica),HttpStatus.CREATED);
     }
+
+
+
+    @GetMapping("/listaCliente")
+    public ResponseEntity<List<Cliente>> listar() {
+        return new ResponseEntity<>(clienteService.getAll(), HttpStatus.OK);
+    }
+
+
 
 
 }
