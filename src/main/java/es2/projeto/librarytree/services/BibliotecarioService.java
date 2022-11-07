@@ -7,5 +7,5 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class BibliotecarioService {
-    private BibliotecarioRepository bibliotecarioRepository;
+    private final BibliotecarioRepository bibliotecarioRepository;
 }

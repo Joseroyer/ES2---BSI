@@ -15,7 +15,7 @@ public class Cliente {
     @Column(name = "senha")
     private String senha;
     @OneToOne
-    @JoinColumn(name = "pessoafisica_cpf")
+    @JoinColumn(name = "pessoafisica_cpf", nullable=false)
     private PessoaFisica pessoafisica_fk;
 
 
