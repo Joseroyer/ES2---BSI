@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-//@RequestMapping("/apis")
+@RequestMapping("/apis")
 @RequiredArgsConstructor
 public class PessoaFisicaController {
     private final PessoaFisicaService pessoaFisicaService;
