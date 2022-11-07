@@ -14,9 +14,11 @@ public class Parametrizacao implements Serializable {
     @Column(name = "id")
     private long id;
     
+    
     @Column(name = "nome_empresa")
     private String nome_empresa;
 
+    
     @Column(name = "logotipo")
     private int logotipo;
 

@@ -72,10 +72,10 @@ function verificar()
 
 async function gravarParametrizacao()
 {
-    
     var data = JSON.stringify(Object.fromEntries(new FormData(fdados)));
     let response = await fetch("/apis/params",{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST', body: data});
     let userData = await response.text();
     window.location.href = "index.html";
-    return userData; // não é necessário o await no return    
+    return userData; // não é necessário o await no return 
+      
 }
