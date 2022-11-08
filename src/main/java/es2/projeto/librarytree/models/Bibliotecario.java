@@ -4,34 +4,34 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "bibliotecario")
+@Table(name="bibliotecario")
 public class Bibliotecario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "bi_id_b")
+    @Column(name="bi_id_b")
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "pessoafisica_cpf", nullable = false)
+    @JoinColumn(name = "pessoafisica_cpf", nullable=false)
     private PessoaFisica pessoafisica_fk;
 
-    @Column(name = "bi_dta_admissao")
+    @Column(name="bi_dta_admissao")
     private Date data_admissao;
 
-    @Column(name = "bi_dta_demissao")
+    @Column(name="bi_dta_demissao")
     private Date data_demissao;
-    @Column(name = "bi_login")
+    @Column(name="bi_login")
     private String login;
-    @Column(name = "bi_senha")
+    @Column(name="bi_senha")
     private String senha;
-    @Column(name = "bi_status")
+    @Column(name="bi_status")
     private int status;
 
     public Bibliotecario() {
     }
 
-    public Bibliotecario(PessoaFisica pessoafisica_fk, Date data_admissao, Date data_demissao, String login,
-            String senha, int status) {
+
+    public Bibliotecario(PessoaFisica pessoafisica_fk, Date data_admissao, Date data_demissao, String login, String senha, int status) {
         this.pessoafisica_fk = pessoafisica_fk;
         this.data_admissao = data_admissao;
         this.data_demissao = data_demissao;
@@ -40,8 +40,7 @@ public class Bibliotecario {
         this.status = status;
     }
 
-    public Bibliotecario(Long id, PessoaFisica pessoafisica_fk, Date data_admissao, Date data_demissao, String login,
-            String senha, int status) {
+    public Bibliotecario(Long id, PessoaFisica pessoafisica_fk, Date data_admissao, Date data_demissao, String login, String senha, int status) {
         this.id = id;
         this.pessoafisica_fk = pessoafisica_fk;
         this.data_admissao = data_admissao;
