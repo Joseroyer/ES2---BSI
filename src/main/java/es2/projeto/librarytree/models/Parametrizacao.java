@@ -20,6 +20,7 @@ public class Parametrizacao implements Serializable {
 
     @Column(name = "imagem")
     private String imagem;
+    
 
     public String getImagem() {
         return imagem;

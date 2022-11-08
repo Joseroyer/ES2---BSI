@@ -20,7 +20,7 @@ import es2.projeto.librarytree.repositories.ParametrizacaoRepository;
 public class ParametrizacaoRestContoller {
     
 
-    //private static String caminhoImagens="C:/Users/lucas/Documents/imagens/";
+    
     @Autowired
     ParametrizacaoRepository parametrizacaoRepository;
 
