@@ -41,7 +41,6 @@
 //     }
 
 
-
 //     @GetMapping("/listaCliente")
 //     public ResponseEntity<List<Cliente>> listar() {
 //         return new ResponseEntity<>(clienteService.getAll(), HttpStatus.OK);
