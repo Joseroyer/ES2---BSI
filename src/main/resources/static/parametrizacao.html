@@ -37,7 +37,7 @@
   ======================================================== -->
 </head>
 
-<body onload="estilo()">
+<body onload="estilo(), isAdmin(), verificar()">
 
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top ">
@@ -98,7 +98,7 @@
                         <div class="form-items">
                             <h3>Parametrização do site</h3>
                             <p>Preencha os campos abaixo.</p>
-                            <form id="fdados" method="GET">
+                            <form id="fdados" method="POST">
     
                                 <div class="col-md-12">
                                    <input class="form-control" type="text" name="nome_empresa" id="nome_empresa" placeholder="Nome da empresa" required="Insira o nome">
