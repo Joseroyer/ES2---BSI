@@ -8,6 +8,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface BibliotecarioRepository extends JpaRepository<Bibliotecario, Long> {
-    @Query(value = "SELECT * FROM bibliotecario b WHERE b.bi_senha=senha and b.bi_login=login", nativeQuery = true)
+    @Query(value = "SELECT * FROM bibliotecario b WHERE b.bi_senha=:senha and b.bi_login=:login", nativeQuery = true)
     public List<Bibliotecario> findFilterWith(@Param("senha") String senha, @Param("login") String login);
 }

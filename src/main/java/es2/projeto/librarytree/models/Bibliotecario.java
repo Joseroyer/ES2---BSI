@@ -7,8 +7,8 @@ import java.util.Date;
 @Table(name = "bibliotecario")
 public class Bibliotecario {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "bi_id_b")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToOne
