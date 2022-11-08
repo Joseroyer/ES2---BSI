@@ -10,26 +10,26 @@ function esconder() {
 //     return userData; // não é necessário o await no return
 // }
 
-// function verificar() {
-//     const URL_TO_FETCH = '/apis/testar-acesso';
-//     var status;
-//     fetch(URL_TO_FETCH, {
-//         method: 'POST',
-//         headers: { 'Authorization': `${localStorage.getItem("token")}`, }
-//     })
-//         .then(response => response.text())
-//         .then(result => {
-//             if (result.includes("Piada"))
-//                 window.location.href = "cadastroPiadas.html"
-//             else {
-//                 alert("Você precisa estar logado para acessar o recurso!")
-//                 window.location.href = "loginUser.html";
-//             }
-//         })
-//         .catch(function (err) {
-//             console.log(err)
-//         });
-// }
+function verificar()
+{
+    const URL_TO_FETCH = '/apis/testar-acesso';
+    var status;
+    fetch(URL_TO_FETCH, {method: 'POST',
+       headers:{'Authorization':`${localStorage.getItem("token")}`,}})
+    .then(response=> response.text())
+    .then(result=> {
+        if(result.includes("Logado"))
+            window.location.href="index.html"
+        else
+        {
+            alert("Você precisa estar logado para acessar o recurso!")
+            window.location.href = "loginUser.html";
+        }
+    })
+    .catch(function (err) {
+        console.log(err)
+    });
+}
 
 function isAdmin() {
     let isAdmin = true;
@@ -47,18 +47,16 @@ function logando() {
     let resultado_login = document.getElementById("resultado_login");
     var login = document.getElementById("login").value;
     var senha = document.getElementById("senha").value;
-    console.log(adm.checked);
 
-    // const URL_TO_FETCH = `/security/${aux}?login=${login}&senha=${senha}`;
-    const URL_TO_FETCH = `/security/autenticar1?login=${login}&senha=${senha}&adm=${adm}`;
+    const URL_TO_FETCH = `/security/autenticar?login=${login}&senha=${senha}&adm=${adm}`;
     const data = new URLSearchParams();
     for (const pair of new FormData(document.getElementById('fdados'))) {
         data.append(pair[0], pair[1]);
     }
     fetch(URL_TO_FETCH, { method: 'post', body: senha })
         .then(response => { if (response.ok) return response.text(); else throw Error("Erro ao fazer login") })
-        .then(text => { logado.style.display = ""; window.location.href = "index.html"; localStorage.setItem("token", text); })
-        .catch(err => resultado_login.style.display = "")
+        .then(text => { logado.style.display = "block"; window.location.href = "index.html"; localStorage.setItem("token", text); })
+        .catch(err => resultado_login.style.display = "block")
     event.preventDefault("fdados");
 
 }
