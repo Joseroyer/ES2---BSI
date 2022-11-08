@@ -39,7 +39,9 @@ function estilo()
         text-transform: uppercase;
         font-family: "Jost", sans-serif;
         color: white
-      }`);
+      }`
+      
+      );
       
       document.adoptedStyleSheets = [sheet];
       
@@ -49,7 +51,8 @@ function estilo()
       document.getElementById("footer2").innerHTML = resp;
       document.getElementById("empresa").innerHTML = resp;
       document.getElementById("title").innerHTML += " - "+resp;
-
+      var logo = data[0].imagem
+      document.getElementById("logoParam").innerHTML=logo;
   }
 }
 
@@ -71,12 +74,15 @@ function verificar()
     });
 }
 
+
 async function gravarParametrizacao()
-{
-    var data = JSON.stringify(Object.fromEntries(new FormData(fdados)));
+{  
+
+    var data = JSON.stringify(Object.fromEntries(new FormData(fdados, logotipo)));
     let response = await fetch("/apis/params",{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST', body: data});
     let userData = await response.text();
     window.location.href = "index.html";
-    return userData; // não é necessário o await no return 
-      
+    return userData; // não é necessário o await no return
+     
 }
+

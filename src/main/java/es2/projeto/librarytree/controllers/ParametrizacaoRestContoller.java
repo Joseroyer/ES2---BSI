@@ -1,5 +1,6 @@
 package es2.projeto.librarytree.controllers;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ import es2.projeto.librarytree.repositories.ParametrizacaoRepository;
 @RequestMapping("/apis")
 public class ParametrizacaoRestContoller {
     
+
+    //private static String caminhoImagens="C:/Users/lucas/Documents/imagens/";
     @Autowired
     ParametrizacaoRepository parametrizacaoRepository;
 
@@ -42,6 +45,7 @@ public class ParametrizacaoRestContoller {
     @PostMapping("/params")
     public Parametrizacao cadParams(@RequestBody Parametrizacao parametrizacao)
     {
+        
         List <Parametrizacao> params = parametrizacaoRepository.findAll();
         if(params.isEmpty())
            this.parametrizacaoRepository.save(parametrizacao);
@@ -49,12 +53,14 @@ public class ParametrizacaoRestContoller {
         {
             Parametrizacao p = new Parametrizacao();
             p.setNome_empresa(parametrizacao.getNome_empresa());
-            p.setLogotipo(parametrizacao.getLogotipo());
+            p.setImagem(parametrizacao.getImagem());
             p.setId(params.get(0).getId());
             this.parametrizacaoRepository.save(p);
 
         }
+        
         return parametrizacao;
     }
+
 }
 

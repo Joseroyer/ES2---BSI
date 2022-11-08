@@ -18,9 +18,16 @@ public class Parametrizacao implements Serializable {
     @Column(name = "nome_empresa")
     private String nome_empresa;
 
-    
-    @Column(name = "logotipo")
-    private int logotipo;
+    @Column(name = "imagem")
+    private String imagem;
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
 
     public static long getSerialversionuid() {
         return serialVersionUID;
@@ -34,30 +41,23 @@ public class Parametrizacao implements Serializable {
         this.nome_empresa = nome_empresa;
     }
 
-    // public byte[] getLogotipo() {
-    //     return logotipo;
-    // }
-
-    // public void setLogotipo(byte[] logotipo) {
-    //     this.logotipo = logotipo;
-    // }
     
 
-    public Parametrizacao(String nome_empresa, int logotipo) {
+    public Parametrizacao(String nome_empresa, String imagem) {
         this.nome_empresa = nome_empresa;
-        this.logotipo = logotipo;
+        this.imagem = imagem;
     }
 
     public Parametrizacao() {
     }
 
-    public int getLogotipo() {
-        return logotipo;
-    }
+    // public int getLogotipo() {
+    //     return logotipo;
+    // }
 
-    public void setLogotipo(int logotipo) {
-        this.logotipo = logotipo;
-    }
+    // public void setLogotipo(int logotipo) {
+    //     this.logotipo = logotipo;
+    // }
 
     public long getId() {
         return id;
@@ -66,6 +66,23 @@ public class Parametrizacao implements Serializable {
     public void setId(long id) {
         this.id = id;
     }
+
+    // public String getLogotipo() {
+    //     return logotipo;
+    // }
+
+    // public void setLogotipo(String logotipo) {
+    //     this.logotipo = logotipo;
+    // }
+
+    // public byte[] getLogotipo() {
+    //     return logotipo;
+    // }
+
+    // public void setLogotipo(byte[] logotipo) {
+    //     this.logotipo = logotipo;
+    // }
+
 
     
 }

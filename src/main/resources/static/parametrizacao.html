@@ -103,48 +103,41 @@
                                 <div class="col-md-12">
                                    <input class="form-control" type="text" name="nome_empresa" id="nome_empresa" placeholder="Nome da empresa" required="Insira o nome">
                                 </div>
-    
+                                
                                 <div class="col-md-12" style="margin-top: 10px; margin-bottom: 10px;">
-                                    <input class="form-control" type="file" name="logo" id="logo" placeholder="Escolha a logotipo">
+                                    <input class="form-control" type="file" name="logotipo" id="logotipo" onchange="encodeImageFileAsURL()" placeholder="Escolha a logotipo" required="">
+                                    <input type="text" id="imagem" name="imagem" style="display: none;">
                                 </div>
-                                <!-- <div class="col-md-12" style="margin-top: 10px; margin-bottom: 10px;">
-                                  <input class="form-control" type="number" name="logotipo" id="logotipo" placeholder="Escolha a logotipo">
-                              </div> -->
-    
-                               <!-- <div class="col-md-12">
-                                    <select class="form-select mt-3" required>
-                                          <option selected disabled value="">Position</option>
-                                          <option value="jweb">Junior Web Developer</option>
-                                          <option value="sweb">Senior Web Developer</option>
-                                          <option value="pmanager">Project Manager</option>
-                                   </select>
-                                    <div class="valid-feedback">You selected a position!</div>
-                                    <div class="invalid-feedback">Please select a position!</div>
-                               </div>
-    
-    
-                           
-    
-    
-                               <div class="col-md-12 mt-3">
-                                <label class="mb-3 mr-1" for="gender">Gender: </label>
-    
-                                <input type="radio" class="btn-check" name="gender" id="male" autocomplete="off" required>
-                                <label class="btn btn-sm btn-outline-secondary" for="male">Male</label>
-    
-                                <input type="radio" class="btn-check" name="gender" id="female" autocomplete="off" required>
-                                <label class="btn btn-sm btn-outline-secondary" for="female">Female</label>
-    
-                                <input type="radio" class="btn-check" name="gender" id="secret" autocomplete="off" required>
-                                <label class="btn btn-sm btn-outline-secondary" for="secret">Secret</label>
-                                   <div class="valid-feedback mv-up">You selected a gender!</div>
-                                    <div class="invalid-feedback mv-up">Please select a gender!</div>
-                                </div>
-     -->
-    
+                               
+                                <script type='text/javascript'>
+                                  function encodeImageFileAsURL() {
+                                
+                                    
+                                    var filesSelected = document.getElementById("logotipo").files;
+                                    if (filesSelected.length > 0) {
+                                      var fileToLoad = filesSelected[0];
+                                
+                                      var fileReader = new FileReader();
+                                
+                                      fileReader.onload = function(fileLoadedEvent) {
+                                        var srcData = fileLoadedEvent.target.result; // <--- data: base64
+                                
+                                        var newImage = document.createElement('img');
+                                        newImage.src = srcData;
+                                        
+                                        //document.getElementById("imgTest").value = newImage.outerHTML;
+                                        document.getElementById("imagem").value = newImage.outerHTML;
+                                        
+                                        // alert(document.getElementById("imgTest").value);
+                                      }
+                                      fileReader.readAsDataURL(fileToLoad);
+                                    }
+                                  }
+                                </script>
                                 <div class="form-button mt-3">
-                                    <button type="submit" class="btn btn-primary" onclick="gravarParametrizacao()">Cadastrar</button>
+                                    <button type="submit" class="btn btn-primary" onclick="gravarParametrizacao()" >Cadastrar</button>
                                 </div> 
+                                <th></th>
                             </form>
                         </div>
                     </div>
