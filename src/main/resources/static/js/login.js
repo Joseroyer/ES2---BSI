@@ -20,7 +20,6 @@ function verificarLogin()
     .then(result=> {
         if(result.includes("Erro"))
         {
-<<<<<<< HEAD
             document.getElementById("listaFunc").style.display = 'none'
             // alert("Você precisa estar logado para acessar o recurso!")
             // window.location.href = "loginUser.html";
@@ -28,17 +27,10 @@ function verificarLogin()
         if(result.includes("Logado"))
             
         {  
-            // document.getElementById("listaFunc").style.display = 'block'
+            document.getElementById("listaFunc").style.display = 'block'
             document.getElementById("logButton").style.display = 'none'
             
         }
-=======
-            alert("Você precisa estar logado para acessar o recurso!")
-            // window.location.href = "loginUser.html";
-        }else
-            listaFunc.display.style = 'block';
-       
->>>>>>> e76149182bd5830b22372f62f86af6ff26752039
     })
     .catch(function (err) {
         console.log(err)
@@ -92,19 +84,7 @@ function logando() {
     }
     fetch(URL_TO_FETCH, { method: 'post', body: senha })
         .then(response => { if (response.ok) return response.text(); else throw Error("Erro ao fazer login") })
-<<<<<<< HEAD
         .then(text => { logado.style.display = "block"; alert("Logado");localStorage.setItem("token", text);alert(token);window.location.href="index.html"; })
-=======
-        .then(text => { 
-                logado.style.display = "block";
-                alert("Logado");
-                localStorage.setItem("token", text);
-                alert(token);
-                if(!adm)
-                    document.getElementById("listaFunc").style.display='block';
-                document.getElementById("oculto").style.display = 'none' ;
-            })
->>>>>>> e76149182bd5830b22372f62f86af6ff26752039
         .catch(err => resultado_login.style.display = "block")
     event.preventDefault("fdados");
 
