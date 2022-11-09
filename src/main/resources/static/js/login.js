@@ -10,16 +10,15 @@ function esconder() {
 //     return userData; // não é necessário o await no return
 // }
 
-function verificar()
+function verificarLogin()
 {
-    const URL_TO_FETCH = '/apis/testar-acesso';
-    var status;
+    const URL_TO_FETCH = '/security/testar-cliente-login';
     fetch(URL_TO_FETCH, {method: 'POST',
        headers:{'Authorization':`${localStorage.getItem("token")}`,}})
     .then(response=> response.text())
     .then(result=> {
         if(result.includes("Logado"))
-            window.location.href="index.html"
+            window.location.href="parametrizacao.html"
         else
         {
             alert("Você precisa estar logado para acessar o recurso!")
@@ -47,7 +46,7 @@ function logando() {
     let resultado_login = document.getElementById("resultado_login");
     var login = document.getElementById("login").value;
     var senha = document.getElementById("senha").value;
-
+    var token = localStorage.getItem("token");
     const URL_TO_FETCH = `/security/autenticar?login=${login}&senha=${senha}&adm=${adm}`;
     const data = new URLSearchParams();
     for (const pair of new FormData(document.getElementById('fdados'))) {
@@ -55,7 +54,7 @@ function logando() {
     }
     fetch(URL_TO_FETCH, { method: 'post', body: senha })
         .then(response => { if (response.ok) return response.text(); else throw Error("Erro ao fazer login") })
-        .then(text => { logado.style.display = "block"; alert("Logado"); window.location.href = "index.html"; localStorage.setItem("token", text); })
+        .then(text => { logado.style.display = "block"; alert("Logado");  localStorage.setItem("token", text);alert(token);if(!adm){document.getElementById("listaFunc").style.display='none'}document.getElementById("oculto").style.display = 'none' })
         .catch(err => resultado_login.style.display = "block")
     event.preventDefault("fdados");
 

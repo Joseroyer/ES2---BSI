@@ -5,6 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import es2.projeto.librarytree.repositories.BibliotecarioRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,9 +31,11 @@ public class UsuarioRestController {
     private final ClienteRepository clienteRepository;
     private final BibliotecarioRepository bibliotecarioRepository;
 
-    private final HttpServletRequest request;
+    //private final HttpServletRequest request;
 
-    @PostMapping("/testar-acesso")
+    @Autowired
+    HttpServletRequest request;
+    @PostMapping("/testar-cliente-login")
     public ResponseEntity<Object> testarAcesso() {
         String token = request.getHeader("Authorization");
         if (JWTTokenProvider.verifyToken(token))
