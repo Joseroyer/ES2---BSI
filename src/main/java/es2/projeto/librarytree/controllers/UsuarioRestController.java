@@ -2,6 +2,7 @@ package es2.projeto.librarytree.controllers;
 
 import es2.projeto.librarytree.models.Bibliotecario;
 import es2.projeto.librarytree.models.Cliente;
+import es2.projeto.librarytree.models.PessoaClienteDTO;
 import es2.projeto.librarytree.models.PessoaFisica;
 import es2.projeto.librarytree.repositories.BibliotecarioRepository;
 import es2.projeto.librarytree.repositories.ClienteRepository;
@@ -87,7 +88,7 @@ public class UsuarioRestController {
 //        this.clienteRepository.save(cliente);
 //        return new ResponseEntity<>("salvo",HttpStatus.OK);
 //    }
-    @PostMapping("/save")
+    @PostMapping("/save2")
     public ResponseEntity<Object> save(@RequestBody Cliente cliente) {
         PessoaFisica pes = new PessoaFisica();
         pes.setCpf(request.getParameter("CPF"));
@@ -99,5 +100,10 @@ public class UsuarioRestController {
 //        cliente.setPessoafisica_fk(pes);
 
         return new ResponseEntity<>("Salvo", HttpStatus.CREATED);
+    }
+    @PostMapping("/save")
+    public ResponseEntity<Object> salvar(@RequestBody PessoaClienteDTO pessoaClienteDTO) {
+        pessoaFisicaRepository.save(pessoaClienteDTO.getPessoaFisica());
+        return new ResponseEntity<>("Salvo", HttpStatus.OK);
     }
 }
