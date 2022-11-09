@@ -162,29 +162,18 @@ function verifica() {
 }
 
 
-<<<<<<< Updated upstream
+
 async function gravarUsuario1() {
     var data = JSON.stringify(Object.fromEntries(new FormData(fdados)));
     let response = await fetch("/security/save", { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, method: 'POST', body: data });
     let userData = await response.text();
     return userData; // não é necessário o await no return
 }
+
+
 //Nome, Email, nome, Senha
 function gravarUsuario() {
     const URL = "/security/save";
-=======
-async function gravarUsuario()
-{
-    var data = JSON.stringify(Object.fromEntries(new FormData(form)));
-    let response = await fetch("/apis/registrar",{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST', body: data});
-    let userData = await response.text();
-    return userData; // não é necessário o await no return
-}
-
-//Nome, Email, nome, Senha
-function gravarUsuario1() {
-    const URL = "/apis/registrar";
->>>>>>> Stashed changes
     var fdados = document.getElementById("fdados");
     let nome = document.getElementById("nome").value;
     let celular = document.getElementById("telefone").value;

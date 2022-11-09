@@ -104,6 +104,7 @@ public class UsuarioRestController {
     @PostMapping("/save")
     public ResponseEntity<Object> salvar(@RequestBody PessoaClienteDTO pessoaClienteDTO) {
         pessoaFisicaRepository.save(pessoaClienteDTO.getPessoaFisica());
+        clienteRepository.save(pessoaClienteDTO.getCliente());
         return new ResponseEntity<>("Salvo", HttpStatus.OK);
     }
 }
