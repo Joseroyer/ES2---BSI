@@ -1,10 +1,14 @@
 package es2.projeto.librarytree.controllers;
 
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
+import es2.projeto.librarytree.models.Bibliotecario;
+import es2.projeto.librarytree.models.Cliente;
+import es2.projeto.librarytree.models.PessoaFisica;
 import es2.projeto.librarytree.repositories.BibliotecarioRepository;
+import es2.projeto.librarytree.repositories.ClienteRepository;
+import es2.projeto.librarytree.repositories.PessoaFisicaRepository;
+import es2.projeto.librarytree.security.JWTTokenProvider;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,14 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import es2.projeto.librarytree.models.Bibliotecario;
-import es2.projeto.librarytree.models.Cliente;
-import es2.projeto.librarytree.models.PessoaFisica;
-import es2.projeto.librarytree.repositories.ClienteRepository;
-import es2.projeto.librarytree.repositories.PessoaFisicaRepository;
-import es2.projeto.librarytree.security.JWTTokenProvider;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -73,8 +71,8 @@ public class UsuarioRestController {
 
     }
 
-    @PostMapping("/save")
-    public String save(@RequestBody PessoaFisica pessoaFisica){
+    @PostMapping("/save1")
+    public String save(@RequestBody PessoaFisica pessoaFisica) {
         pessoaFisicaRepository.save(pessoaFisica);
         Cliente cliente = new Cliente();
         cliente.setPessoafisica_fk(pessoaFisica);
@@ -84,9 +82,22 @@ public class UsuarioRestController {
         return "Salvo";
     }
 
-//    @PostMapping("/save")
+    //    @PostMapping("/save")
 //    public ResponseEntity<Object> save(@RequestBody Cliente cliente){
 //        this.clienteRepository.save(cliente);
 //        return new ResponseEntity<>("salvo",HttpStatus.OK);
 //    }
+    @PostMapping("/save")
+    public ResponseEntity<Object> save(@RequestBody Cliente cliente) {
+        PessoaFisica pes = new PessoaFisica();
+        pes.setCpf(request.getParameter("CPF"));
+        pes.setNome(request.getParameter("nome"));
+        pes.setTelefone(request.getParameter("telefone"));
+        pes.setEmail(request.getParameter("email"));
+        pessoaFisicaRepository.save(pes);
+        clienteRepository.save(cliente);
+//        cliente.setPessoafisica_fk(pes);
+
+        return new ResponseEntity<>("Salvo", HttpStatus.CREATED);
+    }
 }

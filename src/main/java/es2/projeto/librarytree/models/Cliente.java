@@ -23,6 +23,12 @@ public class Cliente {
 
     }
 
+    public Cliente(String login, String senha, PessoaFisica pessoafisica_fk) {
+        this.login = login;
+        this.senha = senha;
+        this.pessoafisica_fk = pessoafisica_fk;
+    }
+
     public Cliente(int ra, String login, String senha, PessoaFisica pessoafisica_fk) {
         this.ra = ra;
         this.login = login;
