@@ -161,12 +161,17 @@ function verifica() {
     return true;
 }
 
+
+async function gravarUsuario1() {
+    var data = JSON.stringify(Object.fromEntries(new FormData(fdados)));
+    let response = await fetch("/security/save", { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, method: 'POST', body: data });
+    let userData = await response.text();
+    return userData; // não é necessário o await no return
+}
 //Nome, Email, nome, Senha
 function gravarUsuario() {
-    const URL = "/apis/registrar";
+    const URL = "/security/save";
     var fdados = document.getElementById("fdados");
-    var jsontext = JSON.stringify(Object.fromEntries(
-        new FormData(fdados)));
     let nome = document.getElementById("nome").value;
     let celular = document.getElementById("telefone").value;
     let email = document.getElementById("email").value;
@@ -174,30 +179,29 @@ function gravarUsuario() {
     let senha = document.getElementById("senha").value;
     let user = document.getElementById("user").value;
     
-    //arrumar o if
-    if (verifica())
-        verifica();
-    else {
-        fetch(URL, {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            method: 'POST', body: jsontext
+    var jsontext = JSON.stringify(Object.fromEntries(
+        new FormData(fdados)));
+    fetch(URL, {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method: 'POST', body: jsontext
+    })
+        .then(function (response) {
+            alert("AAAA");
+            return response.text();
         })
-            .then(function (response) {
-                return response.text();
-            })
-            .then(function (text) {
-                alert("Usuario Cadastrado");
-                nome = "";
-                celular = "";
-                email = "";
-                cpf = "";
-                senha = "";
-                user = "";
-            }).catch(function (error) {
-                console.error(error);
-            });
-    }
+        .then(function (text) {
+            alert("Usuario Cadastrado");
+            nome = "";
+            celular = "";
+            email = "";
+            cpf = "";
+            senha = "";
+            user = "";
+        }).catch(function (error) {
+            console.error(error);
+        });
+
 }

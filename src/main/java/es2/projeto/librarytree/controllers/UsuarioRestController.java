@@ -16,6 +16,7 @@ import es2.projeto.librarytree.models.Bibliotecario;
 import es2.projeto.librarytree.models.Cliente;
 import es2.projeto.librarytree.models.PessoaFisica;
 import es2.projeto.librarytree.repositories.ClienteRepository;
+import es2.projeto.librarytree.repositories.PessoaFisicaRepository;
 import es2.projeto.librarytree.security.JWTTokenProvider;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -26,6 +27,7 @@ import lombok.extern.log4j.Log4j2;
 @RequestMapping("/security")
 public class UsuarioRestController {
 
+    private final PessoaFisicaRepository pessoaFisicaRepository;
     private final ClienteRepository clienteRepository;
     private final BibliotecarioRepository bibliotecarioRepository;
 
@@ -71,12 +73,20 @@ public class UsuarioRestController {
 
     }
 
-    // @PostMapping("/save")
-    // public String save(@RequestBody PessoaFisica pessoaFisica){
-    // Cliente cliente = new Cliente();
-    // cliente.setPessoafisica_fk(pessoaFisica.getCpf());
-    // cliente.setLogin();
-    // clienteRepository.save(cliente);
-    // return "Salvo";
-    // }
+    @PostMapping("/save")
+    public String save(@RequestBody PessoaFisica pessoaFisica){
+        pessoaFisicaRepository.save(pessoaFisica);
+        Cliente cliente = new Cliente();
+        cliente.setPessoafisica_fk(pessoaFisica);
+        cliente.setLogin(request.getParameter("login"));
+        cliente.setSenha(request.getParameter("senha"));
+        clienteRepository.save(cliente);
+        return "Salvo";
+    }
+
+//    @PostMapping("/save")
+//    public ResponseEntity<Object> save(@RequestBody Cliente cliente){
+//        this.clienteRepository.save(cliente);
+//        return new ResponseEntity<>("salvo",HttpStatus.OK);
+//    }
 }
