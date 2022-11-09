@@ -53,6 +53,8 @@ function estilo()
       document.getElementById("title").innerHTML += " - "+resp;
       var logo = data[0].imagem
       document.getElementById("logoParam").innerHTML=logo;
+      document.getElementById("logoPage")=logo;
+
   }
 }
 
