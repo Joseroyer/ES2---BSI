@@ -1,18 +1,3 @@
-(function () {
-    'use strict'
-    const forms = document.querySelectorAll('.requires-validation')
-    Array.from(forms)
-      .forEach(function (form) {
-        form.addEventListener('submit', function (event) {
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-          }
-    
-          form.classList.add('was-validated')
-        }, false)
-      })
-    })()
 
 function estilo()
 {
@@ -80,7 +65,7 @@ function verificar()
 async function gravarParametrizacao()
 {  
 
-    var data = JSON.stringify(Object.fromEntries(new FormData(fdados, logotipo)));
+    var data = JSON.stringify(Object.fromEntries(new FormData(fdados)));
     let response = await fetch("/apis/params",{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST', body: data});
     let userData = await response.text();
     window.location.href = "index.html";

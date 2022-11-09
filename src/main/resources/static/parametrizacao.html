@@ -36,7 +36,7 @@
   ======================================================== -->
 </head>
 
-<body onload="estilo(), verificarLogin(), verificar()">
+<body onload="estilo(), verificarLogin()">
 
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top ">
@@ -88,14 +88,14 @@
                         <div class="form-items">
                             <h3>Parametrização do site</h3>
                             <p>Preencha os campos abaixo.</p>
-                            <form id="fdados" method="POST">
+                            <form id="fdados" method="post">
     
                                 <div class="col-md-12">
                                    <input required class="form-control" type="text" name="nome_empresa" id="nome_empresa" placeholder="Nome da empresa" >
                                 </div>
                                 
                                 <div class="col-md-12" style="margin-top: 10px; margin-bottom: 10px;">
-                                    <input class="form-control" type="file" name="logotipo" id="logotipo" onchange="encodeImageFileAsURL()" placeholder="Escolha a logotipo" required>
+                                    <input class="form-control" type="file" accept="image/*"name="logotipo" id="logotipo" onchange="encodeImageFileAsURL()" placeholder="Escolha a logotipo" required>
                                     <input type="text" id="imagem" name="imagem" style="display: none;">
                                     <p style="margin-top: 15px ;">Recomendações:
                                     (500x500)
