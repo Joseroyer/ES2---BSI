@@ -56,9 +56,7 @@ public class ParametrizacaoRestContoller {
             p.setImagem(parametrizacao.getImagem());
             p.setId(params.get(0).getId());
             this.parametrizacaoRepository.save(p);
-
         }
-        
         return parametrizacao;
     }
 

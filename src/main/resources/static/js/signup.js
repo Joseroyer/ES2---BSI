@@ -163,7 +163,7 @@ function verifica() {
 
 //Nome, Email, nome, Senha
 function gravarUsuario() {
-    const URL = "/apis/registrar";
+    const URL = "/security/save";
     var fdados = document.getElementById("fdados");
     var jsontext = JSON.stringify(Object.fromEntries(
         new FormData(fdados)));
