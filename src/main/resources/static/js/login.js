@@ -17,13 +17,12 @@ function verificarLogin()
        headers:{'Authorization':`${localStorage.getItem("token")}`,}})
     .then(response=> response.text())
     .then(result=> {
-        if(result.includes("Logado"))
-            window.location.href="parametrizacao.html"
-        else
+        if(result.includes("Erro"))
         {
             alert("Você precisa estar logado para acessar o recurso!")
             window.location.href = "loginUser.html";
-        }
+        }  
+       
     })
     .catch(function (err) {
         console.log(err)
