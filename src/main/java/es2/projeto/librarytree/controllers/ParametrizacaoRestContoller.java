@@ -3,6 +3,7 @@ package es2.projeto.librarytree.controllers;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import es2.projeto.librarytree.models.Parametrizacao;
 import es2.projeto.librarytree.repositories.ParametrizacaoRepository;
 
+
+
 @RestController
 @RequestMapping("/apis")
 public class ParametrizacaoRestContoller {
@@ -24,6 +27,7 @@ public class ParametrizacaoRestContoller {
     @Autowired
     ParametrizacaoRepository parametrizacaoRepository;
 
+  
     @GetMapping("/testar-param")
     public ResponseEntity <Object> buscarTodos()
     {
@@ -41,6 +45,12 @@ public class ParametrizacaoRestContoller {
        return new ResponseEntity<>(params,HttpStatus.CREATED);
         
     }
+
+    @PostMapping(value="/error")
+    public String erro() {
+        return "index.html";
+    }
+    
 
     @PostMapping("/params")
     public Parametrizacao cadParams(@RequestBody Parametrizacao parametrizacao)

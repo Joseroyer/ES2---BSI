@@ -9,7 +9,6 @@ import es2.projeto.librarytree.repositories.BibliotecarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.StreamingHttpOutputMessage.Body;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,18 +18,15 @@ import es2.projeto.librarytree.models.Bibliotecario;
 import es2.projeto.librarytree.models.Cliente;
 import es2.projeto.librarytree.models.PessoaFisica;
 import es2.projeto.librarytree.repositories.ClienteRepository;
-import es2.projeto.librarytree.repositories.PessoaFisicaRepository;
 import es2.projeto.librarytree.security.JWTTokenProvider;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
 
 @RestController
 @RequiredArgsConstructor
-@Log4j2
+
 @RequestMapping("/security")
 public class UsuarioRestController {
 
-    private final PessoaFisicaRepository pessoaFisicaRepository;
     private final ClienteRepository clienteRepository;
     private final BibliotecarioRepository bibliotecarioRepository;
 

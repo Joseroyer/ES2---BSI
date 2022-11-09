@@ -46,7 +46,6 @@ function estilo()
 function verificar()
 {
     const URL_TO_FETCH = '/apis/testar-param';
-    var status;
     fetch(URL_TO_FETCH)
     .then(response=> response.text())
     .then(result=> {
