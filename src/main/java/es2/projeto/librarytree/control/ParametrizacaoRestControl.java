@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/apis")
-public class ParametrizacaoRestContoller {
+public class ParametrizacaoRestControl {
 
 
     //private static String caminhoImagens="C:/Users/lucas/Documents/imagens/";

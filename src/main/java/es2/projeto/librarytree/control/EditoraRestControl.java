@@ -19,7 +19,7 @@ import es2.projeto.librarytree.repositories.GerenEditoraRepository;
 @RestController
 @RequestMapping("/apis")
 
-public class EditoraRestController {
+public class EditoraRestControl {
     
     @Autowired
     GerenEditoraRepository editoraRepository; 
