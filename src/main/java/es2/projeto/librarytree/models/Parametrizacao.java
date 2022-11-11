@@ -1,14 +1,8 @@
 package es2.projeto.librarytree.models;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.*;
-
-import org.springframework.beans.factory.annotation.Autowired;
-
-import es2.projeto.librarytree.repositories.ParametrizacaoRepository;
-
 
 @Entity
 @Table(name = "parametrizacao")
@@ -73,11 +67,7 @@ public class Parametrizacao implements Serializable {
         this.id = id;
     }
 
-    public void Salvar(Parametrizacao parametrizacao) 
-    {
-        Metodos m = new Metodos();
-        m.Salvar(parametrizacao);
-    }
+  
 
     // public String getLogotipo() {
     //     return logotipo;
@@ -94,30 +84,7 @@ public class Parametrizacao implements Serializable {
     // public void setLogotipo(byte[] logotipo) {
     //     this.logotipo = logotipo;
     // }
-    class Metodos
-{
-
-    @Autowired
-    ParametrizacaoRepository parametrizacaoRepository;
-
-    public Parametrizacao Salvar(Parametrizacao parametrizacao)
-    {
-        List <Parametrizacao> params = parametrizacaoRepository.findAll();
-        if(params.isEmpty())
-            this.parametrizacaoRepository.save(parametrizacao);
-        else
-        {
-            Parametrizacao p = new Parametrizacao();
-            p.setNome_empresa(parametrizacao.getNome_empresa());
-            p.setImagem(parametrizacao.getImagem());
-            p.setId(params.get(0).getId());
-            this.parametrizacaoRepository.save(p);
-        }
-
-        return parametrizacao;
-    }
-}
-
+    
 }
 
 
