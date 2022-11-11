@@ -3,13 +3,13 @@ package es2.projeto.librarytree.models;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
 @Entity
 @Table(name = "bibliotecario")
-public class Bibliotecario {
-
+public class Bibliotecario  {
     @Id
     @Column(name = "bi_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
