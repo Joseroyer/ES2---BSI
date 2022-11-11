@@ -7,8 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/apis")
@@ -21,7 +19,7 @@ public class ClienteControl {
     }
 
     @GetMapping("/listClientes")
-    public ResponseEntity<List<Cliente>> getAll() {
-        return new ResponseEntity(clienteRepository.findAll(), HttpStatus.OK);
+    public ResponseEntity getAll() {
+        return new ResponseEntity<>(clienteRepository.findAll(), HttpStatus.OK);
     }
 }

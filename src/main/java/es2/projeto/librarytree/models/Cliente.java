@@ -1,5 +1,6 @@
 package es2.projeto.librarytree.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -7,6 +8,7 @@ import java.io.Serializable;
 
 @Data
 @Entity
+@AllArgsConstructor
 @Table(name = "cliente")
 public class Cliente implements Serializable {
 
@@ -37,16 +39,6 @@ public class Cliente implements Serializable {
 
     public Cliente(){
 
-    }
-
-    public Cliente(Long id, String nome, String telefone, String email, String CPF, String login, String senha) {
-        this.id = id;
-        this.nome = nome;
-        this.telefone = telefone;
-        this.email = email;
-        this.CPF = CPF;
-        this.login = login;
-        this.senha = senha;
     }
 
     //Metodos

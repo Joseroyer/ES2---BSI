@@ -1,7 +1,7 @@
 package es2.projeto.librarytree.control;
 
 
-import es2.projeto.librarytree.singleton.Singleton;
+import es2.projeto.librarytree.Singleton;
 import es2.projeto.librarytree.models.Parametrizacao;
 import es2.projeto.librarytree.repositories.ParametrizacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

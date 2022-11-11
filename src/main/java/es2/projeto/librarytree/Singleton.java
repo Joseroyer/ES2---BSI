@@ -1,4 +1,4 @@
-package es2.projeto.librarytree.singleton;
+package es2.projeto.librarytree;
 
 import es2.projeto.librarytree.models.Parametrizacao;
 import es2.projeto.librarytree.repositories.ParametrizacaoRepository;
