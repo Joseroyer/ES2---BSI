@@ -1,0 +1,49 @@
+function ValidaCPF(){	
+	var RegraValida=document.getElementById("RegraValida").value; 
+	var cpfValido = /^(([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2})|([0-9]{11}))$/;	 
+	if (cpfValido.test(RegraValida) == true)	{ 
+	alert("CPF Válido");	
+	} else	{	 
+	alert("CPF Inválido");	
+	}
+    }
+  function fMasc(objeto,mascara) {
+obj=objeto
+masc=mascara
+setTimeout("fMascEx()",1)
+}
+
+function fMascEx() {
+    obj.value=masc(obj.value)
+    }
+    
+       function mCPF(cpf){
+    cpf=cpf.replace(/\D/g,"")
+    cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+    cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+    cpf=cpf.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
+    return cpf
+    }
+
+function isAdmin()
+{
+  let isAdmin = true;
+  var display = document.getElementById("listaFunc").style.display;
+  if(isAdmin)
+    document.getElementById("listaFunc").style.display ='block'
+  else 
+    document.getElementById("listaFunc").style.display = 'none'
+
+}
+
+function Parameters()
+{
+  let parameters = true;
+  if(!parameters)
+  {
+    alert("A parametrização não foi realizada, você será redirecionado!")
+    window.location.href="parametrizacao.html"
+    
+  }
+  
+}
