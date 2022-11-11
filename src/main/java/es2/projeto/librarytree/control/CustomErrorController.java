@@ -1,4 +1,4 @@
-package es2.projeto.librarytree.controllers;
+package es2.projeto.librarytree.control;
 
 import javax.servlet.http.HttpServletRequest;
 

@@ -1,39 +1,34 @@
-package es2.projeto.librarytree.controllers;
+package es2.projeto.librarytree.control;
 
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
+import es2.projeto.librarytree.models.Bibliotecario;
+import es2.projeto.librarytree.models.Cliente;
 import es2.projeto.librarytree.repositories.BibliotecarioRepository;
-
+import es2.projeto.librarytree.repositories.ClienteRepository;
+import es2.projeto.librarytree.security.JWTTokenProvider;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import es2.projeto.librarytree.models.Bibliotecario;
-import es2.projeto.librarytree.models.Cliente;
-import es2.projeto.librarytree.models.PessoaFisica;
-import es2.projeto.librarytree.repositories.ClienteRepository;
-import es2.projeto.librarytree.security.JWTTokenProvider;
-import lombok.RequiredArgsConstructor;
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 
 @RequestMapping("/security")
-public class UsuarioRestController {
-
-    private final ClienteRepository clienteRepository;
+public class LoginControl {
     private final BibliotecarioRepository bibliotecarioRepository;
-
-    //private final HttpServletRequest request;
+    private final ClienteRepository clienteRepository;
+//    private final Cliente cliente;
+//    private final Bibliotecario bibliotecario;
 
     @Autowired
     HttpServletRequest request;
+
     @PostMapping("/testar-cliente-login")
     public ResponseEntity<Object> testarAcesso() {
         String token = request.getHeader("Authorization");
@@ -74,24 +69,4 @@ public class UsuarioRestController {
 
     }
 
-    // @PostMapping("/save")
-    // public String save(@RequestBody PessoaFisica pessoaFisica){
-    //     Cliente cliente = new Cliente();
-    //     cliente.setPessoafisica_fk(pessoaFisica);
-    //     cliente.setLogin(request.getParameter("login"));
-    //     cliente.setSenha(request.getParameter("senha"));
-    //     pessoaFisicaRepository.save(pessoaFisica);
-    //     return "Salvo";
-    // }
-    @PostMapping("/save")
-    public ResponseEntity<Object> save(@RequestBody Cliente cliente){
-            PessoaFisica pes = new PessoaFisica();
-            pes.setCpf(request.getParameter("CPF"));
-            pes.setNome(request.getParameter("nome"));
-            pes.setTelefone(request.getParameter("telefone"));
-            pes.setEmail(request.getParameter("null"));
-            cliente.setPessoafisica_fk(pes);
-            clienteRepository.save(cliente);
-            return new ResponseEntity<>("Salvo",HttpStatus.CREATED);        
-    }
 }
