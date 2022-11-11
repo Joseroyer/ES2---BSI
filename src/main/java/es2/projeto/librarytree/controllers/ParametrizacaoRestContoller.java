@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import es2.projeto.librarytree.Singleton;
 import es2.projeto.librarytree.models.Parametrizacao;
 import es2.projeto.librarytree.repositories.ParametrizacaoRepository;
 
@@ -26,6 +27,9 @@ public class ParametrizacaoRestContoller {
     //private static String caminhoImagens="C:/Users/lucas/Documents/imagens/";
     @Autowired
     ParametrizacaoRepository parametrizacaoRepository;
+
+    @Autowired
+    Singleton singleton;
 
   
     @GetMapping("/testar-param")
@@ -51,6 +55,11 @@ public class ParametrizacaoRestContoller {
         return "index.html";
     }
     
+    @PostMapping("/salvar")
+    public void Salvar(@RequestBody Parametrizacao parametrizacao)
+    {
+        singleton.SalvarParam(parametrizacao);
+    }
 
     @PostMapping("/params")
     public Parametrizacao cadParams(@RequestBody Parametrizacao parametrizacao)
