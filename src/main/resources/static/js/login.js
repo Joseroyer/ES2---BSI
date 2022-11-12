@@ -70,7 +70,7 @@ function verificarLogin()
 // }
 
 function logando() {
-    let signup = document.getElementById("SignUp");
+    let signup = document.getElementById("SignUp").style.display = "none";
     let adm = document.getElementById("isAdm").checked;
     let logado = document.getElementById("logado");
     let resultado_login = document.getElementById("resultado_login");
@@ -85,7 +85,7 @@ function logando() {
     fetch(URL_TO_FETCH, { method: 'post', body: senha })
         .then(response => { if (response.ok) return response.text(); else throw Error("Erro ao fazer login") })
         .then(text => { 
-            signup.style.display = "none";
+            // signup.style.display = "none";
             resultado_login.style.display = "none";
             logado.style.display = "block"; 
             localStorage.setItem("token", text);
