@@ -179,6 +179,7 @@ function verifica() {
 
 //Nome, Email, nome, Senha
 function gravarUsuario() {
+    event.preventDefault("fdados");
     const URL = "/apis/saveCliente";
     var fdados = document.getElementById("fdados");
     var jsontext = JSON.stringify(Object.fromEntries(
@@ -191,8 +192,18 @@ function gravarUsuario() {
     let user = document.getElementById("user").value;
 
     //arrumar o if
-    if (verifica())
-        verifica();
+    if (nome == "")
+        document.getElementById("nome").style.display = "block";
+    else if (celular == "")
+        document.getElementById("telefone").style.display = "block";
+    else if (email == "")
+        document.getElementById("email").style.display = "block";
+    else if (cpf == "")
+        document.getElementById("CPF").style.display = "block"
+    else if (user == "")
+        document.getElementById("senha").style.display = "block";
+    else if (senha == "")
+        document.getElementById("user").style.display = "block";
     else {
         fetch(URL, {
             headers: {
@@ -207,7 +218,7 @@ function gravarUsuario() {
                 else throw Error("Error ao fazer login")
             })
             .then(function (text) {
-                alert("Usuario Cadastrado");
+                document.getElementById("cadastrado").style.display = "block";
                 setTimeout(function () {
                     esconder();
                 }, 5000);

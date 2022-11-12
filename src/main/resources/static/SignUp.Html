@@ -99,7 +99,7 @@
                                 name="nome"
                                 type="text"
                                 class="form-input"
-                                placeholder="Nome Completo"
+                                placeholder="Nome Completo *"
                                 required=""
                                 
                         />
@@ -111,7 +111,7 @@
                                 name="telefone"
                                 type="text"
                                 class="form-input"
-                                placeholder="Celular"
+                                placeholder="Celular *"
                                 onkeyup="mascara('(##)#####-####',this,event)"
                                 required=""
                                 
@@ -124,7 +124,7 @@
                                 name="email"
                                 type="email"
                                 class="form-input"
-                                placeholder="E-mail"
+                                placeholder="E-mail *"
                                 required=""
                                 
                         />
@@ -136,7 +136,7 @@
                                 name="CPF"
                                 type="text"
                                 class="form-input"
-                                placeholder="CPF"
+                                placeholder="CPF *"
                                 onkeyup="mascara('###.###.###-##',this,event)"
                                 required=""
                                 
@@ -149,7 +149,7 @@
                                 name="user"
                                 type="text"
                                 class="form-input"
-                                placeholder="Nome de Usuário"
+                                placeholder="Nome de Usuário *"
                                 required=""
                                 
                         />
@@ -162,7 +162,7 @@
                                 name="senha"
                                 type="password"
                                 class="form-input"
-                                placeholder="Senha"
+                                placeholder="Senha *"
                                 required=""
                                 
                         />
@@ -173,7 +173,7 @@
                     <p id="resultado_CPF" style="color:#ffff; display: none;">CPF inválido</p>
                     <p id="resultado_user" style="color:#ffff; display: none;">Nome de Usuário precisa conter no mínimo 5 caracteres</p>
                     <p id="resultado_senha" style="color:#ffff; display: none;">Senha precisa conter no mínimo 5 caracteres</p>
-
+                    <p class="message" id="cadastrado" style= "font-size:18px; color: #ffff; display: none;">Cadastrado com Sucesso</p>
                     <div class="form-field">
                         <input type="submit" value="Sign Up" onclick="gravarUsuario()"/>
                     </div>
