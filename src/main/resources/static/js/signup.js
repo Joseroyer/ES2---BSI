@@ -173,7 +173,7 @@ function gravarUsuario() {
     let cpf = document.getElementById("CPF").value;
     let senha = document.getElementById("senha").value;
     let user = document.getElementById("user").value;
-    
+
     //arrumar o if
     if (verifica())
         verifica();
@@ -197,7 +197,7 @@ function gravarUsuario() {
                 senha = "";
                 user = "";
             }).catch(function (error) {
-                console.error(error);
-            });
+            console.error(error);
+        });
     }
 }
