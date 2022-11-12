@@ -84,7 +84,12 @@ function logando() {
     }
     fetch(URL_TO_FETCH, { method: 'post', body: senha })
         .then(response => { if (response.ok) return response.text(); else throw Error("Erro ao fazer login") })
-        .then(text => { logado.style.display = "block"; alert("Logado");localStorage.setItem("token", text);alert(token);window.location.href="index.html"; })
+        .then(text => { 
+            resultado_login.style.display = "none";
+            logado.style.display = "block"; 
+            alert("Logado");
+            localStorage.setItem("token", text);
+            alert(token);window.location.href="index.html"; })
         .catch(err => resultado_login.style.display = "block")
     event.preventDefault("fdados");
 
