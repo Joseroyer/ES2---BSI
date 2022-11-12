@@ -137,6 +137,14 @@ function validarSenha() {
     return true;
 }
 
+function esconder(){
+    document.getElementById("resultado_nome").style.display = "none";
+    document.getElementById("resultado_telefone").style.display = "none";
+    document.getElementById("resultado_email").style.display = "none";
+    document.getElementById("resultado_user").style.display = "none";
+    document.getElementById("resultado_senha").style.display = "none";
+}
+
 function verifica() {
     flagN = false, flagT = false, flagE = false, flagU = false, flagS = false;
     if (!validarNome()) {
@@ -199,12 +207,7 @@ function gravarUsuario() {
             })
             .then(function (text) {
                 alert("Usuario Cadastrado");
-                nome = "";
-                celular = "";
-                email = "";
-                cpf = "";
-                senha = "";
-                user = "";
+                esconder();
             }).catch(function (error) {
                 alert(error);
                 console.error(error);
