@@ -20,7 +20,7 @@ public class ClienteControl {
     }
 
     @GetMapping("/listClientes")
-    public ResponseEntity getAll() {
+    public ResponseEntity<Object> getAll() {
         return new ResponseEntity<>(clienteRepository.findAll(), HttpStatus.OK);
     }
 }
