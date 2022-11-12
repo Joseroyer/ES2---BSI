@@ -36,7 +36,7 @@ public class Cliente implements Serializable {
 
 
     public Cliente() {
-
+        this(0L,"","","","","","");
     }
 
     public Cliente(Long id, String nome, String telefone, String email, String CPF, String login, String senha) {
