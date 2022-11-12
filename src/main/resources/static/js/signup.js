@@ -99,8 +99,8 @@ function validarCPF() {
             }
         }
         if (ok == 0) {
-            // cpf.style.border = "solid 2px #))B9BC";
-            event.target.style.border = "solid 2px #))B9BC";
+            // cpf.style.border = "solid 2px #00B9BC";
+            event.target.style.border = "solid 2px #00B9BC";
             result.style.display = "";
             // event.target.focus();
         }
@@ -110,7 +110,7 @@ function validarCPF() {
 function validarTelefone() {
     var telefone = document.getElementById("telefone");
     if (telefone.value.length == "") {
-        telefone.display.border = "solid 2px #))B9BC";
+        telefone.display.border = "solid 2px #00B9BC";
         telefone.value = "";
         return false;
     }
@@ -121,7 +121,7 @@ function validarUser() {
     var user = document.getElementById("user");
     if (user.value.length < 5 || user.value == "") {
         user.value = "";
-        user.style.border = "solid 2px #))B9BC";
+        user.style.border = "solid 2px #00B9BC";
         return false;
     }
     return true;
@@ -131,7 +131,7 @@ function validarSenha() {
     var senha = document.getElementById("senha");
     if (senha.value.length < 5 || senha.value == "") {
         senha.value = "";
-        senha.style.border = "solid 2px #))B9BC";
+        senha.style.border = "solid 2px #00B9BC";
         return false;
     }
     return true;
@@ -207,7 +207,10 @@ function gravarUsuario() {
             })
             .then(function (text) {
                 alert("Usuario Cadastrado");
-                esconder();
+                setTimeout(function() {
+                    esconder();
+                }, 3000);
+                fdados.reset();
             }).catch(function (error) {
                 alert(error);
                 console.error(error);
