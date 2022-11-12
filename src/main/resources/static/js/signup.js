@@ -41,7 +41,7 @@ function validarNome() {
     nome = document.querySelector("#nome");
     if (nome.value.length < 8) {
         nome.value = "";
-        nome.style.border = "solid 2px red";
+        nome.style.border = "solid 2px #00B9BC";
         return false;
     }
     return true;
@@ -53,7 +53,7 @@ function validarEmail() {
     var dotpos = email.value.lastIndexOf(".");
     if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.length) {
         email.value = "";
-        email.style.border = "solid 2px red";
+        email.style.border = "solid 2px #00B9Bc";
         return false;
     }
     return true;
@@ -99,8 +99,8 @@ function validarCPF() {
             }
         }
         if (ok == 0) {
-            // cpf.style.border = "solid 2px red";
-            event.target.style.border = "solid 2px red";
+            // cpf.style.border = "solid 2px #))B9BC";
+            event.target.style.border = "solid 2px #))B9BC";
             result.style.display = "";
             // event.target.focus();
         }
@@ -110,7 +110,7 @@ function validarCPF() {
 function validarTelefone() {
     var telefone = document.getElementById("telefone");
     if (telefone.value.length == "") {
-        telefone.display.border = "solid 2px red";
+        telefone.display.border = "solid 2px #))B9BC";
         telefone.value = "";
         return false;
     }
@@ -119,9 +119,9 @@ function validarTelefone() {
 
 function validarUser() {
     var user = document.getElementById("user");
-    if (user.value.length < 5) {
+    if (user.value.length < 5 || user.value == "") {
         user.value = "";
-        user.style.border = "solid 2px red";
+        user.style.border = "solid 2px #))B9BC";
         return false;
     }
     return true;
@@ -129,36 +129,43 @@ function validarUser() {
 
 function validarSenha() {
     var senha = document.getElementById("senha");
-    if (senha.value.length < 5) {
+    if (senha.value.length < 5 || senha.value == "") {
         senha.value = "";
-        senha.style.border = "solid 2px red";
+        senha.style.border = "solid 2px #))B9BC";
         return false;
     }
     return true;
 }
 
-function esconder() {
-    let resultado_nome = document.getElementById("resultado_nome");
-    let resultado_user = document.getElementById("resultado_user");
-    let resultado_senha = document.getElementById("resultado_senha");
-    let resulta_CPF = document.getElementById("resultado_CPF");
-    let resultado_email = document.getElementById("resultado_email");
-    let resultado_telefone = document.getElementById("resultado_telefone");
-}
-
 function verifica() {
+    flagN = false, flagT = false, flagE = false, flagU = false, flagS = false;
+    if (!validarNome()) {
+        document.getElementById("resultado_nome").style.display = "block";
+        flagN = true;
+    }
 
-    if (!validarNome())
-        document.getElementById("resultado_nome").style.display = "";
-    if (!validarTelefone())
-        document.getElementById("resultado_telefone").style.display = "";
-    if (!validarEmail())
-        document.getElementById("resultado_email").style.display = "";
-    if (!validarUser())
-        document.getElementById("resultado_user").style.display = "";
-    if (!validarSenha())
-        document.getElementById("resultado_senha").style.display = "";
-    return true;
+    if (!validarTelefone()) {
+        document.getElementById("resultado_telefone").style.display = "block";
+        flagT = true;
+    }
+
+    if (!validarEmail()) {
+        document.getElementById("resultado_email").style.display = "block";
+        flagE = true;
+    }
+
+    if (!validarUser()) {
+        document.getElementById("resultado_user").style.display = "block";
+        flagU = true;
+    }
+
+    if (!validarSenha()) {
+        document.getElementById("resultado_senha").style.display = "block";
+        flagS = true;
+    }
+    if (flagN && flagT && flagE && flagU && flagS)
+        return true;
+    return false;
 }
 
 //Nome, Email, nome, Senha
@@ -186,7 +193,9 @@ function gravarUsuario() {
             method: 'POST', body: jsontext
         })
             .then(function (response) {
-                return response.text();
+                if (response.ok)
+                    return response.text();
+                else throw Error("Error ao fazer login")
             })
             .then(function (text) {
                 alert("Usuario Cadastrado");
@@ -197,7 +206,10 @@ function gravarUsuario() {
                 senha = "";
                 user = "";
             }).catch(function (error) {
-            console.error(error);
-        });
+                alert(error);
+                console.error(error);
+            });
     }
+
+
 }

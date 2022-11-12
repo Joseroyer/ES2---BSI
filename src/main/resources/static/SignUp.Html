@@ -89,7 +89,7 @@
 <section id="hero1" class="d-flex justify-content-center">
     <div class="container-css">
         <div class="containerLog ">
-            <div class="logo">Registrar</div>
+            <div class="logo">Cadastro Cliente</div>
             <div class="login-item">
                 <form id="fdados" class="form form-login">
                     <div class="form-field">
@@ -101,7 +101,7 @@
                                 class="form-input"
                                 placeholder="Nome Completo"
                                 required=""
-                                onkeypress="esconder()"
+                                
                         />
                     </div>
                     <div class="form-field">
@@ -114,7 +114,7 @@
                                 placeholder="Celular"
                                 onkeyup="mascara('(##)#####-####',this,event)"
                                 required=""
-                                onkeypress="esconder()"
+                                
                         />
                     </div>
                     <div class="form-field">
@@ -126,7 +126,7 @@
                                 class="form-input"
                                 placeholder="E-mail"
                                 required=""
-                                onkeypress="esconder()"
+                                
                         />
                     </div>
                     <div class="form-field">
@@ -138,7 +138,6 @@
                                 class="form-input"
                                 placeholder="CPF"
                                 onkeyup="mascara('###.###.###-##',this,event)"
-                                onblur="validarCPF()"
                                 required=""
                                 
                         />
@@ -152,7 +151,7 @@
                                 class="form-input"
                                 placeholder="Nome de Usuário"
                                 required=""
-                                onkeypress="esconder()"
+                                
                         />
                     </div>
 
@@ -165,15 +164,15 @@
                                 class="form-input"
                                 placeholder="Senha"
                                 required=""
-                                onkeypress="esconder()"
+                                
                         />
                     </div>
-                    <p id="resultado_nome" style="color:red; display: none;">Nome Completo precisa conter no mínimo 8 caracteres</p>
-                    <p id="resultado_email" style="color:red; display: none;">Preencha corretamente o E-mail</p>
-                    <p id="resultado_telefone" style="color:red; display: none;">Preencha corretamente o Número de Celular</p>          
-                    <p id="resultado_CPF" style="color:red; display: none;">CPF inválido</p>
-                    <p id="resultado_user" style="color:red; display: none;">Nome de Usuário precisa conter no mínimo 5 caracteres</p>
-                    <p id="resultado_senha" style="color:red; display: none;">Senha precisa conter no mínimo 5 caracteres</p>
+                    <p id="resultado_nome" style="color:#ffff; display: none;">Nome Completo precisa conter no mínimo 8 caracteres</p>
+                    <p id="resultado_email" style="color:#ffff; display: none;">Preencha corretamente o E-mail</p>
+                    <p id="resultado_telefone" style="color:#ffff; display: none;">Preencha corretamente o Número de Celular</p>          
+                    <p id="resultado_CPF" style="color:#ffff; display: none;">CPF inválido</p>
+                    <p id="resultado_user" style="color:#ffff; display: none;">Nome de Usuário precisa conter no mínimo 5 caracteres</p>
+                    <p id="resultado_senha" style="color:#ffff; display: none;">Senha precisa conter no mínimo 5 caracteres</p>
 
                     <div class="form-field">
                         <input type="button" value="Sign Up" onclick="gravarUsuario()"/>
