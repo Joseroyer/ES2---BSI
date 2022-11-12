@@ -87,9 +87,11 @@ function logando() {
         .then(text => { 
             resultado_login.style.display = "none";
             logado.style.display = "block"; 
-            alert("Logado");
             localStorage.setItem("token", text);
-            alert(token);window.location.href="index.html"; })
+            setTimeout(function() {
+                window.location.href = "index.html";
+            }, 3000);
+             })
         .catch(err => resultado_login.style.display = "block")
     event.preventDefault("fdados");
 
