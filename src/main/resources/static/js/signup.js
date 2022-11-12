@@ -137,7 +137,7 @@ function validarSenha() {
     return true;
 }
 
-function esconder(){
+function esconder() {
     document.getElementById("resultado_nome").style.display = "none";
     document.getElementById("resultado_telefone").style.display = "none";
     document.getElementById("resultado_email").style.display = "none";
@@ -146,34 +146,35 @@ function esconder(){
 }
 
 function verifica() {
-    flagN = false, flagT = false, flagE = false, flagU = false, flagS = false;
+
     if (!validarNome()) {
         document.getElementById("resultado_nome").style.display = "block";
-        flagN = true;
+        return false;
     }
 
     if (!validarTelefone()) {
         document.getElementById("resultado_telefone").style.display = "block";
-        flagT = true;
+        return false;
+
     }
 
     if (!validarEmail()) {
         document.getElementById("resultado_email").style.display = "block";
-        flagE = true;
+        return false;
+
     }
 
     if (!validarUser()) {
         document.getElementById("resultado_user").style.display = "block";
-        flagU = true;
+        return false;
+
     }
 
     if (!validarSenha()) {
         document.getElementById("resultado_senha").style.display = "block";
-        flagS = true;
+        return false;
     }
-    if (flagN && flagT && flagE && flagU && flagS)
-        return true;
-    return false;
+    return true;
 }
 
 //Nome, Email, nome, Senha
@@ -207,9 +208,9 @@ function gravarUsuario() {
             })
             .then(function (text) {
                 alert("Usuario Cadastrado");
-                setTimeout(function() {
+                setTimeout(function () {
                     esconder();
-                }, 3000);
+                }, 5000);
                 fdados.reset();
             }).catch(function (error) {
                 alert(error);
