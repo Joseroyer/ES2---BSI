@@ -1,14 +1,3 @@
-function esconder() {
-    let resultado_login = document.getElementById("resultado_login");
-}
-
-
-// async function gravarUsuario() {
-//     var data = JSON.stringify(Object.fromEntries(new FormData(form)));
-//     let response = await fetch("/apis/usuario", { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, method: 'POST', body: data });
-//     let userData = await response.text();
-//     return userData; // não é necessário o await no return
-// }
 
 function verificarLogin()
 {
@@ -69,6 +58,8 @@ function verificarLogin()
 //     }
 // }
 
+
+//falta verificar a mensagem se está ativo ou não
 function logando() {
     let signup = document.getElementById("SignUp").style.display = "none";
     let adm = document.getElementById("isAdm").checked;
