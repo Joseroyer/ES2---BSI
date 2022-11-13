@@ -224,9 +224,9 @@ function gravarUsuario1() {
                 }, 5000);
                 fdados.reset();
             }).catch(function (error) {
-            alert(error);
-            console.error(error);
-        });
+                alert(error);
+                console.error(error);
+            });
     }
 }
 
@@ -237,6 +237,7 @@ async function gravarPiada() {
     let cpf = document.getElementById("CPF").value;
     let senha = document.getElementById("senha").value;
     let user = document.getElementById("user").value;
+    console.log(cpf);
 
     var data = JSON.stringify(Object.fromEntries(new FormData(fdados)));
     if (nome == "")
@@ -260,8 +261,39 @@ async function gravarPiada() {
         });
 
         let userData = await response.text();
-        document.getElementById("cadastrado").style.display = "block";
+        setTimeout(function () {
+            document.getElementById("cadastrado").style.display = "block";
+            window.location.href = "LoginUser.html"
+        }, 3000);
         return userData;
     }
 
 }
+
+function gravarUsuario() {
+    let cpf = document.getElementById("cpf").value;
+    console.log(cpf);
+    const URL = "/apis/saveCliente";
+    var fdados = document.getElementById("fdados");
+    var jsontext = JSON.stringify(Object.fromEntries(
+        new FormData(fdados)));
+    fetch(URL, {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method: 'POST', body: jsontext
+    })
+        .then(function (response) {
+            return response.text();
+        })
+        .then(function (text) {
+            alert("Gravado!");
+            
+        }).catch(function (error) {
+            console.error(error);
+        });
+
+}
+
+
