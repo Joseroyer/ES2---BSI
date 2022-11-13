@@ -16,6 +16,7 @@ public class Singleton {
     
     @Autowired
     ParametrizacaoRepository parametrizacaoRepository;
+
     public Parametrizacao SalvarParam(Parametrizacao parametrizacao) 
     {
         List <Parametrizacao> params = parametrizacaoRepository.findAll();
@@ -30,6 +31,18 @@ public class Singleton {
             this.parametrizacaoRepository.save(p);
         }
         return parametrizacao;
+    }
+
+    public List<Parametrizacao> buscaParametros()
+    {
+        List <Parametrizacao> params = parametrizacaoRepository.findAll();
+        return params;
+    }
+
+    public List<Parametrizacao> buscarEstilo()
+    {
+        List <Parametrizacao> params = parametrizacaoRepository.findAll();
+        return params;
     }
     
 }

@@ -32,28 +32,43 @@ public class ParametrizacaoRestContoller {
     Singleton singleton;
 
   
+    // @GetMapping("/testar-param")
+    // public ResponseEntity <Object> buscarTodos()
+    // {
+    //    List <Parametrizacao> params = parametrizacaoRepository.findAll();
+    //    if(params.isEmpty())
+    //     return new ResponseEntity<>("Não", HttpStatus.OK);
+    //    else 
+    //     return new ResponseEntity<>("Sim", HttpStatus.OK);
+    // }
+
     @GetMapping("/testar-param")
     public ResponseEntity <Object> buscarTodos()
     {
-       List <Parametrizacao> params = parametrizacaoRepository.findAll();
-       if(params.isEmpty())
+       
+       List <Parametrizacao> parameters = singleton.buscaParametros();
+       if(parameters.isEmpty())
         return new ResponseEntity<>("Não", HttpStatus.OK);
        else 
         return new ResponseEntity<>("Sim", HttpStatus.OK);
     }
 
+    // @GetMapping("/estilo")
+    // public ResponseEntity <Object> buscarestilo()
+    // {
+    //    List <Parametrizacao> params = parametrizacaoRepository.findAll();
+    //    return new ResponseEntity<>(params,HttpStatus.CREATED);
+        
+    // }
+
     @GetMapping("/estilo")
     public ResponseEntity <Object> buscarestilo()
     {
-       List <Parametrizacao> params = parametrizacaoRepository.findAll();
-       return new ResponseEntity<>(params,HttpStatus.CREATED);
+       List <Parametrizacao> parameters = singleton.buscarEstilo();
+       return new ResponseEntity<>(parameters,HttpStatus.CREATED);
         
     }
 
-    @PostMapping(value="/error")
-    public String erro() {
-        return "index.html";
-    }
     
     @PostMapping("/salvar")
     public void Salvar(@RequestBody Parametrizacao parametrizacao)
@@ -61,23 +76,23 @@ public class ParametrizacaoRestContoller {
         singleton.SalvarParam(parametrizacao);
     }
 
-    @PostMapping("/params")
-    public Parametrizacao cadParams(@RequestBody Parametrizacao parametrizacao)
-    {
+    // @PostMapping("/params")
+    // public Parametrizacao cadParams(@RequestBody Parametrizacao parametrizacao)
+    // {
         
-        List <Parametrizacao> params = parametrizacaoRepository.findAll();
-        if(params.isEmpty())
-           this.parametrizacaoRepository.save(parametrizacao);
-        else
-        {
-            Parametrizacao p = new Parametrizacao();
-            p.setNome_empresa(parametrizacao.getNome_empresa());
-            p.setImagem(parametrizacao.getImagem());
-            p.setId(params.get(0).getId());
-            this.parametrizacaoRepository.save(p);
-        }
-        return parametrizacao;
-    }
+    //     List <Parametrizacao> params = parametrizacaoRepository.findAll();
+    //     if(params.isEmpty())
+    //        this.parametrizacaoRepository.save(parametrizacao);
+    //     else
+    //     {
+    //         Parametrizacao p = new Parametrizacao();
+    //         p.setNome_empresa(parametrizacao.getNome_empresa());
+    //         p.setImagem(parametrizacao.getImagem());
+    //         p.setId(params.get(0).getId());
+    //         this.parametrizacaoRepository.save(p);
+    //     }
+    //     return parametrizacao;
+    // }
 
 }
 
