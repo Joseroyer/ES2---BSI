@@ -192,19 +192,19 @@ function gravarUsuario1() {
     let user = document.getElementById("user").value;
 
     //arrumar o if
-    if (nome == "")
-        document.getElementById("nome").style.display = "block";
-    else if (celular == "")
-        document.getElementById("telefone").style.display = "block";
-    else if (email == "")
-        document.getElementById("email").style.display = "block";
-    else if (cpf == "")
-        document.getElementById("CPF").style.display = "block"
-    else if (user == "")
-        document.getElementById("senha").style.display = "block";
-    else if (senha == "")
-        document.getElementById("user").style.display = "block";
-    else {
+    // if (nome == "")
+    //     document.getElementById("nome").style.display = "block";
+    // else if (celular == "")
+    //     document.getElementById("telefone").style.display = "block";
+    // else if (email == "")
+    //     document.getElementById("email").style.display = "block";
+    // else if (cpf == "")
+    //     document.getElementById("CPF").style.display = "block"
+    // else if (user == "")
+    //     document.getElementById("senha").style.display = "block";
+    // else if (senha == "")
+    //     document.getElementById("user").style.display = "block";
+    // else {
         fetch(URL, {
             headers: {
                 'Accept': 'application/json',
@@ -227,7 +227,7 @@ function gravarUsuario1() {
                 alert(error);
                 console.error(error);
             });
-    }
+    
 }
 
 async function gravarPiada() {
@@ -271,8 +271,6 @@ async function gravarPiada() {
 }
 
 function gravarUsuario() {
-    let cpf = document.getElementById("cpf").value;
-    console.log(cpf);
     const URL = "/apis/saveCliente";
     var fdados = document.getElementById("fdados");
     var jsontext = JSON.stringify(Object.fromEntries(
@@ -293,7 +291,7 @@ function gravarUsuario() {
         }).catch(function (error) {
             console.error(error);
         });
-
+event.preventDefault("fdados");
 }
 
 
