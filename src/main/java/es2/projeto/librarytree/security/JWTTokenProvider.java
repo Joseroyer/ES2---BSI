@@ -25,6 +25,7 @@ public class JWTTokenProvider {
             .setExpiration(Date.from(LocalDateTime.now().plusMinutes(15L)
                 .atZone(ZoneId.systemDefault()).toInstant()))
             .signWith(CHAVE)
+            
             .compact();
         return jwtToken;        
     }

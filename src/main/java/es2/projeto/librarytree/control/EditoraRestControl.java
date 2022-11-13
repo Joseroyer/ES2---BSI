@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import es2.projeto.librarytree.Singleton;
 import es2.projeto.librarytree.models.Editora;
 import es2.projeto.librarytree.repositories.GerenEditoraRepository;
 
@@ -23,55 +24,49 @@ public class EditoraRestControl {
     
     @Autowired
     GerenEditoraRepository editoraRepository; 
+
+    @Autowired
+    Singleton singleton;
     
     @RequestMapping("/listar-todas-editoras")
     public ResponseEntity <Object> buscarTodas()
     {   
-        List<Editora> editora = editoraRepository.find();
+        List<Editora> editora = singleton.buscarTodas();
         return new ResponseEntity<>(editora,HttpStatus.OK);
+
     }
 
     @RequestMapping("/listar-editora")
     public ResponseEntity <Object> buscarFiltro(@RequestParam(value = "filtro")String filtro)
     {   
-        String fil = filtro.toUpperCase();
-        List<Editora> editora = editoraRepository.findAllWithFilter(fil); 
+        List<Editora> editora = singleton.buscaFiltro(filtro);
         return new ResponseEntity<>(editora,HttpStatus.OK);
     }
 
     @RequestMapping("/excluir")
     public Editora excluir(@RequestParam(value = "id")Editora id)
     {   
-
-        Optional<Editora> editora = editoraRepository.findById(id.getId_editora());
-        id.setId_editora(editora.get().getId_editora());
-        id.setNome_editora(editora.get().getNome_editora());
-        id.setStatus(0);
-        return this.editoraRepository.save(id);
+        Editora edit = new Editora();
+        edit = singleton.excluirEditora(id);
+        return edit;
+        
     }
 
     @RequestMapping("/editar")
     public Editora editar(@RequestParam(value="Identificador") Editora Identificador, @RequestParam(value="Nome") String Nome)
     {   
         
-        Optional<Editora> editora = editoraRepository.findById(Identificador.getId_editora());
-    
-        Identificador.setId_editora(editora.get().getId_editora());
-        Identificador.setNome_editora(Nome);
-        Identificador.setStatus(1);
-        return this.editoraRepository.save(Identificador);
+        Editora edit = new Editora();
+        edit = singleton.editarEditora(Identificador, Nome);
+        return edit;
     }
 
     @PostMapping("/cadEditora")
     public Editora cadEditora(@RequestBody Editora editora)
     {
-        Editora editor = new Editora();
-        String fil = editora.getNome_editora().toUpperCase();
-        List<Editora> edit = editoraRepository.findAllWithFilter(fil);
-        if(edit.isEmpty())
-           return this.editoraRepository.save(editora);
-       else 
-           return editor;
+        Editora edit = new Editora();
+        edit = singleton.salvarEditora(editora);
+        return edit;
     }
 
 }

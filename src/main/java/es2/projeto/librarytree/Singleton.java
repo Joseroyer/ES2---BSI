@@ -1,12 +1,15 @@
 package es2.projeto.librarytree;
 
+import es2.projeto.librarytree.models.Editora;
 import es2.projeto.librarytree.models.Parametrizacao;
+import es2.projeto.librarytree.repositories.GerenEditoraRepository;
 import es2.projeto.librarytree.repositories.ParametrizacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Scope("singleton")
@@ -15,6 +18,8 @@ public class Singleton {
 
     @Autowired
     ParametrizacaoRepository parametrizacaoRepository;
+    @Autowired
+    GerenEditoraRepository editoraRepository;
 
     public Parametrizacao SalvarParam(Parametrizacao parametrizacao) {
         List<Parametrizacao> params = parametrizacaoRepository.findAll();
@@ -25,6 +30,10 @@ public class Singleton {
             p.setNome_empresa(parametrizacao.getNome_empresa());
             p.setImagem(parametrizacao.getImagem());
             p.setId(params.get(0).getId());
+            p.setCidade(params.get(0).getCidade());            
+            p.setEstado(params.get(0).getEstado());            
+            p.setCnpj(params.get(0).getCnpj());
+
             this.parametrizacaoRepository.save(p);
         }
         return parametrizacao;
@@ -41,5 +50,46 @@ public class Singleton {
         List <Parametrizacao> params = parametrizacaoRepository.findAll();
         return params;
     }
+
+    public List<Editora> buscarTodas() 
+    {
+        List<Editora> editora = editoraRepository.find();
+        return editora;
+    }
     
+    public List<Editora> buscaFiltro(String filtro) 
+    {
+        String fil = filtro.toUpperCase();
+        List<Editora> editora = editoraRepository.findAllWithFilter(fil);
+        return editora;
+    }
+
+    public Editora excluirEditora(Editora id) {
+        
+        Optional<Editora> editora = editoraRepository.findById(id.getId_editora());
+        id.setId_editora(editora.get().getId_editora());
+        id.setNome_editora(editora.get().getNome_editora());
+        id.setStatus(0);
+        return this.editoraRepository.save(id);
+    }
+
+    public Editora editarEditora(Editora Identificador, String Nome) 
+    {
+        Optional<Editora> editora = editoraRepository.findById(Identificador.getId_editora());
+        Identificador.setId_editora(editora.get().getId_editora());
+        Identificador.setNome_editora(Nome);
+        Identificador.setStatus(1);
+        return this.editoraRepository.save(Identificador);
+    }
+
+    public Editora salvarEditora(Editora editora)
+    {
+        Editora editor = new Editora();
+        String fil = editora.getNome_editora().toUpperCase();
+        List<Editora> edit = editoraRepository.findAllWithFilter(fil);
+        if(edit.isEmpty())
+           return this.editoraRepository.save(editora);
+       else 
+           return editor;
+    }
 }

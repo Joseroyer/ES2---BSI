@@ -91,11 +91,17 @@
                             <form id="fdados" method="post">
     
                                 <div class="col-md-12">
-                                   <input required class="form-control" type="text" name="nome_empresa" id="nome_empresa" placeholder="Nome da empresa" >
-                                </div>
+                                   <input class="form-control" type="text" name="nome_empresa" id="nome_empresa" placeholder="Nome da empresa" required="required" >
+
+                                   <input class="form-control" type="text" name="cidade" id="cidade" placeholder="Cidade da empresa" required="required" >
+
+                                   <input class="form-control" type="text" name="estado" id="estado" placeholder="Estado da empresa" required="required" >
+                                  
+                                   <input class="form-control" type="text" name="cnpj" id="cnpj" placeholder="CNPJ da empresa" required="required" onkeyup="mascara('##.###.###/####-##',this,event)"/>
+                                  </div>
                                 
                                 <div class="col-md-12" style="margin-top: 10px; margin-bottom: 10px;">
-                                    <input class="form-control" type="file" accept="image/*"name="logotipo" id="logotipo" onchange="encodeImageFileAsURL()" placeholder="Escolha a logotipo" required>
+                                    <input class="form-control" type="file" accept="image/*"name="logotipo" id="logotipo" onchange="encodeImageFileAsURL()" placeholder="Escolha a logotipo" required="required">
                                     <input type="text" id="imagem" name="imagem" style="display: none;">
                                     <p style="margin-top: 15px ;">Recomendações:
                                     (500x500)
@@ -129,9 +135,8 @@
                                   }
                                 </script>
                                 <div class="form-button mt-3">
-                                    <button type="submit" class="btn btn-primary" onclick="gravarParametrizacao()" >Cadastrar</button>
-                                </div> 
-                                <th></th>
+                                    <input type="submit" class="btn btn-primary" onclick="gravarParametrizacao()"></input>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -160,7 +165,7 @@
         
       </section><!-- End Team Section -->
   
-    </main><!-- End #main -->
+    </main>
   
     <!-- ======= Footer ======= -->
     <footer id="footer">

@@ -20,6 +20,38 @@ public class Parametrizacao implements Serializable {
     @Column(name = "imagem")
     private String imagem;
     
+    @Column(name = "cidade")
+    private String cidade;
+
+    @Column(name = "estado")
+    private String estado;
+
+    @Column(name = "cnpj")
+    private String cnpj;
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
 
     public String getImagem() {
         return imagem;
@@ -43,9 +75,14 @@ public class Parametrizacao implements Serializable {
 
     
 
-    public Parametrizacao(String nome_empresa, String imagem) {
+
+    public Parametrizacao(long id, String nome_empresa, String imagem, String cidade, String estado, String cnpj) {
+        this.id = id;
         this.nome_empresa = nome_empresa;
         this.imagem = imagem;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.cnpj = cnpj;
     }
 
     public Parametrizacao() {
