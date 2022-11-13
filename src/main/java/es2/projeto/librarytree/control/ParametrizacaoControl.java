@@ -1,28 +1,21 @@
-package es2.projeto.librarytree.controllers;
+package es2.projeto.librarytree.control;
 
-
-import java.util.List;
-
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import es2.projeto.librarytree.Singleton;
 import es2.projeto.librarytree.models.Parametrizacao;
 import es2.projeto.librarytree.repositories.ParametrizacaoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 
 
 @RestController
 @RequestMapping("/apis")
-public class ParametrizacaoRestContoller {
-    
+public class ParametrizacaoControl {
+
 
     //private static String caminhoImagens="C:/Users/lucas/Documents/imagens/";
     @Autowired
@@ -30,7 +23,6 @@ public class ParametrizacaoRestContoller {
 
     @Autowired
     Singleton singleton;
-
   
     // @GetMapping("/testar-param")
     // public ResponseEntity <Object> buscarTodos()
@@ -70,9 +62,9 @@ public class ParametrizacaoRestContoller {
     }
 
     
+    
     @PostMapping("/salvar")
-    public void Salvar(@RequestBody Parametrizacao parametrizacao)
-    {
+    public void Salvar(@RequestBody Parametrizacao parametrizacao) {
         singleton.SalvarParam(parametrizacao);
     }
 
@@ -95,4 +87,3 @@ public class ParametrizacaoRestContoller {
     // }
 
 }
-
