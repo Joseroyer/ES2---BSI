@@ -1,4 +1,4 @@
-package es2.projeto.librarytree.controllers;
+package es2.projeto.librarytree.control;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,7 +19,7 @@ import es2.projeto.librarytree.repositories.GerenEditoraRepository;
 @RestController
 @RequestMapping("/apis")
 
-public class EditoraRestController {
+public class EditoraRestControl {
     
     @Autowired
     GerenEditoraRepository editoraRepository; 

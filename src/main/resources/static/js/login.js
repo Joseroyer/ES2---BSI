@@ -1,14 +1,3 @@
-function esconder() {
-    let resultado_login = document.getElementById("resultado_login");
-}
-
-
-// async function gravarUsuario() {
-//     var data = JSON.stringify(Object.fromEntries(new FormData(form)));
-//     let response = await fetch("/apis/usuario", { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, method: 'POST', body: data });
-//     let userData = await response.text();
-//     return userData; // não é necessário o await no return
-// }
 
 function verificarLogin()
 {
@@ -69,8 +58,10 @@ function verificarLogin()
 //     }
 // }
 
-function logando() {
 
+//falta verificar a mensagem se está ativo ou não
+function logando() {
+    let signup = document.getElementById("SignUp").style.display = "none";
     let adm = document.getElementById("isAdm").checked;
     let logado = document.getElementById("logado");
     let resultado_login = document.getElementById("resultado_login");
@@ -84,7 +75,15 @@ function logando() {
     }
     fetch(URL_TO_FETCH, { method: 'post', body: senha })
         .then(response => { if (response.ok) return response.text(); else throw Error("Erro ao fazer login") })
-        .then(text => { logado.style.display = "block"; alert("Logado");localStorage.setItem("token", text);alert(token);window.location.href="index.html"; })
+        .then(text => { 
+            // signup.style.display = "none";
+            resultado_login.style.display = "none";
+            logado.style.display = "block"; 
+            localStorage.setItem("token", text);
+            setTimeout(function() {
+                window.location.href = "index.html";
+            }, 3000);
+             })
         .catch(err => resultado_login.style.display = "block")
     event.preventDefault("fdados");
 
