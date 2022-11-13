@@ -178,7 +178,7 @@ function verifica() {
 }
 
 //Nome, Email, nome, Senha
-function gravarUsuario() {
+function gravarUsuario1() {
     event.preventDefault("fdados");
     const URL = "/apis/saveCliente";
     var fdados = document.getElementById("fdados");
@@ -224,10 +224,44 @@ function gravarUsuario() {
                 }, 5000);
                 fdados.reset();
             }).catch(function (error) {
-                alert(error);
-                console.error(error);
-            });
+            alert(error);
+            console.error(error);
+        });
     }
+}
 
+async function gravarPiada() {
+    let nome = document.getElementById("nome").value;
+    let celular = document.getElementById("telefone").value;
+    let email = document.getElementById("email").value;
+    let cpf = document.getElementById("CPF").value;
+    let senha = document.getElementById("senha").value;
+    let user = document.getElementById("user").value;
+
+    var data = JSON.stringify(Object.fromEntries(new FormData(fdados)));
+    if (nome == "")
+        document.getElementById("nome").style.display = "block";
+    else if (celular == "")
+        document.getElementById("telefone").style.display = "block";
+    else if (email == "")
+        document.getElementById("email").style.display = "block";
+    else if (cpf == "")
+        document.getElementById("CPF").style.display = "block"
+    else if (user == "")
+        document.getElementById("senha").style.display = "block";
+    else if (senha == "")
+        document.getElementById("user").style.display = "block";
+    else {
+        let response = await fetch("/apis/saveCliente", {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }, method: 'POST', body: data
+        });
+
+        let userData = await response.text();
+        document.getElementById("cadastrado").style.display = "block";
+        return userData;
+    }
 
 }
