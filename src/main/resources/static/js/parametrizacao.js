@@ -64,16 +64,13 @@ function verificar()
 
 async function gravarParametrizacao()
 {  
-    var cnpj = validarCNPJ()
-    if(!cnpj)
-        document.getElementById("valida").style.display = 'block'
-    else
-    {
-        var data = JSON.stringify(Object.fromEntries(new FormData(fdados)));
-        var response = await fetch("/apis/salvar",{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST', body: data});
-        var userData = await response.text();
-        return userData;
-    }
+
+    
+    var data = JSON.stringify(Object.fromEntries(new FormData(fdados)));
+    var response = await fetch("/apis/salvar",{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST', body: data});
+    var userData = await response.text();
+    return userData;
+ 
 
 }
 
@@ -118,13 +115,15 @@ function mascara(m, t, e) {
 
 function validarCNPJ() {
  
+    var estilo;
+    estilo = document.getElementById("cnpj").style.border = "3px solid green"
     var cnpj = document.getElementById("cnpj").value
     cnpj = cnpj.replace(/[^\d]+/g,'');
  
-    if(cnpj == '') return false;
+    if(cnpj == '') estilo = document.getElementById("cnpj").style.border = "3px solid red";
      
     if (cnpj.length != 14)
-        return false;
+        estilo = document.getElementById("cnpj").style.border = "3px solid red"
  
     // Elimina CNPJs invalidos conhecidos
     if (cnpj == "00000000000000" || 
@@ -137,7 +136,7 @@ function validarCNPJ() {
         cnpj == "77777777777777" || 
         cnpj == "88888888888888" || 
         cnpj == "99999999999999")
-        return false;
+        estilo = document.getElementById("cnpj").style.border = "3px solid red"
          
     // Valida DVs
     tamanho = cnpj.length - 2
@@ -152,7 +151,7 @@ function validarCNPJ() {
     }
     resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
     if (resultado != digitos.charAt(0))
-        return false;
+        estilo = document.getElementById("cnpj").style.border = "3px solid red"
          
     tamanho = tamanho + 1;
     numeros = cnpj.substring(0,tamanho);
@@ -165,8 +164,7 @@ function validarCNPJ() {
     }
     resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
     if (resultado != digitos.charAt(1))
-          return false;
-           
-    return true;
+        estilo = document.getElementById("cnpj").style.border = "3px solid red"
+    return estilo;
     
 }

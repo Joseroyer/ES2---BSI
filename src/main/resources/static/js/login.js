@@ -14,7 +14,6 @@ function verificarLogin()
             // window.location.href = "loginUser.html";
         } 
         if(result.includes("Logado"))
-            
         {  
             document.getElementById("listaFunc").style.display = 'block'
             document.getElementById("logButton").style.display = 'none'

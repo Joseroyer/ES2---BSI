@@ -1,7 +1,9 @@
 package es2.projeto.librarytree;
 
+import es2.projeto.librarytree.models.Bibliotecario;
 import es2.projeto.librarytree.models.Editora;
 import es2.projeto.librarytree.models.Parametrizacao;
+import es2.projeto.librarytree.repositories.BibliotecarioRepository;
 import es2.projeto.librarytree.repositories.GerenEditoraRepository;
 import es2.projeto.librarytree.repositories.ParametrizacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,9 @@ public class Singleton {
     @Autowired
     GerenEditoraRepository editoraRepository;
 
+    @Autowired
+    BibliotecarioRepository bibliotecarioRepository;
+
     public Parametrizacao SalvarParam(Parametrizacao parametrizacao) {
         List<Parametrizacao> params = parametrizacaoRepository.findAll();
         if (params.isEmpty())
@@ -30,9 +35,9 @@ public class Singleton {
             p.setNome_empresa(parametrizacao.getNome_empresa());
             p.setImagem(parametrizacao.getImagem());
             p.setId(params.get(0).getId());
-            p.setCidade(params.get(0).getCidade());            
-            p.setEstado(params.get(0).getEstado());            
-            p.setCnpj(params.get(0).getCnpj());
+            p.setCidade(parametrizacao.getCidade());            
+            p.setEstado(parametrizacao.getEstado());            
+            p.setCnpj(parametrizacao.getCnpj());
 
             this.parametrizacaoRepository.save(p);
         }
@@ -91,5 +96,30 @@ public class Singleton {
            return this.editoraRepository.save(editora);
        else 
            return editor;
+    }
+
+    public List<Bibliotecario> buscarTodosUsers() {
+        
+        List <Bibliotecario> bibli = bibliotecarioRepository.findAll();
+        
+        return bibli;
+    }
+
+    public Bibliotecario aprovar(Bibliotecario id) {
+        
+        Optional<Bibliotecario> bibli = bibliotecarioRepository.findById(id.getId());
+        id.setStatus(1);
+        id.setCPF(bibli.get().getCPF());
+        id.setData_admissao(bibli.get().getData_admissao());
+        id.setData_demissao(bibli.get().getData_demissao());
+        id.setEmail(bibli.get().getEmail());
+        id.setId(bibli.get().getId());
+        id.setLogin(bibli.get().getLogin());
+        id.setNivel(bibli.get().getNivel());
+        id.setNome(bibli.get().getNome());
+        id.setSenha(bibli.get().getSenha());
+        id.setTelefone(bibli.get().getTelefone());
+        return this.bibliotecarioRepository.save(id);
+
     }
 }

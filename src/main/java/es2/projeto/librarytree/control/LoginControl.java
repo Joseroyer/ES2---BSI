@@ -44,9 +44,10 @@ public class LoginControl {
         String token = "";
         if (adm == true) {
             List<Bibliotecario> user = bibliotecarioRepository.findFilterWith(senha, login);
-            for (i = 0; i < user.size(); i++)
-                if (senha.equals(user.get(i).getSenha()) && login.equals(user.get(i).getLogin()) && user.get(i).getStatus() == 1)
+            for (i = 0; i < user.size() && pos!=1; i++)
+            {    if (senha.equals(user.get(i).getSenha()) && login.equals(user.get(i).getLogin()) && user.get(i).getStatus() == 1)
                     pos = 1;
+            }
             if (pos == 1) {
                 token = JWTTokenProvider.getToken(senha, "ADM");
                 System.out.println(token);
@@ -59,7 +60,7 @@ public class LoginControl {
                 if (senha.equals(user.get(i).getSenha()) && login.equals(user.get(i).getLogin()))
                     pos = 1;
             if (pos == 1) {
-                token = JWTTokenProvider.getToken(senha, "ADM");
+                token = JWTTokenProvider.getToken(senha, "CLIENTE");
                 System.out.println(token);
                 return new ResponseEntity<>(token, HttpStatus.OK);
             } else

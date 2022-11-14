@@ -1,8 +1,12 @@
 package es2.projeto.librarytree.control;
 
+import es2.projeto.librarytree.Singleton;
 import es2.projeto.librarytree.models.Cliente;
 import es2.projeto.librarytree.repositories.ClienteRepository;
 import lombok.RequiredArgsConstructor;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +17,9 @@ import org.springframework.web.bind.annotation.*;
 public class ClienteControl {
     private final ClienteRepository clienteRepository;
 
+
+    @Autowired
+    Singleton singleton;
     @PostMapping("/saveCliente")
     public ResponseEntity<Cliente> save(@RequestBody Cliente cli) {
 
@@ -23,4 +30,6 @@ public class ClienteControl {
     public ResponseEntity<Object> getAll() {
         return new ResponseEntity<>(clienteRepository.findAll(), HttpStatus.OK);
     }
+
+
 }

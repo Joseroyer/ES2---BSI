@@ -6,8 +6,17 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface BibliotecarioRepository extends JpaRepository<Bibliotecario, Long> {
+
     @Query(value = "SELECT * FROM bibliotecario b WHERE b.bi_senha=:senha and b.bi_login=:login", nativeQuery = true)
     public List<Bibliotecario> findFilterWith(@Param("senha") String senha, @Param("login") String login);
+
+    @Query(value = "SELECT * FROM bibliotecario WHERE bi_status = 0", nativeQuery = true)
+    public List<Bibliotecario> findAll();
+
+    @Query(value = "SELECT * FROM bibliotecario WHERE bi_id = id", nativeQuery = true)
+    public List<Bibliotecario> findById(@Param("id") int id);
 }
+

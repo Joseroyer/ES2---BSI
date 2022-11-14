@@ -87,7 +87,7 @@
                     <div class="form-content">
                         <div class="form-items">
                             <h3>Parametrização do site</h3>
-                            <form id="fdados" method="POST">
+                            <form id="fdados" method="post">
     
                                 <div class="col-md-12">
                                    <input class="form-control" type="text" name="nome_empresa" id="nome_empresa" placeholder="Nome da empresa*" required="required" >
@@ -96,11 +96,11 @@
 
                                    <input class="form-control" type="text" name="estado" id="estado" placeholder="Estado da empresa*" required="required" >
                                   
-                                   <input class="form-control" type="text" name="cnpj" id="cnpj" placeholder="CNPJ da empresa*" required="required" onkeyup="mascara('##.###.###/####-##',this,event)"/>
+                                   <input class="form-control" type="text" name="cnpj" id="cnpj" placeholder="CNPJ da empresa*" required="required" onkeyup="mascara('##.###.###/####-##',this,event)" onblur="validarCNPJ()"/>
                                   </div>
                                 
                                 <div class="col-md-12" style="margin-top: 10px;  ">
-                                    <input class="form-control" type="file" accept="image/*"name="logotipo" id="logotipo" onchange="encodeImageFileAsURL()" required="required">
+                                    <input class="form-control" type="file" accept="image/*"name="imagem" id="logo" onchange="encodeImageFileAsURL()">
                                     <input type="text" id="imagem" name="imagem" style="display: none;">
                                                             
                                 </div>
@@ -109,7 +109,7 @@
                                   function encodeImageFileAsURL() {
                                 
                                     
-                                    var filesSelected = document.getElementById("logotipo").files;
+                                    var filesSelected = document.getElementById("logo").files;
                                     if (filesSelected.length > 0) {
                                       var fileToLoad = filesSelected[0];
                                 
@@ -132,7 +132,6 @@
                                 </script>
                                 <div class="form-button mt-3">
                                     <input type="submit" class="btn btn-primary" onclick="gravarParametrizacao()"></button>
-                                    <p class="message" id="valida" style= "font-size:18px; color: black; display: none;">Logado com Sucesso</p>
                                 </div>
                             </form>
                         </div>
