@@ -291,8 +291,11 @@ function gravarUsuario() {
             return response.text();
         })
         .then(function (text) {
-            document.getElementById("cadastro").style.display="block";
-            
+            document.getElementById("resultados_div").style.display="none";
+            document.getElementById("cadastrado").style.display="block";
+            setTimeout(function() {
+                window.location.href = "LoginUser.html";
+            }, 4000);
         }).catch(function (error) {
             console.error(error);
         });
