@@ -7,6 +7,7 @@ function estilo()
     })
     .then(function (data) {
         appendData(data);
+        
     })
     .catch(function (err) {
         console.log('error: ' + err);
@@ -39,7 +40,7 @@ function estilo()
       var logo = data[0].imagem
       document.getElementById("logoParam").innerHTML=logo;
       document.getElementById("logoPage")=logo;
-
+      
   }
 }
 
@@ -63,15 +64,17 @@ function verificar()
 
 async function gravarParametrizacao()
 {  
+    var cnpj = validarCNPJ()
+    if(!cnpj)
+        document.getElementById("valida").style.display = 'block'
+    else
+    {
+        var data = JSON.stringify(Object.fromEntries(new FormData(fdados)));
+        var response = await fetch("/apis/salvar",{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST', body: data});
+        var userData = await response.text();
+        return userData;
+    }
 
-    var data = JSON.stringify(Object.fromEntries(new FormData(fdados)));
-    let response = await fetch("/apis/salvar",{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'post', body: data});
-    let userData = await response.text();
-    window.location.href="index.html"
-    return userData; // não é necessário o await no return
- 
-    
-        
 }
 
 function mascara(m, t, e) {

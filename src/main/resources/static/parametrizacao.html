@@ -87,26 +87,22 @@
                     <div class="form-content">
                         <div class="form-items">
                             <h3>Parametrização do site</h3>
-                            <p>Preencha os campos abaixo.</p>
-                            <form id="fdados" method="post">
+                            <form id="fdados" method="POST">
     
                                 <div class="col-md-12">
-                                   <input class="form-control" type="text" name="nome_empresa" id="nome_empresa" placeholder="Nome da empresa" required="required" >
+                                   <input class="form-control" type="text" name="nome_empresa" id="nome_empresa" placeholder="Nome da empresa*" required="required" >
 
-                                   <input class="form-control" type="text" name="cidade" id="cidade" placeholder="Cidade da empresa" required="required" >
+                                   <input class="form-control" type="text" name="cidade" id="cidade" placeholder="Cidade da empresa*" required="required" >
 
-                                   <input class="form-control" type="text" name="estado" id="estado" placeholder="Estado da empresa" required="required" >
+                                   <input class="form-control" type="text" name="estado" id="estado" placeholder="Estado da empresa*" required="required" >
                                   
-                                   <input class="form-control" type="text" name="cnpj" id="cnpj" placeholder="CNPJ da empresa" required="required" onkeyup="mascara('##.###.###/####-##',this,event)"/>
+                                   <input class="form-control" type="text" name="cnpj" id="cnpj" placeholder="CNPJ da empresa*" required="required" onkeyup="mascara('##.###.###/####-##',this,event)"/>
                                   </div>
                                 
-                                <div class="col-md-12" style="margin-top: 10px; margin-bottom: 10px;">
-                                    <input class="form-control" type="file" accept="image/*"name="logotipo" id="logotipo" onchange="encodeImageFileAsURL()" placeholder="Escolha a logotipo" required="required">
+                                <div class="col-md-12" style="margin-top: 10px;  ">
+                                    <input class="form-control" type="file" accept="image/*"name="logotipo" id="logotipo" onchange="encodeImageFileAsURL()" required="required">
                                     <input type="text" id="imagem" name="imagem" style="display: none;">
-                                    <p style="margin-top: 15px ;">Recomendações:
-                                    (500x500)
-                                    (PNG)      
-                                  </p>                             
+                                                            
                                 </div>
                                
                                 <script type='text/javascript'>
@@ -135,7 +131,8 @@
                                   }
                                 </script>
                                 <div class="form-button mt-3">
-                                    <input type="submit" class="btn btn-primary" onclick="gravarParametrizacao()"></input>
+                                    <input type="submit" class="btn btn-primary" onclick="gravarParametrizacao()"></button>
+                                    <p class="message" id="valida" style= "font-size:18px; color: black; display: none;">Logado com Sucesso</p>
                                 </div>
                             </form>
                         </div>

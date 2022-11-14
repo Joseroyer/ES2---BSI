@@ -13,28 +13,18 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/apis")
+@RequestMapping(value="/apis")
 public class ParametrizacaoControl {
 
 
-    //private static String caminhoImagens="C:/Users/lucas/Documents/imagens/";
     @Autowired
     ParametrizacaoRepository parametrizacaoRepository;
 
     @Autowired
     Singleton singleton;
   
-    // @GetMapping("/testar-param")
-    // public ResponseEntity <Object> buscarTodos()
-    // {
-    //    List <Parametrizacao> params = parametrizacaoRepository.findAll();
-    //    if(params.isEmpty())
-    //     return new ResponseEntity<>("Não", HttpStatus.OK);
-    //    else 
-    //     return new ResponseEntity<>("Sim", HttpStatus.OK);
-    // }
 
-    @GetMapping("/testar-param")
+    @RequestMapping(value="/testar-param")
     public ResponseEntity <Object> buscarTodos()
     {
        
@@ -45,15 +35,7 @@ public class ParametrizacaoControl {
         return new ResponseEntity<>("Sim", HttpStatus.OK);
     }
 
-    // @GetMapping("/estilo")
-    // public ResponseEntity <Object> buscarestilo()
-    // {
-    //    List <Parametrizacao> params = parametrizacaoRepository.findAll();
-    //    return new ResponseEntity<>(params,HttpStatus.CREATED);
-        
-    // }
-
-    @GetMapping("/estilo")
+    @RequestMapping(value="/estilo")
     public ResponseEntity <Object> buscarestilo()
     {
        List <Parametrizacao> parameters = singleton.buscarEstilo();
@@ -63,27 +45,9 @@ public class ParametrizacaoControl {
 
     
     
-    @PostMapping("/salvar")
+    @PostMapping(value="/salvar")
     public void Salvar(@RequestBody Parametrizacao parametrizacao) {
         singleton.SalvarParam(parametrizacao);
     }
-
-    // @PostMapping("/params")
-    // public Parametrizacao cadParams(@RequestBody Parametrizacao parametrizacao)
-    // {
-        
-    //     List <Parametrizacao> params = parametrizacaoRepository.findAll();
-    //     if(params.isEmpty())
-    //        this.parametrizacaoRepository.save(parametrizacao);
-    //     else
-    //     {
-    //         Parametrizacao p = new Parametrizacao();
-    //         p.setNome_empresa(parametrizacao.getNome_empresa());
-    //         p.setImagem(parametrizacao.getImagem());
-    //         p.setId(params.get(0).getId());
-    //         this.parametrizacaoRepository.save(p);
-    //     }
-    //     return parametrizacao;
-    // }
 
 }
