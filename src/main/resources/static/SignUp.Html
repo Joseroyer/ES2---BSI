@@ -101,8 +101,7 @@
                                 type="text"
                                 class="form-input"
                                 placeholder="Nome Completo *"
-                               
-
+                                onblur="validarNome()"
                         />
                     </div>
                     <div class="form-field">
@@ -115,8 +114,7 @@
                                 class="form-input"
                                 placeholder="Celular *"
                                 onkeyup="mascara('(##)#####-####',this,event)"
-
-                                
+                                onblur="validarTelefone()" 
                         />
                     </div>
                     <div class="form-field">
@@ -128,8 +126,7 @@
                                 type="email"
                                 class="form-input"
                                 placeholder="E-mail *"
-
-                                
+                                onblur="validarEmail()"
                         />
                     </div>
                     <div class="form-field">
@@ -142,8 +139,7 @@
                                 class="form-input"
                                 placeholder="CPF *"
                                 onkeyup="mascara('###.###.###-##',this,event)"
-
-                                
+                                onblur="validarCPF()"                
                         />
                     </div>
                     <div class="form-field">
@@ -155,11 +151,9 @@
                                 type="text"
                                 class="form-input"
                                 placeholder="Nome de Usuário *"
-
-                                
+                                onblur="validarUser()"        
                         />
                     </div>
-
                     <div class="form-field">
                         <label class="lock" for="login-password"><span class="hidden"></span></label>
                         <input
@@ -169,8 +163,7 @@
                                 type="password"
                                 class="form-input"
                                 placeholder="Senha *"
-
-                                
+                                onblur="validarSenha()"                   
                         />
                     </div>
                     <p id="resultado_nome" style="color:#ffff; display: none;">Nome Completo precisa conter no mínimo 8 caracteres</p>
@@ -179,6 +172,7 @@
                     <p id="resultado_CPF" style="color:#ffff; display: none;">CPF inválido</p>
                     <p id="resultado_user" style="color:#ffff; display: none;">Nome de Usuário precisa conter no mínimo 5 caracteres</p>
                     <p id="resultado_senha" style="color:#ffff; display: none;">Senha precisa conter no mínimo 5 caracteres</p>
+                    <p id="cadastro" style="color:#ffff; display: none;">Cadastrado com Sucesso!!</p>
                     <div class="form-field">
                         <input type="submit" value="Registrar" onclick="gravarUsuario()"/>
                     </div>

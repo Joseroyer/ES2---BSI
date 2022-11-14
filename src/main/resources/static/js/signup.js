@@ -38,29 +38,31 @@ function mascara(m, t, e) {
 
 
 function validarNome() {
-    nome = document.querySelector("#nome");
+    let nome = document.querySelector("#nome");
     if (nome.value.length < 8) {
         nome.value = "";
         nome.style.border = "solid 2px #00B9BC";
+        document.getElementById("resultado_nome").style.display = "block";
         return false;
     }
     return true;
 }
 
 function validarEmail() {
-    email = document.querySelector("#email");
+    let email = document.querySelector("#email");
     var atpos = email.value.indexOf("@");
     var dotpos = email.value.lastIndexOf(".");
     if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.length) {
         email.value = "";
-        email.style.border = "solid 2px #00B9Bc";
+        email.style.border = "solid 2px #00B9BC";
+        document.getElementById("resultado_email").style.display = "block";
         return false;
     }
     return true;
 }
 
 function validarCPF() {
-    var result = document.getElementById("resultado_CPF");
+    let result = document.getElementById("resultado_CPF");
     var cpf = event.target.value;
     var ok = 1;
     var add;
@@ -108,30 +110,33 @@ function validarCPF() {
 }
 
 function validarTelefone() {
-    var telefone = document.getElementById("telefone");
-    if (telefone.value.length == "") {
+    let telefone = document.getElementById("telefone");
+    if (telefone.value.length == "" || telefone.value.length < 1) {
         telefone.display.border = "solid 2px #00B9BC";
         telefone.value = "";
+        document.getElementById("resultado_telefone").style.display = "block";
         return false;
     }
     return true;
 }
 
 function validarUser() {
-    var user = document.getElementById("user");
+    let user = document.getElementById("login");
     if (user.value.length < 5 || user.value == "") {
         user.value = "";
         user.style.border = "solid 2px #00B9BC";
+        document.getElementById("resultado_user").style.display = "block";
         return false;
     }
     return true;
 }
 
 function validarSenha() {
-    var senha = document.getElementById("senha");
+    let senha = document.getElementById("senha");
     if (senha.value.length < 5 || senha.value == "") {
         senha.value = "";
         senha.style.border = "solid 2px #00B9BC";
+        document.getElementById("resultado_senha").style.display = "block";
         return false;
     }
     return true;
@@ -286,7 +291,7 @@ function gravarUsuario() {
             return response.text();
         })
         .then(function (text) {
-            alert("Gravado!");
+            document.getElementById("cadastro").style.display="block";
             
         }).catch(function (error) {
             console.error(error);
