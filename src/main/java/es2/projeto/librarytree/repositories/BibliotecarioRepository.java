@@ -15,7 +15,9 @@ public interface BibliotecarioRepository extends JpaRepository<Bibliotecario, Lo
     @Query(value = "SELECT * FROM bibliotecario WHERE bi_status = 0", nativeQuery = true)
     public List<Bibliotecario> findAll();
 
-    @Query(value = "SELECT * FROM bibliotecario WHERE bi_id = id", nativeQuery = true)
+    @Query(value = "SELECT * FROM bibliotecario WHERE bi_id = :id", nativeQuery = true)
     public List<Bibliotecario> findById(@Param("id") int id);
-}
 
+    @Query(value = "SELECT *FROM bibliotecario where bi_cpf = :cpf", nativeQuery = true)
+    public List<Bibliotecario> findByCPF(@Param("cpf") String cpf);
+}

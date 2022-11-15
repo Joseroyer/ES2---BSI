@@ -15,20 +15,20 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RequestMapping("/apis")
 public class ClienteControl {
-    private final ClienteRepository clienteRepository;
-
+    // private final ClienteRepository clienteRepository;
 
     @Autowired
     Singleton singleton;
+
     @PostMapping("/saveCliente")
     public ResponseEntity<Cliente> save(@RequestBody Cliente cli) {
 
-        return new ResponseEntity<>(clienteRepository.save(cli), HttpStatus.OK);
+        return new ResponseEntity<>(singleton.saveCliente(cli), HttpStatus.OK);
     }
 
     @GetMapping("/listClientes")
     public ResponseEntity<Object> getAll() {
-        return new ResponseEntity<>(clienteRepository.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(singleton.listCliente(), HttpStatus.OK);
     }
 
 
