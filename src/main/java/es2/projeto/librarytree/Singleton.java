@@ -1,9 +1,11 @@
 package es2.projeto.librarytree;
 
 import es2.projeto.librarytree.models.Bibliotecario;
+import es2.projeto.librarytree.models.Cliente;
 import es2.projeto.librarytree.models.Editora;
 import es2.projeto.librarytree.models.Parametrizacao;
 import es2.projeto.librarytree.repositories.BibliotecarioRepository;
+import es2.projeto.librarytree.repositories.ClienteRepository;
 import es2.projeto.librarytree.repositories.GerenEditoraRepository;
 import es2.projeto.librarytree.repositories.ParametrizacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,9 @@ public class Singleton {
 
     @Autowired
     BibliotecarioRepository bibliotecarioRepository;
+
+    @Autowired
+    ClienteRepository clienteRepository;
 
     public Parametrizacao SalvarParam(Parametrizacao parametrizacao) {
         List<Parametrizacao> params = parametrizacaoRepository.findAll();
@@ -98,6 +103,17 @@ public class Singleton {
            return editor;
     }
 
+
+    //Bibliotecario
+
+    public List<Bibliotecario> findByCPF(String cpf){
+        return bibliotecarioRepository.findByCPF(cpf);
+    }
+    
+    public Bibliotecario saveBibliotecario(Bibliotecario bi){
+        return bibliotecarioRepository.save(bi);
+    }
+
     public List<Bibliotecario> buscarTodosUsers() {
         
         List <Bibliotecario> bibli = bibliotecarioRepository.findAll();
@@ -121,5 +137,14 @@ public class Singleton {
         id.setTelefone(bibli.get().getTelefone());
         return this.bibliotecarioRepository.save(id);
 
+    }
+
+    //Cliente
+    public List <Cliente> listCliente(){
+        return clienteRepository.findAll();
+    }
+
+    public Cliente saveCliente(Cliente cli){
+        return clienteRepository.save(cli);
     }
 }
