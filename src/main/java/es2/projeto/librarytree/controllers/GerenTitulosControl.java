@@ -22,13 +22,13 @@ public class GerenTitulosControl {
     @Autowired
     GerenTitulosRepository gerenTitulosRepository;
 
-    @RequestMapping("/listar-titulos")
+    @RequestMapping("/listar-titulos")//lista todos 
     public ResponseEntity <Object> todos(){
         List <GerenTitulos> titulos = gerenTitulosRepository.find();
         return new ResponseEntity<>(titulos,HttpStatus.OK);
     }
 
-    @RequestMapping("/listar-um-titulo")
+    @RequestMapping("/listar-um-titulo")//lista só um
     public ResponseEntity<Object> buscarFiltro(@RequestParam(value="filtro")String filtro)
     {
         String filtrar = filtro.toUpperCase();

@@ -13,15 +13,15 @@ searchBtn.addEventListener("click", expand);
 
 function CarregaLista()
 {
-    var filtro = document.getElementById("busca").value
-    const URL_TO_FETCH = '/apis/listar-todas-editoras';
+    var filtro = document.getElementById("search-input").value
+    const URL_TO_FETCH = '/apis/listar-titulos';
     var status;
     fetch(URL_TO_FETCH, {method: 'POST',
        headers:{'Authorization':`${localStorage.getItem("token")}`,}})
     .then(response=> response.text())
     .then(result=> 
         {
-                fetch("/apis/listar-todas-editoras")
+                fetch("/apis/listar-titulos")
                 .then(function (response) {
                     return response.json();
                 })
@@ -40,13 +40,13 @@ function CarregaLista()
                     for (let i=0;i<data.length;i++)
                     {
                             table+=`<tr>
-                            <td>${data[i].id_editora}</td>
-                            <td>${data[i].nome_editora}</td>
-                            <td><img width="30px" src='img/change.png' onclick='editar(${data[i].id_editora})'></td>
-                            <td><img width="30px" src='img/trash.png' onclick='excluir(${data[i].id_editora})'></td>
+                            <td>${data[i].id_livro}</td>
+                            <td>${data[i].titulo_livro}</td>
+                            <td><img width="30px" src='img/change.png' onclick='editar(${data[i].id_livro})'></td>
+                            <td><img width="30px" src='img/trash.png' onclick='excluir(${data[i].id_livro})'></td>
                             </tr>`;        
                     }
-                    document.getElementById("qlq").innerHTML=table;
+                    document.getElementById("tab").innerHTML=table;
                 }
             }
         )
@@ -56,7 +56,7 @@ function editar(id)
 {
     // alert(id)
     var input = `<td><input type="text" id="teste"><input type="submit" value="Alterar" onclick='editar2(${id})'></td>`;
-    document.getElementById("qlq").innerHTML+=input;
+    document.getElementById("tab").innerHTML+=input;
    
 }
 function editar2(id)
@@ -82,18 +82,18 @@ async function Cadastrar()
 {  
 
     var data = JSON.stringify(Object.fromEntries(new FormData(fdados)));
-    let response = await fetch("/apis/cadEditora",{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST', body: data});
+    let response = await fetch("/apis/CadastrarNovosTitulos",{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST', body: data});
     let userData = await response.text();
-    window.location.href = "index.html";
-    return userData; // não é necessário o await no return
+    window.location.href = "cadTitulos.html";
+    return userData; 
      
 }
 
 function excluir(id)
 {
-    if(window.confirm("Deseja realmente excluir a Editora?"))
+    if(window.confirm("Remover mesmo o titulo?"))
     {
-        fetch("/apis/excluir?id="+id)
+        fetch("/apis/excluir-titulo?id="+id)
         .then(function (response) {
             return response.json();
         })
