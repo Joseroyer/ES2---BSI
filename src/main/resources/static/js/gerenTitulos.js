@@ -84,7 +84,7 @@ async function Cadastrar()
     var data = JSON.stringify(Object.fromEntries(new FormData(fdados)));
     let response = await fetch("/apis/CadastrarNovosTitulos",{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST', body: data});
     let userData = await response.text();
-    window.location.href = "cadTitulos.html";
+    window.location.href = "cadtitulos.html";
     return userData; 
      
 }
