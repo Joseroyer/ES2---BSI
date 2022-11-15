@@ -54,7 +54,7 @@ input {
   transition: background-color .3s;
 }
 
-.form input[type="password"], .form input[type="text"], .form input[type="submit"] {
+.form input[type="password"], .form input[type="text"], .form input[type="submit"], .form input[type="email"], form input[type="button"] {
   width: 100%;
   display: block;
   font-size: 16px;
@@ -64,7 +64,9 @@ input {
 .form-login label,
 .form-login input[type="text"],
 .form-login input[type="password"],
-.form-login input[type="submit"] {
+.form-login input[type="submit"],
+.form-login input[type="button"],
+.form-login input[type="email"]  {
   border-radius: 0.25rem;
   padding: 1rem;
   color: #3A3F44;  
@@ -78,7 +80,7 @@ input {
   padding-right: 1.25rem;
 }
 
-.form-login input[type="text"], .form-login input[type="password"] {
+.form-login input[type="text"], .form-login input[type="password"], .form-login input[type="button"]{
   background-color: #ffffff;
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
@@ -86,13 +88,13 @@ input {
 .form-login input[type="text"]:focus, .form-login input[type="text"]:hover, .form-login input[type="password"]:focus, .form-login input[type="password"]:hover {
   background-color: #eeeeee;
 }
-.form-login input[type="submit"] {
+.form-login input[type="submit"], .form-login input[type="button"] {
   background-color: #00B9BC;
   color: #eee;
   font-weight: bold;
   text-transform: uppercase;
 }
-.form-login input[type="submit"]:focus, .form-login input[type="submit"]:hover {
+.form-login input[type="submit"]:focus, .form-login input[type="submit"]:hover, .form-login input[type="button"]:focus, .form-login input[type="button"]:hover {
   background-color: #197071;
 }
 .form-field {
@@ -119,3 +121,7 @@ input {
 	color: #5b5b5b;
 } */
 
+.mensagem{
+  display: none;
+  color:#eee;
+}

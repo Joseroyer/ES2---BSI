@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title id="title">Parametrização</title>
+  <title id="title">Aprovação Usuário</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
+  <link href="img/Library tree.png" rel="icon">
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <script src="js/Aprovacao.js"></script>
+  <script src="js/parametrizacao.js"></script>
+  <script src="js/login.js"></script>
   
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -26,8 +30,7 @@
   
   <!-- Template Main CSS File -->
   <link href="css/style.css" rel="stylesheet">
-  <link href="css/parametrizacao.css" rel="stylesheet">
-  <script src="js/login.js"></script>
+  <link href="css/styleEditora.css" rel="stylesheet">
   <!-- =======================================================
   * Template Name: Arsha - v4.9.1
   * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
@@ -36,7 +39,7 @@
   ======================================================== -->
 </head>
 
-<body onload="estilo(), verificarLogin()">
+<body style="min-height: 100vh;" onload="CarregaLista(), verificarLogin(), estilo()" >
 
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top ">
@@ -48,12 +51,14 @@
   
         <nav id="navbar" class="navbar">
           <ul>
-            <li><a class="nav-link scrollto active" href=".">Home</a></li>
+            <li><a class="nav-link scrollto active" href="index.html">Home</a></li>
             <li><a class="nav-link scrollto" id="consultar"href="">Consultar Acervo</a></li>
-            <li><a class="nav-link scrollto" id="emprestimo" href="">Realizar Empréstimos</a></li>
-            <li id="listaFunc" class="dropdown"><a href="#"><span>Área do Funcionário</span> <i class="bi bi-chevron-down"></i></a>
+            <li><a class="nav-link scrollto"  id="emprestimo" href="">Realizar Empréstimos</a></li>
+            <li id="listaFunc" class="dropdown"><a href="#"><span>Área do
+                  Funcionário</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
                 <li><a href="#">Cadastrar Exemplares</a></li>
+
                 <li><a href="devoluçao.html">Devolução de Exemplar</a></li>
                 <li><a href="#">Cadastro de Usuário</a></li>
                 <li><a href="parametrizacao.html">Alterar Parametrização</a></li>
@@ -62,8 +67,9 @@
                 <li><a href="Aprovacao.html">Aprovar Solicitações</a></li>
               </ul>
             </li>
-            
-            <li id="logButton"><a class="getstarted scrollto" href="LoginUser.html" target="_blank">Entre/Cadastre-se</a></li>
+
+            <li id="logButton"><a class="getstarted scrollto" href="./LoginUser.html"
+                target="_blank" id="log">Entre/Cadastre-se</a></li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
@@ -71,64 +77,30 @@
       </div>
     </header><!-- End Header -->
   
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center">
-      <div class="container">
-        <div class="row">
-        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-
-        <h2></h2>
-        <div class="d-flex justify-content-center justify-content-lg-start">
-          </div>
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-        </div>
-        </div>
-        <div class="form-body">
-            <div class="row">
-                <div class="form-holder">
-                    <div class="form-content">
-                        <div class="form-items">
-                            <h3>Parametrização do site</h3>
-                            <form id="fdados" method="post">
-    
-                                <div class="col-md-12">
-                                   <input class="form-control" type="text" name="nome_empresa" id="nome_empresa" placeholder="Nome da empresa*" required="required" >
-
-                                   <input class="form-control" type="text" name="cidade" id="cidade" placeholder="Cidade da empresa*" required="required" >
-
-                                   <input class="form-control" type="text" name="estado" id="estado" placeholder="Estado da empresa*" required="required" >
-                                  
-                                   <input class="form-control" type="text" name="cnpj" id="cnpj" placeholder="CNPJ da empresa*" required="required" onkeyup="mascara('##.###.###/####-##',this,event)" onblur="validarCNPJ()"/>
-                                  </div>
-                                
-                                <div class="col-md-12" style="margin-top: 10px;  ">
-                                    <input class="form-control" type="file" accept="image/*"name="imagem" id="logo" onchange="encodeImageFileAsURL()">
-                                    <input type="text" id="imagem" name="imagem" style="display: none;">
-                                                            
-                                </div>
-                               
-                                <!-- <script type='text/javascript'>
-                                  
-                                </script> -->
-                                <div class="form-button mt-3">
-                                    <input type="submit" class="btn btn-primary" onclick="gravarParametrizacao()"></button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+ 
+    <section id="hero">
+       
+        
+          <div class="main-search-input-wrap">
+            <div class="main-search-input fl-wrap">
+                <div class="main-search-input-item">
+                    <input id="busca" type="text" placeholder="Buscar usuário por nome">
                 </div>
+                
+                                                
+                <button class="main-search-button" onclick="CarregaFiltro()" type="submit"><i class="bi bi-search"></i></button>
             </div>
-        </div>
-    
-        
-      </div>
-      
-    
-      </section><!-- End Hero -->
-  
+          </div>
+                                      
+    </section>
+
+    <div style="width: 70%; max-height: 400px; align-content: center; margin: 0 auto; margin-top: -25px;">
+        <table  class="table" style="text-align: center;  color: white;">
+            <tbody id ="qlq"></tbody>
+        </table>
+    </div> 
+
     <main id="main">
-        
   
       <!-- ======= Clients Section ======= -->
       
@@ -142,7 +114,7 @@
         
       </section><!-- End Team Section -->
   
-    </main>
+    </main><!-- End #main -->
   
     <!-- ======= Footer ======= -->
     <footer id="footer">
@@ -178,8 +150,7 @@
   
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
-    <script src="js/parametrizacao.js"></script>
-
+  
   </body>
 
 </html>

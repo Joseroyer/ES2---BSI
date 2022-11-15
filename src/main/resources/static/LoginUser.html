@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Library Tree - Devolução</title>
+  <title id="title">Login</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="img/Library tree.png" rel="icon">
+  <!-- <link href="img/Library tree.png" rel="icon"> -->
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -36,13 +36,17 @@
   ======================================================== -->
 </head>
 
-<body onload="isAdmin()">
+<body onload="isAdmin(), estilo(), verificarLogin()">
 
+    <script>
+      if(isAdmin())
+        alert("AAAAAAAAA")
+    </script>
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top ">
       <div class="container d-flex align-items-center">
   
-        <h1 class="logo me-auto"><a href="index.html">Library Tree</a></h1>
+        <h1 class="logo me-auto" id="titulo"></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
   
@@ -51,7 +55,7 @@
             <li><a class="nav-link scrollto active" href=".">Home</a></li>
             <li><a class="nav-link scrollto" href="">Consultar Acervo</a></li>
             <li><a class="nav-link scrollto" href="">Realizar Empréstimos</a></li>
-            <li id="listaFunc" class="dropdown"><a href="#"><span>Área do Funcionário</span> <i class="bi bi-chevron-down"></i></a>
+            <li onclick="verificar() "id="listaFunc" class="dropdown"><a href="#"><span>Área do Funcionário</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
                 <li><a href="#">Cadastrar Exemplares</a></li>
                 <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
@@ -69,7 +73,7 @@
             </ul>
             </li>
             
-            <li><a class="getstarted scrollto" href="LoginUser.html" target="_blank">Entre/Cadastre-se</a></li>
+            <li><a class="getstarted scrollto" id="oculto" href="LoginUser.html" target="_blank">Entre/Cadastre-se</a></li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
@@ -90,17 +94,19 @@
           <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
           </div>
         </div>
+        
           <div class="containerLog">
             <div class="logo">Login</div>
             <div class="login-item">
-              <form action="" method="post" class="form form-login">
+              <form id="fdados" class="form form-login">  
+                
                 <div class="form-field">
                   <label class="user" for="login-username"
                     ><span class="hidden"></span></label
                   >
                   <input
-                    id=""
-                    name=""
+                    id="login"
+                    name="login"
                     type="text"
                     class="form-input"
                     placeholder="Usuário"
@@ -113,8 +119,8 @@
                     ><span class="hidden"></span></label
                   >
                   <input
-                    id=""
-                    name=""
+                    id="senha"
+                    name="senha"
                     type="password"
                     class="form-input"
                     placeholder="Senha"
@@ -122,11 +128,23 @@
                   />
                 </div>
 
-                <div class="form-field">
-                  <input type="submit" value="Log in" />
+                <div class=" form-field ">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="isAdm">
+                    <p style="font-size: 16px;">Bibliotecário?</p>
+                  </div>
                 </div>
-                <div class="d-flex justify-content-center"">
-                    <p class="message">Não cadastrado?<a href="./SignUp.Html"> Criar Conta</a></p>
+
+                <div class="form-field">
+                  <input type="submit" value="Log in" onclick="logando()" />
+                </div>
+                <div class="d-flex justify-content-center">
+                    <p id="SignUp" class="message">Não cadastrado?<a href="./SignUp.Html"> Criar Conta</a></p>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <p class="message" id="logado" style= "font-size:18px; color: #ffff; display: none;">Logado com Sucesso</p>
+                  <p id="resultado_login" style="font-size:18px; color: #ffff; display: none; ">Usuário Incorreto ou Senha Incorreta</p>
+                  <p id="status" style=" font-size:18px; color: #ffff; display:none;">Status Desativado</p>
                 </div>
               </form>
             </div>
@@ -144,7 +162,8 @@
     <footer id="footer">
       <div class="container footer-bottom clearfix">
         <div class="copyright">
-          &copy; Copyright <strong><span>Tree Library</span></strong>. Todos os direitos reservados à Argus Tech
+          &copy; Copyright <strong><span id="footer2"></span></strong>. Todos os
+          direitos reservados à <span id="empresa"></span>
         </div>
         <div class="credits">
         </div>
@@ -165,7 +184,8 @@
     
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
-  
+    <script src="./js/login.js"></script>
+    <script src="js/parametrizacao.js"></script>
   </body>
 
 </html>
