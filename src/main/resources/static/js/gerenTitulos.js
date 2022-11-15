@@ -11,6 +11,7 @@ searchBtn.addEventListener("click", expand);
 
 //button acima.
 
+//carregar lista
 function CarregaLista()
 {
     var filtro = document.getElementById("search-input").value
@@ -33,10 +34,8 @@ function CarregaLista()
                 });
                 function appendData(data) {
 
-                    
-
                     var table="";
-                    table+=`<tr><th>Identificador</th><th>Editora</th><th>Editar</th><th>Excluir</th></tr>`
+                    table+=`<tr><th>ID</th><th>Titulo</th><th>Editar</th><th>Excluir dados</th></tr>`
                     for (let i=0;i<data.length;i++)
                     {
                             table+=`<tr>
@@ -54,30 +53,31 @@ function CarregaLista()
 }
 function editar(id)
 {
-    // alert(id)
-    var input = `<td><input type="text" id="teste"><input type="submit" value="Alterar" onclick='editar2(${id})'></td>`;
+   
+    var input = `<td><input type="text" id="edt"><input type="submit" value="Alterar" onclick='editar2(${id})'></td>`;
     document.getElementById("tab").innerHTML+=input;
    
 }
 function editar2(id)
 {
     var Identificador=id;
-    var Nome = document.getElementById("teste").value
+    var Nome = document.getElementById("edt").value
     
-    const URL_TO_FETCH = `/apis/editar?Identificador=${Identificador}&Nome=${Nome}`;
+    const URL_TO_FETCH = `/apis/editar-titulos-gerenciados?Identificador=${Identificador}&Nome=${Nome}`;
     fetch(URL_TO_FETCH,{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST'})
     .then(function (response) {
       
         return response.json();
     })
     .then(function (text) {
-        window.location.href = "editora.html";
+        window.location.href = "gerentitulos.html";
     })
     .catch(function (err) {
         console.log('error: ' + err);
     });
 
 }
+
 async function Cadastrar()
 {  
 
@@ -98,7 +98,7 @@ function excluir(id)
             return response.json();
         })
         .then(function (text) {
-            window.location.href = "editora.html";
+            window.location.href = "gerentitulos.html";
         })
         .catch(function (err) {
             console.log('error: ' + err);
@@ -109,15 +109,15 @@ function excluir(id)
 
 function CarregaFiltro()
 {
-    var filtro = document.getElementById("busca").value
-    const URL_TO_FETCH = '/apis/listar-editora';
+    var filtro = document.getElementById("search-input").value
+    const URL_TO_FETCH = '/apis/listar-um-titulo';
     var status;
     fetch(URL_TO_FETCH, {method: 'POST',
        headers:{'Authorization':`${localStorage.getItem("token")}`,}})
     .then(response=> response.text())
     .then(result=> 
         {
-                fetch("/apis/listar-editora?filtro="+filtro)
+                fetch("/apis/listar-um-titulo?filtro="+filtro)
                 .then(function (response) {
                     return response.json();
                 })
@@ -129,20 +129,19 @@ function CarregaFiltro()
                 });
                 function appendData(data) {
 
-                    
 
                     var table="";
-                    table+=`<tr><th>Identificador</th><th>Editora</th><th>Editar</th><th>Excluir</th></tr>`
+                    table+=`<tr><th>ID</th><th>Titulo</th><th>Editar</th><th>Excluir dados</th></tr>`
                     for (let i=0;i<data.length;i++)
                     {
                             table+=`<tr>
-                            <td>${data[i].id_editora}</td>
-                            <td>${data[i].nome_editora}</td>
+                            <td>${data[i].id_livro}</td>
+                            <td>${data[i].titulo_livro}</td>
                             <td><img width="30px" src='img/change.png'></td>
-                            <td><img width="30px" src='img/trash.png' onclick='excluir(${data[i].id_editora})'></td>
+                            <td><img width="30px" src='img/trash.png' onclick='excluir(${data[i].id_livro})'></td>
                             </tr>`;        
                     }
-                    document.getElementById("qlq").innerHTML=table;
+                    document.getElementById("tab").innerHTML=table;
                 }
             }
         )
