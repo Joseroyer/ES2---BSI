@@ -56,18 +56,24 @@ public class GerenTitulosControl {
         return this.gerenTitulosRepository.save(Identificador);
     }
 
-    @PostMapping("/CadastrarNovosTitulos")
-    public GerenTitulos CadastrarNovosTitulos(@RequestBody GerenTitulos titulos){
-        GerenTitulos tit = new GerenTitulos();
-        String filtrar = titulos.getTitulo_livro().toUpperCase();
-        List <GerenTitulos> titu = gerenTitulosRepository.findAllWithFilter(filtrar);
-        if(titu.isEmpty())
-            return this.gerenTitulosRepository.save(titulos);
-        else    
-            return tit;
-            
 
+
+    @PostMapping("/CadastrarNovosTitulos")
+    public GerenTitulos createTitulos(@RequestBody GerenTitulos titulos) {
+
+        titulos.setTitulo_livro(titulos.getTitulo_livro().toLowerCase());
+        return this.gerenTitulosRepository.save(titulos);
     }
+    // @PostMapping("/CadastrarNovosTitulos")
+    // public GerenTitulos CadastrarNovosTitulos(@RequestBody GerenTitulos titulos){
+    //     GerenTitulos tit = new GerenTitulos();
+    //     String filtrar = titulos.getTitulo_livro().toUpperCase();
+    //     List <GerenTitulos> titu = gerenTitulosRepository.findAllWithFilter(filtrar);
+    //     if(titu.isEmpty())
+    //         return this.gerenTitulosRepository.save(titulos);
+    //     else    
+    //         return tit;
+    // }
 
 
 

@@ -78,15 +78,52 @@ function editar2(id)
 
 }
 
-async function Cadastrar()
-{  
+// async function Cadastrar()
+// {  
 
-    var data = JSON.stringify(Object.fromEntries(new FormData(fdados)));
-    let response = await fetch("/apis/CadastrarNovosTitulos",{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST', body: data});
-    let userData = await response.text();
-    window.location.href = "cadtitulos.html";
-    return userData; 
-     
+//     var data = JSON.stringify(Object.fromEntries(new FormData(fdados)));
+//     let response = await fetch("/apis/CadastrarNovosTitulos",{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST', body: data});
+//     let userData = await response.text();
+//     window.location.href = "cadtitulos.html";
+//     return userData; 
+// }
+function Cadastrar() {
+    const URL = "/apis/CadastrarNovosTitulos";
+    var fdados = document.getElementById("fdados");
+    var jsontext = JSON.stringify(Object.fromEntries(
+        new FormData(fdados)));
+    
+    let titulo = document.getElementById("titulo").value;
+
+    console.log(titulo);
+
+
+    if(titulo=="")
+        alert("O campo título deve ser informado!!");
+    // else
+    // if(texto=="")
+    //     alert("O campo do texto da piada precisa ser informado");
+    // else
+    // if(keywords=="")
+    //     alert("O campos do keywords deve ser informado!");
+    else
+        fetch(URL, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: 'POST', body: jsontext
+        })
+            .then(function (response) {
+                return response.text();
+            })
+            .then(function (text) {
+                alert("Titulo cadastrado!!!!!");
+                titulo="";
+            }).catch(function (error) {
+                console.error(error);
+            });
+        
 }
 
 function excluir(id)
