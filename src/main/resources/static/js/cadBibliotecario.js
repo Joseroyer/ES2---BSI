@@ -164,11 +164,13 @@ function gravarUsuario() {
     })
         .then(function (response) {
             if (response.ok) {
+                document.getElementById("cpf_existente").style.display = "none";
                 document.getElementById("resultados_div").style.display = "none";
                 document.getElementById("cadastrado").style.display = "block";
                 return response.text();
             }
             else if (response.status == 406) {
+                document.getElementById("resultados_div").style.display = "none";
                 document.getElementById("cpf_existente").style.display = "block";
             }
         })
