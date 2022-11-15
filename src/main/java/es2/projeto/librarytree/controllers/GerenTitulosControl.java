@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import es2.projeto.librarytree.repositories.GerenTitulosRepository;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -46,6 +47,7 @@ public class GerenTitulosControl {
         Optional<Titulos> titulos = gerenTitulosRepository.findById(id.getId_livro());
         id.setId_livro(livro.get().getId_livro());
         id.Nome_titulo(livro.get().getNome_Livro());
+        id.setStatus(0);
         return this.gerenTitulosRepository.save(id);
     }
     
@@ -55,6 +57,7 @@ public class GerenTitulosControl {
         Optional<Titulos> titulos = gerenTitulosRepository.findById(Identificador.getId_livro());
         Identificador.setId_livro(livro.get().getId_livro());
         Identificador.Nome_titulo(Nome);
+        Identificador.setStatus(1);
         return this.gerenTitulosRepository.save(Identificador);
     }
 
