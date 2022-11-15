@@ -8,6 +8,14 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface GerenTitulosRepository extends JpaRepository <GerenTitulos, Long> {
+    @Query(value = "SELECT * FROM livro l WHERE l.livro_stt = 1", nativeQuery = true)
+    public List<GerenTitulos> find();
+
+    @Query(value = "SELECT * FROM livro l WHERE l.livro_stt = 1 AND UPPER(e.titulo_livro) LIKE %:filtrar%", nativeQuery = true)
+    public List<GerenTitulos> findAllWithFilter(@Param("filtrar") String filtrar);
+
+    @Query(value = "SELECT * FROM livro l WHERE l.id_livro = id", nativeQuery = true)
+    public List<GerenTitulos> findById(@Param("id")int id);
 
     
 }

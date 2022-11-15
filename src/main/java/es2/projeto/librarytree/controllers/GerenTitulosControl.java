@@ -29,7 +29,7 @@ public class GerenTitulosControl {
 
     @RequestMapping("/listar-titulos")
     public ResponseEntity <Object> todos(){
-        List <Titulos> titulos = gerenTitulosRepository.find();
+        List <GerenTitulos> titulos = gerenTitulosRepository.find();
         return new ResponseEntity<>(titulos,HttpStatus.OK);
     }
 
@@ -37,14 +37,14 @@ public class GerenTitulosControl {
     public ResponseEntity<Object> buscarFiltro(@RequestParam(value="filtro")String filtro)
     {
         String filtrar = filtro.toUpperCase();
-        List <Titulos> titulos = gerenTitulosRepository.findAllWithFilter(filtrar);
+        List <GerenTitulos> titulos = gerenTitulosRepository.findAllWithFilter(filtrar);
         return new ResponseEntity<>(titulos,HttpStatus.OK);
     }
     
     @RequestMapping("/excluir-titulo")
-    public Titulos exclutit(@RequestParam(value="id")Titulos id)
+    public GerenTitulos exclutit(@RequestParam(value="id")GerenTitulos id)
     {
-        Optional<Titulos> titulos = gerenTitulosRepository.findById(id.getId_livro());
+        Optional<GerenTitulos> titulos = gerenTitulosRepository.findById(id.getId_livro());
         id.setId_livro(livro.get().getId_livro());
         id.Nome_titulo(livro.get().getNome_Livro());
         id.setStatus(0);
@@ -52,9 +52,9 @@ public class GerenTitulosControl {
     }
     
     @RequestMapping("/editar-titulos-gerenciados")
-    public Titulos edittit(@RequestParam(value="Identificador") Titulos Identificador, @RequestParam(value="Nome")String Nome)
+    public GerenTitulos edittit(@RequestParam(value="Identificador") GerenTitulos Identificador, @RequestParam(value="Nome")String Nome)
     {
-        Optional<Titulos> titulos = gerenTitulosRepository.findById(Identificador.getId_livro());
+        Optional<GerenTitulos> titulos = gerenTitulosRepository.findById(Identificador.getId_livro());
         Identificador.setId_livro(livro.get().getId_livro());
         Identificador.Nome_titulo(Nome);
         Identificador.setStatus(1);
@@ -62,10 +62,10 @@ public class GerenTitulosControl {
     }
 
     @PostMapping("/CadastrarNovosTitulos")
-    public Titulos CadastrarNovosTitulos(@RequestBody Titulos titulos){
-        Titulos tit = new Titulos();
+    public GerenTitulos CadastrarNovosTitulos(@RequestBody GerenTitulos titulos){
+        GerenTitulos tit = new GerenTitulos();
         String filtrar = titulos.getNome_Livro().toUpperCase();
-        List <Titulos> titu = gerenTitulosRepository.findAllWithFilter(filtrar);
+        List <GerenTitulos> titu = gerenTitulosRepository.findAllWithFilter(filtrar);
         if(titu.isEmpty())
             return this.gerenTitulosRepository.save(titulos);
         else    
