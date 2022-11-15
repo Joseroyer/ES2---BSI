@@ -150,6 +150,15 @@ function esconder() {
     document.getElementById("resultado_senha").style.display = "none";
 }
 
+function limparForms() {
+    document.getElementById("nome").value = "";
+    document.getElementById("telefone").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("cpf").value = "";
+    document.getElementById("login").value = "";
+    document.getElementById("senha").value = "";
+}
+
 function gravarUsuario() {
     const URL = "/apis/saveBi";
     var fdados = document.getElementById("fdados");
@@ -167,6 +176,7 @@ function gravarUsuario() {
                 document.getElementById("cpf_existente").style.display = "none";
                 document.getElementById("resultados_div").style.display = "none";
                 document.getElementById("cadastrado").style.display = "block";
+                limparForms();
                 return response.text();
             }
             else if (response.status == 406) {

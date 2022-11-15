@@ -149,6 +149,14 @@ function esconder() {
     document.getElementById("resultado_user").style.display = "none";
     document.getElementById("resultado_senha").style.display = "none";
 }
+function limparForms() {
+    document.getElementById("nome").value = "";
+    document.getElementById("telefone").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("cpf").value = "";
+    document.getElementById("login").value = "";
+    document.getElementById("senha").value = "";
+}
 
 function gravarUsuario() {
     const URL = "/apis/saveCliente";
@@ -166,15 +174,16 @@ function gravarUsuario() {
             return response.text();
         })
         .then(function (text) {
-            document.getElementById("resultados_div").style.display="none";
-            document.getElementById("cadastrado").style.display="block";
-            setTimeout(function() {
+            document.getElementById("resultados_div").style.display = "none";
+            document.getElementById("cadastrado").style.display = "block";
+            limparForms();
+            setTimeout(function () {
                 window.location.href = "LoginUser.html";
             }, 5000);
         }).catch(function (error) {
             console.error(error);
         });
-event.preventDefault("fdados");
+    event.preventDefault("fdados");
 }
 
 
