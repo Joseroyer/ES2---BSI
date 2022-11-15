@@ -25,8 +25,12 @@ public class BibliotecarioControl {
     Singleton singleton;
     
     @PostMapping("/saveBi")
-    public Bibliotecario save(@RequestBody Bibliotecario bi) {
-        return singleton.saveBibliotecario(bi);
+    public ResponseEntity<Object> save(@RequestBody Bibliotecario bi) {
+        List<Bibliotecario> bil= singleton.findByCPF(bi.getCPF());
+        if(bil.isEmpty())
+            return new ResponseEntity<>(singleton.saveBibliotecario(bi),HttpStatus.OK);
+        else
+            return new ResponseEntity<>("CPF Existente",HttpStatus.NOT_ACCEPTABLE );
     }
 
     @RequestMapping("/listarusers")

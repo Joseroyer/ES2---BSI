@@ -106,6 +106,10 @@ public class Singleton {
 
     //Bibliotecario
 
+    public List<Bibliotecario> findByCPF(String cpf){
+        return bibliotecarioRepository.findByCPF(cpf);
+    }
+    
     public Bibliotecario saveBibliotecario(Bibliotecario bi){
         return bibliotecarioRepository.save(bi);
     }
