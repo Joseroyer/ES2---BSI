@@ -8,10 +8,10 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface GerenEditoraRepository extends JpaRepository<Editora, Long> {
-    @Query(value = "SELECT * FROM editora e WHERE e.status = 1", nativeQuery = true)
+    @Query(value = "SELECT * FROM editora e WHERE e.status = 1 ORDER BY id_editora ASC", nativeQuery = true)
     public List<Editora> find();
 
-    @Query(value = "SELECT * FROM editora e WHERE e.status = 1 AND UPPER(e.nome_editora) LIKE %:fil% OR UPPER(e.cidade_editora) LIKE %:fil%", nativeQuery = true)
+    @Query(value = "SELECT * FROM editora e WHERE e.status = 1 AND (UPPER(e.nome_editora) LIKE %:fil% OR UPPER(e.cidade_editora) LIKE %:fil%) ORDER BY id_editora ASC", nativeQuery = true)
     public List<Editora> findAllWithFilter(@Param("fil") String fil);
 
     @Query(value = "SELECT * FROM editora e WHERE e.id_editora = id", nativeQuery = true)

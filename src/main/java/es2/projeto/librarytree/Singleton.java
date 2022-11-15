@@ -85,14 +85,22 @@ public class Singleton {
 
     public Editora editarEditora(Editora Identificador, String Nome) 
     {
-        Optional<Editora> editora = editoraRepository.findById(Identificador.getId_editora());
-        Identificador.setId_editora(editora.get().getId_editora());
-        Identificador.setNome_editora(Nome);
-        Identificador.setStatus(1);
-        Identificador.setCidade_editora(editora.get().getCidade_editora());
-        Identificador.setEstado_editora(editora.get().getEstado_editora());
-
-        return this.editoraRepository.save(Identificador);
+        Editora editor = new Editora();
+        String fil = Identificador.getNome_editora().toUpperCase();
+        List<Editora> edit = editoraRepository.findAllWithFilter(fil);
+        if(edit.isEmpty())
+        {
+            Optional<Editora> editora = editoraRepository.findById(Identificador.getId_editora());
+            Identificador.setId_editora(editora.get().getId_editora());
+            Identificador.setNome_editora(Nome);
+            Identificador.setStatus(1);
+            Identificador.setCidade_editora(editora.get().getCidade_editora());
+            Identificador.setEstado_editora(editora.get().getEstado_editora());
+            return this.editoraRepository.save(Identificador);
+        }
+        else    
+            return editor;
+       
     }
 
     public Editora salvarEditora(Editora editora)
@@ -149,5 +157,28 @@ public class Singleton {
 
     public Cliente saveCliente(Cliente cli){
         return clienteRepository.save(cli);
+    }
+
+    public List<Bibliotecario> buscarTodosAdms() 
+    {
+        List <Bibliotecario> bibli = bibliotecarioRepository.findAllAdm();
+        
+        return bibli;
+    }
+
+    public Bibliotecario excluir(Bibliotecario id) {
+        Optional<Bibliotecario> bibli = bibliotecarioRepository.findById(id.getId());
+        id.setStatus(0);
+        id.setCPF(bibli.get().getCPF());
+        id.setData_admissao(bibli.get().getData_admissao());
+        id.setData_demissao(bibli.get().getData_demissao());
+        id.setEmail(bibli.get().getEmail());
+        id.setId(bibli.get().getId());
+        id.setLogin(bibli.get().getLogin());
+        id.setNivel(bibli.get().getNivel());
+        id.setNome(bibli.get().getNome());
+        id.setSenha(bibli.get().getSenha());
+        id.setTelefone(bibli.get().getTelefone());
+        return this.bibliotecarioRepository.save(id);
     }
 }

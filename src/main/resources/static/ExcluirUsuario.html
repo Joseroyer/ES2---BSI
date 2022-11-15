@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title id="title">Gerenciar Editoras</title>
+  <title id="title">Esclusão de Usuário</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -15,7 +15,7 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-  <script src="js/editora.js"></script>
+  <script src="js/Exclusao.js"></script>
   <script src="js/parametrizacao.js"></script>
   <script src="js/login.js"></script>
   
@@ -85,7 +85,7 @@
           <div class="main-search-input-wrap">
             <div class="main-search-input fl-wrap">
                 <div class="main-search-input-item">
-                    <input id="busca" type="text" placeholder="Pesquisar Editora...">
+                    <input id="busca" type="text" placeholder="Buscar usuário por nome">
                 </div>
                 
                                                 
@@ -99,46 +99,7 @@
         <table  class="table" style="text-align: center;  color: white;">
             <tbody id ="qlq"></tbody>
         </table>
-    </div>
-    <div class="modal" tabindex="-1" role="dialog" id="modal" style="display: none;">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Alterar Editora</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar" onclick="closeModal()">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="form-field">
-              <p>Novo nome da Editora:</p>
-              <input
-                id="novo_nome"
-                name="novo_nome"
-                type="text"
-                class="form-input"
-                required
-              />
-           </div>
-           <div class="form-field" style="margin-top:20px ;">
-            <p>Id da Editora:</p>
-            <input
-              id="identificador"
-              name="identificador"
-              type="text"
-              class="form-input"
-              placeholder="Identificador da editora"
-              disabled
-            />
-         </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeModal()">Cancelar</button>
-            <input type="submit" value="Alterar" class="btn btn-primary" onclick="editar2()">
-          </div>
-        </div>
-      </div>
-    </div>
+    </div> 
 
     <main id="main">
   
