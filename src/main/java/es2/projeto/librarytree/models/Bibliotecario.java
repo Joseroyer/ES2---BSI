@@ -1,14 +1,20 @@
 package es2.projeto.librarytree.models;
 
-import lombok.Data;
-
-import javax.persistence.*;
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
 
 @Data
 @Entity
 @Table(name = "bibliotecario")
-public class Bibliotecario  {
+public class Bibliotecario {
     @Id
     @Column(name = "bi_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,9 +54,8 @@ public class Bibliotecario  {
 
     }
 
-
     public Bibliotecario(Date data_admissao, Date data_demissao, String login, String senha, int status, int nivel,
-                         String nome, String cPF, String telefone, String email) {
+            String nome, String cPF, String telefone, String email) {
         this.data_admissao = data_admissao;
         this.data_demissao = data_demissao;
         this.login = login;
@@ -63,9 +68,8 @@ public class Bibliotecario  {
         this.email = email;
     }
 
-
     public Bibliotecario(Long id, Date data_admissao, Date data_demissao, String login, String senha, int status,
-                         int nivel, String nome, String cPF, String telefone, String email) {
+            int nivel, String nome, String cPF, String telefone, String email) {
         this.id = id;
         this.data_admissao = data_admissao;
         this.data_demissao = null;
@@ -79,7 +83,8 @@ public class Bibliotecario  {
         this.email = email;
     }
 
-    public Bibliotecario(Date data_admissao, String login, String senha, int status, int nivel, String nome, String CPF, String telefone, String email) {
+    public Bibliotecario(Date data_admissao, String login, String senha, int status, int nivel, String nome, String CPF,
+            String telefone, String email) {
         this.data_admissao = data_admissao;
         this.login = login;
         this.senha = senha;
@@ -90,14 +95,14 @@ public class Bibliotecario  {
         this.telefone = telefone;
         this.email = email;
     }
-    //    private  static  BibliotecarioRepository bibliotecarioRepository;
-//
-//    public Bibliotecario save(Bibliotecario bibliotecario){
-//        return bibliotecarioRepository.save(bibliotecario);
-//    }
-//
-//    public List <Bibliotecario> findFilterWith(String senha,String login){
-//        return bibliotecarioRepository.findFilterWith(senha, login);
-//    }
+    // private static BibliotecarioRepository bibliotecarioRepository;
+    //
+    // public Bibliotecario save(Bibliotecario bibliotecario){
+    // return bibliotecarioRepository.save(bibliotecario);
+    // }
+    //
+    // public List <Bibliotecario> findFilterWith(String senha,String login){
+    // return bibliotecarioRepository.findFilterWith(senha, login);
+    // }
 
 }
