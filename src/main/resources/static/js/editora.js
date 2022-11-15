@@ -1,3 +1,6 @@
+$('#meuModal').on('shown.bs.modal', function () {
+    $('#meuInput').trigger('focus')
+  })
 function CarregaLista()
 {
     var filtro = document.getElementById("busca").value
@@ -42,15 +45,17 @@ function CarregaLista()
 function editar(id)
 {
     // alert(id)
-    var input = `<td><input type="text" id="teste"><input type="submit" value="Alterar" onclick='editar2(${id})'></td>`;
-    document.getElementById("qlq").innerHTML+=input;
+    document.getElementById("modal").style.display = 'block'
+    document.getElementById("identificador").value = id;
+    //var input = `<th><input type="text" id="teste"><input type="submit" value="Alterar" onclick='editar2(${id})'></th>`;
+    //document.getElementById("qlq").innerHTML+=input;
    
 }
-function editar2(id)
+function editar2()
 {
-    var Identificador=id;
-    var Nome = document.getElementById("teste").value
-    
+    // var Identificador=id;
+    var Nome = document.getElementById("novo_nome").value
+    var Identificador = document.getElementById("identificador").value
     const URL_TO_FETCH = `/apis/editar?Identificador=${Identificador}&Nome=${Nome}`;
     fetch(URL_TO_FETCH,{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST'})
     .then(function (response) {
@@ -71,7 +76,6 @@ async function Cadastrar()
     var data = JSON.stringify(Object.fromEntries(new FormData(fdados)));
     let response = await fetch("/apis/cadEditora",{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST', body: data});
     let userData = await response.text();
-    window.location.href = "index.html";
     return userData; // não é necessário o await no return
      
 }
@@ -92,6 +96,11 @@ function excluir(id)
         });
     }
    
+}
+
+function closeModal()
+{
+    document.getElementById("modal").style.display = 'none'
 }
 
 function CarregaFiltro()
@@ -125,7 +134,7 @@ function CarregaFiltro()
                             table+=`<tr>
                             <td>${data[i].id_editora}</td>
                             <td>${data[i].nome_editora}</td>
-                            <td><img width="30px" src='img/change.png'></td>
+                            <td><img width="30px" src='img/change.png' onclick='editar(${data[i].id_editora})'></td>
                             <td><img width="30px" src='img/trash.png' onclick='excluir(${data[i].id_editora})'></td>
                             </tr>`;        
                     }

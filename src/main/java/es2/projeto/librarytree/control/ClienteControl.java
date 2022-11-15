@@ -2,7 +2,6 @@ package es2.projeto.librarytree.control;
 
 import es2.projeto.librarytree.Singleton;
 import es2.projeto.librarytree.models.Cliente;
-import es2.projeto.librarytree.repositories.ClienteRepository;
 import lombok.RequiredArgsConstructor;
 
 

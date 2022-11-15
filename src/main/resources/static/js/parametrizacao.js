@@ -168,3 +168,27 @@ function validarCNPJ() {
     return estilo;
     
 }
+
+function encodeImageFileAsURL() {
+                                
+                                    
+    var filesSelected = document.getElementById("logo").files;
+    if (filesSelected.length > 0) {
+      var fileToLoad = filesSelected[0];
+
+      var fileReader = new FileReader();
+
+      fileReader.onload = function(fileLoadedEvent) {
+        var srcData = fileLoadedEvent.target.result; // <--- data: base64
+
+        var newImage = document.createElement('img');
+        newImage.src = srcData;
+        
+        //document.getElementById("imgTest").value = newImage.outerHTML;
+        document.getElementById("imagem").value = newImage.outerHTML;
+        
+        // alert(document.getElementById("imgTest").value);
+      }
+      fileReader.readAsDataURL(fileToLoad);
+    }
+  }

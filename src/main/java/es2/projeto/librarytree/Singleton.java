@@ -89,6 +89,9 @@ public class Singleton {
         Identificador.setId_editora(editora.get().getId_editora());
         Identificador.setNome_editora(Nome);
         Identificador.setStatus(1);
+        Identificador.setCidade_editora(editora.get().getCidade_editora());
+        Identificador.setEstado_editora(editora.get().getEstado_editora());
+
         return this.editoraRepository.save(Identificador);
     }
 

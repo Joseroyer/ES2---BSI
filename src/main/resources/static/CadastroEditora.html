@@ -64,6 +64,7 @@
                 <li><a href="parametrizacao.html">Alterar Parametrização</a></li>
                 <li><a href="CadastroEditora.html">Cadastro de Editora</a></li>
                 <li><a href="Editora.html">Gerenciar Editora</a></li>
+                <li><a href="Aprovacao.html">Aprovar Solicitações</a></li>
               </ul>
             </li>
 
@@ -96,9 +97,7 @@
               <form id="fdados" class="form form-login">
                 
                 <div class="form-field">
-                  <label class="user" for="login-username"
-                    ><span class="hidden"></span></label
-                  >
+                  
                   <input
                     id="nome_editora"
                     name="nome_editora"
@@ -107,6 +106,8 @@
                     placeholder="Nome Editora"
                     required
                   />
+                  
+                  
                   <input
                     id="status"
                     name="status"
@@ -114,8 +115,26 @@
                     value=1
                     style="display: none"/>
                 </div>
-
-               
+                <div class="form-field">
+                  <input
+                      id="cidade_editora"
+                      name="cidade_editora"
+                      type="text"
+                      class="form-input"
+                      placeholder="Cidade da editora"
+                      required
+                    />
+                </div>
+                <div class="form-field">
+                  <input
+                    id="estado_editora"
+                    name="estado_editora"
+                    type="text"
+                    class="form-input"
+                    placeholder="Estado da editora"
+                    required
+                  />
+               </div>
 
                 <div class="form-field">
                   <input id="btn" type="submit" value="Cadastrar" onclick="Cadastrar()" />

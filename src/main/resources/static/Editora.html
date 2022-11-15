@@ -64,6 +64,7 @@
                 <li><a href="parametrizacao.html">Alterar Parametrização</a></li>
                 <li><a href="CadastroEditora.html">Cadastro de Editora</a></li>
                 <li><a href="Editora.html">Gerenciar Editora</a></li>
+                <li><a href="Aprovacao.html">Aprovar Solicitações</a></li>
               </ul>
             </li>
 
@@ -97,7 +98,46 @@
         <table  class="table" style="text-align: center;  color: white;">
             <tbody id ="qlq"></tbody>
         </table>
-    </div> 
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="modal" style="display: none;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Alterar Editora</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar" onclick="closeModal()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-field">
+              <p>Novo nome da Editora:</p>
+              <input
+                id="novo_nome"
+                name="novo_nome"
+                type="text"
+                class="form-input"
+                required
+              />
+           </div>
+           <div class="form-field" style="margin-top:20px ;">
+            <p>Id da Editora:</p>
+            <input
+              id="identificador"
+              name="identificador"
+              type="text"
+              class="form-input"
+              placeholder="Identificador da editora"
+              disabled
+            />
+         </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeModal()">Cancelar</button>
+            <input type="submit" value="Alterar" class="btn btn-primary" onclick="editar2()">
+          </div>
+        </div>
+      </div>
+    </div>
 
     <main id="main">
   

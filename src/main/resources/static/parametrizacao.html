@@ -57,6 +57,9 @@
                 <li><a href="devoluçao.html">Devolução de Exemplar</a></li>
                 <li><a href="#">Cadastro de Usuário</a></li>
                 <li><a href="parametrizacao.html">Alterar Parametrização</a></li>
+                <li><a href="CadastroEditora.html">Cadastro de Editora</a></li>
+                <li><a href="Editora.html">Gerenciar Editora</a></li>
+                <li><a href="Aprovacao.html">Aprovar Solicitações</a></li>
               </ul>
             </li>
             
@@ -105,31 +108,9 @@
                                                             
                                 </div>
                                
-                                <script type='text/javascript'>
-                                  function encodeImageFileAsURL() {
-                                
-                                    
-                                    var filesSelected = document.getElementById("logo").files;
-                                    if (filesSelected.length > 0) {
-                                      var fileToLoad = filesSelected[0];
-                                
-                                      var fileReader = new FileReader();
-                                
-                                      fileReader.onload = function(fileLoadedEvent) {
-                                        var srcData = fileLoadedEvent.target.result; // <--- data: base64
-                                
-                                        var newImage = document.createElement('img');
-                                        newImage.src = srcData;
-                                        
-                                        //document.getElementById("imgTest").value = newImage.outerHTML;
-                                        document.getElementById("imagem").value = newImage.outerHTML;
-                                        
-                                        // alert(document.getElementById("imgTest").value);
-                                      }
-                                      fileReader.readAsDataURL(fileToLoad);
-                                    }
-                                  }
-                                </script>
+                                <!-- <script type='text/javascript'>
+                                  
+                                </script> -->
                                 <div class="form-button mt-3">
                                     <input type="submit" class="btn btn-primary" onclick="gravarParametrizacao()"></button>
                                 </div>

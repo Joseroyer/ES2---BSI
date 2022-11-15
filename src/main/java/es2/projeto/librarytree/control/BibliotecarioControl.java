@@ -1,7 +1,6 @@
 package es2.projeto.librarytree.control;
 import es2.projeto.librarytree.Singleton;
 import es2.projeto.librarytree.models.Bibliotecario;
-import es2.projeto.librarytree.repositories.BibliotecarioRepository;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
@@ -19,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/apis")
 public class BibliotecarioControl {
     
-    private final BibliotecarioRepository bibliotecarioRepository;
 
     @Autowired
     Singleton singleton;
