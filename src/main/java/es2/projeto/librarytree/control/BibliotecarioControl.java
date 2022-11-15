@@ -26,7 +26,7 @@ public class BibliotecarioControl {
     
     @PostMapping("/saveBi")
     public Bibliotecario save(@RequestBody Bibliotecario bi) {
-        return bibliotecarioRepository.save(bi);
+        return singleton.saveBibliotecario(bi);
     }
 
     @RequestMapping("/listarusers")
