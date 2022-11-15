@@ -111,7 +111,7 @@ function validarCPF() {
 
 function validarTelefone() {
     let telefone = document.getElementById("telefone");
-    if (telefone.value.length == "" || telefone.value.length < 1) {
+    if (telefone.value == "" || telefone.value.length < 2) {
         telefone.display.border = "solid 2px #00B9BC";
         telefone.value = "";
         document.getElementById("resultado_telefone").style.display = "block";
@@ -150,131 +150,6 @@ function esconder() {
     document.getElementById("resultado_senha").style.display = "none";
 }
 
-function verifica() {
-
-    if (!validarNome()) {
-        document.getElementById("resultado_nome").style.display = "block";
-        return false;
-    }
-
-    if (!validarTelefone()) {
-        document.getElementById("resultado_telefone").style.display = "block";
-        return false;
-
-    }
-
-    if (!validarEmail()) {
-        document.getElementById("resultado_email").style.display = "block";
-        return false;
-
-    }
-
-    if (!validarUser()) {
-        document.getElementById("resultado_user").style.display = "block";
-        return false;
-
-    }
-
-    if (!validarSenha()) {
-        document.getElementById("resultado_senha").style.display = "block";
-        return false;
-    }
-    return true;
-}
-
-//Nome, Email, nome, Senha
-function gravarUsuario1() {
-    event.preventDefault("fdados");
-    const URL = "/apis/saveCliente";
-    var fdados = document.getElementById("fdados");
-    var jsontext = JSON.stringify(Object.fromEntries(
-        new FormData(fdados)));
-    let nome = document.getElementById("nome").value;
-    let celular = document.getElementById("telefone").value;
-    let email = document.getElementById("email").value;
-    let cpf = document.getElementById("CPF").value;
-    let senha = document.getElementById("senha").value;
-    let user = document.getElementById("user").value;
-
-    //arrumar o if
-    // if (nome == "")
-    //     document.getElementById("nome").style.display = "block";
-    // else if (celular == "")
-    //     document.getElementById("telefone").style.display = "block";
-    // else if (email == "")
-    //     document.getElementById("email").style.display = "block";
-    // else if (cpf == "")
-    //     document.getElementById("CPF").style.display = "block"
-    // else if (user == "")
-    //     document.getElementById("senha").style.display = "block";
-    // else if (senha == "")
-    //     document.getElementById("user").style.display = "block";
-    // else {
-        fetch(URL, {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            method: 'POST', body: jsontext
-        })
-            .then(function (response) {
-                if (response.ok)
-                    return response.text();
-                else throw Error("Error ao fazer login")
-            })
-            .then(function (text) {
-                document.getElementById("cadastrado").style.display = "block";
-                setTimeout(function () {
-                    esconder();
-                }, 5000);
-                fdados.reset();
-            }).catch(function (error) {
-                alert(error);
-                console.error(error);
-            });
-    
-}
-
-async function gravarPiada() {
-    let nome = document.getElementById("nome").value;
-    let celular = document.getElementById("telefone").value;
-    let email = document.getElementById("email").value;
-    let cpf = document.getElementById("CPF").value;
-    let senha = document.getElementById("senha").value;
-    let user = document.getElementById("user").value;
-    console.log(cpf);
-
-    var data = JSON.stringify(Object.fromEntries(new FormData(fdados)));
-    if (nome == "")
-        document.getElementById("nome").style.display = "block";
-    else if (celular == "")
-        document.getElementById("telefone").style.display = "block";
-    else if (email == "")
-        document.getElementById("email").style.display = "block";
-    else if (cpf == "")
-        document.getElementById("CPF").style.display = "block"
-    else if (user == "")
-        document.getElementById("senha").style.display = "block";
-    else if (senha == "")
-        document.getElementById("user").style.display = "block";
-    else {
-        let response = await fetch("/apis/saveCliente", {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }, method: 'POST', body: data
-        });
-
-        let userData = await response.text();
-        setTimeout(function () {
-            document.getElementById("cadastrado").style.display = "block";
-            window.location.href = "LoginUser.html"
-        }, 3000);
-        return userData;
-    }
-
-}
-
 function gravarUsuario() {
     const URL = "/apis/saveCliente";
     var fdados = document.getElementById("fdados");
@@ -295,7 +170,7 @@ function gravarUsuario() {
             document.getElementById("cadastrado").style.display="block";
             setTimeout(function() {
                 window.location.href = "LoginUser.html";
-            }, 4000);
+            }, 5000);
         }).catch(function (error) {
             console.error(error);
         });
