@@ -40,11 +40,29 @@ public class BibliotecarioControl {
 
     }
 
+    @RequestMapping("/listaradm")
+    public ResponseEntity <Object> buscarAdm()
+    {   
+        List<Bibliotecario> bibli = singleton.buscarTodosAdms();
+        
+        return new ResponseEntity<>(bibli,HttpStatus.OK);
+
+    }
+
     @RequestMapping("/aprovarBibli")
     public Bibliotecario aprovar(Bibliotecario id)
     {   
         Bibliotecario bibli = new Bibliotecario();
         bibli = singleton.aprovar(id);
+        return bibli;
+
+    }
+
+    @RequestMapping("/excluirAdm")
+    public Bibliotecario excluir(Bibliotecario id)
+    {   
+        Bibliotecario bibli = new Bibliotecario();
+        bibli = singleton.excluir(id);
         return bibli;
 
     }
