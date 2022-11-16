@@ -39,7 +39,7 @@ public class GerenTitulos {
         this.titulo_livro = titulo_livro;
         this.quantidade = quantidade;
        
-        this.livrostt = livrostt;
+        this.livrostt = 1;
     }
 
     public long getId_livro() {
