@@ -1,3 +1,29 @@
+function editar(id) {
+    // alert(id)
+    document.getElementById("modal").style.display = 'block'
+    document.getElementById("identificador").value = id;
+    //var input = `<th><input type="text" id="teste"><input type="submit" value="Alterar" onclick='editar2(${id})'></th>`;
+    //document.getElementById("qlq").innerHTML+=input;
+
+}
+function editar2() {
+    // var Identificador=id;
+    var Nome = document.getElementById("novo_nome").value
+    var Identificador = document.getElementById("identificador").value
+    const URL_TO_FETCH = `/apis/editar?Identificador=${Identificador}&Nome=${Nome}`;
+    fetch(URL_TO_FETCH, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, method: 'POST' })
+        .then(function (response) {
+
+            return response.json();
+        })
+        .then(function (text) {
+            window.location.href = "editora.html";
+        })
+        .catch(function (err) {
+            console.log('error: ' + err);
+        });
+
+}
 function CarregaLista()
 {
     const URL_TO_FETCH = '/apis/listaradm';
@@ -19,12 +45,13 @@ function CarregaLista()
                 function appendData(data) {
 
                     var table="";
-                    table+=`<tr><th>Identificador</th><th>Nome do usuário</th><th>Excluir</th></tr>`
+                    table +=`<tr><th>Identificador</th><th>Nome do usuário</th><th>Editar</th><th>Excluir</th></tr>`
                     for (let i=0;i<data.length;i++)
                     {
                             table+=`<tr>
                             <td>${data[i].id}</td>
                             <td>${data[i].nome}</td>
+                            <td><img width="30px" src='img/change.png' onclick='editar(${data[i].id})'></td>
                             <td><img width="30px" src='img/trash.png' onclick='excluir(${data[i].id})'></td>
                             </tr>`;        
                     }
