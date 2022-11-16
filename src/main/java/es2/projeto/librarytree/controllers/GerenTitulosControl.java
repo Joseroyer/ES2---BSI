@@ -19,6 +19,7 @@ import org.springframework.http.HttpRange;
 @RestController
 @RequestMapping("/apis")
 public class GerenTitulosControl {
+
     @Autowired
     GerenTitulosRepository gerenTitulosRepository;
 
@@ -57,17 +58,24 @@ public class GerenTitulosControl {
     }
 
     @PostMapping("/CadastrarNovosTitulos")
-    public GerenTitulos CadastrarNovoTitulo(@RequestBody GerenTitulos titulos){
+    public GerenTitulos CadastrarNovoTitulo(@RequestBody GerenTitulos livro){
         GerenTitulos tit = new GerenTitulos();
-        String filtrar = titulos.getTitulo_livro().toUpperCase();
+        String filtrar = livro.getTitulo_livro().toUpperCase();
         List <GerenTitulos> titu = gerenTitulosRepository.findAllWithFilter(filtrar);
         if(titu.isEmpty())
-            return this.gerenTitulosRepository.save(titulos);
+            return this.gerenTitulosRepository.save(livro);
         else    
             return tit;
-            
-
     }
+
+    // @PostMapping("/CadastrarNovosTitulos")
+    // public GerenTitulos createTitulo(@RequestBody GerenTitulos titulo) {
+    //     titulo.setTitulo_livro(titulo.getTitulo_livro().toLowerCase());
+    //     return this.gerenTitulosRepository.save(titulo);
+    // }
+
+
+
 
     // @PostMapping("/cadEditora")
     // public Editora cadEditora(@RequestBody Editora editora)

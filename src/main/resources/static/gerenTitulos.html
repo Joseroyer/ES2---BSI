@@ -89,14 +89,13 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
       <div class="login-box">
-        <form id="fdados">
+        <form>
           <h2>Buscando algo ?</h2>
-          
             <div class="user-box">
               <input type="text" name="" required="" id="buscartitulo" placeholder="Digite um título">
               <label></label>
             </div>
-                  <input id="buscar" type="button" value="Procurar" onclick="pesquisar()">
+                  <input id="buscar" type="button" value="Procurar" onclick="CarregaFiltro()">
                       <span></span>
                       <span></span>
                       <span></span>
@@ -104,10 +103,7 @@
           </form>
         </div>    
     </section> 
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>    
+   
     <div style="width: 70%; max-height: 400px; align-content: center; margin: 0 auto; margin-top: -25px;">
       <table  class="table" style="text-align: center;  color: white;">
           <tbody id ="tab"></tbody>
