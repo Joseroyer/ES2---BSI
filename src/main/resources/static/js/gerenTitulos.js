@@ -86,7 +86,7 @@ function Cadastrar() {
     var jsontext = JSON.stringify(Object.fromEntries(
         new FormData(fdados)));
     
-    let titulo = document.getElementById("tit").value;
+    let titulo = document.getElementById("titulo_livro").value;
 
     console.log(titulo);
 
@@ -101,12 +101,13 @@ function Cadastrar() {
             method: 'POST', body: jsontext
         })
             .then(function (response) {
-                return response.text();
+                if(response.ok){
+                    alert("Cadastrado");
+                    return response.text();
+                }
+                else throw Error;
             })
-            .then(function (text) {
-                alert("Titulo cadastrado!!!!!");
-                titulo="";
-            }).catch(function (error) {
+            .catch(function (error) {
                 console.error(error);
             });
         

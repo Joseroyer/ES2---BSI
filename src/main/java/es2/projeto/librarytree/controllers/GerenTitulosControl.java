@@ -23,9 +23,10 @@ public class GerenTitulosControl {
     @Autowired
     GerenTitulosRepository gerenTitulosRepository;
 
-    @RequestMapping("/listar-titulos")//lista todos 
+
+    @GetMapping("/listar-titulos")//lista todos 
     public ResponseEntity <Object> todos(){
-        List <GerenTitulos> titulos = gerenTitulosRepository.find();
+        List <GerenTitulos> titulos = gerenTitulosRepository.findAll();
         return new ResponseEntity<>(titulos,HttpStatus.OK);
     }
 
@@ -58,14 +59,9 @@ public class GerenTitulosControl {
     }
 
     @PostMapping("/CadastrarNovosTitulos")
-    public GerenTitulos CadastrarNovoTitulo(@RequestBody GerenTitulos livro){
-        GerenTitulos tit = new GerenTitulos();
-        String filtrar = livro.getTitulo_livro().toUpperCase();
-        List <GerenTitulos> titu = gerenTitulosRepository.findAllWithFilter(filtrar);
-        if(titu.isEmpty())
-            return this.gerenTitulosRepository.save(livro);
-        else    
-            return tit;
+    public ResponseEntity<Object> CadastrarNovoTitulo(@RequestBody GerenTitulos livro){
+        // List <GerenTitulos> livros = livros.setTitulo_livro(livro.getTitulo_livro());
+      return new ResponseEntity<>(gerenTitulosRepository.save(livro),HttpStatus.OK);
     }
 
     // @PostMapping("/CadastrarNovosTitulos")
