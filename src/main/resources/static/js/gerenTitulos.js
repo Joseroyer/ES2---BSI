@@ -51,6 +51,8 @@ function CarregaLista()
         )
     .catch(err=> console.error(err));
 }
+
+
 function editar(id)
 {
    
@@ -143,6 +145,7 @@ function excluir(id)
     }
    
 }
+
 
 function CarregaFiltro()
 {
