@@ -1,11 +1,9 @@
 package es2.projeto.librarytree.control;
 
-import es2.projeto.librarytree.models.Bibliotecario;
-import es2.projeto.librarytree.models.Cliente;
-import es2.projeto.librarytree.repositories.BibliotecarioRepository;
-import es2.projeto.librarytree.repositories.ClienteRepository;
-import es2.projeto.librarytree.security.JWTTokenProvider;
-import lombok.RequiredArgsConstructor;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,8 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.List;
+import es2.projeto.librarytree.models.Bibliotecario;
+import es2.projeto.librarytree.models.Cliente;
+import es2.projeto.librarytree.repositories.BibliotecarioRepository;
+import es2.projeto.librarytree.repositories.ClienteRepository;
+import es2.projeto.librarytree.security.JWTTokenProvider;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
@@ -23,8 +25,8 @@ import java.util.List;
 public class LoginControl {
     private final BibliotecarioRepository bibliotecarioRepository;
     private final ClienteRepository clienteRepository;
-//    private final Cliente cliente;
-//    private final Bibliotecario bibliotecario;
+    // private final Cliente cliente;
+    // private final Bibliotecario bibliotecario;
 
     @Autowired
     HttpServletRequest request;
@@ -40,20 +42,25 @@ public class LoginControl {
 
     @PostMapping("/autenticar")
     public ResponseEntity<Object> autenticar1(String login, String senha, boolean adm) {
-        int i = 0, pos = 0;
+        int i = 0, pos = 0, posicao = 0;
         String token = "";
         if (adm == true) {
             List<Bibliotecario> user = bibliotecarioRepository.findFilterWith(senha, login);
-            for (i = 0; i < user.size() && pos!=1; i++)
-            {    if (senha.equals(user.get(i).getSenha()) && login.equals(user.get(i).getLogin()) && user.get(i).getStatus() == 1)
+            for (i = 0; i < user.size() && pos != 1; i++) {
+                if (senha.equals(user.get(i).getSenha()) && login.equals(user.get(i).getLogin()) && user.get(i).getStatus() == 1) {
                     pos = 1;
+                    posicao = i;
+                }
             }
             if (pos == 1) {
                 token = JWTTokenProvider.getToken(senha, "ADM");
                 System.out.println(token);
                 return new ResponseEntity<>(token, HttpStatus.OK);
-            } else
-                return new ResponseEntity<>("Não ativo", HttpStatus.NOT_ACCEPTABLE);
+            } else if (user.get(pos).getStatus() == 0)
+                return new ResponseEntity<>("Nao ativo", HttpStatus.NOT_ACCEPTABLE);
+            else
+                return new ResponseEntity<>("Erro", HttpStatus.NOT_ACCEPTABLE);
+
         } else {
             List<Cliente> user = clienteRepository.findAllWithFilter(senha, login);
             for (i = 0; i < user.size(); i++)
