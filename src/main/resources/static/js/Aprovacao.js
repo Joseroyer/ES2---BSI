@@ -37,8 +37,9 @@ function CarregaLista()
 
 function editar(id)
 {
-    alert(id)
-    fetch("/apis/aprovarBibli?id="+id)
+    if(window.confirm("Deseja realmente aprovar o Administrador"))
+    {
+        fetch("/apis/aprovarBibli?id="+id)
         .then(function (response) {
             return response.json();
         })
@@ -48,6 +49,7 @@ function editar(id)
         .catch(function (err) {
             console.log('error: ' + err);
         });
+    }
 }
 // function CarregaFiltro()
 // {

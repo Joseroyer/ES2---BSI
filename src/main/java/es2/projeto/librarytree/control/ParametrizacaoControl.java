@@ -4,6 +4,8 @@ package es2.projeto.librarytree.control;
 import es2.projeto.librarytree.Singleton;
 import es2.projeto.librarytree.models.Parametrizacao;
 import es2.projeto.librarytree.repositories.ParametrizacaoRepository;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -45,7 +47,7 @@ public class ParametrizacaoControl {
 
     
     
-    @PostMapping(value="/salvar")
+    @RequestMapping(value="/salvar")
     public void Salvar(@RequestBody Parametrizacao parametrizacao) {
         singleton.SalvarParam(parametrizacao);
     }

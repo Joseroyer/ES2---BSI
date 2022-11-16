@@ -65,7 +65,6 @@ function verificar()
 async function gravarParametrizacao()
 {  
 
-    
     var data = JSON.stringify(Object.fromEntries(new FormData(fdados)));
     var response = await fetch("/apis/salvar",{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST', body: data});
     var userData = await response.text();
