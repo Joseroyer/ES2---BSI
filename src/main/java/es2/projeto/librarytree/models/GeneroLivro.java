@@ -11,7 +11,7 @@ import javax.persistence.Table;
 public class GeneroLivro {
     @Id
     @Column(name="id_genero")
-    private String idgenero;
+    private Long idgenero;
 
     @Column(name = "tipo_genero")
     private String tpgenero;
@@ -19,16 +19,16 @@ public class GeneroLivro {
     public GeneroLivro() {
     }
 
-    public GeneroLivro(String idgenero, String tpgenero) {
+    public GeneroLivro(Long idgenero, String tpgenero) {
         this.idgenero = idgenero;
         this.tpgenero = tpgenero;
     }
 
-    public String getIdgenero() {
+    public Long getIdgenero() {
         return idgenero;
     }
 
-    public void setIdgenero(String idgenero) {
+    public void setIdgenero(Long idgenero) {
         this.idgenero = idgenero;
     }
 
@@ -40,6 +40,7 @@ public class GeneroLivro {
         this.tpgenero = tpgenero;
     }
 
+    
     
 
 

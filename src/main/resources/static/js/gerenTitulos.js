@@ -60,58 +60,74 @@ function editar(id)
     document.getElementById("tab").innerHTML+=input;
    
 }
-function editar2(id)
-{
-    var Identificador=id;
-    var Nome = document.getElementById("edt").value
+// function editar2(id)
+// {
+//     var Identificador=id;
+//     var Nome = document.getElementById("edt").value
     
-    const URL_TO_FETCH = `/apis/editar-titulos-gerenciados?Identificador=${Identificador}&Nome=${Nome}`;
-    fetch(URL_TO_FETCH,{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST'})
-    .then(function (response) {
+//     const URL_TO_FETCH = `/apis/editar-titulos-gerenciados?Identificador=${Identificador}&Nome=${Nome}`;
+//     fetch(URL_TO_FETCH,{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST'})
+//     .then(function (response) {
       
-        return response.json();
-    })
-    .then(function (text) {
-        window.location.href = "gerentitulos.html";
-    })
-    .catch(function (err) {
-        console.log('error: ' + err);
-    });
+//         return response.json();
+//     })
+//     .then(function (text) {
+//         window.location.href = "gerentitulos.html";
+//     })
+//     .catch(function (err) {
+//         console.log('error: ' + err);
+//     });
 
-}
+// }
 
-function Cadastrar() {
-    const URL = "/apis/CadastrarNovosTitulos";
-    var fdados = document.getElementById("fdados");
-    var jsontext = JSON.stringify(Object.fromEntries(
-        new FormData(fdados)));
+// function Cadastrar() {
+//     const URL = "/apis/CadastrarNovosTitulos";
+//     var fdados = document.getElementById("fdados");
+//     var jsontext = JSON.stringify(Object.fromEntries(
+//         new FormData(fdados)));
     
-    let titulo = document.getElementById("titulo_livro").value;
+//     let titulo = document.getElementById("titulo_livro").value;
 
-    console.log(titulo);
+//     console.log(titulo);
+//     // if(titulo=="")
+//     //     alert("O campo título deve ser informado!!");
+//     // else
+//         fetch(URL, {
+//             headers: {
+//                 'Accept': 'application/json',
+//                 'Content-Type': 'application/json'
+//             },
+//             method: 'POST', body: jsontext
+//         })
+//             .then(function (response) {
+//                 if(response.ok){
+//                     alert("Cadastrado");
+//                     return response.text();
+//                 }
+//                 else throw Error;
+//             })
+//             .catch(function (error) {
+//                 console.error(error);
+//             });
+//         event.preventDefault("fdados");
+// }
 
-    if(titulo=="")
-        alert("O campo título deve ser informado!!");
-    else
-        fetch(URL, {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            method: 'POST', body: jsontext
-        })
-            .then(function (response) {
-                if(response.ok){
-                    alert("Cadastrado");
-                    return response.text();
-                }
-                else throw Error;
-            })
-            .catch(function (error) {
-                console.error(error);
-            });
-        
+async function Cadastrar()
+{
+
+    var data = JSON.stringify(Object.fromEntries(new FormData(fdados)));
+    var response = await fetch("/apis/CadastrarNovosTitulos",{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST', body: data});
+    var userData = await response.text();
+    return userData;
+ 
+
 }
+
+
+
+
+
+
 
 function excluir(id)
 {

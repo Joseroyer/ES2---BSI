@@ -23,22 +23,22 @@ public class GerenTitulos {
     @Column(name="quantidade")
     private int quantidade;
 
-    @OneToOne
-    @JoinColumn(name = "generos_id_genero", nullable = false)
-    private GeneroLivro generos_id_genero_fk;
+    // @ManyToOne
+    // @JoinColumn(name = "generos_id_genero", nullable = false)
+    // private GeneroLivro generos_id_genero_fk;
 
     @Column(name="livro_stt")
     private int livrostt;
 
     public GerenTitulos() {
     }
-
+    // this.generos_id_genero_fk = generos_id_genero_fk;
     public GerenTitulos(long id_livro, String titulo_livro, int quantidade, GeneroLivro generos_id_genero_fk,
             int livrostt) {
         this.id_livro = id_livro;
         this.titulo_livro = titulo_livro;
         this.quantidade = quantidade;
-        this.generos_id_genero_fk = generos_id_genero_fk;
+       
         this.livrostt = livrostt;
     }
 
@@ -66,13 +66,13 @@ public class GerenTitulos {
         this.quantidade = quantidade;
     }
 
-    public GeneroLivro getGeneros_id_genero_fk() {
-        return generos_id_genero_fk;
-    }
+    // public GeneroLivro getGeneros_id_genero_fk() {
+    //     return generos_id_genero_fk;
+    // }
 
-    public void setGeneros_id_genero_fk(GeneroLivro generos_id_genero_fk) {
-        this.generos_id_genero_fk = generos_id_genero_fk;
-    }
+    // public void setGeneros_id_genero_fk(GeneroLivro generos_id_genero_fk) {
+    //     this.generos_id_genero_fk = generos_id_genero_fk;
+    // }
 
     public int getLivrostt() {
         return livrostt;
