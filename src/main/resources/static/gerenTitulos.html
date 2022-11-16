@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -30,7 +32,8 @@
   <link href="css/stylegerenTitulo.css" rel="stylesheet">
 
   <!-- SCRIPT -->
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
 
   <!-- =======================================================
   * Template Name: Arsha - v4.9.1
@@ -55,7 +58,7 @@
             <li><a class="nav-link scrollto active" href=".">Home</a></li>
             <li><a class="nav-link scrollto" href="">Consultar Acervo</a></li>
             <li><a class="nav-link scrollto" href="">Realizar Empréstimos</a></li>
-            <li><a class="nav-link scrollto"  id="emprestimo" href="CadastrarTitulo.html">Cadastrar um título</a></li>
+            <li><a class="nav-link scrollto"  id="emprestimo" href="cadTitulos.html">Cadastrar um título</a></li>
             <li class="dropdown"><a href="#"><span>Área do Funcionário</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
                 <li><a href="#">Cadastrar Exemplares</a></li>
@@ -85,17 +88,34 @@
   
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
-        <form id="content">
-            <input type="text" name="input" class="input" id="search-input">
-            <button type="reset" class="search" id="search-btn" onclick="CarregaFiltro()"></button>
-        </form>
-    </section>
+      <div class="login-box">
+        <form id="fdados">
+          <h2>Buscando algo ?</h2>
+          
+            <div class="user-box">
+              <input type="text" name="" required="" id="buscartitulo" placeholder="Digite um título">
+              <label></label>
+            </div>
+            <!-- <div class="user-box">
+              <input type="password" name="" required="">
+              <label>Password</label>
+            </div> -->
+                  <input id="buscar" type="button" value="Procurar" onclick="CarregaFiltro()">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <!-- Cadastrar
+                      </a> -->
+          </form>
+        </div>    
+    </section>     
     <div style="width: 70%; max-height: 400px; align-content: center; margin: 0 auto; margin-top: -25px;">
       <table  class="table" style="text-align: center;  color: white;">
           <tbody id ="tab"></tbody>
       </table>
   </div> 
-    
+ 
     
     
     <!-- End Hero -->

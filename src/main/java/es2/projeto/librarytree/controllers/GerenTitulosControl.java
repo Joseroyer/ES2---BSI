@@ -56,25 +56,30 @@ public class GerenTitulosControl {
         return this.gerenTitulosRepository.save(Identificador);
     }
 
-
-
     @PostMapping("/CadastrarNovosTitulos")
-    public GerenTitulos createTitulos(@RequestBody GerenTitulos titulos) {
+    public GerenTitulos CadastrarNovoTitulo(@RequestBody GerenTitulos titulos){
+        GerenTitulos tit = new GerenTitulos();
+        String filtrar = titulos.getTitulo_livro().toUpperCase();
+        List <GerenTitulos> titu = gerenTitulosRepository.findAllWithFilter(filtrar);
+        if(titu.isEmpty())
+            return this.gerenTitulosRepository.save(titulos);
+        else    
+            return tit;
+            
 
-        titulos.setTitulo_livro(titulos.getTitulo_livro().toLowerCase());
-        return this.gerenTitulosRepository.save(titulos);
     }
-    // @PostMapping("/CadastrarNovosTitulos")
-    // public GerenTitulos CadastrarNovosTitulos(@RequestBody GerenTitulos titulos){
-    //     GerenTitulos tit = new GerenTitulos();
-    //     String filtrar = titulos.getTitulo_livro().toUpperCase();
-    //     List <GerenTitulos> titu = gerenTitulosRepository.findAllWithFilter(filtrar);
-    //     if(titu.isEmpty())
-    //         return this.gerenTitulosRepository.save(titulos);
-    //     else    
-    //         return tit;
-    // }
 
+    // @PostMapping("/cadEditora")
+    // public Editora cadEditora(@RequestBody Editora editora)
+    // {
+    //     Editora editor = new Editora();
+    //     String fil = editora.getNome_editora().toUpperCase();
+    //     List<Editora> edit = editoraRepository.findAllWithFilter(fil);
+    //     if(edit.isEmpty())
+    //        return this.editoraRepository.save(editora);
+    //    else 
+    //        return editor;
+    // }
 
 
     
