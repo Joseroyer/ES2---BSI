@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import es2.projeto.librarytree.Singleton;
 import es2.projeto.librarytree.models.Bibliotecario;
-import es2.projeto.librarytree.models.Editora;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -66,10 +65,20 @@ public class BibliotecarioControl {
     }
 
     @RequestMapping("/editar")
-    public Bibliotecario editar(@RequestParam(value = "Identificador") Bibliotecario Identificador,
-            @RequestParam(value = "Nome") String Nome) {
-        Editora edit = new Editora();
-        edit = singleton.editarEditora(Identificador, Nome);
-        return edit;
+    public ResponseEntity<Object> editar(@RequestParam(value = "Identificador") Bibliotecario Identificador,
+            @RequestParam(value = "Nome") String Nome,
+            @RequestParam(value = "Telefone") String telefone, @RequestParam(value = "Email") String email) {
+        Bibliotecario bli = new Bibliotecario();
+        bli = singleton.editarBibliotecario(Identificador, Nome, telefone, email);
+        return new ResponseEntity<>(bli, HttpStatus.OK);
     }
+
+    // @RequestMapping("/editar")
+    // public Bibliotecario editar(@RequestParam(value = "Identificador")
+    // Bibliotecario Identificador,
+    // @RequestParam(value = "Nome") String Nome) {
+    // Editora edit = new Editora();
+    // edit = singleton.editarEditora(Identificador, Nome);
+    // return edit;
+    // }
 }
