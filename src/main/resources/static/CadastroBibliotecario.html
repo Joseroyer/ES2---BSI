@@ -50,50 +50,47 @@
 
 <body onload="isAdmin(), estilo(), verificarLogin()">
 <!-- ======= Header ======= -->
-<header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center">
+    <header id="header" class="fixed-top ">
+      <div class="container d-flex align-items-center">
+  
         <h1 class="logo me-auto" id="titulo"></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+  
         <nav id="navbar" class="navbar">
-            <ul>
-                <li><a class="nav-link scrollto active" href=".">Home</a></li>
-                <li><a class="nav-link scrollto" href="">Consultar Acervo</a></li>
-                <li>
-                    <a class="nav-link scrollto" href="">Realizar Empréstimos</a>
-                </li>
-                <li id="listaFunc" class="dropdown">
-                    <a href="#"><span>Área do Funcionário</span>
-                        <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="./CadastroBibliotecario.html">Cadastro de Usuário</a></li>
-                        <li><a href="parametrizacao.html">Alterar Parametrização</a></li>
-                        <li><a href="CadastroEditora.html">Cadastro de Editora</a></li>
-                        <li><a href="Editora.html">Gerenciar Editora</a></li>
-                        <li><a href="Aprovacao.html">Aprovar Solicitações</a></li>
-                        <li><a href="ExcluirUsuario.html">Excluir Usuários</a></li>
-                    </ul>
-                </li>
+          <ul>
+            <li><a class="nav-link scrollto active" href="index.html">Home</a></li>
+            <li><a class="nav-link scrollto" id="consultar"href="">Consultar Acervo</a></li>
+            <li><a class="nav-link scrollto"  id="emprestimo" href="">Realizar Empréstimos</a></li>
+            <li id="listaFunc" class="dropdown"><a href="#"><span>Área do
+                  Funcionário</span> <i class="bi bi-chevron-down"></i></a>
+              <ul>
+                <li><a href="#">Cadastrar Exemplares</a></li>
 
-                <li>
-                    <a
-                            class="getstarted scrollto"
-                            href="./LoginUser.html"
-                            target="_blank">Entre/Cadastre-se</a>
-                </li>
-            </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav>
-        <!-- .navbar -->
-    </div>
-</header>
-<!-- End Header -->
+                <li><a href="./CadastroBibliotecario.html">Cadastro de Usuário</a></li>
+                <li><a href="parametrizacao.html">Alterar Parametrização</a></li>
+                <li><a href="CadastroEditora.html">Cadastro de Editora</a></li>
+                <li><a href="Editora.html">Gerenciar Editora</a></li>
+                <li><a href="Aprovacao.html">Aprovar Solicitações</a></li>
+                <li><a href="ExcluirUsuario.html">Excluir Usuários</a></li>
+
+              </ul>
+            </li>
+
+            <li id="logButton"><a class="getstarted scrollto" href="./LoginUser.html"
+                target="_blank" id="log">Entre/Cadastre-se</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+  
+      </div>
+    </header><!-- End Header -->
 
 <!-- ======= Hero Section ======= -->
 <section id="hero1" class="d-flex justify-content-center">
     <div class="container-css">
         <div class="containerLog ">
-            <div class="logo">Cadastro Cliente</div>
+            <div class="logo">Cadastro Bibliotecário</div>
             <div class="login-item">
                 <form id="fdados" class="form form-login" method="post">
                     <div class="form-field">
@@ -170,15 +167,19 @@
                     <div class="d-flex float-right">
                         <p id="obrigatorio" style="color: #ffff">* Obrigatório</p>
                     </div>
-                    <div id="resultados_div"class="">
-                    <p id="resultado_nome" style="color:#ffff; display: none;">Nome Completo precisa conter no mínimo 8 caracteres</p>
-                    <p id="resultado_email" style="color:#ffff; display: none;">Preencha corretamente o E-mail</p>
-                    <p id="resultado_telefone" style="color:#ffff; display: none;">Preencha corretamente o Número de Celular</p>          
-                    <p id="resultado_CPF" style="color:#ffff; display: none;">CPF inválido</p>
-                    <p id="resultado_user" style="color:#ffff; display: none;">Nome de Usuário precisa conter no mínimo 5 caracteres</p>
-                    <p id="resultado_senha" style="color:#ffff; display: none;">Senha precisa conter no mínimo 5 caracteres</p>                    </div>
+                    <div id="resultados_div">
+                        <p id="resultado_nome" style="color:#ffff; display: none;">Nome Completo precisa conter no mínimo 8 caracteres</p>
+                        <p id="resultado_email" style="color:#ffff; display: none;">Preencha corretamente o E-mail</p>
+                        <p id="resultado_telefone" style="color:#ffff; display: none;">Preencha corretamente o Número de Celular</p>          
+                        <p id="resultado_CPF" style="color:#ffff; display: none;">CPF inválido</p>
+                        <p id="resultado_user" style="color:#ffff; display: none;">Nome de Usuário precisa conter no mínimo 5 caracteres</p>
+                        <p id="resultado_senha" style="color:#ffff; display: none;">Senha precisa conter no mínimo 5 caracteres</p>
+                        
+
+                    </div>
                     <div class="d-flex justify-content-center">
                         <p class="message" id="cadastrado" style= "font-size:18px; color: #ffff; display: none;">Cadastrado com Sucesso</p>
+                        <p id="cpf_existente" style="color:#ffff; display: none;">CPF Existente</p>
                     </div>
                     <div class="form-field">
                         <input type="submit" value="Registrar" onclick="gravarUsuario()"/>
@@ -230,7 +231,7 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
-<script src="./js/signup.js"></script>
+<script src="./js/cadBibliotecario.js"></script>
 <script src="js/parametrizacao.js"></script>
 
 </body>
