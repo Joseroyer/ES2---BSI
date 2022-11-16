@@ -26,12 +26,14 @@ function CarregaLista()
                     
 
                     var table="";
-                    table+=`<tr><th>Identificador</th><th>Editora</th><th>Editar</th><th>Excluir</th></tr>`
+                    table+=`<tr><th>Identificador</th><th>Editora</th><th>Cidade</th><th>Estado</th><th>Editar</th><th>Excluir</th></tr>`
                     for (let i=0;i<data.length;i++)
                     {
                             table+=`<tr>
                             <td>${data[i].id_editora}</td>
                             <td>${data[i].nome_editora}</td>
+                            <td>${data[i].cidade_editora}</td>
+                            <td>${data[i].estado_editora}</td>
                             <td><img width="30px" src='img/change.png' onclick='editar(${data[i].id_editora})'></td>
                             <td><img width="30px" src='img/trash.png' onclick='excluir(${data[i].id_editora})'></td>
                             </tr>`;        
@@ -128,16 +130,19 @@ function CarregaFiltro()
                     
 
                     var table="";
-                    table+=`<tr><th>Identificador</th><th>Editora</th><th>Editar</th><th>Excluir</th></tr>`
+                    table+=`<tr><th>Identificador</th><th>Editora</th><th>Cidade</th><th>Estado</th><th>Editar</th><th>Excluir</th></tr>`
                     for (let i=0;i<data.length;i++)
                     {
                             table+=`<tr>
                             <td>${data[i].id_editora}</td>
                             <td>${data[i].nome_editora}</td>
+                            <td>${data[i].cidade_editora}</td>
+                            <td>${data[i].estado_editora}</td>
                             <td><img width="30px" src='img/change.png' onclick='editar(${data[i].id_editora})'></td>
                             <td><img width="30px" src='img/trash.png' onclick='excluir(${data[i].id_editora})'></td>
                             </tr>`;        
                     }
+                    
                     document.getElementById("qlq").innerHTML=table;
                 }
             }

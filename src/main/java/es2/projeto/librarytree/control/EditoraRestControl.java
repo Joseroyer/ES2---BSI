@@ -42,6 +42,12 @@ public class EditoraRestControl {
         return new ResponseEntity<>(editora,HttpStatus.OK);
     }
 
+    // @RequestMapping("/listar-atributos")
+    // public ResponseEntity <Object> buscarAtributos(@RequestParam(value = "id")int id)
+    // {   
+    //     List<Editora> editora = singleton.buscarById(id);
+    //     return new ResponseEntity<>(editora,HttpStatus.OK);
+    // }
     @RequestMapping("/excluir")
     public Editora excluir(@RequestParam(value = "id")Editora id)
     {   
