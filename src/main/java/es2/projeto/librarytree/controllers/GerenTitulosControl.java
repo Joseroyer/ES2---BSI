@@ -28,6 +28,7 @@ public class GerenTitulosControl {
     public ResponseEntity <Object> todos(){
         List <GerenTitulos> titulos = gerenTitulosRepository.findAll();
         return new ResponseEntity<>(titulos,HttpStatus.OK);
+        
     }
 
     @RequestMapping("/listar-um-titulo")//lista só um
