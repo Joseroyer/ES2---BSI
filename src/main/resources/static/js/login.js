@@ -25,38 +25,6 @@ function verificarLogin()
     });
 }
 
-// function verificacao() {
-//     let isAdmin;
-//     let isLog;
-//     const URL_TO_FETCH = '/security/testar-cliente-login';
-//     fetch(URL_TO_FETCH, {method: 'POST',
-//        headers:{'Authorization':`${localStorage.getItem("token")}`,}})
-//     .then(response=> response.text())
-//     .then(result=> {
-//         if(result.includes("Erro"))
-//         {
-//             isLog = false;
-//             isAdmin = false;
-//             alert(isLog)
-//         }
-//         else{
-//             isLog = true;
-//             isAdmin = true;
-//         }
-       
-//     })
-//     .catch(function (err) {
-//         console.log(err)
-//     });
-//     if (!isLog)
-//     {
-//         document.getElementById("listaFunc").style.display = 'none'
-//         document.getElementById("consultar").style.display = 'none'
-//         document.getElementById("emprestimo").style.display = 'none'
-
-//     }
-// }
-
 
 //falta verificar a mensagem se está ativo ou não
 function logando() {
