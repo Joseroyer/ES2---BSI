@@ -78,13 +78,4 @@ public class BibliotecarioControl {
         bli = singleton.edBibliotecario(Identificador, Nome, Telefone, Email);
         return new ResponseEntity<>(bli, HttpStatus.OK);
     }
-
-    // @RequestMapping("/editar")
-    // public Bibliotecario editar(@RequestParam(value = "Identificador")
-    // Bibliotecario Identificador,
-    // @RequestParam(value = "Nome") String Nome) {
-    // Editora edit = new Editora();
-    // edit = singleton.editarEditora(Identificador, Nome);
-    // return edit;
-    // }
 }

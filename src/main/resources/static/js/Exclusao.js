@@ -9,13 +9,10 @@ function editar(id) {
 function editar2() {
     // var Identificador=id;
     let Identificador = document.getElementById("id").value;
-    console.log("🚀 ~ file: Exclusao.js ~ line 12 ~ editar2 ~ Identificador", Identificador)
     let Nome = document.getElementById("novo_nome").value;
-    console.log("🚀 ~ file: Exclusao.js ~ line 14 ~ editar2 ~ Nome", Nome)
     let Telefone = document.getElementById("novo_telefone").value;
-    console.log("🚀 ~ file: Exclusao.js ~ line 16 ~ editar2 ~ Telefone", Telefone)
     let Email = document.getElementById("novo_email").value;
-    console.log("🚀 ~ file: Exclusao.js ~ line 18 ~ editar2 ~ Email", Email)
+    
     const URL_TO_FETCH = `/apis/editarBibliotecario?Identificador=${Identificador}&Nome=${Nome}&Telefone=${Telefone}&Email=${Email}`;
     fetch(URL_TO_FETCH, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, method: 'POST' })
         .then(function (response) {
