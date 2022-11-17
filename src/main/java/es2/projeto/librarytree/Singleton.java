@@ -207,4 +207,9 @@ public class Singleton {
         Optional<Bibliotecario> bi = bibliotecarioRepository.findById(id);
         return bi;
     }
+
+    public Optional<Editora> buscarEditora(Long id) {
+        Optional<Editora> ed = editoraRepository.findById(id);
+        return ed;
+    }
 }
