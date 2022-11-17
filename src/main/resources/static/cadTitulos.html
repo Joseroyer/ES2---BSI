@@ -81,28 +81,26 @@
       <div class="form-items">
           <h3>Junte-se ao nosso acervo!</h3>
           <p>Cadastre seu título!</p>
-          <form id="fdados" method="post" class="requires-validation">
-              <div class="col-md-12">
-                <input type="text" name="titulo_livro" required="" id="titulo_livro" required="" placeholder="Nome do título">
-              </div>
-              <div class="col-md-12">
-                <input type="text" name="quantidade" id="quantidade" required="" placeholder="Quantidade">
-              </div>
-
-              <div class="col-md-12">
-                <input type="text" name="autor_autor_nome" id="autor_autor_nome" required="" placeholder="Nome do autor">
-              </div>
-
-              <div class="col-md-12">
-                <select name="genero_id_generofk" id="genero_id_generofk" required="" placeholder="Selecione um Genero" class="form-select mt-3">
-                    <option>Selecione um genero</option>
-                    <option></option>
-                </select>
-
+          <!-- class="requires-validation" -->
+          <form id="fdados" method="post">
+            <div class="col-md-12">
+              <input type="text" name="titulo_livro"  id="titulo_livro" required="required" placeholder="Nome do título">
+            </div>
+            <div class="col-md-12">
+              <input type="text" name="quantidade" id="quantidade" onkeyup="somenteNumeros(this);" placeholder="Quantidade">
+            </div>
+            <div class="col-md-12">
+              <select name="genero_id_generofk" id="genero_id_generofk" required="" placeholder="Selecione um Genero" class="form-select mt-3">
+                  <option>Selecione um genero</option>
+                  <option></option>
+              </select>
+            </div>
+            <div class="col-md-12">
+              <input type="text" name="autor_autor_nome" id="autor_autor_nome" required="" placeholder="Nome do autor">
             </div>
               <br>
               <div class="form-button mt-3">
-                  <button type="button" class="btn btn-primary" onclick="gravarPiada()">Cadastrar</button>
+                  <button type="button" class="btn btn-primary" onclick="Cadastrar()">Cadastrar</button>
               </div>
     
           </form>

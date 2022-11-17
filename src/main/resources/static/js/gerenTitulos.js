@@ -22,12 +22,15 @@ function CarregaLista()
                 function appendData(data) {
 
                     var table="";
-                    table+=`<tr><th>ID</th><th>Titulo</th><th>Editar</th><th>Excluir dados</th></tr>`
+                    table+=`<tr><th>ID</th><th>Titulo</th><th>Qtde</th><th>Autor</th><th>Genero</th><th>Editar</th><th>Excluir dados</th></tr>`
                     for (let i=0;i<data.length;i++)
                     {
                             table+=`<tr>
                             <td>${data[i].id_livro}</td>
                             <td>${data[i].titulo_livro}</td>
+                            <td>${data[i].quantidade}</td>
+                            <td>${data[i].genero_id_generofk}</td>
+                            <td>${data[i].autor_autor_nome}</td>
                             <td><img width="30px" src='img/change.png' onclick='editar(${data[i].id_livro})'></td>
                             <td><img width="30px" src='img/trash.png' onclick='excluir(${data[i].id_livro})'></td>
                             </tr>`;        
@@ -165,6 +168,16 @@ function CarregaFiltro()
         )
     .catch(err=> console.error(err));
 }
+
+function somenteNumeros(num) {
+    var er = /[^0-9.]/;
+    er.lastIndex = 0;
+    var campo = num;
+    if (er.test(campo.value)) {
+      campo.value = "";
+    }
+}
+
 
 function ExibirGenero()
 {

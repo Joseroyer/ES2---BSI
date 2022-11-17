@@ -5,7 +5,8 @@ body {
   margin:0;
   padding:0;
   font-family: sans-serif;
-  background: linear-gradient(#141e30, #243b55);
+  background-color: #37517e;
+
 }
 
 .login-box {
@@ -36,10 +37,10 @@ body {
   width: 100%;
   padding: 10px 0;
   font-size: 16px;
-  color: #fff;
+  color: #37517e;
   margin-bottom: 30px;
   border: none;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #37517e;
   outline: none;
   background: transparent;
 }
@@ -49,7 +50,7 @@ body {
   left: 0;
   padding: 10px 0;
   font-size: 16px;
-  color: #fff;
+  color: #37517e;
   pointer-events: none;
   transition: .5s;
 }
@@ -77,13 +78,13 @@ body {
 }
 
 .login-box input:hover {
-  background: #03e9f4;
+  background: #37517e;
   color: #fff;
   border-radius: 5px;
-  box-shadow: 0 0 5px #03e9f4,
-              0 0 25px #03e9f4,
-              0 0 50px #03e9f4,
-              0 0 100px #03e9f4;
+  box-shadow: 0 0 5px #37517e,
+              0 0 25px #37517e,
+              0 0 50px #37517e,
+              0 0 100px #37517e;
 }
 
 .login-box input span {

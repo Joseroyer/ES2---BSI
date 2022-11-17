@@ -26,7 +26,6 @@ private int quantidade;
 @Column(name="livro_stt")
 private int livrostt;
 
-
 @ManyToOne
 @JoinColumn(name="genero_id_genero", nullable = false)
 private GeneroLivro genero_id_generofk;
@@ -36,9 +35,6 @@ private String autor_autor_nome;
 
 public GerenTitulos() {
 }
-// this.generos_id_genero_fk = generos_id_genero_fk;
-
-
 
 public long getId_livro() {
     return id_livro;
