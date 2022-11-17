@@ -171,7 +171,7 @@ public class Singleton {
 
     public Bibliotecario excluir(Bibliotecario id) {
         Optional<Bibliotecario> bibli = bibliotecarioRepository.findById(id.getId());
-        id.setStatus(0);
+        id.setStatus(-1);
         id.setCPF(bibli.get().getCPF());
         id.setData_admissao(bibli.get().getData_admissao());
         id.setData_demissao(bibli.get().getData_demissao());
@@ -192,5 +192,10 @@ public class Singleton {
         Identificador.setTelefone(Telefone);
         Identificador.setEmail(email);
         return this.bibliotecarioRepository.save(Identificador);
+    }
+
+    public Optional<Bibliotecario> buscarBibliotecario(Long id) {
+        Optional<Bibliotecario> bi = bibliotecarioRepository.findById(id);
+        return bi;
     }
 }

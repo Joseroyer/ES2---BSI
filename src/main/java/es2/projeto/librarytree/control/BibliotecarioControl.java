@@ -1,6 +1,7 @@
 package es2.projeto.librarytree.control;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -79,5 +80,11 @@ public class BibliotecarioControl {
         Bibliotecario bli = new Bibliotecario();
         bli = singleton.edBibliotecario(Identificador, Nome, Telefone, Email);
         return new ResponseEntity<>(bli, HttpStatus.OK);
+    }
+
+    @RequestMapping("/listar-bi")
+    public Optional listfindy(@RequestParam(value="Identificador")Long id) {
+        Optional<Bibliotecario> bibli=singleton.buscarBibliotecario(id);
+        return bibli;
     }
 }
