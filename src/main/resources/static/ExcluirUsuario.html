@@ -122,6 +122,7 @@
                   type="text"
                   class="form-input"
                   required
+                  onblur="validarNome()"
                   />
               </div>
               <div class="form-field">
@@ -132,6 +133,7 @@
                   type="text"
                   class="form-input"
                   required
+                  onkeyup="mascara('(##)#####-####',this,event)"
                   />
               </div>
               <div class="form-field">
@@ -142,6 +144,7 @@
                   type="text"
                   class="form-input"
                   required
+                  onblur="validarEmail()"
                   />
               </div>
 
