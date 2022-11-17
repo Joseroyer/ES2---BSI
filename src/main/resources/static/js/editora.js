@@ -78,7 +78,9 @@ function editar2()
     // var Identificador=id;
     var Nome = document.getElementById("novo_nome").value
     var Identificador = document.getElementById("identificador").value
-    const URL_TO_FETCH = `/apis/editar?Identificador=${Identificador}&Nome=${Nome}`;
+    var cidade = document.getElementById("novo_nome_cid").value
+    var estado = document.getElementById("novo_nome_est").value
+    const URL_TO_FETCH = `/apis/editar?Identificador=${Identificador}&Nome=${Nome}&Cidade=${cidade}&Estado=${estado}`;
     fetch(URL_TO_FETCH,{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST'})
     .then(function (response) {
       

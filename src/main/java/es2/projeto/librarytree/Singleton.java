@@ -80,7 +80,7 @@ public class Singleton {
     }
 
 
-    public Editora editarEditora(Editora Identificador, String Nome) 
+    public Editora editarEditora(Editora Identificador, String Nome, String Cidade, String Estado) 
     {
         // Editora editor = new Editora();
         // String fil = Identificador.getNome_editora().toUpperCase();
@@ -92,8 +92,8 @@ public class Singleton {
             Identificador.setId_editora(editora.get().getId_editora());
             Identificador.setNome_editora(Nome);
             Identificador.setStatus(1);
-            Identificador.setCidade_editora(editora.get().getCidade_editora());
-            Identificador.setEstado_editora(editora.get().getEstado_editora());
+            Identificador.setCidade_editora(Cidade);
+            Identificador.setEstado_editora(Estado);
             return this.editoraRepository.save(Identificador);
 
     }

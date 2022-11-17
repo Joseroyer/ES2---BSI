@@ -64,11 +64,12 @@ public class EditoraRestControl {
     }
 
     @RequestMapping("/editar")
-    public Editora editar(@RequestParam(value="Identificador") Editora Identificador, @RequestParam(value="Nome") String Nome)
+    public Editora editar(@RequestParam(value="Identificador") Editora Identificador, @RequestParam(value="Nome") String Nome,
+    @RequestParam(value="Cidade") String Cidade, @RequestParam(value="Estado") String Estado)
     {   
         
         Editora edit = new Editora();
-        edit = singleton.editarEditora(Identificador, Nome);
+        edit = singleton.editarEditora(Identificador, Nome, Cidade, Estado);
         return edit;
     }
 
