@@ -30,9 +30,8 @@ function estilo()
       );
       
       document.adoptedStyleSheets = [sheet];
-      
-      var home=`<a href="index.html">${data[0].nome_empresa}</a>`;
       var resp = data[0].nome_empresa;
+      var home=`<a href="index.html">${data[0].nome_empresa}</a>`;
       document.getElementById("titulo").innerHTML=home;
       document.getElementById("footer2").innerHTML = resp;
       document.getElementById("empresa").innerHTML = resp;
@@ -41,7 +40,38 @@ function estilo()
       document.getElementById("logoParam").innerHTML=logo;
       document.getElementById("logoPage")=logo;
       
+      
+      
   }
+}
+
+function carregaForm()
+{
+    fetch("/apis/estilo")
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        appendData(data);
+        
+    })
+    .catch(function (err) {
+        console.log('error: ' + err);
+    });
+    function appendData(data)
+    {
+        var nome = data[0].nome_empresa;
+        document.getElementById("nome_empresa").value = nome
+        var cid = data[0].cidade;
+        document.getElementById("cidade").value = cid
+        var est = data[0].estado;
+        document.getElementById("estado").value = est
+        var cnpj = data[0].cnpj;
+        document.getElementById("cnpj").value = cnpj
+           
+  }
+   
+      
 }
 
 function verificar()
@@ -55,6 +85,11 @@ function verificar()
             alert("Você não realizou a parametrização!")
             window.location.href = "parametrizacao.html";
         }
+        // else{
+        //     var nome = result.split(",");
+        //     alert(nome[1])
+        //     document.getElementById("nome_empresa").value = result.nome_empresa
+        // }
     })
     .catch(function (err) {
         console.log(err)

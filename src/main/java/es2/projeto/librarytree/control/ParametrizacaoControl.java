@@ -34,7 +34,7 @@ public class ParametrizacaoControl {
        if(parameters.isEmpty())
         return new ResponseEntity<>("Não", HttpStatus.OK);
        else 
-        return new ResponseEntity<>("Sim", HttpStatus.OK);
+        return new ResponseEntity<>(parameters, HttpStatus.OK);
     }
 
     @RequestMapping(value="/estilo")
