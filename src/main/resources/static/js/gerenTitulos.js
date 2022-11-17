@@ -200,3 +200,34 @@ function ExibirGenero()
     }
     
 }
+
+
+function validarNome() {
+    nome = document.querySelector("#titulo_livro");
+    if (nome.value.length < 8) {
+        nome.value = "";
+        nome.style.border = "solid 2px red";
+        return false;
+    }
+    return true;
+}
+
+function validarGenero() {
+    nome = document.querySelector("#genero_id_generofk");
+    if (nome.value.length < 8) {
+        nome.value = "";
+        nome.style.border = "solid 2px red";
+        return false;
+    }
+    return true;
+}
+
+function validarAutor() {
+    nome = document.querySelector("#autor_autor_nome");
+    if (nome.value.length < 8) {
+        nome.value = "";
+        nome.style.border = "solid 2px red";
+        return false;
+    }
+    return true;
+}

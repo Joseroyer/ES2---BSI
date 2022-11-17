@@ -84,20 +84,17 @@
           <!-- class="requires-validation" -->
           <form id="fdados" method="post">
             <div class="col-md-12">
-              <input type="text" name="titulo_livro"  id="titulo_livro" required="required" placeholder="Nome do título">
+              <input type="text" name="titulo_livro"  id="titulo_livro" onblur="validarNome()" placeholder="Nome do título *">
             </div>
             <div class="col-md-12">
-              <input type="text" name="quantidade" id="quantidade" onkeyup="somenteNumeros(this);" placeholder="Quantidade">
+              <input type="text" name="quantidade" id="quantidade" onkeyup="somenteNumeros(this);" placeholder="Quantidade *">
             </div>
             <div class="col-md-12">
-              <select name="genero_id_generofk" id="genero_id_generofk" required="" placeholder="Selecione um Genero" class="form-select mt-3">
-                  <option>Selecione um genero</option>
-                  <option></option>
-              </select>
+              <input type="text" name="autor_autor_nome" id="autor_autor_nome" onblur="validarAutor()" placeholder="Nome do autor *">
             </div>
             <div class="col-md-12">
-              <input type="text" name="autor_autor_nome" id="autor_autor_nome" required="" placeholder="Nome do autor">
-            </div>
+              <input type="text" name="genero_id_generofk" id="genero_id_generofk" onblur="validarGenero()" placeholder="Informe o genero do livro *">
+          </div>
               <br>
               <div class="form-button mt-3">
                   <button type="button" class="btn btn-primary" onclick="Cadastrar()">Cadastrar</button>

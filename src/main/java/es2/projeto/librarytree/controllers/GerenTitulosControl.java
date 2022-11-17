@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import es2.projeto.librarytree.repositories.GerenTitulosRepository;
-import es2.projeto.librarytree.models.GeneroLivro;
 import es2.projeto.librarytree.models.GerenTitulos;
 import es2.projeto.librarytree.repositories.GerenTitulosRepository;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -48,12 +47,11 @@ public class GerenTitulosControl {
       return this.gerenTitulosRepository.save(id);
   }
       
-      @RequestMapping("/editar-titulos-gerenciados")
+  //     @RequestMapping("/editar-titulos-gerenciados")
       
       public GerenTitulos gerentit (@RequestParam(value="Identificador") GerenTitulos Identificador, @RequestParam(value="Nome") String Nome)
     {
-    GerenTitulos gerenTitulo = new GerenTitulos();
-      String fil = Identificador.getTitulo_livro().toUpperCase();
+      // String fil = Identificador.getTitulo_livro().toUpperCase();
       {
           Optional<GerenTitulos> Tit = gerenTitulosRepository.findById(Identificador.getId_livro());
           Identificador.setId_livro(Tit.get().getId_livro());
@@ -67,6 +65,7 @@ public class GerenTitulosControl {
     public ResponseEntity<Object> CadastrarNovoTitulo(@RequestBody GerenTitulos livro){
       // GeneroLivro gen = new GeneroLivro(Long.parseLong("1"),"Animais");
       livro.setLivrostt(1);
+      System.out.println(livro);
       return new ResponseEntity<>(gerenTitulosRepository.save(livro),HttpStatus.OK);
     }
 

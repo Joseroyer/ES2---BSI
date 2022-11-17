@@ -26,32 +26,30 @@ private int quantidade;
 @Column(name="livro_stt")
 private int livrostt;
 
-@ManyToOne
-@JoinColumn(name="genero_id_genero", nullable = false)
-private GeneroLivro genero_id_generofk;
 
-@Column(name="autor_id_autor")
+@Column(name="generos_id_genero")
+private String genero_id_generofk;
+
+@Column(name="autor_autor_nome")
 private String autor_autor_nome;
 
 public GerenTitulos() {
 }
 
-public long getId_livro() {
-    return id_livro;
-}
-
-public GerenTitulos(long id_livro, String titulo_livro, int quantidade, int livrostt, GeneroLivro genero_id_generofk,
+public GerenTitulos(long id_livro, String titulo_livro, int quantidade, int livrostt, String genero_id_generofk,
         String autor_autor_nome) {
     this.id_livro = id_livro;
     this.titulo_livro = titulo_livro;
     this.quantidade = quantidade;
-    this.livrostt = livrostt;
+    this.livrostt = 1;
     this.genero_id_generofk = genero_id_generofk;
     this.autor_autor_nome = autor_autor_nome;
 }
 
 
-
+public long getId_livro() {
+    return id_livro;
+}
 public void setId_livro(long id_livro) {
     this.id_livro = id_livro;
 }
@@ -87,10 +85,10 @@ public String getAutor_autor_nome() {
 public void setAutor_autor_nome(String autor_autor_nome) {
     this.autor_autor_nome = autor_autor_nome;
 }
-public GeneroLivro getGenero_id_generofk() {
+public String getGenero_id_generofk() {
     return genero_id_generofk;
 }
-public void setGenero_id_generofk(GeneroLivro genero_id_generofk) {
+public void setGenero_id_generofk(String genero_id_generofk) {
     this.genero_id_generofk = genero_id_generofk;
 }
 
