@@ -30,7 +30,7 @@ public class BibliotecarioControl {
     @PostMapping("/saveBi")
     public ResponseEntity<Object> save(@RequestBody Bibliotecario bi) {
         List<Bibliotecario> bil_cpf = singleton.findByCPF(bi.getCPF());
-        List<Bibliotecario> bil_login = singleton.findByLogin(bi.getCPF());
+        List<Bibliotecario> bil_login = singleton.findByLogin(bi.getLogin());
 
         if (bil_cpf.isEmpty() && bil_login.isEmpty()) {
             bi.setNivel(1);
