@@ -32,9 +32,11 @@ public class BibliotecarioControl {
         List<Bibliotecario> bil_cpf = singleton.findByCPF(bi.getCPF());
         List<Bibliotecario> bil_login = singleton.findByLogin(bi.getCPF());
 
-        if (bil_cpf.isEmpty() && bil_login.isEmpty())
+        if (bil_cpf.isEmpty() && bil_login.isEmpty()) {
+            bi.setNivel(1);
             return new ResponseEntity<>(singleton.saveBibliotecario(bi), HttpStatus.OK);
-        else
+
+        } else
             return new ResponseEntity<>("CPF Existente", HttpStatus.NOT_ACCEPTABLE);
     }
 
