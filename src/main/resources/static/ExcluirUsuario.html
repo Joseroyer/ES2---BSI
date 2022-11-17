@@ -103,119 +103,137 @@
               </button>
             </div>
             <div class="modal-body" onload="FormsBibliotecario()">
-              <div class="form-field" style="margin-top:20px ;">
-                <p>Identificador:</p>
-                <input
-                  id="id"
-                  name="id"
-                  type="text"
-                  class="form-input"
-                  placeholder="Identificador do Bibliotecário"
-                  disabled
-                  />
+              <form>
+                <div class="form-group" style="margin-top:20px ;">
+                  <label for="recipient-name" class="col-form-label">Identificador:</label>
+                  <!-- <p>Identificador:</p> -->
+                  <input
+                    id="id"
+                    name="id"
+                    type="text"
+                    class="form-control"
+                    placeholder="Identificador do Bibliotecário"
+                    disabled
+                    />
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Nome
+                    Usuário:</label>
+                  <input
+                    id="novo_nome"
+                    name="novo_nome"
+                    type="text"
+                    class="form-control"
+                    required
+                    onblur="validarNome()"
+                    />
+                  <p id="resultado_nome" style="font-size:14px; color:#212529;;
+                    display: none;">Nome
+                    Completo precisa conter no mínimo 8 caracteres</p>
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Telefone:</label>
+                  <input
+                    id="novo_telefone"
+                    name="novo_telefone"
+                    type="text"
+                    class="form-control"
+                    required
+                    onkeyup="mascara('(##)#####-####',this,event)"
+                    />
+                  <p id="resultado_telefone" style="font-size:14px;
+                    color:#212529; display:
+                    none;">Preencha corretamente o Número de Celular</p>
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Email:</label>
+                  <input
+                    id="novo_email"
+                    name="novo_email"
+                    type="text"
+                    class="form-control"
+                    required
+                    onblur="validarEmail()"
+                    />
+                  <p id="resultado_email" style="font-size:14px;
+                    color:#212529;
+                    display:none;">Preencha corretamente o E-mail</p>
+                </div>
+                <div id="resultados_div" class="">
+                  <div class="d-flex justify-content-center">
+                    <p class="message" id="cadastrado" style="font-size:18px;
+                      color: #212529; display: none;">Alterado com Sucesso</p>
+                  </div>
+                </form>
               </div>
-              <div class="form-field">
-                <p>Nome Usuário:</p>
-                <input
-                  id="novo_nome"
-                  name="novo_nome"
-                  type="text"
-                  class="form-input"
-                  required
-                  onblur="validarNome()"
-                  />
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                  data-dismiss="modal" onclick="closeModal()">Cancelar</button>
+                <input type="submit" value="Alterar" class="btn btn-primary"
+                  onclick="editar2()">
               </div>
-              <div class="form-field">
-                <p>Telefone:</p>
-                <input
-                  id="novo_telefone"
-                  name="novo_telefone"
-                  type="text"
-                  class="form-input"
-                  required
-                  onkeyup="mascara('(##)#####-####',this,event)"
-                  />
-              </div>
-              <div class="form-field">
-                <p>Email:</p>
-                <input
-                  id="novo_email"
-                  name="novo_email"
-                  type="text"
-                  class="form-input"
-                  required
-                  onblur="validarEmail()"
-                  />
-              </div>
-
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary"
-                data-dismiss="modal" onclick="closeModal()">Cancelar</button>
-              <input type="submit" value="Alterar" class="btn btn-primary"
-                onclick="editar2()">
             </div>
           </div>
         </div>
-      </div>
 
 
 
 
-    </section>
+      </section>
 
 
 
-    <main id="main">
+      <main id="main">
 
-      <!-- ======= Clients Section ======= -->
-
-
-      <!-- ======= About Us Section ======= -->
+        <!-- ======= Clients Section ======= -->
 
 
-
-      <!-- ======= Team Section ======= -->
-      <section id="team" class="team" style="background-color: #37517e">
-      </section><!-- End Team Section -->
-
-    </main><!-- End #main -->
-
-    <!-- ======= Footer ======= -->
-    <footer id="footer">
+        <!-- ======= About Us Section ======= -->
 
 
-      <div class="container footer-bottom clearfix">
-        <div class="copyright">
-          &copy; Copyright <strong><span id="footer2"></span></strong>. Todos os
-          direitos reservados à <span id="empresa"></span>
+
+        <!-- ======= Team Section ======= -->
+        <section id="team" class="team" style="background-color: #37517e">
+        </section><!-- End Team Section -->
+
+      </main><!-- End #main -->
+
+      <!-- ======= Footer ======= -->
+      <footer id="footer">
+
+
+        <div class="container footer-bottom clearfix">
+          <div class="copyright">
+            &copy; Copyright <strong><span id="footer2"></span></strong>. Todos
+            os
+            direitos reservados à <span id="empresa"></span>
+          </div>
+          <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
+          </div>
         </div>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-        </div>
-      </div>
-    </footer><!-- End Footer -->
+      </footer><!-- End Footer -->
 
-    <div id="preloader"></div>
-    <a href="#" class="back-to-top d-flex align-items-center
-      justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+      <div id="preloader"></div>
+      <a href="#" class="back-to-top d-flex align-items-center
+        justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
+      <!-- Vendor JS Files -->
+      <script src="assets/vendor/aos/aos.js"></script>
+      <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+      <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+      <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+      <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+      <script src="assets/vendor/php-email-form/validate.js"></script>
 
 
-    <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
+      <!-- Template Main JS File -->
+      <script src="assets/js/main.js"></script>
 
-  </body>
+    </body>
 
-</html>
+  </html>

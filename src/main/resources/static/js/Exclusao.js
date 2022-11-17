@@ -121,14 +121,36 @@ function validarTelefone() {
 }
 
 
+function AlterarJS(id) {
+
+    const rota = "http://localhost:8084/WebPaises/Buscar?id=" + id;
+    fetch(rota).then(function (response) {
+        response.json().then(function (result)  //response é um promisse
+        {
+            if (result.erro == false) {
+                result = JSON.parse(result.dados);
+                document.forms[0].cod.value = result.id;
+                document.forms[0].sigla.value = result.sigla;
+                document.forms[0].idioma.value = result.idioma;
+                document.forms[0].nome.value = result.nome;
+            }
+
+        });
+    }).catch(function (err) { console.error(err); });
+}
+
 function editar(id) {
     // alert(id)
     document.getElementById("modal").style.display = 'block'
     document.getElementById("id").value = id;
-    //var input = `<th><input type="text" id="teste"><input type="submit" value="Alterar" onclick='editar2(${id})'></th>`;
-    //document.getElementById("qlq").innerHTML+=input;
-
+    // document.getElementById("novo_nome").value = data.nome;
+    // document.getElementById("novo_telefone").value = data.telefone;
+    // document.getElementById("novo_email").value = data.email;
 }
+//var input = `<th><input type="text" id="teste"><input type="submit" value="Alterar" onclick='editar2(${id})'></th>`;
+//document.getElementById("qlq").innerHTML+=input;
+
+
 function editar2() {
     // var Identificador=id;
     let Identificador = document.getElementById("id").value;
@@ -142,6 +164,7 @@ function editar2() {
             return response.json();
         })
         .then(function (text) {
+            document.getElementById("cadastrado").style.display = "block";
             window.location.href = "ExcluirUsuario.html";
         })
         .catch(function (err) {
