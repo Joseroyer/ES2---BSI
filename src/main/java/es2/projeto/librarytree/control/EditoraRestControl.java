@@ -1,6 +1,7 @@
 package es2.projeto.librarytree.control;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,6 +36,11 @@ public class EditoraRestControl {
 
     }
 
+    @RequestMapping("/listar-ed")
+    public Optional listfindy(@RequestParam(value="Identificador")Long id) {
+        Optional<Editora> edi=singleton.buscarEditora(id);
+        return edi;
+    }
     @RequestMapping("/listar-editora")
     public ResponseEntity <Object> buscarFiltro(@RequestParam(value = "filtro")String filtro)
     {   

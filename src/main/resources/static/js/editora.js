@@ -49,6 +49,26 @@ function editar(id)
     // alert(id)
     document.getElementById("modal").style.display = 'block'
     document.getElementById("identificador").value = id;
+    const URL_TO_FETCH = `/apis/listar-ed?Identificador=${id}`;
+    fetch(URL_TO_FETCH, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, method: 'POST' })
+        .then(function (response) {
+            response.json().then(valores => {
+                appendData(valores);
+            });
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+    function appendData(data) {
+        console.log(data);
+        var nome = data.nome_editora;
+        document.getElementById("novo_nome").value = nome;
+        var cidade = data.cidade_editora;
+        document.getElementById("novo_nome_cid").value = cidade;
+        var estado = data.estado_editora;
+        document.getElementById("novo_nome_est").value = estado;
+
+    }
     //var input = `<th><input type="text" id="teste"><input type="submit" value="Alterar" onclick='editar2(${id})'></th>`;
     //document.getElementById("qlq").innerHTML+=input;
    
