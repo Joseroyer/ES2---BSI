@@ -1,19 +1,20 @@
 function editar(id) {
     // alert(id)
     document.getElementById("modal").style.display = 'block'
-    document.getElementById("identificador").value = id;
+    document.getElementById("id").value = id;
     //var input = `<th><input type="text" id="teste"><input type="submit" value="Alterar" onclick='editar2(${id})'></th>`;
     //document.getElementById("qlq").innerHTML+=input;
 
 }
 function editar2() {
     // var Identificador=id;
-    var Nome = document.getElementById("novo_nome").value
-    var Identificador = document.getElementById("identificador").value
-    const URL_TO_FETCH = `/apis/editar?Identificador=${Identificador}&Nome=${Nome}`;
+    let Identificador = document.getElementById("id").value;
+    let Nome = document.getElementById("novo_nome").value;
+    let Telefone = document.getElementById("novo_telefone");
+    let Email = document.getElementById("novo_email");
+    const URL_TO_FETCH = `/apis/editarBibliotecario?Identificador=${Identificador}&Nome=${Nome}&Telefone=${Telefone}&Email=${Email}`;
     fetch(URL_TO_FETCH, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, method: 'POST' })
         .then(function (response) {
-
             return response.json();
         })
         .then(function (text) {
@@ -80,6 +81,30 @@ function excluir(id)
         });
     }
 }
+
+
+function closeModal() {
+    document.getElementById("modal").style.display = 'none'
+}
+
+
+// function FormsBibliotecario(){
+//         fetch("/api/listar-todos")
+//             .then(function (response) {
+//                 return response.json();
+//             })
+//             .then(function (data) {
+//                 appendData(data);
+//             })
+//             .catch(function (err) {
+//                 console.log('error: ' + err);
+//             });
+//         function appendData(data) {
+//             let 
+//         }
+
+// }
+
 // function CarregaFiltro()
 // {
 //     var filtro = document.getElementById("busca").value
