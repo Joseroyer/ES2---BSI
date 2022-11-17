@@ -75,39 +75,35 @@
 
   <!-- ======= Hero Section ======= -->
 <section id="hero" class="form-holder">
-<br>
-<br>
-<div class="form-content">
-    <div class="form-items">
-        <h3>Junte-se ao nosso acervo!</h3>
-        <p>Cadastre seu título!</p>
-        <form id="fdados" method="post">
+  <br>
+  <br>
+  <div class="form-content">
+      <div class="form-items">
+          <h3>Junte-se ao nosso acervo!</h3>
+          <p>Cadastre seu título!</p>
+          <form id="fdados" method="post" class="requires-validation">
+              <div class="col-md-12">
+                <input type="text" name="titulo_livro" required="" id="titulo_livro" required="" placeholder="Nome do título">
+              </div>
+              <div class="col-md-12">
+                <input type="text" name="quantidade" id="quantidade" required="" placeholder="Quantidade">
+              </div>
 
-        <div class="col-md-12">
-          <input type="text" name="titulo_livro" required="" id="titulo_livro" required="" placeholder="Titulo do livro">
-        </div>
-        
-        <div class="col-md-12">
-          <input type="text" name="quantidade" id="quantidade" required="" placeholder="Quantidade">
-        </div>
-        
-          <div class="col-md-12">
-            <select name="genero_id_generofk" id="genero_id_generofk" class="form-select mt-3">
-              <option>Selecione um genero</option>
-            </select>
-          </div>
+              <div class="col-md-12">
+                <input type="text" name="" id="" required="" placeholder="Autor">
+              </div>
 
-          <div class="col-md-12">
-            <input type="text" name="autor_nome_autor" id="autor_nome_autor" required="" placeholder="Nome do autor">
-          </div>
+              <div class="col-md-12">
+                <input type="text" name="" id="" required="" placeholder="Genero">
+              </div>
+              <br>
 
-          <br>
-          <div class="form-button mt-3">
-              <button type="button" class="btn btn-primary" onclick="gravarPiada()">Cadastrar</button>
-          </div>
-        </form>
-    </div>
-</div> 
+              <div class="form-button mt-3">
+                  <button type="button" class="btn btn-primary" onclick="gravarPiada()">Cadastrar</button>
+              </div>
+          </form>
+      </div>
+  </div> 
 </section>
 
   <main id="main">

@@ -149,7 +149,7 @@ function CarregaFiltro()
 
 
                     var table="";
-                    table+=`<tr><th>ID</th><th>Titulo</th><th>Qtde</th><th>Genero</th><th>Editar</th><th>Excluir dados</th></tr>`
+                    table+=`<tr><th>ID</th><th>Titulo</th><th>Editar</th><th>Excluir dados</th></tr>`
                     for (let i=0;i<data.length;i++)
                     {
                             table+=`<tr>
@@ -168,20 +168,6 @@ function CarregaFiltro()
 
 
 
-//parte da categoria de genero
-function Generos()
-{
-    fetch("/api/listar-titulos")
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        appendData(data);
-    })
-    .catch(function (err) {
-        console.log('error: ' + err);
-    });
-    function appendData(data) {
 
         var resp="";
         for (let i=0;i<data.length;i++)
@@ -189,4 +175,3 @@ function Generos()
         document.getElementById("genero_id_generofk").innerHTML=resp;
     }
 
-}
