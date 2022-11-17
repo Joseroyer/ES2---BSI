@@ -166,12 +166,24 @@ function CarregaFiltro()
     .catch(err=> console.error(err));
 }
 
-
-
+function ExibirGenero()
+{
+    fetch("/apis/listar-todos-generos")
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        appendData(data);
+    })
+    .catch(function (err) {
+        console.log('error: ' + err);
+    });
+    function appendData(data) {
 
         var resp="";
         for (let i=0;i<data.length;i++)
             resp+=`<option value="`+(i+1)+`">`+`${data[i].nome}</option>`;        
         document.getElementById("genero_id_generofk").innerHTML=resp;
     }
-
+    
+}

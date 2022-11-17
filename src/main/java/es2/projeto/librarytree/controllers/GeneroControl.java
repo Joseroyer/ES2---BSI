@@ -12,23 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 import es2.projeto.librarytree.repositories.GerenTitulosRepository;
 import es2.projeto.librarytree.models.GeneroLivro;
 import es2.projeto.librarytree.models.GerenTitulos;
-import es2.projeto.librarytree.repositories.GerenTitulosRepository;
 import es2.projeto.librarytree.repositories.GeneroLivroRepository;
-import es2.projeto.librarytree.models.GeneroLivro;
-import es2.projeto.librarytree.models.GerenTitulos;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.http.HttpRange;
-
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.lang.module.ResolutionException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
