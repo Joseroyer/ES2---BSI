@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import es2.projeto.librarytree.Singleton;
@@ -25,8 +24,10 @@ public class BibliotecarioControl {
 
     @PostMapping("/saveBi")
     public ResponseEntity<Object> save(@RequestBody Bibliotecario bi) {
-        List<Bibliotecario> bil = singleton.findByCPF(bi.getCPF());
-        if (bil.isEmpty())
+        List<Bibliotecario> bil_cpf = singleton.findByCPF(bi.getCPF());
+        List<Bibliotecario> bil_login = singleton.findByLogin(bi.getCPF());
+        
+        if (bil_cpf.isEmpty() && bil_login.isEmpty())
             return new ResponseEntity<>(singleton.saveBibliotecario(bi), HttpStatus.OK);
         else
             return new ResponseEntity<>("CPF Existente", HttpStatus.NOT_ACCEPTABLE);
@@ -64,14 +65,16 @@ public class BibliotecarioControl {
 
     }
 
-    @RequestMapping("/editar")
-    public ResponseEntity<Object> editar(@RequestParam(value = "Identificador") Bibliotecario Identificador,
-            @RequestParam(value = "Nome") String Nome,
-            @RequestParam(value = "Telefone") String telefone, @RequestParam(value = "Email") String email) {
-        Bibliotecario bli = new Bibliotecario();
-        bli = singleton.editarBibliotecario(Identificador, Nome, telefone, email);
-        return new ResponseEntity<>(bli, HttpStatus.OK);
-    }
+    // @RequestMapping("/editar")
+    // public ResponseEntity<Object> editar(@RequestParam(value = "Identificador")
+    // Bibliotecario Identificador,
+    // @RequestParam(value = "Nome") String Nome,
+    // @RequestParam(value = "Telefone") String telefone, @RequestParam(value =
+    // "Email") String email) {
+    // Bibliotecario bli = new Bibliotecario();
+    // bli = singleton.editarBibliotecario(Identificador, Nome, telefone, email);
+    // return new ResponseEntity<>(bli, HttpStatus.OK);
+    // }
 
     // @RequestMapping("/editar")
     // public Bibliotecario editar(@RequestParam(value = "Identificador")

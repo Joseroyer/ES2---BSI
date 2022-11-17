@@ -1,5 +1,12 @@
 package es2.projeto.librarytree;
 
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Service;
+
 import es2.projeto.librarytree.models.Bibliotecario;
 import es2.projeto.librarytree.models.Cliente;
 import es2.projeto.librarytree.models.Editora;
@@ -8,14 +15,6 @@ import es2.projeto.librarytree.repositories.BibliotecarioRepository;
 import es2.projeto.librarytree.repositories.ClienteRepository;
 import es2.projeto.librarytree.repositories.GerenEditoraRepository;
 import es2.projeto.librarytree.repositories.ParametrizacaoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
-
-import javax.print.DocFlavor.STRING;
 
 @Service
 @Scope("singleton")
@@ -108,10 +107,14 @@ public class Singleton {
     }
 
     // Bibliotecario
-
     public List<Bibliotecario> findByCPF(String cpf) {
         return bibliotecarioRepository.findByCPF(cpf);
     }
+    
+    public List<Bibliotecario> findByLogin(String login) {
+        return bibliotecarioRepository.findByLogin(login);
+    }
+    
 
     public Bibliotecario saveBibliotecario(Bibliotecario bi) {
         return bibliotecarioRepository.save(bi);
