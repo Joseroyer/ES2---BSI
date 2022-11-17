@@ -10,86 +10,93 @@ import javax.persistence.*;
 @Entity
 @Table(name="livro")
 public class GerenTitulos {
-    private static final long serialVersionUID = 1L;
+private static final long serialVersionUID = 1L;
 
-    @Id
-    @Column(name = "id_livro")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_livro;
+@Id
+@Column(name = "id_livro")
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private long id_livro;
 
-    @Column(name = "titulo_livro")
-    private String titulo_livro;
+@Column(name = "titulo_livro")
+private String titulo_livro;
 
-    @Column(name="quantidade")
-    private int quantidade;
+@Column(name="quantidade")
+private int quantidade;
 
-    // @ManyToOne
-    // @JoinColumn(name = "generos_id_genero", nullable = false)
-    // private GeneroLivro generos_id_genero_fk;
+@Column(name="livro_stt")
+private int livrostt;
 
-    @Column(name="livro_stt")
-    private int livrostt;
+@ManyToOne
+@JoinColumn(name="autor_id_autor", nullable = false)
+private AutorLivro autor_id_autorfk;
 
-    public GerenTitulos() {
-    }
-    // this.generos_id_genero_fk = generos_id_genero_fk;
-    public GerenTitulos(long id_livro, String titulo_livro, int quantidade, GeneroLivro generos_id_genero_fk,
-            int livrostt) {
-        this.id_livro = id_livro;
-        this.titulo_livro = titulo_livro;
-        this.quantidade = quantidade;
-       
-        this.livrostt = 1;
-    }
+@ManyToOne
+@JoinColumn(name="genero_id_genero", nullable = false)
+private GeneroLivro genero_id_generofk;
 
-    public long getId_livro() {
-        return id_livro;
-    }
-
-    public void setId_livro(long id_livro) {
-        this.id_livro = id_livro;
-    }
-
-    public String getTitulo_livro() {
-        return titulo_livro;
-    }
-
-    public void setTitulo_livro(String titulo_livro) {
-        this.titulo_livro = titulo_livro;
-    }
-
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    // public GeneroLivro getGeneros_id_genero_fk() {
-    //     return generos_id_genero_fk;
-    // }
-
-    // public void setGeneros_id_genero_fk(GeneroLivro generos_id_genero_fk) {
-    //     this.generos_id_genero_fk = generos_id_genero_fk;
-    // }
-
-    public int getLivrostt() {
-        return livrostt;
-    }
-
-    public void setLivrostt(int livrostt) {
-        this.livrostt = livrostt;
-    }
-
+public GerenTitulos() {
+}
+// this.generos_id_genero_fk = generos_id_genero_fk;
+public GerenTitulos(long id_livro, String titulo_livro, int quantidade,
+        int livrostt) {
+    this.id_livro = id_livro;
+    this.titulo_livro = titulo_livro;
+    this.quantidade = quantidade;
     
+    this.livrostt = 1;
+}
 
-    
+public GerenTitulos(long id_livro, String titulo_livro, int quantidade, int livrostt, AutorLivro autor_id_autorfk,
+        GeneroLivro genero_id_generofk) {
+    this.id_livro = id_livro;
+    this.titulo_livro = titulo_livro;
+    this.quantidade = quantidade;
+    this.livrostt = livrostt;
+    this.autor_id_autorfk = autor_id_autorfk;
+    this.genero_id_generofk = genero_id_generofk;
+}
+public long getId_livro() {
+    return id_livro;
+}
 
-    
+public void setId_livro(long id_livro) {
+    this.id_livro = id_livro;
+}
 
-    
-    
+public String getTitulo_livro() {
+    return titulo_livro;
+}
 
+public void setTitulo_livro(String titulo_livro) {
+    this.titulo_livro = titulo_livro;
+}
+
+public int getQuantidade() {
+    return quantidade;
+}
+
+public void setQuantidade(int quantidade) {
+    this.quantidade = quantidade;
+}
+
+public int getLivrostt() {
+    return livrostt;
+}
+
+public void setLivrostt(int livrostt) {
+    this.livrostt = livrostt;
+}
+public AutorLivro getAutor_id_autorfk() {
+    return autor_id_autorfk;
+}
+public void setAutor_id_autorfk(AutorLivro autor_id_autorfk) {
+    this.autor_id_autorfk = autor_id_autorfk;
+}
+public GeneroLivro getGenero_id_generofk() {
+    return genero_id_generofk;
+}
+public void setGenero_id_generofk(GeneroLivro genero_id_generofk) {
+    this.genero_id_generofk = genero_id_generofk;
+}
 
 }
