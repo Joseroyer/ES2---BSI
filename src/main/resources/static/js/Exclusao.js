@@ -45,12 +45,14 @@ function CarregaLista()
                 function appendData(data) {
 
                     var table="";
-                    table +=`<tr><th>Identificador</th><th>Nome do usuário</th><th>Editar</th><th>Excluir</th></tr>`
+                    table +=`<tr><th>Identificador</th><th>Nome do usuário</th><th>Telefone</th><th>Email</th><th>Editar</th><th>Excluir</th></tr>`
                     for (let i=0;i<data.length;i++)
                     {
                             table+=`<tr>
                             <td>${data[i].id}</td>
                             <td>${data[i].nome}</td>
+                            <td>${data[i].telefone}</td>
+                            <td>${data[i].email}</td>                            
                             <td><img width="30px" src='img/change.png' onclick='editar(${data[i].id})'></td>
                             <td><img width="30px" src='img/trash.png' onclick='excluir(${data[i].id})'></td>
                             </tr>`;        
