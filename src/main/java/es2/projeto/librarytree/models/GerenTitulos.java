@@ -26,38 +26,35 @@ private int quantidade;
 @Column(name="livro_stt")
 private int livrostt;
 
-@ManyToOne
-@JoinColumn(name="autor_id_autor", nullable = false)
-private AutorLivro autor_id_autorfk;
 
 @ManyToOne
 @JoinColumn(name="genero_id_genero", nullable = false)
 private GeneroLivro genero_id_generofk;
 
+@Column(name="autor_id_autor")
+private String autor_autor_nome;
+
 public GerenTitulos() {
 }
 // this.generos_id_genero_fk = generos_id_genero_fk;
-public GerenTitulos(long id_livro, String titulo_livro, int quantidade,
-        int livrostt) {
-    this.id_livro = id_livro;
-    this.titulo_livro = titulo_livro;
-    this.quantidade = quantidade;
-    
-    this.livrostt = 1;
+
+
+
+public long getId_livro() {
+    return id_livro;
 }
 
-public GerenTitulos(long id_livro, String titulo_livro, int quantidade, int livrostt, AutorLivro autor_id_autorfk,
-        GeneroLivro genero_id_generofk) {
+public GerenTitulos(long id_livro, String titulo_livro, int quantidade, int livrostt, GeneroLivro genero_id_generofk,
+        String autor_autor_nome) {
     this.id_livro = id_livro;
     this.titulo_livro = titulo_livro;
     this.quantidade = quantidade;
     this.livrostt = livrostt;
-    this.autor_id_autorfk = autor_id_autorfk;
     this.genero_id_generofk = genero_id_generofk;
+    this.autor_autor_nome = autor_autor_nome;
 }
-public long getId_livro() {
-    return id_livro;
-}
+
+
 
 public void setId_livro(long id_livro) {
     this.id_livro = id_livro;
@@ -86,11 +83,13 @@ public int getLivrostt() {
 public void setLivrostt(int livrostt) {
     this.livrostt = livrostt;
 }
-public AutorLivro getAutor_id_autorfk() {
-    return autor_id_autorfk;
+
+
+public String getAutor_autor_nome() {
+    return autor_autor_nome;
 }
-public void setAutor_id_autorfk(AutorLivro autor_id_autorfk) {
-    this.autor_id_autorfk = autor_id_autorfk;
+public void setAutor_autor_nome(String autor_autor_nome) {
+    this.autor_autor_nome = autor_autor_nome;
 }
 public GeneroLivro getGenero_id_generofk() {
     return genero_id_generofk;
