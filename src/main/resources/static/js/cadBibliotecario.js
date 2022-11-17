@@ -180,6 +180,7 @@ function gravarUsuario() {
                 return response.text();
             }
             else if (response.status == 406) {
+                document.getElementById("cadastrado").style.display = "none";
                 document.getElementById("resultados_div").style.display = "none";
                 document.getElementById("cpf_existente").style.display = "block";
             }
