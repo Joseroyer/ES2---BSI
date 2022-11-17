@@ -79,11 +79,15 @@ public class Singleton {
         return this.editoraRepository.save(id);
     }
 
-    public Editora editarEditora(Editora Identificador, String Nome) {
-        Editora editor = new Editora();
-        String fil = Identificador.getNome_editora().toUpperCase();
-        List<Editora> edit = editoraRepository.findAllWithFilter(fil);
-        if (edit.isEmpty()) {
+
+    public Editora editarEditora(Editora Identificador, String Nome) 
+    {
+        // Editora editor = new Editora();
+        // String fil = Identificador.getNome_editora().toUpperCase();
+        // List<Editora> edit = editoraRepository.findAllWithFilter(fil);
+        // if(edit.isEmpty())
+        // {
+
             Optional<Editora> editora = editoraRepository.findById(Identificador.getId_editora());
             Identificador.setId_editora(editora.get().getId_editora());
             Identificador.setNome_editora(Nome);
@@ -91,8 +95,6 @@ public class Singleton {
             Identificador.setCidade_editora(editora.get().getCidade_editora());
             Identificador.setEstado_editora(editora.get().getEstado_editora());
             return this.editoraRepository.save(Identificador);
-        } else
-            return editor;
 
     }
 
@@ -135,6 +137,13 @@ public class Singleton {
 
         return bibli;
     }
+
+    // public List<Editora> buscarById(int id) {
+        
+    //     List <Editora> edit = editoraRepository.findById(id);
+        
+    //     return edit;
+    // }
 
     public Bibliotecario aprovar(Bibliotecario id) {
 
