@@ -47,8 +47,7 @@ public class GerenTitulosControl {
       return this.gerenTitulosRepository.save(id);
   }
       
-  //     @RequestMapping("/editar-titulos-gerenciados")
-      
+      @RequestMapping("/editar-titulos-gerenciados")
       public GerenTitulos gerentit (@RequestParam(value="Identificador") GerenTitulos Identificador, @RequestParam(value="Nome") String Nome)
     {
       // String fil = Identificador.getTitulo_livro().toUpperCase();
