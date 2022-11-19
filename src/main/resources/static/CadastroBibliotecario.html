@@ -224,21 +224,22 @@
                                 mínimo 5 caracteres
                             </label>
                         </div>
-                        <br>
-                        <div class="d-flex float-right">
+                        <div class="label-text">
                             <p id="obrigatorio" style="color: #ffff">*
                                 Obrigatórios</p>
                         </div>
+                        <br>
                         <div class="d-flex justify-content-center">
-                            <p class="message" id="cadastrado"
+                                <p id="cad"
                                 style="font-size:18px;
-                                color: #ffff; display: none;">Cadastrado com
+                                color: #ffff; display: none;"
+                                >Cadastrado com
                                 Sucesso</p>
-                            <p id="cpf_existente" style="color:#ffff;
+                            <p id="cpf_error" style="color:#ffff;
                                 display: none;">CPF ou Login Existente</p>
                         </div>
                         <div class="form-field">
-                            <input type="submit" value="Registrar"
+                            <input id="btn" type="submit" value="Registrar"
                                 onclick="gravarUsuario()"/>
                         </div>
                     </form>

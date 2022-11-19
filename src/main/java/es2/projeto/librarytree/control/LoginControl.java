@@ -18,7 +18,6 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-
 @RequestMapping("/security")
 public class LoginControl {
     private final BibliotecarioRepository bibliotecarioRepository;

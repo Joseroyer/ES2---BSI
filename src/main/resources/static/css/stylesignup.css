@@ -38,8 +38,8 @@
 
 .login-item {
   color: #ffff;
-  padding: 25px 25px 0;
-  margin: 20px 20px 0;
+  padding: 20px 20px 15px;
+  margin: 20px 20px 15px;
   border-radius: 3px;
 }
 
@@ -129,7 +129,7 @@ form input[type="button"] {
 .label-text {
   padding: 15px 0px 2px;
   margin: 15px 0px 2px;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .label-text-resposta {
@@ -150,8 +150,3 @@ form input[type="button"] {
   font: 14px fontawesome;
   color: #5b5b5b;
 }
-
-.mensagem {
-  display: none;
-  color: #eee;
-} */
