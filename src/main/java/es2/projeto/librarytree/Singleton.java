@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
-import es2.projeto.librarytree.models.Bibliotecario;
-import es2.projeto.librarytree.models.Cliente;
 import es2.projeto.librarytree.models.Editora;
 import es2.projeto.librarytree.models.Parametrizacao;
 import es2.projeto.librarytree.repositories.BibliotecarioRepository;
@@ -79,33 +77,21 @@ public class Singleton {
         return this.editoraRepository.save(id);
     }
 
-
-    public Editora editarEditora(Editora Identificador, String Nome) 
-    {
+    public Editora editarEditora(Editora Identificador, String Nome) {
         // Editora editor = new Editora();
         // String fil = Identificador.getNome_editora().toUpperCase();
         // List<Editora> edit = editoraRepository.findAllWithFilter(fil);
         // if(edit.isEmpty())
         // {
 
-            Optional<Editora> editora = editoraRepository.findById(Identificador.getId_editora());
-            Identificador.setId_editora(editora.get().getId_editora());
-            Identificador.setNome_editora(Nome);
-            Identificador.setStatus(1);
-            Identificador.setCidade_editora(editora.get().getCidade_editora());
-            Identificador.setEstado_editora(editora.get().getEstado_editora());
-            return this.editoraRepository.save(Identificador);
+        Optional<Editora> editora = editoraRepository.findById(Identificador.getId_editora());
+        Identificador.setId_editora(editora.get().getId_editora());
+        Identificador.setNome_editora(Nome);
+        Identificador.setStatus(1);
+        Identificador.setCidade_editora(editora.get().getCidade_editora());
+        Identificador.setEstado_editora(editora.get().getEstado_editora());
+        return this.editoraRepository.save(Identificador);
 
-    }
-
-    public Bibliotecario edBibliotecario(Bibliotecario Identificador, String Nome, String telefone, String email) {
-        Bibliotecario editor = new Bibliotecario();
-        Optional<Bibliotecario> bli = bibliotecarioRepository.findById(Identificador.getId());
-        Identificador.setId(bli.get().getId());
-        Identificador.setNome(Nome);
-        Identificador.setTelefone(telefone);
-        Identificador.setEmail(email);
-        return this.bibliotecarioRepository.save(Identificador);
     }
 
     public Editora salvarEditora(Editora editora) {
@@ -119,94 +105,101 @@ public class Singleton {
     }
 
     // Bibliotecario
-    public List<Bibliotecario> findByCPF(String cpf) {
-        return bibliotecarioRepository.findByCPF(cpf);
-    }
-
-    public List<Bibliotecario> findByLogin(String login) {
-        return bibliotecarioRepository.findByLogin(login);
-    }
-
-    public Bibliotecario saveBibliotecario(Bibliotecario bi) {
-        return bibliotecarioRepository.save(bi);
-    }
-
-    public List<Bibliotecario> buscarTodosUsers() {
-
-        List<Bibliotecario> bibli = bibliotecarioRepository.findAll();
-
-        return bibli;
-    }
-
-    // public List<Editora> buscarById(int id) {
-        
-    //     List <Editora> edit = editoraRepository.findById(id);
-        
-    //     return edit;
+    // public List<Bibliotecario> findByCPF(String cpf) {
+    // return bibliotecarioRepository.findByCPF(cpf);
     // }
 
-    public Bibliotecario aprovar(Bibliotecario id) {
+    // public List<Bibliotecario> findByLogin(String login) {
+    // return bibliotecarioRepository.findByLogin(login);
+    // }
 
-        Optional<Bibliotecario> bibli = bibliotecarioRepository.findById(id.getId());
-        id.setStatus(1);
-        id.setCPF(bibli.get().getCPF());
-        id.setData_admissao(bibli.get().getData_admissao());
-        id.setData_demissao(bibli.get().getData_demissao());
-        id.setEmail(bibli.get().getEmail());
-        id.setId(bibli.get().getId());
-        id.setLogin(bibli.get().getLogin());
-        id.setNivel(bibli.get().getNivel());
-        id.setNome(bibli.get().getNome());
-        id.setSenha(bibli.get().getSenha());
-        id.setTelefone(bibli.get().getTelefone());
-        return this.bibliotecarioRepository.save(id);
+    // public Bibliotecario saveBibliotecario(Bibliotecario bi) {
+    // return bibliotecarioRepository.save(bi);
+    // }
 
-    }
+    // public List<Bibliotecario> buscarTodosUsers() {
+
+    // List<Bibliotecario> bibli = bibliotecarioRepository.findAll();
+
+    // return bibli;
+    // }
+
+    // public Bibliotecario edBibliotecario(Bibliotecario Identificador, String
+    // Nome, String telefone, String email) {
+    // Bibliotecario editor = new Bibliotecario();
+    // Optional<Bibliotecario> bli =
+    // bibliotecarioRepository.findById(Identificador.getId());
+    // Identificador.setId(bli.get().getId());
+    // Identificador.setNome(Nome);
+    // Identificador.setTelefone(telefone);
+    // Identificador.setEmail(email);
+    // return this.bibliotecarioRepository.save(Identificador);
+    // }
+
+    // public Bibliotecario aprovar(Bibliotecario id) {
+
+    // Optional<Bibliotecario> bibli = bibliotecarioRepository.findById(id.getId());
+    // id.setStatus(1);
+    // id.setCPF(bibli.get().getCPF());
+    // id.setData_admissao(bibli.get().getData_admissao());
+    // id.setData_demissao(bibli.get().getData_demissao());
+    // id.setEmail(bibli.get().getEmail());
+    // id.setId(bibli.get().getId());
+    // id.setLogin(bibli.get().getLogin());
+    // id.setNivel(bibli.get().getNivel());
+    // id.setNome(bibli.get().getNome());
+    // id.setSenha(bibli.get().getSenha());
+    // id.setTelefone(bibli.get().getTelefone());
+    // return this.bibliotecarioRepository.save(id);
+
+    // }
+
+    // public List<Bibliotecario> buscarTodosAdms() {
+    // List<Bibliotecario> bibli = bibliotecarioRepository.findAllAdm();
+
+    // return bibli;
+    // }
+
+    // public Bibliotecario excluir(Bibliotecario id) {
+    // Optional<Bibliotecario> bibli = bibliotecarioRepository.findById(id.getId());
+    // id.setStatus(-1);
+    // id.setCPF(bibli.get().getCPF());
+    // id.setData_admissao(bibli.get().getData_admissao());
+    // id.setData_demissao(bibli.get().getData_demissao());
+    // id.setEmail(bibli.get().getEmail());
+    // id.setId(bibli.get().getId());
+    // id.setLogin(bibli.get().getLogin());
+    // id.setNivel(bibli.get().getNivel());
+    // id.setNome(bibli.get().getNome());
+    // id.setSenha(bibli.get().getSenha());
+    // id.setTelefone(bibli.get().getTelefone());
+    // return this.bibliotecarioRepository.save(id);
+    // }
+
+    // public Bibliotecario editarBibliotecario(Bibliotecario Identificador, String
+    // Nome, String Telefone, String email) {
+    // Optional<Bibliotecario> bibli =
+    // bibliotecarioRepository.findById(Identificador.getId());
+    // Identificador.setId(bibli.get().getId());
+    // Identificador.setNome(Nome);
+    // Identificador.setTelefone(Telefone);
+    // Identificador.setEmail(email);
+    // return this.bibliotecarioRepository.save(Identificador);
+    // }
+
+    // public Optional<Bibliotecario> buscarBibliotecario(Long id) {
+    // Optional<Bibliotecario> bi = bibliotecarioRepository.findById(id);
+    // return bi;
+    // }
 
     // Cliente
-    public List<Cliente> listCliente() {
-        return clienteRepository.findAll();
-    }
+    // public List<Cliente> listCliente() {
+    // return clienteRepository.findAll();
+    // }
 
-    public Cliente saveCliente(Cliente cli) {
-        return clienteRepository.save(cli);
-    }
-
-    public List<Bibliotecario> buscarTodosAdms() {
-        List<Bibliotecario> bibli = bibliotecarioRepository.findAllAdm();
-
-        return bibli;
-    }
-
-    public Bibliotecario excluir(Bibliotecario id) {
-        Optional<Bibliotecario> bibli = bibliotecarioRepository.findById(id.getId());
-        id.setStatus(-1);
-        id.setCPF(bibli.get().getCPF());
-        id.setData_admissao(bibli.get().getData_admissao());
-        id.setData_demissao(bibli.get().getData_demissao());
-        id.setEmail(bibli.get().getEmail());
-        id.setId(bibli.get().getId());
-        id.setLogin(bibli.get().getLogin());
-        id.setNivel(bibli.get().getNivel());
-        id.setNome(bibli.get().getNome());
-        id.setSenha(bibli.get().getSenha());
-        id.setTelefone(bibli.get().getTelefone());
-        return this.bibliotecarioRepository.save(id);
-    }
-
-    public Bibliotecario editarBibliotecario(Bibliotecario Identificador, String Nome, String Telefone, String email) {
-        Optional<Bibliotecario> bibli = bibliotecarioRepository.findById(Identificador.getId());
-        Identificador.setId(bibli.get().getId());
-        Identificador.setNome(Nome);
-        Identificador.setTelefone(Telefone);
-        Identificador.setEmail(email);
-        return this.bibliotecarioRepository.save(Identificador);
-    }
-
-    public Optional<Bibliotecario> buscarBibliotecario(Long id) {
-        Optional<Bibliotecario> bi = bibliotecarioRepository.findById(id);
-        return bi;
-    }
+    // public Cliente saveCliente(Cliente cli) {
+    // return clienteRepository.save(cli);
+    // }
 
     public Optional<Editora> buscarEditora(Long id) {
         Optional<Editora> ed = editoraRepository.findById(id);

@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import es2.projeto.librarytree.Singleton;
 import es2.projeto.librarytree.models.Bibliotecario;
 import es2.projeto.librarytree.repositories.BibliotecarioRepository;
+import es2.projeto.librarytree.singleton.SingletonBibliotecario;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -23,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 public class BibliotecarioControl {
 
     @Autowired
-    Singleton singleton;
+    SingletonBibliotecario singleton;
 
     @Autowired
     BibliotecarioRepository bibliotecarioRepository;
