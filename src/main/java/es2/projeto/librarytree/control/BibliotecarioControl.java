@@ -3,7 +3,6 @@ package es2.projeto.librarytree.control;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,9 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import es2.projeto.librarytree.Singleton;
 import es2.projeto.librarytree.models.Bibliotecario;
-import es2.projeto.librarytree.repositories.BibliotecarioRepository;
+import es2.projeto.librarytree.singleton.SingletonBibliotecario;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -22,11 +20,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/apis")
 public class BibliotecarioControl {
 
-    @Autowired
-    Singleton singleton;
-
-    @Autowired
-    BibliotecarioRepository bibliotecarioRepository;
+    private final SingletonBibliotecario singleton;
 
     @PostMapping("/saveBi")
     public ResponseEntity<Object> save(@RequestBody Bibliotecario bi) {
@@ -83,8 +77,8 @@ public class BibliotecarioControl {
     }
 
     @RequestMapping("/listar-bi")
-    public Optional listfindy(@RequestParam(value="Identificador")Long id) {
-        Optional<Bibliotecario> bibli=singleton.buscarBibliotecario(id);
+    public Optional listfindy(@RequestParam(value = "Identificador") Long id) {
+        Optional<Bibliotecario> bibli = singleton.buscarBibliotecario(id);
         return bibli;
     }
 }

@@ -23,8 +23,6 @@ import java.util.List;
 public class LoginControl {
     private final BibliotecarioRepository bibliotecarioRepository;
     private final ClienteRepository clienteRepository;
-//    private final Cliente cliente;
-//    private final Bibliotecario bibliotecario;
 
     @Autowired
     HttpServletRequest request;
