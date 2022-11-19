@@ -3,6 +3,7 @@ package es2.projeto.librarytree.control;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,14 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import es2.projeto.librarytree.models.Editora;
 import es2.projeto.librarytree.singleton.SingletonEditora;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 @RestController
 @RequestMapping("/apis")
 public class EditoraRestControl {
-
-    private final SingletonEditora singleton;
+    @Autowired
+    SingletonEditora singleton;
 
     @RequestMapping("/listar-todas-editoras")
     public ResponseEntity<Object> buscarTodas() {

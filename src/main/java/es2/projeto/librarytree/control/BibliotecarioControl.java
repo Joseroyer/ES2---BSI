@@ -3,6 +3,7 @@ package es2.projeto.librarytree.control;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,14 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import es2.projeto.librarytree.models.Bibliotecario;
 import es2.projeto.librarytree.singleton.SingletonBibliotecario;
-import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("/apis")
 public class BibliotecarioControl {
 
-    private final SingletonBibliotecario singleton;
+    @Autowired
+    SingletonBibliotecario singleton;
 
     @PostMapping("/saveBi")
     public ResponseEntity<Object> save(@RequestBody Bibliotecario bi) {
@@ -30,7 +30,6 @@ public class BibliotecarioControl {
         if (bil_cpf.isEmpty() && bil_login.isEmpty()) {
             bi.setNivel(1);
             return new ResponseEntity<>(singleton.saveBibliotecario(bi), HttpStatus.OK);
-
         } else
             return new ResponseEntity<>("CPF Existente", HttpStatus.NOT_ACCEPTABLE);
     }
@@ -38,15 +37,12 @@ public class BibliotecarioControl {
     @RequestMapping("/listarusers")
     public ResponseEntity<Object> buscarTodas() {
         List<Bibliotecario> bibli = singleton.buscarTodosUsers();
-
         return new ResponseEntity<>(bibli, HttpStatus.OK);
-
     }
 
     @RequestMapping("/listaradm")
     public ResponseEntity<Object> buscarAdm() {
         List<Bibliotecario> bibli = singleton.buscarTodosAdms();
-
         return new ResponseEntity<>(bibli, HttpStatus.OK);
 
     }

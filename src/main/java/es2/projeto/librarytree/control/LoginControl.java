@@ -1,11 +1,9 @@
 package es2.projeto.librarytree.control;
 
-import es2.projeto.librarytree.models.Bibliotecario;
-import es2.projeto.librarytree.models.Cliente;
-import es2.projeto.librarytree.repositories.BibliotecarioRepository;
-import es2.projeto.librarytree.repositories.ClienteRepository;
-import es2.projeto.librarytree.security.JWTTokenProvider;
-import lombok.RequiredArgsConstructor;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,15 +11,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.List;
+import es2.projeto.librarytree.models.Bibliotecario;
+import es2.projeto.librarytree.models.Cliente;
+import es2.projeto.librarytree.repositories.BibliotecarioRepository;
+import es2.projeto.librarytree.repositories.ClienteRepository;
+import es2.projeto.librarytree.security.JWTTokenProvider;
 
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("/security")
 public class LoginControl {
-    private final BibliotecarioRepository bibliotecarioRepository;
-    private final ClienteRepository clienteRepository;
+    @Autowired
+    BibliotecarioRepository bibliotecarioRepository;
+    @Autowired
+    ClienteRepository clienteRepository;
 
     @Autowired
     HttpServletRequest request;
@@ -41,8 +43,9 @@ public class LoginControl {
         String token = "";
         if (adm == true) {
             List<Bibliotecario> user = bibliotecarioRepository.findFilterWith(senha, login);
-            for (i = 0; i < user.size() && pos!=1; i++)
-            {    if (senha.equals(user.get(i).getSenha()) && login.equals(user.get(i).getLogin()) && user.get(i).getStatus() == 1)
+            for (i = 0; i < user.size() && pos != 1; i++) {
+                if (senha.equals(user.get(i).getSenha()) && login.equals(user.get(i).getLogin())
+                        && user.get(i).getStatus() == 1)
                     pos = 1;
             }
             if (pos == 1) {

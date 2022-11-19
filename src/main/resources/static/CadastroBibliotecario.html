@@ -102,6 +102,7 @@
                     <div class="logo">Cadastro Bibliotecário</div>
                     <div class="login-item">
                         <form id="fdados" class="form form-login" method="post">
+                            <!-- Nome -->
                                 <div class="label-text">
                                     <label class="" for="login-username">Nome
                                         Completo:<span class="hidden"></span></label>
@@ -122,7 +123,8 @@
                                         no mínimo 8 caracteres</p>
                                 </label>
                             </div>
-
+                            <!-- /Nome -->
+                            <!-- Telefone -->
                             <div class="label-text">
                                 <label class="" for="login-username">Celular:<span
                                         class="hidden"></span></label>
@@ -139,8 +141,10 @@
                                     required />
                             </div>
                             <div class="label-text-resposta">
-                                <label id="resposta_telefone" style="display: none;">Informe corretamente o Celular</label>
+                                <label id="resultado_telefone" style="display: none;">Informe corretamente o Celular</label>
                             </div>
+                            <!-- /Telefone -->
+                            <!-- Email -->
                             <div class="label-text">
                                 <label class="" for="login-username">E-mail:<span
                                         class="hidden"></span></label>
@@ -160,7 +164,8 @@
                                     display: none;">Preencha corretamente o
                                     E-mail</label>
                             </div>
-
+                            <!-- /Email -->
+                            <!-- CPF -->
                             <div class="label-text">
                                 <label class="" for="login-username">CPF:<span
                                         class="hidden"></span></label>
@@ -180,7 +185,8 @@
                                 <label id="resultado_CPF" style="color:#ffff;
                                     display: none;">CPF inválido</label>
                             </div>
-
+                            <!-- /CPF -->
+                            <!-- User -->
                             <div class="label-text">
                                 <label class="" for="login-username">Nome de
                                     Usuário:<span
@@ -188,7 +194,6 @@
                             </div>
                             <div class="form-field">
                                 <input
-
                                     id="login"
                                     name="login"
                                     type="text"
@@ -197,51 +202,49 @@
                                     onblur="validarUser()"
                                     required/>
                             </div>
-
                             <div class="label-text-resposta resultados_div">
                                 <label id="resultado_user" style="color:#ffff;
                                     display: none;">Nome de Usuário precisa conter
                                     no mínimo 5 caracteres</p>
-                            </label>
-                        </div>
-                        <div class="label-text">
-                            <label class="lock" for="login-password">Senha:<span
-                                    class="hidden"></span></label>
-                        </div>
-                        <div class="form-field">
-                            <input
-                                id="senha"
-                                name="senha"
-                                type="password"
-                                class="form-input"
-                                placeholder="Senha *"
-                                onblur="validarSenha()"
-                                required/>
-                        </div>
-                        <div class="label-text-resposta resultados_div">
-                            <label id="resultado_senha" style="color:#ffff;
-                                display: none;">Senha precisa conter no
-                                mínimo 5 caracteres
-                            </label>
-                        </div>
-                        <div class="label-text">
-                            <p id="obrigatorio" style="color: #ffff">*
-                                Obrigatórios</p>
-                        </div>
-                        <br>
-                        <div class="d-flex justify-content-center">
-                                <p id="cad"
-                                style="font-size:18px;
-                                color: #ffff; display: none;"
-                                >Cadastrado com
-                                Sucesso</p>
-                            <p id="cpf_error" style="color:#ffff;
-                                display: none;">CPF ou Login Existente</p>
-                        </div>
-                        <div class="form-field">
-                            <input id="btn" type="submit" value="Registrar"
-                                onclick="gravarUsuario()"/>
-                        </div>
+                                </label>
+                            </div>
+                            <!-- /User -->
+                            <!-- Senha -->
+                            <div class="label-text">
+                                <label class="lock" for="login-password">Senha:<span
+                                        class="hidden"></span></label>
+                            </div>
+                            <div class="form-field">
+                                <input
+                                    id="senha"
+                                    name="senha"
+                                    type="password"
+                                    class="form-input"
+                                    placeholder="Senha *"
+                                    onblur="validarSenha()"
+                                    required/>
+                            </div>
+                            <div class="label-text-resposta resultados_div">
+                                <label id="resultado_senha" style="color:#ffff;
+                                    display: none;">Senha precisa conter no
+                                    mínimo 5 caracteres
+                                </label>
+                            </div>
+                            <!-- /Senha -->
+                            <div class="label-text">
+                                <p id="obrigatorio" style="color: #ffff">*
+                                    Obrigatórios</p>
+                            </div>
+                            <!-- Validacao -->
+                            <div class="d-flex justify-content-center">
+                                <p id="cadastrado" style="font-size:18px; color: #ffff; display: none; ">Cadastrado com Sucesso</p>
+                                <p id="cpf_existente" style="color:#ffff; display: none;">CPF ou Login Existente</p>
+                            </div>
+                            <!-- Botao -->
+                            <div class="form-field">
+                                <input id="btn" type="submit" value="Registrar"
+                                    onclick="gravarUsuario()"/>
+                            </div>
                     </form>
                 </div>
             </div>

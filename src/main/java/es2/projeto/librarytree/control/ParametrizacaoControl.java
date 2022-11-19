@@ -2,6 +2,7 @@ package es2.projeto.librarytree.control;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,14 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import es2.projeto.librarytree.models.Parametrizacao;
 import es2.projeto.librarytree.singleton.SingletonParametrizacao;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 @RestController
 @RequestMapping(value = "/apis")
 public class ParametrizacaoControl {
 
-    private final SingletonParametrizacao singleton;
+    @Autowired
+    SingletonParametrizacao singleton;
 
     @RequestMapping(value = "/testar-param")
     public ResponseEntity<Object> buscarTodos() {
