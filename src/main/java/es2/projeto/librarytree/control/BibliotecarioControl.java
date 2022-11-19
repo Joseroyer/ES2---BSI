@@ -1,16 +1,21 @@
 package es2.projeto.librarytree.control;
 
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import es2.projeto.librarytree.Singleton;
 import es2.projeto.librarytree.models.Bibliotecario;
 import es2.projeto.librarytree.repositories.BibliotecarioRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -27,13 +32,12 @@ public class BibliotecarioControl {
     public ResponseEntity<Object> save(@RequestBody Bibliotecario bi) {
         List<Bibliotecario> bil_cpf = singleton.findByCPF(bi.getCPF());
         List<Bibliotecario> bil_login = singleton.findByLogin(bi.getLogin());
-
-
-        if (bi != null && bil_cpf.isEmpty() && bil_login.isEmpty()) {
+        if (bil_cpf.isEmpty() && bil_login.isEmpty()) {
             bi.setNivel(1);
             return new ResponseEntity<>(singleton.saveBibliotecario(bi), HttpStatus.OK);
         } else
             return new ResponseEntity<>("CPF Existente", HttpStatus.NOT_ACCEPTABLE);
+
     }
 
     @RequestMapping("/listarusers")
@@ -70,8 +74,8 @@ public class BibliotecarioControl {
 
     @RequestMapping("/editarBibliotecario")
     public ResponseEntity<Object> editar(@RequestParam(value = "Identificador") Bibliotecario Identificador,
-                                         @RequestParam(value = "Nome") String Nome,
-                                         @RequestParam(value = "Telefone") String Telefone, @RequestParam(value = "Email") String Email) {
+            @RequestParam(value = "Nome") String Nome,
+            @RequestParam(value = "Telefone") String Telefone, @RequestParam(value = "Email") String Email) {
         Bibliotecario bli = new Bibliotecario();
         bli = singleton.edBibliotecario(Identificador, Nome, Telefone, Email);
         return new ResponseEntity<>(bli, HttpStatus.OK);
