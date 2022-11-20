@@ -18,5 +18,9 @@ public class SingletonExemplares {
         return exemplaresRepository.findAll();
     }
 
+    public Exemplares saveExemplar(Exemplares exemplares) {
+        return exemplaresRepository.save(exemplares);
+    }
+
 
 }

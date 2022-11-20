@@ -13,6 +13,7 @@ import java.util.Date;
 @Entity
 @Table(name = "exemplares")
 public class Exemplares {
+
     @Id
     @Column(name = "id_exemplar")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,4 +35,12 @@ public class Exemplares {
     @ManyToOne
     @JoinColumn(name = "editora_id_editora")
     private Editora editora_fk;
+
+    public Exemplares(int qtd, Date ano_publicado, int qtd_dias_empres, Livro livro_fk, Editora editora_fk) {
+        this.qtd = qtd;
+        this.ano_publicado = ano_publicado;
+        this.qtd_dias_empres = qtd_dias_empres;
+        this.livro_fk = livro_fk;
+        this.editora_fk = editora_fk;
+    }
 }

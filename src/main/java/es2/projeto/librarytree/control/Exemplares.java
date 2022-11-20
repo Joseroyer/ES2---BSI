@@ -1,14 +1,11 @@
 package es2.projeto.librarytree.control;
 
-
 import es2.projeto.librarytree.singleton.SingletonExemplares;
 import es2.projeto.librarytree.singleton.SingletonLivro;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
@@ -24,5 +21,10 @@ public class Exemplares {
     @GetMapping("listar_livros")
     public ResponseEntity<Object> listarLivro() {
         return new ResponseEntity<>(singletonLivro.findAllLivro(), HttpStatus.OK);
+    }
+
+    @PostMapping("save/Exemplar")
+    public ResponseEntity<Object> save(@RequestBody es2.projeto.librarytree.models.Exemplares ex) {
+        return new ResponseEntity<>(singletonExemplares.saveExemplar(ex), HttpStatus.OK);
     }
 }
