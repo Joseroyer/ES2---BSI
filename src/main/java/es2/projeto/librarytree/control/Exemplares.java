@@ -14,16 +14,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("apis")
 public class Exemplares {
-    private final SingletonExemplares singleton;
+    private final SingletonExemplares singletonExemplares;
     private final SingletonLivro singletonLivro;
-
-    @GetMapping("listar-exemplares")
-    public ResponseEntity<Object> listarExemplar(){
-        return new ResponseEntity<>(singleton.findAllExemplar(), HttpStatus.OK);
+    @GetMapping("listar_exemplares")
+    public ResponseEntity<Object> listarExemplar() {
+        return new ResponseEntity<>(singletonExemplares.findAllExemplar(), HttpStatus.OK);
     }
 
-    @GetMapping("listar-livros")
-    public ResponseEntity<Object> listarLivro(){
+    @GetMapping("listar_livros")
+    public ResponseEntity<Object> listarLivro() {
         return new ResponseEntity<>(singletonLivro.findAllLivro(), HttpStatus.OK);
     }
 }
