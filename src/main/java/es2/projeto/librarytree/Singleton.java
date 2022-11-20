@@ -99,7 +99,7 @@ public class Singleton {
     }
 
     public Bibliotecario edBibliotecario(Bibliotecario Identificador, String Nome, String telefone, String email) {
-        Bibliotecario editor = new Bibliotecario();
+        //Bibliotecario editor = new Bibliotecario();
         Optional<Bibliotecario> bli = bibliotecarioRepository.findById(Identificador.getId());
         Identificador.setId(bli.get().getId());
         Identificador.setNome(Nome);
