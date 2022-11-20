@@ -25,7 +25,7 @@ public class Exemplares {
     private Date ano_publicado;
 
     @Column(name = "qtd_dias_empres")
-    private Date qtd_dias_empres;
+    private int qtd_dias_empres;
 
     @ManyToOne
     @JoinColumn(name = "livro_id_livro")
