@@ -47,3 +47,46 @@ function Parameters()
   }
   
 }
+
+function CarregaLista()
+{
+    var filtro = document.getElementById("busca").value
+    const URL_TO_FETCH = '/apis/listar-emprestimos';
+    var status;
+    fetch(URL_TO_FETCH, {method: 'POST',
+       headers:{'Authorization':`${localStorage.getItem("token")}`,}})
+    .then(response=> response.text())
+    .then(result=> 
+        {
+                fetch("/apis/listar-emprestimos")
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    appendData(data);
+                })
+                .catch(function (err) {
+                    console.log('error: ' + err);
+                });
+                function appendData(data) {
+
+                    
+
+                    var table="";
+                    for (let i=0;i<data.length;i++)
+                    {
+                            table+=`<tr>
+                            <td>${data[i].id_editora}</td>
+                            <td>${data[i].nome_editora}</td>
+                            <td>${data[i].cidade_editora}</td>
+                            <td>${data[i].estado_editora}</td>
+                            <td><img width="30px" src='img/change.png' onclick='editar(${data[i].id_editora})'></td>
+                            <td><img width="30px" src='img/trash.png' onclick='excluir(${data[i].id_editora})'></td>
+                            </tr>`;        
+                    }
+                    document.getElementById("qlq").innerHTML=table;
+                }
+            }
+        )
+    .catch(err=> console.error(err));
+}

@@ -19,15 +19,7 @@ public class ParametrizacaoControl {
     @Autowired
     SingletonParametrizacao singleton;
 
-    @RequestMapping(value = "/testar-param")
-    public ResponseEntity<Object> buscarTodos() {
-
-        List<Parametrizacao> parameters = singleton.buscaParametros();
-        if (parameters.isEmpty())
-            return new ResponseEntity<>("Não", HttpStatus.OK);
-        else
-            return new ResponseEntity<>(parameters, HttpStatus.OK);
-    }
+    
 
     @RequestMapping(value = "/estilo")
     public ResponseEntity<Object> buscarestilo() {
