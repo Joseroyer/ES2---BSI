@@ -1,53 +1,42 @@
 package es2.projeto.librarytree.control;
 
-
-import es2.projeto.librarytree.Singleton;
-import es2.projeto.librarytree.models.Parametrizacao;
-import es2.projeto.librarytree.repositories.ParametrizacaoRepository;
-
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
+import es2.projeto.librarytree.models.Parametrizacao;
+import es2.projeto.librarytree.singleton.SingletonParametrizacao;
 
 @RestController
-@RequestMapping(value="/apis")
+@RequestMapping(value = "/apis")
 public class ParametrizacaoControl {
 
-
     @Autowired
-    ParametrizacaoRepository parametrizacaoRepository;
+    SingletonParametrizacao singleton;
 
-    @Autowired
-    Singleton singleton;
-  
+    @RequestMapping(value = "/testar-param")
+    public ResponseEntity<Object> buscarTodos() {
 
-    @RequestMapping(value="/testar-param")
-    public ResponseEntity <Object> buscarTodos()
-    {
-       
-       List <Parametrizacao> parameters = singleton.buscaParametros();
-       if(parameters.isEmpty())
-        return new ResponseEntity<>("Não", HttpStatus.OK);
-       else 
-        return new ResponseEntity<>(parameters, HttpStatus.OK);
+        List<Parametrizacao> parameters = singleton.buscaParametros();
+        if (parameters.isEmpty())
+            return new ResponseEntity<>("Não", HttpStatus.OK);
+        else
+            return new ResponseEntity<>(parameters, HttpStatus.OK);
     }
 
-    @RequestMapping(value="/estilo")
-    public ResponseEntity <Object> buscarestilo()
-    {
-       List <Parametrizacao> parameters = singleton.buscarEstilo();
-       return new ResponseEntity<>(parameters,HttpStatus.CREATED);
-        
+    @RequestMapping(value = "/estilo")
+    public ResponseEntity<Object> buscarestilo() {
+        List<Parametrizacao> parameters = singleton.buscarEstilo();
+        return new ResponseEntity<>(parameters, HttpStatus.CREATED);
+
     }
 
-    
-    
-    @RequestMapping(value="/salvar")
+    @RequestMapping(value = "/salvar")
     public void Salvar(@RequestBody Parametrizacao parametrizacao) {
         singleton.SalvarParam(parametrizacao);
     }

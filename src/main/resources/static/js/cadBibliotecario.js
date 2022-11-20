@@ -177,7 +177,7 @@ function gravarUsuario() {
                 document.getElementById("resultados_div").style.display = "none";
                 document.getElementById("cadastrado").style.display = "block";
                 limparForms();
-                return response.text();
+                return response.json();
             }
             else if (response.status == 406) {
                 document.getElementById("cadastrado").style.display = "none";
@@ -186,7 +186,7 @@ function gravarUsuario() {
             }
         })
         .catch(function (error) {
-            console.error(error);
+            // console.error();
         });
     event.preventDefault("fdados");
 }
