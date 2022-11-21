@@ -31,6 +31,7 @@ public class SingletonExemplares {
         id.setLivro_fk(bibli.get().getLivro_fk());
         id.setEditora_fk(bibli.get().getEditora_fk());
         id.setQtd(bibli.get().getQtd());
+        id.setAno_publicado(bibli.get().getAno_publicado());
         return this.exemplaresRepository.save(id);
     }
 
