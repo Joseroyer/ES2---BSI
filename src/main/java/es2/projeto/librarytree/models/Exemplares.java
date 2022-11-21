@@ -36,11 +36,19 @@ public class Exemplares {
     @JoinColumn(name = "editora_id_editora")
     private Editora editora_fk;
 
-    public Exemplares(int qtd, Date ano_publicado, int qtd_dias_empres, Livro livro_fk, Editora editora_fk) {
-        this.qtd = qtd;
+    @Column(name ="status")
+    private int status;
+
+    public Exemplares(int qtd, Date ano_publicado, int qtd_dias_empres, Livro livro_fk, Editora editora_fk,
+            int status) {
         this.ano_publicado = ano_publicado;
         this.qtd_dias_empres = qtd_dias_empres;
         this.livro_fk = livro_fk;
         this.editora_fk = editora_fk;
+        this.status = status;
     }
+
+    
+
+
 }
