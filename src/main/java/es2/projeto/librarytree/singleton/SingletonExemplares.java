@@ -26,7 +26,11 @@ public class SingletonExemplares {
 
     public Exemplares excluirExemplares(Exemplares id) {
         Optional<Exemplares> bibli = exemplaresRepository.findById(id.getId());
-        id.setStatus(-1);
+        id.setStatus(0);
+        id.setId(bibli.get().getId());
+        id.setLivro_fk(bibli.get().getLivro_fk());
+        id.setEditora_fk(bibli.get().getEditora_fk());
+        id.setQtd(bibli.get().getQtd());
         return this.exemplaresRepository.save(id);
     }
 

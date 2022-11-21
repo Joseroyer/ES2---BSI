@@ -36,6 +36,7 @@ function CarregaLista() {
         .catch(err => console.error(err));
 }
 function excluir(id) {
+    console.log(id);
     if (window.confirm("Deseja realmente excluir o Exemplar?")) {
         fetch("/apis/excluirExemplar?id=" + id)
             .then(function (response) {
