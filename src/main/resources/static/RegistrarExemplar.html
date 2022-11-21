@@ -220,25 +220,31 @@
       </div>
     </section>
     <!-- End Hero -->
-    <div
-      class="container-xl"
-      style="margin-top: -500px; background-color: transparent"
-    >
+    <div class="container-xl" style="margin-top: -500px; background-color: transparent">
       <div class="table-responsive" style="background-color: transparent">
         <div class="table-wrapper">
           <div class="table-title">
             <div class="row">
-              <div class="col-sm-8">
-                <h2>Realizar <b>Devolução</b></h2>
+              <div class="col">
+                <h2>Realizar <b>Registro de Exemplares</b></h2>
               </div>
-              <div class="col-sm-4">
-                <div class="search-box">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Buscar usuário"
-                  />
-                </div>
+              <div class="col-md-auto">
+                    <div class="search-box">
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Buscar usuário"
+                    />
+                    </div>
+              </div>
+              <div class="col col-lg-2">
+                    <div class="">
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Inserer Exemplares"
+                    />
+                    </div>
               </div>
             </div>
           </div>
@@ -254,13 +260,96 @@
                 <th>Excluir</th>
               </tr>
             </thead>
-            <tbody id="tbody">
-              
-            </tbody>
+            <tbody id="tbody"></tbody>
           </table>
         </div>
       </div>
     </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="modal" style="display:
+        none;">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Alterar Bibliotecário</h5>
+              <button type="button" class="close" data-dismiss="modal"
+                aria-label="Fechar" onclick="closeModal()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" onload="FormsBibliotecario()">
+              <form>
+                <div class="form-group" style="margin-top:20px ;">
+                  <label for="recipient-name" class="col-form-label">Identificador:</label>
+                  <!-- <p>Identificador:</p> -->
+                  <input
+                    id="id"
+                    name="id"
+                    type="text"
+                    class="form-control"
+                    placeholder="Identificador do Bibliotecário"
+                    disabled
+                    />
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Nome
+                    Usuário:</label>
+                  <input
+                    id="novo_nome"
+                    name="novo_nome"
+                    type="text"
+                    class="form-control"
+                    required
+                    onblur="validarNome()"
+                    />
+                  <p id="resultado_nome" style="font-size:14px; color:#212529;;
+                    display: none;">Nome
+                    Completo precisa conter no mínimo 8 caracteres</p>
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Telefone:</label>
+                  <input
+                    id="novo_telefone"
+                    name="novo_telefone"
+                    type="text"
+                    class="form-control"
+                    required
+                    onkeyup="mascara('(##)#####-####',this,event)"
+                    />
+                  <p id="resultado_telefone" style="font-size:14px;
+                    color:#212529; display:
+                    none;">Preencha corretamente o Número de Celular</p>
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Email:</label>
+                  <input
+                    id="novo_email"
+                    name="novo_email"
+                    type="text"
+                    class="form-control"
+                    required
+                    onblur="validarEmail()"
+                    />
+                  <p id="resultado_email" style="font-size:14px;
+                    color:#212529;
+                    display:none;">Preencha corretamente o E-mail</p>
+                </div>
+                <div id="resultados_div" class="">
+                  <div class="d-flex justify-content-center">
+                    <p class="message" id="cadastrado" style="font-size:18px;
+                      color: #212529; display: none;">Alterado com Sucesso</p>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                  data-dismiss="modal" onclick="closeModal()">Cancelar</button>
+                <input type="submit" value="Alterar" class="btn btn-primary"
+                  onclick="editar2()">
+              </div>
+            </div>
+          </div>
+        </div>
 
     <main id="main">
       <section
