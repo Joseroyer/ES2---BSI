@@ -33,4 +33,9 @@ public class Exemplares {
     public ResponseEntity<Object> save(@RequestBody es2.projeto.librarytree.models.Exemplares ex) {
         return new ResponseEntity<>(singletonExemplares.saveExemplar(ex), HttpStatus.OK);
     }
+
+    @RequestMapping("/excluirExemplar")
+    public es2.projeto.librarytree.models.Exemplares excluir(es2.projeto.librarytree.models.Exemplares id) {
+        return this.singletonExemplares.excluirExemplares(id);
+    }
 }

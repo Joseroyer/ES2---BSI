@@ -17,7 +17,6 @@ function CarregaLista() {
                     console.log('error: ' + err);
                 });
             function appendData(data) {
-                console.log(data);
                 var table = "";
                 table += `<tr><th>#</th><th>Livro</th><th>Editora</th><th>Quantidade</th><th>Ano Publicado</th><th>Editar</th><th>Excluir</th></tr>`
                 for (let i = 0; i < data.length; i++) {
@@ -36,6 +35,21 @@ function CarregaLista() {
         })
         .catch(err => console.error(err));
 }
+function excluir(id) {
+    if (window.confirm("Deseja realmente excluir o Exemplar?")) {
+        fetch("/apis/excluirExemplar?id=" + id)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (text) {
+                window.location.href = "RegistrarExemplar.html";
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+    }
+}
+
 // function exibirCat() {
 //     fetch("/api/listar-todos")
 //         .then(function (response) {
