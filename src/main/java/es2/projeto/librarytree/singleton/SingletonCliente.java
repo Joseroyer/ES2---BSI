@@ -19,8 +19,18 @@ public class SingletonCliente {
     public List<Cliente> listCliente() {
         return clienteRepository.findAll();
     }
+    
+    public List<Cliente> listClientecpf(String filtro) {
+        return clienteRepository.findAllWithFilter(filtro);
+    }
 
     public Cliente saveCliente(Cliente cli) {
         return clienteRepository.save(cli);
     }
+
+    
+    public List<Cliente> listSituacao(String filtro) {
+        return clienteRepository.find(filtro);
+    }
+    
 }

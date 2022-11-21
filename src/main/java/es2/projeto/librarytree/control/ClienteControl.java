@@ -30,5 +30,4 @@ public class ClienteControl {
     public ResponseEntity<Object> getAll() {
         return new ResponseEntity<>(singleton.listCliente(), HttpStatus.OK);
     }
-
 }
