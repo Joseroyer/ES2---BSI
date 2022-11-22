@@ -88,9 +88,7 @@ function exibirEditoras() {
         document.getElementById("editora_fk").innerHTML = resp;
     }
 }
-// window.onload = function () {
-//     exibirLivros();
-// };
+
 
 function abrir() {
     document.getElementById("modal").style.display = 'block'
@@ -117,3 +115,12 @@ function salvar() {
 function closeModal() {
     document.getElementById("modal").style.display = 'none'
 }
+
+// function validarQuantidade() {
+//     let qtd = document.getElementById("qtd").values;
+//     console.log(qtd);
+//     if (qtd.length < 1) {
+//         document.getElementById("resultado_qtd").display.style = block;
+//         qtd.style.border = "solid 2px #00B9BC";
+//     }
+// }

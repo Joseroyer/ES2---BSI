@@ -272,13 +272,6 @@
                           <option>Selecione um Livro</option>
                           <option></option>
                   </select>
-                  <!-- <input
-                    id="livro_fk"
-                    name="livro_fk"
-                    type="text"
-                    class="form-control"
-                    placeholder="Identificador do Bibliotecário"
-                    /> -->
                 </div>
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">Editora:</label>
@@ -286,17 +279,8 @@
                       <option>Selecione uma Editora</option>
                       <option></option>
                   </select>
-                  <!-- <input
-                    id="editora_fk"
-                    name="editora_fk"
-                    type="text"
-                    class="form-control"
-                    required
-                    onblur="validarNome()"
-                    /> -->
-                  <p id="resultado_nome" style="font-size:14px; color:#212529;;
-                    display: none;">Nome
-                    Completo precisa conter no mínimo 8 caracteres</p>
+                  <p id="resultado_editora_fk" style="font-size:14px; color:#212529;;
+                    display: none;"></p>
                 </div>
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">Quantidade:</label>
@@ -306,11 +290,10 @@
                     type="number"
                     class="form-control"
                     required
-                    onblur="validarNome()"
+                    onblur="validarQuantidade()"
                     />
-                  <p id="resultado_nome" style="font-size:14px; color:#212529;;
-                    display: none;">Nome
-                    Completo precisa conter no mínimo 8 caracteres</p>
+                  <p id="resultado_qtd" style="font-size:14px; color:#212529;;
+                    display: none;">A quantidade precisa ser maior que 0</p>
                 </div>
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">Ano Publicado:</label>
@@ -320,11 +303,10 @@
                     type="date"
                     class="form-control"
                     required
-                    onkeyup="mascara('(##)#####-####',this,event)"
                     />
-                  <p id="resultado_telefone" style="font-size:14px;
+                  <p id="resultado_ano_publicado" style="font-size:14px;
                     color:#212529; display:
-                    none;">Preencha corretamente o Número de Celular</p>
+                    none;"></p>
                 </div>
                 <div id="resultados_div" class="">
                   <div class="d-flex justify-content-center">
