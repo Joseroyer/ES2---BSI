@@ -13,7 +13,7 @@ function somenteNumeros(num) {
 }
 
 function validarNome() {
-    nome = document.querySelector("#teste123");
+    nome = document.querySelector("#empsus");
     if (nome.value.length < 6) {
         nome.value = "";
         alert("Dados inseridos menor que 6 dígitos.");
@@ -23,29 +23,117 @@ function validarNome() {
     return true;
 }
 
-
-function isValidDate(dateString)
+//validações acima.
+//remover uma suspensao
+function excluir(id)
 {
-    // First check for the pattern
-    if(!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(dateString))
-        return false;
+    alert(id);
+    if(window.confirm("Remover essa suspensao?"))
+    {
+        fetch("/apis/remover-suspensao?id="+id)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (text) {
+            window.location.href = "suspensao.html";
+        })
+        .catch(function (err) {
+            console.log('error: ' + err);
+        });
+    }
+}
 
-    // Parse the date parts to integers
-    var parts = dateString.split("/");
-    var day = parseInt(parts[1], 10);
-    var month = parseInt(parts[0], 10);
-    var year = parseInt(parts[2], 10);
+function CadastrarSusp() {
+    const URL = "/apis/Cadastrar-Suspensao";
+    var fdados = document.getElementById("fdados");
+    var jsontext = JSON.stringify(Object.fromEntries(
+        new FormData(fdados)));
 
-    // Check the ranges of month and year
-    if(year < 1000 || year > 3000 || month == 0 || month > 12)
-        return false;
+    fetch(URL, {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method: 'POST', body: jsontext
+    })
+        .then(function (response) {
+            if(response.ok){
+                alert("Cadastrado");
+                return response.text();
+            }
+            else throw Error;
+        })
+        .catch(function (error) {
+            console.error(error);
+        });
+    event.preventDefault("fdados");
+}
 
-    var monthLength = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
 
-    // Adjust for leap years
-    if(year % 400 == 0 || (year % 100 != 0 && year % 4 == 0))
-        monthLength[1] = 29;
 
-    // Check the range of the day
-    return day > 0 && day <= monthLength[month - 1];
-};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Filtro para gerenciar a parte de suspensao cadastradas.
+function CarregaFiltro()
+{
+    var filtro = document.getElementById("--").value
+    const URL_TO_FETCH = '/apis/listar-um-titulo';
+    var status;
+    fetch(URL_TO_FETCH, {method: 'POST',
+       headers:{'Authorization':`${localStorage.getItem("token")}`,}})
+    .then(response=> response.text())
+    .then(result=> 
+        {
+                fetch("/apis/listar-um-titulo?filtro="+filtro)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    appendData(data);
+                })
+                .catch(function (err) {
+                    console.log('error: ' + err);
+                });
+                function appendData(data) {
+
+
+                    var table="";
+                    table+=`<tr><th>ID</th><th>Titulo</th><th>Editar</th><th>Excluir dados</th></tr>`
+                    for (let i=0;i<data.length;i++)
+                    {
+                            table+=`<tr>
+                            <td>${data[i].id_livro}</td>
+                            <td>${data[i].titulo_livro}</td>
+                            <td><img width="30px" src='img/change.png'onclick='editar (${data[i].id_livro})'></td>
+                            <td><img width="30px" src='img/trash.png' onclick='excluir(${data[i].id_livro})'></td>
+                            </tr>`;        
+                    }
+                    document.getElementById("tab").innerHTML=table;
+                }
+            }
+        )
+    .catch(err=> console.error(err));
+}
+

@@ -14,8 +14,6 @@ import es2.projeto.librarytree.models.Cliente;
 public class Suspensao {
     private static final long serialVersionUID = 1L;
 
-    
-    
     @Column(name="cliente_ra", nullable = false)
     private Long clientera;
 
@@ -95,29 +93,6 @@ public class Suspensao {
     public void setSuspstt(int suspstt) {
         Suspstt = suspstt;
     }
-
-    
-
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
