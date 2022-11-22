@@ -6,20 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
-import es2.projeto.librarytree.models.Cliente;
-import es2.projeto.librarytree.repositories.ClienteRepository;
+import es2.projeto.librarytree.models.Exemplar;
+import es2.projeto.librarytree.repositories.ExemplarRepository;
+
 
 
 @Service
 @Scope("singleton")
 public class SingletonEmprestimo {
- 
+
     @Autowired
-    ClienteRepository clienteRepository;
+    ExemplarRepository eRepository;
 
-    public List<Cliente> buscaFiltro(String filtro) {
-        List<Cliente> emp = clienteRepository.findAllWithFilter(filtro);
-        return emp;
+    public List<Exemplar> buscarTodas() {
+        List<Exemplar> ee = eRepository.findAll();
+        return ee;
     }
-
 }

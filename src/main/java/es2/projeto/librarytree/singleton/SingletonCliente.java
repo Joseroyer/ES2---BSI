@@ -21,7 +21,7 @@ public class SingletonCliente {
     }
     
     public List<Cliente> listClientecpf(String filtro) {
-        return clienteRepository.findAllWithFilter(filtro);
+        return clienteRepository.findCliente(filtro);
     }
 
     public Cliente saveCliente(Cliente cli) {

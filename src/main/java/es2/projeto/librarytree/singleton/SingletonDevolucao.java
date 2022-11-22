@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
-import es2.projeto.librarytree.models.Emprestimo;
 import es2.projeto.librarytree.models.EmprestimoExemplar;
 import es2.projeto.librarytree.repositories.DevolucaoRepository;
 import lombok.RequiredArgsConstructor;

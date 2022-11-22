@@ -87,12 +87,12 @@
            
             <div class="main-search-input fl-wrap"> 
                 <div class="main-search-input-item">
-                    <input id="busca" type="text" placeholder="000.000.000-00" onkeyup="mascara('###.###.###-##',this,event)"
+                    <input id="cpf" type="text" placeholder="000.000.000-00" onkeyup="mascara('###.###.###-##',this,event)"
                     onblur="validarCPF()">
                 </div>
                 
                                                 
-                <button onclick="ValidaUsuario()" class="main-search-button" type="submit"><i class="bi bi-search"></i></button>
+                <button onclick="Confirmar2()" class="main-search-button" type="submit"><i class="bi bi-search"></i></button>
             </div>
           </div>
           
@@ -119,8 +119,7 @@
             <h5>Verifique suas devoluções dentro dos prazos. </h5>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeModal()">Cancelar</button>
-            <input type="submit" value="Alterar" class="btn btn-primary">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeModal()">Ok</button>
           </div>
         </div>
       </div>

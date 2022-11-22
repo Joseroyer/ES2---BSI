@@ -34,9 +34,18 @@ public class Emprestimo implements Serializable {
     @JoinColumn(name="cliente_id", nullable=false)
     private Cliente cliente;
 
+    @ManyToOne
+    @JoinColumn(name="exemplar_id", nullable=false)
+    private Exemplar exemplar_id;
+    
+    @Column(name = "status")
+    private int status;
+
     public static long getSerialversionuid() {
         return serialVersionUID;
     }
+
+    
 
     public Long getId_emprestimo() {
         return id_emprestimo;
@@ -98,17 +107,38 @@ public class Emprestimo implements Serializable {
     }
 
     public Emprestimo(Long id_emprestimo, Date data_emprestimo, Date data_devolucao, String forma_pagamento,
-            double valor, int qtde_parcelas, Cliente cliente) {
+            double valor, int qtde_parcelas, Cliente cliente, Exemplar exemplar_id, int status) {
         this.id_emprestimo = id_emprestimo;
         this.data_emprestimo = data_emprestimo;
         this.data_devolucao = data_devolucao;
-        this.forma_pagamento = forma_pagamento;
-        this.valor = valor;
-        this.qtde_parcelas = qtde_parcelas;
+        this.forma_pagamento = "";
+        this.valor = 0;
+        this.qtde_parcelas = 0;
         this.cliente = cliente;
+        this.exemplar_id = exemplar_id;
+        this.status = 1;
     }
 
-    
-    
+    public Exemplar getExemplar_id() {
+        return exemplar_id;
+    }
+
+    public void setExemplar_id(Exemplar exemplar_id) {
+        this.exemplar_id = exemplar_id;
+    }
+
+
+
+    public int getStatus() {
+        return status;
+    }
+
+
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+      
     
 }
