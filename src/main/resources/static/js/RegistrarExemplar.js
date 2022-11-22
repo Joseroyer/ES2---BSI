@@ -52,25 +52,27 @@ function excluir(id) {
     }
 }
 
-// function exibirCat() {
-//     fetch("/api/listar-todos")
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//             appendData(data);
-//         })
-//         .catch(function (err) {
-//             console.log('error: ' + err);
-//         });
-//     function appendData(data) {
+function exibirLivros() {
+    fetch("/api/listar-exemplares")
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            appendData(data);
+        })
+        .catch(function (err) {
+            console.log('error: ' + err);
+        });
+    function appendData(data) {
 
-//         var resp = "";
-//         for (let i = 0; i < data.length; i++)
-//             resp += `<option value="` + (i + 1) + `">` + `${data[i].nome}</option>`;
-//         document.getElementById("categoria").innerHTML = resp;
-//     }
-
+        var resp = "";
+        for (let i = 0; i < data.length; i++)
+            resp += `<option value="` + (i + 1) + `">` + `${data[i].titulo}</option>`;
+        document.getElementById("categoria").innerHTML = resp;
+    }
+}
+// window.onload = Function => {
+//     exibirLivros();
 // }
 
 function abrir() {
