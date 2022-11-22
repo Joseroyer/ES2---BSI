@@ -17,6 +17,7 @@ function CarregaLista() {
                     console.log('error: ' + err);
                 });
             function appendData(data) {
+                console.log(data);
                 var table = "";
                 table += `<tr><th>#</th><th>Livro</th><th>Editora</th><th>Quantidade</th><th>Ano Publicado</th><th>Editar</th><th>Excluir</th></tr>`
                 for (let i = 0; i < data.length; i++) {

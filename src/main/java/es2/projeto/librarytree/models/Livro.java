@@ -1,11 +1,17 @@
 package es2.projeto.librarytree.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
 
 @AllArgsConstructor
 @Data
@@ -24,4 +30,11 @@ public class Livro {
     @ManyToOne
     @JoinColumn(name = "generos_id_genero")
     private Genero genero_fk;
+
+    public Livro(String titulo, int quantidade, Genero genero_fk) {
+        this.titulo = titulo;
+        this.quantidade = quantidade;
+        this.genero_fk = genero_fk;
+    }
+
 }
