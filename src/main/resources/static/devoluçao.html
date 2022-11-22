@@ -17,6 +17,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <script src="js/devolucao.js"></script>
   <!-- Vendor CSS Files -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylsheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -24,10 +25,14 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  
-  
+  <!-- <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+   -->
   <!-- Template Main CSS File -->
+
   <link href="css/style.css" rel="stylesheet">
+  <link href="css/payment.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Arsha - v4.9.1
@@ -166,7 +171,7 @@
     });
 </script>
 
-<body onload="verificarLogin(), estilo()">
+<body onload="verificarLogin(), estilo(), CarregaLista()">
 
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top ">
@@ -232,110 +237,208 @@
                         <div class="col-sm-8"><h2>Realizar <b>Devolução</b></h2></div>
                         <div class="col-sm-4">
                             <div class="search-box">
-                                <input type="text" class="form-control" placeholder="Buscar usuário" >
+                                <input type="text" id="busca" class="form-control" placeholder="Buscar usuário" >
                                 
                             </div>
                         </div>
                     </div>
                 </div>
-                <table class="table table-bordered">
+                <table class="table table-bordered" style="text-align:center">
                     <thead>
                         <tr>
                             <th>#</th>
                             <th>Nome <i class="fa fa-sort"></i></th>
                             <th>Data do Empréstimo</th>
-                            <th>Data de Devolução <i class="fa fa-sort"></i></th>
+                            <th>Data de Devolução Prevista<i class="fa fa-sort"></i></th>
                             <th>Exemplar</th>
                             <th>Situação</th>
-                            <th>Ações</th>
+                            <th colspan="3">Ações</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Thomas Hardy</td>
-                            <td>89 Chiaroscuro Rd.</td>
-                            <td>Portland</td>
-                            <td>97219</td>
-                            <td>USA</td>
-                            <td>
-                                <a href="#" title="Devolver" data-toggle="tooltip"><img src="img/accept_green.png"></a>
-                                <a href="#" title="Suspensão" data-toggle="tooltip"><img src="img/ban.png"></a>
-                                <a href="#" title="Pagamento" data-toggle="tooltip"><img src="img/pay.png"></a>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Maria Anders</td>
-                            <td>Obere Str. 57</td>
-                            <td>Berlin</td>
-                            <td>12209</td>
-                            <td>Germany</td>
-                             <td>
-                                <a href="#" title="Devolver" data-toggle="tooltip"><img src="img/accept_green.png"></a>
-                                <a href="#" title="Suspensão" data-toggle="tooltip"><img src="img/ban.png"></a>
-                                <a href="#" title="Pagamento" data-toggle="tooltip"><img src="img/pay.png"></a>
-
-                            </td>
-                        </tr>
-                        <!-- 
-                        <tr>
-                            <td>3</td>
-                            <td>Fran Wilson</td>
-                            <td>C/ Araquil, 67</td>
-                            <td>Madrid</td>
-                            <td>28023</td>
-                            <td>Spain</td>
-                            <td>
-                                <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                                <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Dominique Perrier</td>
-                            <td>25, rue Lauriston</td>
-                            <td>Paris</td>
-                            <td>75016</td>
-                            <td>France</td>
-                            <td>
-                                <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                                <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Martin Blank</td>
-                            <td>Via Monte Bianco 34</td>
-                            <td>Turin</td>
-                            <td>10100</td>
-                            <td>Italy</td>
-                            <td>
-                                <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                                <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td>
-                        </tr>         -->
+                    <tbody id="qlq">
                     </tbody>
                 </table>
-                <!-- <div class="clearfix">
-                    <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                    <ul class="pagination">
-                        <li class="page-item disabled"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
-                        <li class="page-item"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                        <li class="page-item"><a href="#" class="page-link">4</a></li>
-                        <li class="page-item"><a href="#" class="page-link">5</a></li>
-                        <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-double-right"></i></a></li>
-                    </ul>
-                </div> -->
+                
             </div>
         </div>  
-    </div>   
+    </div>  
+    <div class="modal" tabindex="-1" role="dialog" id="modal" style="display: none; width: 100%;">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Realizar Pagamento</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar" onclick="closeModal()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" style="width: 100%;">
+                <div class="container">
+                    <div class="row">
+                        <!-- <div class="col-lg-4 mb-lg-0 mb-3">
+                            <div class="card p-3">
+                                <div class="img-box">
+                                    <img src="https://www.freepnglogos.com/uploads/visa-logo-download-png-21.png" alt="">
+                                </div>
+                                <div class="number">
+                                    <label class="fw-bold" for="">**** **** **** 1060</label>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <small><span class="fw-bold">Expiry date:</span><span>10/16</span></small>
+                                    <small><span class="fw-bold">Name:</span><span>Kumar</span></small>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- <div class="col-lg-4 mb-lg-0 mb-3">
+                            <div class="card p-3">
+                                <div class="img-box">
+                                    <img src="https://www.freepnglogos.com/uploads/mastercard-png/file-mastercard-logo-svg-wikimedia-commons-4.png"
+                                        alt="">
+                                </div>
+                                <div class="number">
+                                    <label class="fw-bold">**** **** **** 1060</label>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <small><span class="fw-bold">Expiry date:</span><span>10/16</span></small>
+                                    <small><span class="fw-bold">Name:</span><span>Kumar</span></small>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- <div class="col-lg-4 mb-lg-0 mb-3">
+                            <div class="card p-3">
+                                <div class="img-box">
+                                    <img src="https://www.freepnglogos.com/uploads/discover-png-logo/credit-cards-discover-png-logo-4.png"
+                                        alt="">
+                                </div>
+                                <div class="number">
+                                    <label class="fw-bold">**** **** **** 1060</label>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <small><span class="fw-bold">Expiry date:</span><span>10/16</span></small>
+                                    <small><span class="fw-bold">Name:</span><span>Kumar</span></small>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="col-12 mt-4" style="padding-top: -100px;">
+                            <div class="card p-3">
+                                <p class="mb-0 fw-bold h4">Métodos de Pagamento</p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="card p-3">
+                                <div class="card-body border p-0">
+                                    <p>
+                                        <a class="btn btn-primary w-100 h-100 d-flex align-items-center justify-content-between"
+                                            data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true"
+                                            aria-controls="collapseExample">
+                                            <span class="fw-bold">PIX</span>
+                                            <span class="fab fa-cc-paypal">
+                                            </span>
+                                        </a>
+                                    </p>
+                                    <div class="collapse p-3 pt-0" id="collapseExample">
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <p class="h4 mb-0">Resumo</p>
+                                                <p class="mb-0"><span class="fw-bold">Produto</span><span class="c-green">: Reembolso de Exemplar</span></p>
+                                                <p class="mb-0"><span class="fw-bold">Valor</span><span
+                                                        class="c-green">:R$50.00</span></p>
+                                                <p class="mb-0"></p>
+                                                </br>
+                                                <img style="margin: 0 auto; align-items: center; width: 80%; margin-left: 35%;"src="img/qr.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body border p-0">
+                                    <p>
+                                        <a class="btn btn-primary p-2 w-100 h-100 d-flex align-items-center justify-content-between"
+                                            data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true"
+                                            aria-controls="collapseExample">
+                                            <span class="fw-bold">Cartão de Crédito</span>
+                                            <span class="">
+                                                <span class="fab fa-cc-amex"></span>
+                                                <span class="fab fa-cc-mastercard"></span>
+                                                <span class="fab fa-cc-discover"></span>
+                                            </span>
+                                        </a>
+                                    </p>
+                                    <div class="collapse show p-3 pt-0" id="collapseExample">
+                                        <div class="row">
+                                            <div class="col-lg-5 mb-lg-0 mb-3">
+                                                <p class="h4 mb-0">Resumo</p>
+                                                <p class="mb-0"><span class="fw-bold">Produto</span><span class="c-green">: Reembolso de Exemplar</span>
+                                                </p>
+                                                <p class="mb-0">
+                                                    <span class="fw-bold">Valor</span>
+                                                    <span class="c-green">:R$50.00</span>
+                                                </p>
+                                                </br>
+                                                <p class="mb-0">
+                                                    <span class="fw-bold">Qtd. Parcelas</span>
+                                                    
+                                                    <input id="qtd_parc" type="number" style="width:80%; " value="1" onblur="validaParcela()" required>
+                                                    <p id="esconder" style="color: red; display: none"> *O número de parcelas deve estar entre 1 e 5</p>
+                                                </p>
+                                                <!-- <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque
+                                                    nihil neque
+                                                    quisquam aut
+                                                    repellendus, dicta vero? Animi dicta cupiditate, facilis provident quibusdam ab
+                                                    quis,
+                                                    iste harum ipsum hic, nemo qui!</p> -->
+                                            </div>
+                                            <div class="col-lg-7">
+                                                <form action="" class="form">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form__div">
+                                                                <input id="num_cart" type="text" class="form-control" placeholder=" " onblur="validaValores()" onkeyup="mascara('####.###.####.####',this,event)" required >
+                                                                <label for="" class="form__label">Número do cartão</label>
+                                                            </div>
+                                                        </div>
+            
+                                                        <div class="col-6">
+                                                            <div class="form__div">
+                                                                <input type="text" class="form-control" placeholder=" " id="data" onkeyup="mascara('##/##',this,event)" onblur="validaData()" required>
+                                                                <label for="" class="form__label">MM / yy</label>
+                                                            </div>
+                                                        </div>
+            
+                                                        <div class="col-6">
+                                                            <div class="form__div">
+                                                                <input type="password" class="form-control" placeholder=" " id="cvv" onkeyup="mascara('###',this,event)" onblur="validaCVV()" required>
+                                                                <label for="" class="form__label">cvv</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form__div">
+                                                                <input type="text" class="form-control" placeholder=" " id="nome" required onblur="validaNome()">
+                                                                <label for="" class="form__label">Nome no cartão</label>
+                                                            </div>
+                                                        <!-- </div>
+                                                        <div class="col-12">
+                                                            <div class="btn btn-primary w-100"></div>
+                                                        </div> -->
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12" id="div_pag">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeModal()">Cancelar</button> -->
+              <!-- <input type="submit" value="Pagar" style="background-color: #008000; color: white;" class="btn btn-primary" onclick="editar2()"> -->
+            </div>
+          </div>
+        </div>
+      </div>
   
     <main id="main">
   
@@ -382,7 +485,10 @@
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
     <script src="assets/vendor/php-email-form/validate.js"></script>
-    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
   
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
