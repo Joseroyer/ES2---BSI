@@ -9,13 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
 @Data
-@NoArgsConstructor
 @Entity
 @Table(name = "livro")
 public class Livro {
@@ -30,6 +26,29 @@ public class Livro {
     @ManyToOne
     @JoinColumn(name = "generos_id_genero")
     private Genero genero_fk;
+
+    public Livro() {
+    }
+
+    
+    // @JsonCreator
+    // public Livro(@JsonProperty("id") Long id, @JsonProperty("titulo") String
+    // titulo,
+    // @JsonProperty("quantidade") int quantidade, @JsonProperty("genero_fk") Genero
+    // genero_fk) {
+    // this.id = id;
+    // this.titulo = titulo;
+    // this.quantidade = quantidade;
+    // this.genero_fk = genero_fk;
+    // }
+
+    public Livro(Long id, String titulo, int quantidade, Genero genero_fk) {
+        this.id = id;
+        this.titulo = titulo;
+        this.quantidade = quantidade;
+        this.genero_fk = genero_fk;
+    }
+
 
     public Livro(String titulo, int quantidade, Genero genero_fk) {
         this.titulo = titulo;

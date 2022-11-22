@@ -264,7 +264,7 @@
               </button>
             </div>
             <div class="modal-body" onload="FormsBibliotecario()">
-              <form>
+              <form id="fdados">
                 <div class="form-group" style="margin-top:20px ;">
                   <label for="recipient-name" class="col-form-label">Livro:</label>
                   <!-- <p>Identificador:</p> -->
@@ -311,7 +311,8 @@
                 <div id="resultados_div" class="">
                   <div class="d-flex justify-content-center">
                     <p class="message" id="cadastrado" style="font-size:18px;
-                      color: #212529; display: none;">Cadastrado com Sucesso/p>
+                      color: #212529; display: none;">Cadastrado com Sucesso</p>
+                    <p id="error" style="display: none;">Erro ao Cadastrar</p>
                   </div>
                 </form>
               </div>

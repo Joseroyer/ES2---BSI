@@ -13,9 +13,9 @@ import es2.projeto.librarytree.singleton.SingletonExemplares;
 import es2.projeto.librarytree.singleton.SingletonLivro;
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 @RestController
 @RequestMapping("apis")
+@RequiredArgsConstructor
 public class Exemplares {
     private final SingletonExemplares singletonExemplares;
     private final SingletonLivro singletonLivro;
@@ -24,7 +24,6 @@ public class Exemplares {
     public ResponseEntity<Object> listarExemplar() {
         return new ResponseEntity<>(singletonExemplares.findAllExemplar(), HttpStatus.OK);
     }
-
 
     @PostMapping("/saveExemplar")
     public ResponseEntity<Object> save(@RequestBody es2.projeto.librarytree.models.Exemplares ex) {
@@ -35,16 +34,16 @@ public class Exemplares {
     public es2.projeto.librarytree.models.Exemplares excluir(es2.projeto.librarytree.models.Exemplares id) {
         return this.singletonExemplares.excluirExemplares(id);
     }
-    
+
     @GetMapping("/listar_livros")
     public ResponseEntity<Object> listarLivro() {
         return new ResponseEntity<>(singletonLivro.findAllLivro(), HttpStatus.OK);
     }
 
     @PostMapping("/saveLivros")
-    public ResponseEntity<Object> salvarLivro(@RequestBody Livro livro){
+    public ResponseEntity<Object> salvarLivro(@RequestBody Livro livro) {
         Livro livros = new Livro();
         livros = singletonLivro.saveLivro(livro);
-        return new ResponseEntity<>(livros,HttpStatus.OK);
+        return new ResponseEntity<>(livros, HttpStatus.OK);
     }
 }

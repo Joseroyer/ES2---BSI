@@ -96,31 +96,57 @@ function abrir() {
     exibirEditoras();
 }
 
-function salvar() {
+function salvar1() {
 
     const URL_TO_FETCH = `/apis/saveExemplar`;
     fetch(URL_TO_FETCH, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, method: 'POST' })
         .then(function (response) {
-            return response.json();
-        })
-        .then(function (text) {
-            document.getElementById("cadastrado").style.display = "block";
-            window.location.href = "RegistrarExemplar.html";
+            if (response.ok) {
+                document.getElementById("error").style.display = 'none';
+                document.getElementById("cadastrado").style.display = "block";
+                // window.location.href = "RegistrarExemplar.html";
+                return response.json();
+            }
         })
         .catch(function (err) {
-            console.log('error: ' + err);
+            document.getElementById("error").style.display = 'block';
         });
+}
+function salvar() {
+    const URL = "/apis/saveExemplar";
+    var fdados = document.getElementById("fdados");
+    var jsontext = JSON.stringify(Object.fromEntries(
+        new FormData(fdados)));
+    fetch(URL, {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method: 'POST', body: jsontext
+    })
+        .then(function (response) {
+            if (response.ok) {
+                document.getElementById("error").style.display = 'none';
+                document.getElementById("cadastrado").style.display = "block";
+                // window.location.href = "RegistrarExemplar.html";
+                return response.json();
+            }
+        })
+        .catch(function (error) {
+            document.getElementById("error").style.display = 'block';
+        });
+
 }
 
 function closeModal() {
     document.getElementById("modal").style.display = 'none'
 }
 
-// function validarQuantidade() {
-//     let qtd = document.getElementById("qtd").values;
-//     console.log(qtd);
-//     if (qtd.length < 1) {
-//         document.getElementById("resultado_qtd").display.style = block;
-//         qtd.style.border = "solid 2px #00B9BC";
-//     }
-// }
+function validarQuantidade() {
+    let qtd = document.getElementById("qtd");
+    console.log(qtd.value);
+    if (qtd.length < 1) {
+        qtd.style.border = "solid 2px #00B9BC";
+        document.getElementById("resultado_qtd").display.style = block;
+    }
+}
