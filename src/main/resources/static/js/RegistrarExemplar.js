@@ -51,9 +51,8 @@ function excluir(id) {
             });
     }
 }
-
 function exibirLivros() {
-    fetch("/api/listar-exemplares")
+    fetch("/apis/listar_livros")
         .then(function (response) {
             return response.json();
         })
@@ -64,19 +63,39 @@ function exibirLivros() {
             console.log('error: ' + err);
         });
     function appendData(data) {
-
         var resp = "";
         for (let i = 0; i < data.length; i++)
             resp += `<option value="` + (i + 1) + `">` + `${data[i].titulo}</option>`;
-        document.getElementById("categoria").innerHTML = resp;
+        document.getElementById("livro_fk").innerHTML = resp;
     }
 }
-// window.onload = Function => {
+
+function exibirEditoras() {
+    fetch("/apis/listar-todas-editoras")
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            appendData(data);
+        })
+        .catch(function (err) {
+            console.log('error: ' + err);
+        });
+    function appendData(data) {
+        var resp = "";
+        for (let i = 0; i < data.length; i++)
+            resp += `<option value="` + (i + 1) + `">` + `${data[i].nome_editora}</option>`;
+        document.getElementById("editora_fk").innerHTML = resp;
+    }
+}
+// window.onload = function () {
 //     exibirLivros();
-// }
+// };
 
 function abrir() {
     document.getElementById("modal").style.display = 'block'
+    exibirLivros();
+    exibirEditoras();
 }
 
 function salvar() {
@@ -88,7 +107,7 @@ function salvar() {
         })
         .then(function (text) {
             document.getElementById("cadastrado").style.display = "block";
-            window.location.href = "ExcluirUsuario.html";
+            window.location.href = "RegistrarExemplar.html";
         })
         .catch(function (err) {
             console.log('error: ' + err);
