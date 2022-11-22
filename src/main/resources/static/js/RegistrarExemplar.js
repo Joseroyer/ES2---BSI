@@ -84,7 +84,7 @@ function exibirEditoras() {
     function appendData(data) {
         var resp = "";
         for (let i = 0; i < data.length; i++)
-            resp += `<option value="` + (i + 1) + `">` + `${data[i].nome_editora}</option>`;
+            resp += `<option data-tokens="${data[i].nome_editora}" value="` + (i + 1) + `">` + `${data[i].nome_editora}</option>`;
         document.getElementById("editora_fk").innerHTML = resp;
     }
 }
