@@ -90,14 +90,14 @@
               <input type="text" name="" id="teste123" onblur="validarNome()" placeholder="Título do empréstimo suspenso *">
             </div>
             <div class="col-md-12">
-              <input type="text" name="" id="" onsubmit="" placeholder="Data inicial da suspensão *">
+              <input type="text" name="" id="" required pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="Data inicial da suspensão * (dd/mm/aaaa)">
             </div>
             <div class="col-md-12">
-              <input type="text" name="" id="" onblur="" placeholder="Data final da suspensão *">
+              <input type="text" name="" id="" required pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="Data final da suspensão * (dd/mm/aaaa)">
           </div>
               <br>
               <div class="form-button mt-3">
-                  <button type="button" class="btn btn-primary" onclick="">Atribuir suspensão</button>
+                  <button type="submit" class="btn btn-primary" onclick="">Atribuir suspensão</button>
               </div>
     
           </form>
