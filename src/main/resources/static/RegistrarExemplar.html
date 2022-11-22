@@ -241,7 +241,7 @@
               </div>
               <div class="col col-lg-2">
                   <div style="padding-top: -20px;">
-                    <a class="btn btn-primary" type="submit" href="">Novo Exemplar</a>
+                    <input class="btn btn-primary" type="submit" onclick="salvar1()">Novo Exemplar</input>
                   </div>
               </div>
             </div>
@@ -259,7 +259,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Alterar Bibliotecário</h5>
+              <h5 class="modal-title">Registrar Exemplar</h5>
               <button type="button" class="close" data-dismiss="modal"
                 aria-label="Fechar" onclick="closeModal()">
                 <span aria-hidden="true">&times;</span>
@@ -268,7 +268,7 @@
             <div class="modal-body" onload="FormsBibliotecario()">
               <form>
                 <div class="form-group" style="margin-top:20px ;">
-                  <label for="recipient-name" class="col-form-label">Identificador:</label>
+                  <label for="recipient-name" class="col-form-label">Livro:</label>
                   <!-- <p>Identificador:</p> -->
                   <input
                     id="id"
@@ -276,12 +276,11 @@
                     type="text"
                     class="form-control"
                     placeholder="Identificador do Bibliotecário"
-                    disabled
+                  
                     />
                 </div>
                 <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">Nome
-                    Usuário:</label>
+                  <label for="recipient-name" class="col-form-label">Editora:</label>
                   <input
                     id="novo_nome"
                     name="novo_nome"
@@ -295,7 +294,21 @@
                     Completo precisa conter no mínimo 8 caracteres</p>
                 </div>
                 <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">Telefone:</label>
+                  <label for="recipient-name" class="col-form-label">Quantidade:</label>
+                  <input
+                    id="novo_nome"
+                    name="novo_nome"
+                    type="text"
+                    class="form-control"
+                    required
+                    onblur="validarNome()"
+                    />
+                  <p id="resultado_nome" style="font-size:14px; color:#212529;;
+                    display: none;">Nome
+                    Completo precisa conter no mínimo 8 caracteres</p>
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Ano Publicado:</label>
                   <input
                     id="novo_telefone"
                     name="novo_telefone"
@@ -307,20 +320,6 @@
                   <p id="resultado_telefone" style="font-size:14px;
                     color:#212529; display:
                     none;">Preencha corretamente o Número de Celular</p>
-                </div>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">Email:</label>
-                  <input
-                    id="novo_email"
-                    name="novo_email"
-                    type="text"
-                    class="form-control"
-                    required
-                    onblur="validarEmail()"
-                    />
-                  <p id="resultado_email" style="font-size:14px;
-                    color:#212529;
-                    display:none;">Preencha corretamente o E-mail</p>
                 </div>
                 <div id="resultados_div" class="">
                   <div class="d-flex justify-content-center">

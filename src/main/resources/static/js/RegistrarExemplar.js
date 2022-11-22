@@ -72,3 +72,50 @@ function excluir(id) {
 //     }
 
 // }
+
+function salvar1(id) {
+    // alert(id)
+    document.getElementById("modal").style.display = 'block'
+    document.getElementById("id").value = id;
+
+    const URL_TO_FETCH = `/apis/listar-bi?Identificador=${id}`;
+    fetch(URL_TO_FETCH, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, method: 'POST' })
+        .then(function (response) {
+            response.json().then(valores => {
+                appendData(valores);
+            });
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+    function appendData(data) {
+        console.log(data);
+        var nome = data.nome;
+        document.getElementById("novo_nome").value = nome;
+        var telefone = data.telefone;
+        document.getElementById("novo_telefone").value = telefone;
+        var email = data.email;
+        document.getElementById("novo_email").value = email;
+
+    }
+}
+
+function salvar() {
+    
+    const URL_TO_FETCH = `/apis/saveExemplar`;
+    fetch(URL_TO_FETCH, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, method: 'POST' })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (text) {
+            document.getElementById("cadastrado").style.display = "block";
+            window.location.href = "ExcluirUsuario.html";
+        })
+        .catch(function (err) {
+            console.log('error: ' + err);
+        });
+}
+
+function closeModal() {
+    document.getElementById("modal").style.display = 'none'
+}
