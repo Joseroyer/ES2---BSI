@@ -268,25 +268,32 @@
                 <div class="form-group" style="margin-top:20px ;">
                   <label for="recipient-name" class="col-form-label">Livro:</label>
                   <!-- <p>Identificador:</p> -->
-                  <input
-                    id="id"
-                    name="id"
+                  <select id="livro_fk" name="livro_fk" class="form-select mt-3">
+                          <option>Selecione um Livro</option>
+                          <option></option>
+                  </select>
+                  <!-- <input
+                    id="livro_fk"
+                    name="livro_fk"
                     type="text"
                     class="form-control"
                     placeholder="Identificador do Bibliotecário"
-                  
-                    />
+                    /> -->
                 </div>
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">Editora:</label>
-                  <input
+                  <select id="editora_fk" name="editora_fk" class="form-select mt-3">
+                      <option>Selecione uma Editora</option>
+                      <option></option>
+                  </select>
+                  <!-- <input
                     id="editora_fk"
                     name="editora_fk"
                     type="text"
                     class="form-control"
                     required
                     onblur="validarNome()"
-                    />
+                    /> -->
                   <p id="resultado_nome" style="font-size:14px; color:#212529;;
                     display: none;">Nome
                     Completo precisa conter no mínimo 8 caracteres</p>
