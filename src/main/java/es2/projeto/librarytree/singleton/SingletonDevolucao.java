@@ -1,5 +1,6 @@
 package es2.projeto.librarytree.singleton;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -7,7 +8,10 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import es2.projeto.librarytree.models.Emprestimo;
+import es2.projeto.librarytree.models.Parcelamento;
+
 import es2.projeto.librarytree.repositories.DevolucaoRepository;
+import es2.projeto.librarytree.repositories.ParcelamentoRepository;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -17,6 +21,8 @@ public class SingletonDevolucao
 {
     
     private final DevolucaoRepository devolucaoRepository;
+
+    private final ParcelamentoRepository parcelamentoRepository;
 
     public List<Emprestimo> buscarTodas() {
         List<Emprestimo> ee = devolucaoRepository.findExemplar();
@@ -41,6 +47,19 @@ public class SingletonDevolucao
         return ee;
     }
 
+    public es2.projeto.librarytree.models.Parcelamento Parcelamento(Emprestimo e)
+    {
+        
+        Parcelamento p = new Parcelamento();
+        LocalDate date = LocalDate.now();
+        date.plusMonths(1);
+        p.setData_venc_parcela(date);
+        p.setData_pagamento(null);
+        p.setEmprestimo_cliente_id(e.getCliente().getId());
+        p.setEmprestimo_id_emprestimo(e.getId_emprestimo());
+        p.setValor_parc(e.getValor()/e.getQtde_parcelas());
+        return this.parcelamentoRepository.save(p);
+    }
     public Emprestimo pagar(Emprestimo identificador, String num, String qtd) {
         Optional<Emprestimo> emp = devolucaoRepository.findById(identificador.getId_emprestimo());
         if(num == "")

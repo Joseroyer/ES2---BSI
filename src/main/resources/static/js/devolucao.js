@@ -162,110 +162,110 @@ function CarregaLista()
     .catch(err=> console.error(err));
 }
 
-// function CarregaFiltro()
-// {
-//     var filtro = document.getElementById("busca").value
-//     const URL_TO_FETCH = '/apis/listar-emprestimos';
-//     fetch(URL_TO_FETCH, {method: 'POST',
-//        headers:{'Authorization':`${localStorage.getItem("token")}`,}})
-//     .then(response=> response.text())
-//     .then(result=> 
-//         {
-//                 fetch("/apis/listar-emprestimos-filtro?="+filtro)
-//                 .then(function (response) {
-//                     return response.json();
-//                 })
-//                 .then(function (data) {
-//                     appendData(data);
-//                 })
-//                 .catch(function (err) {
-//                     console.log('error: ' + err);
-//                 });
-//                 function appendData(data) {
+function CarregaFiltro()
+{
+    var filtro = document.getElementById("busca").value
+    const URL_TO_FETCH = '/apis/listar-emprestimos';
+    fetch(URL_TO_FETCH, {method: 'POST',
+       headers:{'Authorization':`${localStorage.getItem("token")}`,}})
+    .then(response=> response.text())
+    .then(result=> 
+        {
+                fetch("/apis/listar-emprestimos-filtro?filtro="+filtro)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    appendData(data);
+                })
+                .catch(function (err) {
+                    console.log('error: ' + err);
+                });
+                function appendData(data) {
 
-//                     const date = new Date();
+                    const date = new Date();
                     
-//                     var table="";
-//                     for (let i=0;i<data.length;i++)
-//                     {
-//                             var status = "";
-//                             var dia_atual = date.getDate();
-//                             var mes_atual = date.getMonth()+1;
-//                             var ano_atual = date.getFullYear();
-//                             var devol = ano_atual+"-"+mes_atual+"-"+dia_atual
+                    var table="";
+                    for (let i=0;i<data.length;i++)
+                    {
+                            var status = "";
+                            var dia_atual = date.getDate();
+                            var mes_atual = date.getMonth()+1;
+                            var ano_atual = date.getFullYear();
+                            var devol = ano_atual+"-"+mes_atual+"-"+dia_atual
                             
-//                             if(devol>data[i].data_devolucao)
-//                             {
-//                               status="Atrasado"
-//                               table+=`<tr>
-//                                       <td>${data[i].id_emprestimo}</td>
-//                                       <td>${data[i].cliente.nome}</td>
-//                                       <td>${data[i].data_emprestimo}</td>
-//                                       <td>${data[i].data_devolucao}</td>
-//                                       <td>${data[i].exemplar_id.livro_id_livro.titulo_livro}</td>
+                            if(devol>data[i].data_devolucao)
+                            {
+                              status="Atrasado"
+                              table+=`<tr>
+                                      <td>${data[i].id_emprestimo}</td>
+                                      <td>${data[i].cliente.nome}</td>
+                                      <td>${data[i].data_emprestimo}</td>
+                                      <td>${data[i].data_devolucao}</td>
+                                      <td>${data[i].exemplar_id.livro_id_livro.titulo_livro}</td>
                                       
-//                                       <td style="color: red; font-weight: bold">${status}</td>
+                                      <td style="color: red; font-weight: bold">${status}</td>
                                      
-//                                       <td>
-//                                           <a href="#" title="Suspensão" data-toggle="tooltip"><img src="img/ban.png"></a>
+                                      <td>
+                                          <a href="#" title="Suspensão" data-toggle="tooltip"><img src="img/ban.png"></a>
                                           
-//                                       </td>
-//                                       <td>
-//                                       <img src="img/pay.png" onclick='Pagamento()'>
-//                                       </td>
-//                                   </tr>
-//                                   `;
-//                             }
-//                             else
-//                             {
-//                               status ="Em dia";
-//                               table+=`<tr>
-//                                       <td>${data[i].id_emprestimo}</td>
-//                                       <td>${data[i].cliente.nome}</td>
-//                                       <td>${data[i].data_emprestimo}</td>
-//                                       <td>${data[i].data_devolucao}</td>
-//                                       <td>${data[i].exemplar_id.livro_id_livro.titulo_livro}</td>
+                                      </td>
+                                      <td>
+                                      <img src="img/pay.png" onclick='Pagamento()'>
+                                      </td>
+                                  </tr>
+                                  `;
+                            }
+                            else
+                            {
+                              status ="Em dia";
+                              table+=`<tr>
+                                      <td>${data[i].id_emprestimo}</td>
+                                      <td>${data[i].cliente.nome}</td>
+                                      <td>${data[i].data_emprestimo}</td>
+                                      <td>${data[i].data_devolucao}</td>
+                                      <td>${data[i].exemplar_id.livro_id_livro.titulo_livro}</td>
                                       
-//                                       <td style="color: green; font-weight: bold">${status}</td>
-//                                       <td>
-//                                           <img src="img/accept_green.png" onclick='Devolver(${data[i].id_emprestimo})'>
-//                                       </td>
+                                      <td style="color: green; font-weight: bold">${status}</td>
+                                      <td>
+                                          <img src="img/accept_green.png" onclick='Devolver(${data[i].id_emprestimo})'>
+                                      </td>
                                       
-//                                       <td>
-//                                           <img src="img/pay.png" onclick='Pagamento()'>
-//                                       </td>
-//                                   </tr>
-//                                   `;  
+                                      <td>
+                                          <img src="img/pay.png" onclick='Pagamento()'>
+                                      </td>
+                                  </tr>
+                                  `;  
                             
                               
-//                             } 
-//                     //         table+=`<tr>
-//                     //         <td>${data[i].id_emprestimo}</td>
-//                     //         <td>${data[i].cliente.nome}</td>
-//                     //         <td>${data[i].data_emprestimo}</td>
-//                     //         <td>${data[i].data_devolucao}</td>
-//                     //         <td>${data[i].exemplar_id.livro_id_livro.titulo_livro}</td>
+                            } 
+                    //         table+=`<tr>
+                    //         <td>${data[i].id_emprestimo}</td>
+                    //         <td>${data[i].cliente.nome}</td>
+                    //         <td>${data[i].data_emprestimo}</td>
+                    //         <td>${data[i].data_devolucao}</td>
+                    //         <td>${data[i].exemplar_id.livro_id_livro.titulo_livro}</td>
                             
-//                     //         <td style="color: red">${status}</td>
-//                     //          <td>
-//                     //             <a href="#" title="Devolver" data-toggle="tooltip"><img src="img/accept_green.png"></a>
-//                     //         </td>
-//                     //         <td>
-//                     //             <a href="#" title="Suspensão" data-toggle="tooltip"><img src="img/ban.png"></a>
+                    //         <td style="color: red">${status}</td>
+                    //          <td>
+                    //             <a href="#" title="Devolver" data-toggle="tooltip"><img src="img/accept_green.png"></a>
+                    //         </td>
+                    //         <td>
+                    //             <a href="#" title="Suspensão" data-toggle="tooltip"><img src="img/ban.png"></a>
                                 
-//                     //         </td>
-//                     //         <td>
-//                     //             <a href="#" title="Pagamento" data-toggle="tooltip"><img src="img/pay.png"></a>
-//                     //         </td>
-//                     //     </tr>
-//                     //     `;        
-//                     }
-//                     document.getElementById("qlq").innerHTML=table;
-//                 }
-//             }
-//         )
-//     .catch(err=> console.error(err));
-// }
+                    //         </td>
+                    //         <td>
+                    //             <a href="#" title="Pagamento" data-toggle="tooltip"><img src="img/pay.png"></a>
+                    //         </td>
+                    //     </tr>
+                    //     `;        
+                    }
+                    document.getElementById("qlq").innerHTML=table;
+                }
+            }
+        )
+    .catch(err=> console.error(err));
+}
 
 function Devolver(id)
 {
@@ -283,6 +283,34 @@ function Devolver(id)
         });
     }
 }
+
+const searchFocus = document.getElementById('search-focus');
+const keys = [
+  { keyCode: 'AltLeft', isTriggered: false },
+  { keyCode: 'ControlLeft', isTriggered: false },
+];
+
+window.addEventListener('keydown', (e) => {
+  keys.forEach((obj) => {
+    if (obj.keyCode === e.code) {
+      obj.isTriggered = true;
+    }
+  });
+
+  const shortcutTriggered = keys.filter((obj) => obj.isTriggered).length === keys.length;
+
+  if (shortcutTriggered) {
+    searchFocus.focus();
+  }
+});
+
+window.addEventListener('keyup', (e) => {
+  keys.forEach((obj) => {
+    if (obj.keyCode === e.code) {
+      obj.isTriggered = false;
+    }
+  });
+});
 
 function Pagamento(id)
 {
@@ -396,7 +424,6 @@ function ConfirmarPag(id)
 {
 
     var identificador = id;
-    alert(typeof(identificador))
     var num = document.getElementById("num_cart").value;
     var qtd = document.getElementById("qtd_parc").value;
     const URL_TO_FETCH = `/apis/pagar?identificador=${identificador}&num=${num}&qtd=${qtd}`;

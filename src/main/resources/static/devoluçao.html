@@ -190,7 +190,7 @@
                   Funcionário</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
                 <li><a href="#">Cadastrar Exemplares</a></li>
-
+                <li><a href="devoluçao.html">Devolução de Exemplar</a></li>
                 <li><a href="./CadastroBibliotecario.html">Cadastro de Usuário</a></li>
                 <li><a href="parametrizacao.html">Alterar Parametrização</a></li>
                 <li><a href="CadastroEditora.html">Cadastro de Editora</a></li>
@@ -237,7 +237,7 @@
                         <div class="col-sm-8"><h2>Realizar <b>Devolução</b></h2></div>
                         <div class="col-sm-4">
                             <div class="search-box">
-                                <input type="text" id="busca" class="form-control" placeholder="Buscar usuário" >
+                                <input style="background-color: white;"type="text" id="busca" class="form-control" placeholder="Buscar usuário" onchange="CarregaFiltro()">
                                 
                             </div>
                         </div>
@@ -432,10 +432,7 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
-              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeModal()">Cancelar</button> -->
-              <!-- <input type="submit" value="Pagar" style="background-color: #008000; color: white;" class="btn btn-primary" onclick="editar2()"> -->
-            </div>
+            
           </div>
         </div>
       </div>

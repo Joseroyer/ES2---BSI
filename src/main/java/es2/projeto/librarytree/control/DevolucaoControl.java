@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import es2.projeto.librarytree.models.Emprestimo;
+import es2.projeto.librarytree.models.Parcelamento;
 import es2.projeto.librarytree.singleton.SingletonDevolucao;
 
 @RestController
@@ -31,13 +32,19 @@ public class DevolucaoControl {
     {
         Emprestimo e = new Emprestimo();
         e = singletonDevolucao.pagar(identificador,num, qtd);
+        if(e.getQtde_parcelas()>1)
+        {
+            Parcelamento p = new Parcelamento();
+            for(int i=0; i<e.getQtde_parcelas();i++)
+                p = singletonDevolucao.Parcelamento(e);
+        }
         return e;
     }
 
     @RequestMapping("/listar-emprestimos-filtro")
     public ResponseEntity<Object> buscarFiltro(@RequestParam(value = "filtro")String filtro) {
+        filtro = filtro.toUpperCase();
         List<Emprestimo> ee = singletonDevolucao.buscarfiltro(filtro);
-        System.out.println(filtro);
         return new ResponseEntity<>(ee, HttpStatus.OK);
 
     }
