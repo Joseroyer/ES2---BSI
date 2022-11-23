@@ -55,6 +55,7 @@ function excluir(id)
     }
 }
 
+//cadastrar suspensão
 function CadastrarSusp() {
     const URL = "/apis/Cadastrar-Suspensao";
     var fdados = document.getElementById("fdados");
@@ -81,6 +82,119 @@ function CadastrarSusp() {
     event.preventDefault("fdados");
 }
 
+//Listar..
+function CarregaLista()
+{
+    var filtro = document.getElementById("buscarsus").value
+    const URL_TO_FETCH = '/apis/listar-suspensao';
+    var status;
+    fetch(URL_TO_FETCH, {method: 'POST',
+       headers:{'Authorization':`${localStorage.getItem("token")}`,}})
+    .then(response=> response.text())
+    .then(result=> 
+        {
+                fetch("/apis/listar-suspensao")
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    appendData(data);
+                })
+                .catch(function (err) {
+                    console.log('error: ' + err);
+                });
+                function appendData(data) {
+
+                    var table="";
+                    table+=`<tr><th>ID</th><th>RA do Usuário</th><th>Empréstimo Suspenso</th><th>Data de Início</th><th>Data Final</th><th>Editar</th><th>Excluir dados</th></tr>`
+                    for (let i=0;i<data.length;i++)
+                    {
+                            table+=`<tr>
+                            <td>${data[i].idsus}</td>
+                            <td>${data[i].clientera}</td>
+                            <td>${data[i].empsus}</td>
+                            <td>${data[i].dtinisus}</td>
+                            <td>${data[i].dtfimsus}</td>
+                            <td><img width="30px" src='img/change.png' onclick='editar(${data[i].idsus})'></td>
+                            <td><img width="30px" src='img/trash.png' onclick='excluir(${data[i].idsus})'></td>
+                            </tr>`;        
+                    }
+                    document.getElementById("tab").innerHTML=table;
+                }
+            }
+        )
+    .catch(err=> console.error(err));
+}
+
+function CarregaFiltros()
+{
+    var filtro = document.getElementById("buscarsus").value
+    const URL_TO_FETCH = '/apis/listar-uma-suspensao'; //lista só uma suspensão
+    var status;
+    fetch(URL_TO_FETCH, {method: 'POST',
+       headers:{'Authorization':`${localStorage.getItem("token")}`,}})
+    .then(response=> response.text())
+    .then(result=> 
+        {
+                fetch("/apis/listar-uma-suspensao?filtro="+filtro)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    appendData(data);
+                })
+                .catch(function (err) {
+                    console.log('error: ' + err);
+                });
+                function appendData(data) {
+
+
+                    var table="";
+                    table+=`<tr><th>ID</th><th>RA do Usuário</th><th>Empréstimo Suspenso</th><th>Data de Início</th><th>Data Final</th><th>Editar</th><th>Excluir dados</th></tr>`
+                    for (let i=0;i<data.length;i++)
+                    {
+                            table+=`<tr>
+                            <td>${data[i].idsus}</td>
+                            <td>${data[i].clientera}</td>
+                            <td>${data[i].empsus}</td>
+                            <td>${data[i].dtinisus}</td>
+                            <td>${data[i].dtfimsus}</td>
+                            <td><img width="30px" src='img/change.png' onclick='editar(${data[i].idsus})'></td>
+                            <td><img width="30px" src='img/trash.png' onclick='excluir(${data[i].idsus})'></td>
+                            </tr>`;        
+                    }
+                    document.getElementById("tab").innerHTML=table;
+                }
+            }
+        )
+    .catch(err=> console.error(err));
+}
+
+function editar(id)
+{
+   
+    var input = `<td><input type="text" id="edt"><input type="submit" value="Alterar" onclick='editar2(${id})'></td>`;
+    document.getElementById("tab").innerHTML+=input;
+   
+}
+function editar2(id)
+{
+    var Identificador=id;
+    var Nome = document.getElementById("edt").value
+    
+    const URL_TO_FETCH = `/apis/editar-suspensao-gerenciada?Identificador=${Identificador}&Nome=${Nome}`;
+    fetch(URL_TO_FETCH,{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST'})
+    .then(function (response) {
+      
+        return response.json();
+    })
+    .then(function (text) {
+        window.location.href = "GerenciarSuspensao.html";
+    })
+    .catch(function (err) {
+        console.log('error: ' + err);
+    });
+}
 
 
 

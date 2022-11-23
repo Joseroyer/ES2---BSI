@@ -2,11 +2,13 @@ package es2.projeto.librarytree.models;
 // import es2.projeto.librarytree.models.Suspensao;
 
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "cliente")
-public class Cliente {
+public class Cliente implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,18 +25,17 @@ public class Cliente {
     // @JoinColumn(name="cliente_ra")
     // private Suspensao clientera;
 
-
     public Cliente() {
-
     }
-
-
+    
     public Cliente(int ra, String login, String senha, PessoaFisica pessoafisica_fk) {
         this.ra = ra;
         this.login = login;
         this.senha = senha;
         this.pessoafisica_fk = pessoafisica_fk;
     }
+
+
 
     public int getRa() {
         return ra;

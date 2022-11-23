@@ -15,6 +15,10 @@ import javax.persistence.ManyToOne;
 public class Suspensao {
     private static final long serialVersionUID = 1L;
 
+    // @Id
+    // @Column(name = "pes_cpf")
+    // private String cpf;
+
     @ManyToOne
     @JoinColumn(name="cliente_ra", nullable = false)
     private Cliente clientera;
@@ -36,12 +40,11 @@ public class Suspensao {
     @Column(name="sus_stt")
     private int Suspstt;
 
+
+
     public Suspensao() {
     }
-    
-    public Suspensao(Cliente clientera) {
-        this.clientera = clientera;
-    }
+
 
     public Suspensao(Cliente clientera, long idsus, String empsus, String dtinisus, String dtfimsus, int suspstt) {
         this.clientera = clientera;
@@ -49,7 +52,7 @@ public class Suspensao {
         this.empsus = empsus;
         this.dtinisus = dtinisus;
         this.dtfimsus = dtfimsus;
-        Suspstt = suspstt;
+        this.Suspstt=1;
     }
 
     

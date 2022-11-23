@@ -16,7 +16,7 @@ public interface SuspensaoRepository extends JpaRepository <Suspensao, Long>{
 public List<Suspensao> findAll();
 
 
-@Query(value = "SELECT * from suspensao s INNER JOIN cliente c on c.ra = s.cliente_ra LIKE %:filtro%", nativeQuery = true)
+@Query(value = "SELECT * FROM suspensao s INNER JOIN cliente c on c.ra = s.cliente_ra LIKE %:filtro%", nativeQuery = true)
 List<Suspensao> findAllWithFilter2(@Param("filtro") String filtro);
 
 @Query(value = "SELECT * FROM suspensao s WHERE s.id = :id", nativeQuery = true)

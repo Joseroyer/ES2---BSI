@@ -67,7 +67,6 @@ function editar2(id)
     .catch(function (err) {
         console.log('error: ' + err);
     });
-
 }
 
 function Cadastrar() {
@@ -131,7 +130,7 @@ function excluir(id)
 function CarregaFiltro()
 {
     var filtro = document.getElementById("buscartitulo").value
-    const URL_TO_FETCH = '/apis/listar-um-titulo';
+    const URL_TO_FETCH = '/apis/listar-um-titulo'; //lista só um título
     var status;
     fetch(URL_TO_FETCH, {method: 'POST',
        headers:{'Authorization':`${localStorage.getItem("token")}`,}})

@@ -39,7 +39,7 @@
 ======================================================== -->
 </head>
 
-<body>
+<body onload="CarregaLista()">
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
@@ -77,18 +77,18 @@
 
     </div>
   </header><!-- End Header -->
-  
-
+<!--   
+  -->
   <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
         <div class="login-box">
           <form>
             <h2>Verificar uma suspensão ?</h2>
               <div class="user-box">
-                <input type="text" name="" required="" id="teste123" onkeyup="somenteNumeros(this);" placeholder="Digite o RA suspenso">
+                <input type="text" name="" required="" id="buscarsus"  onkeyup="somenteNumeros(this);" placeholder="Digite o RA suspenso">
                 <label></label>
               </div>
-                    <input id="buscar" type="submit" value="Procurar" onclick="CarregaFiltro()">
+                    <input id="" type="button" value="Procurar" onclick="CarregaFiltros()">
                         <span></span>
                         <span></span>
                         <span></span>

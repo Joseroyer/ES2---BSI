@@ -33,8 +33,8 @@ public class SuspensaoControl {
     public ResponseEntity<Object> buscarFiltro(@RequestParam(value="filtro")String filtro)
     {
         String filtrar = filtro.toUpperCase();
-        List <Suspensao> titulos = susRepository.findAllWithFilter(filtrar);
-        return new ResponseEntity<>(titulos,HttpStatus.OK);
+        List <Suspensao> suspensao = susRepository.findAllWithFilter(filtrar);
+        return new ResponseEntity<>(suspensao,HttpStatus.OK);
     }
 
 
