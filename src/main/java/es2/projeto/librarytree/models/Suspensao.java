@@ -19,9 +19,6 @@ public class Suspensao {
     // @Column(name = "pes_cpf")
     // private String cpf;
 
-    @ManyToOne
-    @JoinColumn(name="cliente_ra", nullable = false)
-    private Cliente clientera;
 
     @Id
     @Column(name="id")
@@ -39,6 +36,9 @@ public class Suspensao {
 
     @Column(name="sus_stt")
     private int Suspstt;
+
+    @Column(name="cliente_ra", nullable = false)
+    private Cliente clientera;
 
 
 
