@@ -1,11 +1,14 @@
 package es2.projeto.librarytree.control;
 
+import java.util.Date;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import es2.projeto.librarytree.models.Livro;
@@ -45,5 +48,14 @@ public class Exemplares {
         Livro livros = new Livro();
         livros = singletonLivro.saveLivro(livro);
         return new ResponseEntity<>(livros, HttpStatus.OK);
+    }
+
+    @RequestMapping("/editarExemplar")
+    public ResponseEntity<Object> editar(
+            @RequestParam(value = "Identificador") es2.projeto.librarytree.models.Exemplares Identificador,
+            @RequestParam(value = "Quantidade") int Quantidade,
+            @RequestParam(value = "Data") Date data) {
+        return new ResponseEntity<>(singletonExemplares.editarExemplares(Identificador, Quantidade, data),
+                HttpStatus.OK);
     }
 }

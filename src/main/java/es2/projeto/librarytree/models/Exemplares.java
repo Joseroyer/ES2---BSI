@@ -1,15 +1,19 @@
 package es2.projeto.librarytree.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
 import java.util.Date;
 
-@AllArgsConstructor
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import lombok.Data;
+
 @Data
-@NoArgsConstructor
 @Entity
 @Table(name = "exemplares")
 public class Exemplares {
@@ -36,8 +40,15 @@ public class Exemplares {
     @JoinColumn(name = "editora_id_editora")
     private Editora editora_fk;
 
-    @Column(name ="status")
+    @Column(name = "status")
     private int status;
+
+    public Exemplares() {
+    }
+
+    public Exemplares(Long id) {
+        this.id = id;
+    }
 
     public Exemplares(int qtd, Date ano_publicado, int qtd_dias_empres, Livro livro_fk, Editora editora_fk,
             int status) {
@@ -47,6 +58,5 @@ public class Exemplares {
         this.editora_fk = editora_fk;
         this.status = status;
     }
-
 
 }

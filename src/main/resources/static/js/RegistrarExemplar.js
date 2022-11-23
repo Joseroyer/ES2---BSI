@@ -152,3 +152,58 @@ function closeModal() {
     document.getElementById("modal").style.display = 'none'
 }
 
+
+function editar(id) {
+    // alert(id)
+    document.getElementById("modal_editar").style.display = 'block'
+    document.getElementById("id").value = id;
+
+    const URL_TO_FETCH = `/apis/listar-bi?Identificador=${id}`;
+    fetch(URL_TO_FETCH, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, method: 'POST' })
+        .then(function (response) {
+            response.json().then(valores => {
+                appendData(valores);
+            });
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+    function appendData(data) {
+        console.log(data);
+        var nome = data.nome;
+        document.getElementById("novo_nome").value = nome;
+        var telefone = data.telefone;
+        document.getElementById("novo_telefone").value = telefone;
+        var email = data.email;
+        document.getElementById("novo_email").value = email;
+
+    }
+
+}
+
+//var input = `<th><input type="text" id="teste"><input type="submit" value="Alterar" onclick='editar2(${id})'></th>`;
+//document.getElementById("qlq").innerHTML+=input;
+
+
+function editar2() {
+    // var Identificador=id;
+    let Identificador = document.getElementById("id").value;
+    let Nome = document.getElementById("novo_nome").value;
+    let Telefone = document.getElementById("novo_telefone").value;
+    let Email = document.getElementById("novo_email").value;
+
+    const URL_TO_FETCH = `/apis/editarBibliotecario?Identificador=${Identificador}&Nome=${Nome}&Telefone=${Telefone}&Email=${Email}`;
+    fetch(URL_TO_FETCH, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, method: 'POST' })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (text) {
+            document.getElementById("cadastrado").style.display = "block";
+            window.location.href = "ExcluirUsuario.html";
+        })
+        .catch(function (err) {
+            console.log('error: ' + err);
+        });
+
+}
+

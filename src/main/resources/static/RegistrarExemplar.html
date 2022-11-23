@@ -263,6 +263,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
+            <!-- Cadastrar -->
             <div class="modal-body" onload="FormsBibliotecario()">
               <form id="fdados">
                 <div class="form-group" style="margin-top:20px ;">
@@ -324,6 +325,86 @@
                   data-dismiss="modal" onclick="closeModal()">Cancelar</button>
                 <input type="submit" value="Registrar" class="btn btn-primary"
                   onclick="salvar()">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Editar -->
+        <div class="modal" tabindex="-1" role="dialog" id="modal_editar" style="display:
+        none;">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Editar Exemplar</h5>
+              <button type="button" class="close" data-dismiss="modal"
+                aria-label="Fechar" onclick="closeModal()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!-- Cadastrar -->
+            <div class="modal-body" onload="FormsBibliotecario()">
+              <form id="fdados">
+                <div class="form-group" style="margin-top:20px ;">
+                  <label for="recipient-name" class="col-form-label">Livro:</label>
+                  <!-- <p>Identificador:</p> -->
+                  <select id="novo_livro_fk" name="novo_livro_fk" class="form-control" data-live-search="true" disabled>
+                          <option>Selecione um Livro</option>
+                          <option></option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Editora:</label>
+                  <select id="novo_editora_fk" name="novo_editora_fk" class="form-control"disabled>
+                      <option>Selecione uma Editora</option>
+                      <option></option>
+                  </select>
+                  <p id="resultado_editora_fk" style="font-size:14px; color:#212529;
+                    display: none;"></p>
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Quantidade:</label>
+                  <input
+                    id="novo_qtd"
+                    name="novo_qtd"
+                    type="number"
+                    class="form-control"
+                    required
+                    onblur=" validarQuantidade()"
+                    min="1"  max="9999"
+                    />
+                  <p id="error_quantidade" style="font-size:14px; color:#212529;
+                    display: none;">A quantidade precisa ser Maior que 0 e Menor que 9999
+                  </p>
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Ano Publicado:</label>
+                  <input
+                    id="novo_ano_publicado"
+                    name="novo_ano_publicado"
+                    type="date"
+                    class="form-control"
+                    required
+                    onblur="validarData()"
+                    />
+                  <p id="resultado_ano_publicado" style="font-size:14px;
+                    color:#212529; display:
+                    none;">Data Inválida</p>
+                </div>
+                <div id="resultados_div" class="">
+                  <div class="d-flex justify-content-center">
+                    <p class="message" id="cadastradoExemplar" style="font-size:18px;
+                      color: #212529; display: none;">Cadastrado com Sucesso</p>
+                    <p id="error" style="display: none; color: #212529;">Erro ao Cadastrar</p>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                  data-dismiss="modal" onclick="closeModal()">Cancelar</button>
+                <input type="submit" value="Editar" class="btn btn-primary"
+                  onclick="editar()">
               </div>
             </div>
           </div>

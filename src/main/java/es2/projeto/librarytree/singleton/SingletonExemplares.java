@@ -1,5 +1,6 @@
 package es2.projeto.librarytree.singleton;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,6 +37,20 @@ public class SingletonExemplares {
         id.setQtd(bibli.get().getQtd());
         id.setAno_publicado(bibli.get().getAno_publicado());
         return this.exemplaresRepository.save(id);
+    }
+
+    public Exemplares editarExemplares(es2.projeto.librarytree.models.Exemplares identificador, int Quantidade,
+            Date data) {
+        Optional<Exemplares> ex = exemplaresRepository.findById(identificador.getId());
+        identificador.setId(ex.get().getId());
+        identificador.setAno_publicado(ex.get().getAno_publicado());
+        identificador.setQtd(ex.get().getQtd());
+        return this.exemplaresRepository.save(identificador);
+    }
+
+    public Optional<Exemplares> buscarExemplar(Long id) {
+        Optional<Exemplares> bi = exemplaresRepository.findById(id);
+        return bi;
     }
 
 }

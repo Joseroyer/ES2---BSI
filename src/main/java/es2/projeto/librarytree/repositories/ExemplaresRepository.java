@@ -15,4 +15,5 @@ public interface ExemplaresRepository extends JpaRepository<Exemplares, Long> {
 
     @Query(value = "SELECT * FROM exemplares WHERE id_exemplar = :id", nativeQuery = true)
     public List<Exemplares> findById(@Param("id") int id);
+
 }
