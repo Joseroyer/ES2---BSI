@@ -41,6 +41,31 @@ function CarregaLista() {
         .catch(err => console.error(err));
 }
 
+function salvar() {
+    const URL = "/apis/saveExemplar";
+    var fdados = document.getElementById("fdados");
+    var jsontext = JSON.stringify(Object.fromEntries(
+        new FormData(fdados)));
+    fetch(URL, {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method: 'POST', body: jsontext
+    })
+        .then(function (response) {
+            if (response.ok) {
+                document.getElementById("error").style.display = 'none';
+                document.getElementById("cadastradoExemplar").style.display = "block";
+                window.location.href = "RegistrarExemplar.html";
+                return response.json();
+            }
+        }).catch(function (error) {
+            document.getElementById("error").style.display = 'block';
+        });
+
+}
+
 function validarQuantidade() {
     var qtd = document.getElementById("qtd");
     if (qtd.value < 1 || qtd.value > 9999) {
@@ -49,18 +74,18 @@ function validarQuantidade() {
         document.getElementById("error_quantidade").style.display = "block";
     }
 }
-function validarData() {
-    var data = document.getElementById("ano_publicado").replaceAll("-", "");
-    var hoje = new Date();
-    console.log("🚀 ~ file: RegistrarExemplar.js ~ line 55 ~ validarData ~ data", data)
-    alert(data);
+// function validarData() {
+//     var data = document.getElementById("ano_publicado").replaceAll("-", "");
+//     var hoje = new Date();
+//     console.log("🚀 ~ file: RegistrarExemplar.js ~ line 55 ~ validarData ~ data", data)
+//     alert(data);
 
-    if (data.value > Data().getYear()) {
-        data.value = "";
-        data.style.border = "solid 2px #00B9BC";
-        document.getElementById("resultado_ano_publicado").style.display = "block";
-    }
-}
+//     if (data.value > Data().getYear()) {
+//         data.value = "";
+//         data.style.border = "solid 2px #00B9BC";
+//         document.getElementById("resultado_ano_publicado").style.display = "block";
+//     }
+// }
 function excluir(id) {
     console.log(id);
     if (window.confirm("Deseja realmente excluir o Exemplar?")) {
@@ -121,32 +146,7 @@ function abrir() {
     exibirEditoras();
 }
 
-function salvar() {
-    const URL = "/apis/saveExemplar";
-    var fdados = document.getElementById("fdados");
-    var jsontext = JSON.stringify(Object.fromEntries(
-        new FormData(fdados)));
-    fetch(URL, {
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        method: 'POST', body: jsontext
-    })
-        .then(function (response) {
-            if (response.ok) {
-                document.getElementById("error").style.display = 'none';
-                document.getElementById("cadastradoExemplar").style.display = "block";
-                // window.location.href = "RegistrarExemplar.html";
-                return response.json();
-            }
-        }).then(function (promisse) {
-            window.location.href = "RegistrarExemplar.html";
-        }).catch(function (error) {
-            document.getElementById("error").style.display = 'block';
-        });
 
-}
 
 function closeModal() {
     document.getElementById("modal").style.display = 'none'

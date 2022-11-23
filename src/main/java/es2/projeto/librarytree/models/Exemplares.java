@@ -48,7 +48,5 @@ public class Exemplares {
         this.status = status;
     }
 
-    
-
 
 }

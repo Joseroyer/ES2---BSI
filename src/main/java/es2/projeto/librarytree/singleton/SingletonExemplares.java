@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.context.annotation.Scope;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import es2.projeto.librarytree.models.Exemplares;
@@ -20,9 +22,9 @@ public class SingletonExemplares {
         return exemplaresRepository.findAllExemplar();
     }
 
-    public Exemplares saveExemplar(Exemplares exemplares) {
+    public ResponseEntity<Object> saveExemplar(Exemplares exemplares) {
         exemplares.setStatus(1);
-        return exemplaresRepository.save(exemplares);
+        return new ResponseEntity<>(exemplaresRepository.save(exemplares), HttpStatus.CREATED);
     }
 
     public Exemplares excluirExemplares(Exemplares id) {
