@@ -6,7 +6,10 @@ import java.util.Optional;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
+import es2.projeto.librarytree.models.Editora;
 import es2.projeto.librarytree.models.Exemplares;
+import es2.projeto.librarytree.models.Genero;
+import es2.projeto.librarytree.models.Livro;
 import es2.projeto.librarytree.repositories.ExemplaresRepository;
 import lombok.RequiredArgsConstructor;
 
@@ -21,6 +24,23 @@ public class SingletonExemplares {
     }
 
     public Exemplares saveExemplar(Exemplares exemplares) {
+        Livro livro = new Livro();
+        Editora editora = new Editora();
+        Genero genero = new Genero();
+        livro.setId(exemplares.getLivro_fk().getId());
+        livro.setTitulo(exemplares.getLivro_fk().getTitulo());
+        livro.setQuantidade(exemplares.getLivro_fk().getQuantidade());
+        genero.setId(exemplares.getLivro_fk().getGenero_fk().getId());
+        genero.setGenero(exemplares.getLivro_fk().getGenero_fk().getGenero());
+        livro.setGenero_fk(genero);
+        exemplares.setLivro_fk(livro);
+        editora.setId_editora(exemplares.getEditora_fk().getId_editora());
+        editora.setNome_editora(exemplares.getEditora_fk().getNome_editora());
+        editora.setCidade_editora(exemplares.getEditora_fk().getCidade_editora());
+        editora.setEstado_editora(exemplares.getEditora_fk().getEstado_editora());
+        editora.setStatus(exemplares.getEditora_fk().getStatus());
+        exemplares.setEditora_fk(editora);
+        System.out.println(exemplares);
         return exemplaresRepository.save(exemplares);
     }
 
