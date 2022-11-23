@@ -279,7 +279,7 @@
                       <option>Selecione uma Editora</option>
                       <option></option>
                   </select>
-                  <p id="resultado_editora_fk" style="font-size:14px; color:#212529;;
+                  <p id="resultado_editora_fk" style="font-size:14px; color:#212529;
                     display: none;"></p>
                 </div>
                 <div class="form-group">
@@ -290,9 +290,10 @@
                     type="number"
                     class="form-control"
                     required
-                    onblur="validarQuantidade()"
+                    onblur=" validarQuantidade()"
+                    min="1"  max="9999"
                     />
-                  <p id="resultado_qtd" style="font-size:14px; color:#212529;;
+                  <p id="error_quantidade" style="font-size:14px; color:#212529;
                     display: none;">A quantidade precisa ser maior que 0</p>
                 </div>
                 <div class="form-group">
@@ -310,7 +311,7 @@
                 </div>
                 <div id="resultados_div" class="">
                   <div class="d-flex justify-content-center">
-                    <p class="message" id="cadastrado" style="font-size:18px;
+                    <p class="message" id="cadastradoExemplar" style="font-size:18px;
                       color: #212529; display: none;">Cadastrado com Sucesso</p>
                     <p id="error" style="display: none;">Erro ao Cadastrar</p>
                   </div>

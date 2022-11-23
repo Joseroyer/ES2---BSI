@@ -36,6 +36,15 @@ function CarregaLista() {
         })
         .catch(err => console.error(err));
 }
+
+function validarQuantidade() {
+    var qtd = document.getElementById("qtd");
+    if (qtd.value < 1) {
+        qtd.value = "";
+        qtd.style.border = "solid 2px #00B9BC";
+        document.getElementById("error_quantidade").style.display = "block";
+    }
+}
 function excluir(id) {
     console.log(id);
     if (window.confirm("Deseja realmente excluir o Exemplar?")) {
@@ -103,7 +112,7 @@ function salvar1() {
         .then(function (response) {
             if (response.ok) {
                 document.getElementById("error").style.display = 'none';
-                document.getElementById("cadastrado").style.display = "block";
+                document.getElementById("cadastradoExemplar").style.display = "block";
                 // window.location.href = "RegistrarExemplar.html";
                 return response.json();
             }
@@ -127,7 +136,7 @@ function salvar() {
         .then(function (response) {
             if (response.ok) {
                 document.getElementById("error").style.display = 'none';
-                document.getElementById("cadastrado").style.display = "block";
+                document.getElementById("cadastradoExemplar").style.display = "block";
                 // window.location.href = "RegistrarExemplar.html";
                 return response.json();
             }
@@ -142,11 +151,3 @@ function closeModal() {
     document.getElementById("modal").style.display = 'none'
 }
 
-function validarQuantidade() {
-    let qtd = document.getElementById("qtd");
-    console.log(qtd.value);
-    if (qtd.length < 1) {
-        qtd.style.border = "solid 2px #00B9BC";
-        document.getElementById("resultado_qtd").display.style = block;
-    }
-}
