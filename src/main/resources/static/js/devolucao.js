@@ -429,6 +429,15 @@ function validaParcela()
         document.getElementById("qtd_parc").style.border = '2px solid #008000'}
 }
 
+function validaNumero(){
+    var num = document.getElementById("num_cart").value
+    if(num=="")
+    {
+        document.getElementById("num_cart").style.border = '2px solid red'
+    }
+    else{
+        document.getElementById("num_cart").style.border = '2px solid #008000'}
+}
 function validaData()
 {
     
