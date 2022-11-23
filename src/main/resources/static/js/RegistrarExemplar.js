@@ -19,14 +19,18 @@ function CarregaLista() {
             function appendData(data) {
                 console.log(data);
                 var table = "";
+                var string;
+                var aux;
                 table += `<tr><th>#</th><th>Livro</th><th>Editora</th><th>Quantidade</th><th>Ano Publicado</th><th>Editar</th><th>Excluir</th></tr>`
                 for (let i = 0; i < data.length; i++) {
+                    aux = data[i].ano_publicado.split("T")[0].split("-");
+                    string = aux[2] + "/" + aux[1] + "/" + aux[0];
                     table += `<tr>
                             <td>${data[i].id}</td>
                             <td>${data[i].livro_fk.titulo}</td>
                             <td>${data[i].editora_fk.nome_editora}</td>
                             <td>${data[i].qtd}</td> 
-                            <td>${data[i].ano_publicado}</td>                            
+                            <td>${string}</td>                            
                             <td><img width="30px" src='img/change.png' onclick='editar(${data[i].id})'></td>
                             <td><img width="30px" src='img/trash.png' onclick='excluir(${data[i].id})'></td>
                             </tr>`;
@@ -115,22 +119,6 @@ function abrir() {
     exibirEditoras();
 }
 
-function salvar1() {
-
-    const URL_TO_FETCH = `/apis/saveExemplar`;
-    fetch(URL_TO_FETCH, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, method: 'POST' })
-        .then(function (response) {
-            if (response.ok) {
-                document.getElementById("error").style.display = 'none';
-                document.getElementById("cadastradoExemplar").style.display = "block";
-                // window.location.href = "RegistrarExemplar.html";
-                return response.json();
-            }
-        })
-        .catch(function (err) {
-            document.getElementById("error").style.display = 'block';
-        });
-}
 function salvar() {
     const URL = "/apis/saveExemplar";
     var fdados = document.getElementById("fdados");
@@ -150,8 +138,9 @@ function salvar() {
                 // window.location.href = "RegistrarExemplar.html";
                 return response.json();
             }
-        })
-        .catch(function (error) {
+        }).then(function (promisse) {
+            window.location.href = "RegistrarExemplar.html";
+        }).catch(function (error) {
             document.getElementById("error").style.display = 'block';
         });
 
