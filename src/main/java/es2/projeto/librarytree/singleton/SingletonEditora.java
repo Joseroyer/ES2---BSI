@@ -33,6 +33,8 @@ public class SingletonEditora {
         Optional<Editora> editora = editoraRepository.findById(id.getId_editora());
         id.setId_editora(editora.get().getId_editora());
         id.setNome_editora(editora.get().getNome_editora());
+        id.setCidade_editora(editora.get().getCidade_editora());
+        id.setEstado_editora(editora.get().getEstado_editora());
         id.setStatus(0);
         return this.editoraRepository.save(id);
     }
