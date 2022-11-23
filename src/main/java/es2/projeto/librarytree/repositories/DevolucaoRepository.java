@@ -14,7 +14,7 @@ public interface DevolucaoRepository extends JpaRepository<Emprestimo, Long>{
     @Query(value = "SELECT * FROM emprestimo e WHERE e.status = 0 ORDER BY id_emprestimo ASC", nativeQuery = true)
     List<Emprestimo> findExemplar();
 
-    @Query(value = "SELECT * FROM emprestimo e INNER JOIN cliente c ON e.cliente_id = c.cli_id INNER JOIN exemplares ex on e.exemplar_id = ex.id_exemplar INNER JOIN livro l on ex.livro_id_livro = l.id_livro WHERE UPPER(c.cli_nome) LIKE %:filtro% OR UPPER(l.titulo_livro) LIKE %:filtro%", nativeQuery = true)
+    @Query(value = "SELECT * FROM emprestimo e INNER JOIN cliente c ON e.cliente_id = c.cli_id INNER JOIN exemplares ex on e.exemplar_id = ex.id_exemplar INNER JOIN livro l on ex.livro_id_livro = l.id_livro WHERE UPPER(c.cli_nome) LIKE %:filtro% OR UPPER(l.titulo_livro) LIKE %:filtro% ORDER BY e.id_emprestimo ASC", nativeQuery = true)
     List<Emprestimo> findExemplarFiltro(@Param("filtro") String filtro);
     
 }
