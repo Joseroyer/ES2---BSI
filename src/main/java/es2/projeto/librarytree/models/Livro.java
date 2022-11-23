@@ -1,9 +1,5 @@
 package es2.projeto.librarytree.models;
 
-import javax.persistence.*;
-
-
-// @NoArgsConstructor
 @Entity
 @Table(name = "livro")
 public class Livro {
@@ -11,7 +7,7 @@ public class Livro {
     @Column(name = "id_livro")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_livro;
-
+    
     @Column(name = "titulo_livro")
     private String titulo_livro;
 
@@ -28,6 +24,9 @@ public class Livro {
     public Livro()
     {
 
+    }
+    public Livro(Long id_livro) {
+        this.id_livro = id_livro;
     }
 
     public Livro(Long id_livro, String titulo_livro, int quantidade, Genero generos_id_genero, int status) {
@@ -87,4 +86,5 @@ public class Livro {
     }
 
     
+
 }
