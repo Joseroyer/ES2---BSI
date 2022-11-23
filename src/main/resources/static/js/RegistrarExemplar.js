@@ -45,6 +45,16 @@ function validarQuantidade() {
         document.getElementById("error_quantidade").style.display = "block";
     }
 }
+function validarData() {
+    var now = new data;
+    var data = document.getElementById("ano_publicado");
+    console.log("🚀 ~ file: RegistrarExemplar.js ~ line 50 ~ validarData ~ data", data.value)
+    if (data.value > now.getDay() || data.value > now.getMonth() || data.value > now.getFullYear()) {
+        data.value = "";
+        data.style.border = "solid 2px #00B9BC";
+        document.getElementById("resultado_ano_publicado").style.display = "block";
+    }
+}
 function excluir(id) {
     console.log(id);
     if (window.confirm("Deseja realmente excluir o Exemplar?")) {
