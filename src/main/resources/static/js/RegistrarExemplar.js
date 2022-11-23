@@ -39,7 +39,7 @@ function CarregaLista() {
 
 function validarQuantidade() {
     var qtd = document.getElementById("qtd");
-    if (qtd.value < 1) {
+    if (qtd.value < 1 || qtd.value > 9999) {
         qtd.value = "";
         qtd.style.border = "solid 2px #00B9BC";
         document.getElementById("error_quantidade").style.display = "block";
