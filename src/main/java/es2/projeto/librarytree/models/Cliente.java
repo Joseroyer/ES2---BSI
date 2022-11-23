@@ -1,5 +1,5 @@
 package es2.projeto.librarytree.models;
-import es2.projeto.librarytree.models.Suspensao;
+// import es2.projeto.librarytree.models.Suspensao;
 
 
 import javax.persistence.*;
@@ -19,14 +19,22 @@ public class Cliente {
     @OneToOne
     @JoinColumn(name = "pessoafisica_cpf", nullable=false)
     private PessoaFisica pessoafisica_fk;
-    // @OneToOne
-    // @JoinColumn(name="cliente_ra")
-    // private Suspensao clientera;
+    @OneToOne
+    @JoinColumn(name="cliente_ra")
+    private Suspensao clientera;
 
 
     public Cliente() {
 
     }
+
+    
+
+    public Cliente(Suspensao clientera) {
+        this.clientera = clientera;
+    }
+
+
 
     public Cliente(int ra, String login, String senha, PessoaFisica pessoafisica_fk) {
         this.ra = ra;

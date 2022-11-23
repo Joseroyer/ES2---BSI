@@ -28,6 +28,14 @@ public class SuspensaoControl {
     public ResponseEntity <Object> todos(){
        return new ResponseEntity<>(susRepository.findAll(),HttpStatus.OK);
     }
+    
+    @RequestMapping("/listar-uma-suspensao")//lista só uma suspensão
+    public ResponseEntity<Object> buscarFiltro(@RequestParam(value="filtro")String filtro)
+    {
+        String filtrar = filtro.toUpperCase();
+        List <Suspensao> titulos = susRepository.findAllWithFilter(filtrar);
+        return new ResponseEntity<>(titulos,HttpStatus.OK);
+    }
 
 
     @RequestMapping("/remover-suspensao")
@@ -56,6 +64,7 @@ public class SuspensaoControl {
     @PostMapping("/Cadastrar-Suspensao")
         public ResponseEntity<Object> AtribuirSuspensao(@RequestBody Suspensao sus){
             sus.setSuspstt(1);
+            System.out.println(sus);
             return new ResponseEntity<>(susRepository.save(sus),HttpStatus.OK);
         }
 }

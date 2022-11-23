@@ -30,6 +30,7 @@
 <link href="./css/style.css" rel="stylesheet">
 <link href="./css/stylelogin.css" rel="stylesheet">
 <link href="./css/styleCadTitulo.css" rel="stylesheet">
+<link href="css/stylegerenTitulo.css" rel="stylesheet">
 <!-- =======================================================
 * Template Name: Arsha - v4.9.1
 * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
@@ -64,7 +65,7 @@
               <li><a href="#">Cadastro de Usuário</a></li>
               <li><a href="parametrizacao.html">Alterar Parametrização</a></li>
               <li><a href="gerenTitulos.html">Gerenciar Titulos</a></li>
-              <li><a href="GerenciarSuspensao.html">Gerenciar Suspensões</a></li>
+              
             </ul>
           </li>
 
@@ -79,36 +80,28 @@
   
 
   <!-- ======= Hero Section ======= -->
-<section id="hero" class="form-holder">
-  <br>
-  <br>
-  <div class="form-content">
-      <div class="form-items">
-          <h3>Atribuição de Suspensão!</h3>
-          <p>Informe os dados corretamente para suspensão!</p>
-          <!-- class="requires-validation" -->
-          <form id="fdados" method="post">
-            <div class="col-md-12">
-              <input type="text" name="clientera"  id="clientera" onkeyup="somenteNumeros(this);" placeholder="RA do Usuário *">
-            </div>
-            <div class="col-md-12">
-              <input type="text" name="empsus" id="empsus" onblur="validarNome()" placeholder="Título do empréstimo suspenso *">
-            </div>
-            <div class="col-md-12">
-              <input type="text" name="dtinisus" id="dtinisus" required pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="Data inicial da suspensão * (dd/mm/aaaa)">
-            </div>
-            <div class="col-md-12">
-              <input type="text" name="dtfimsus" id="dtfimsus" required pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="Data final da suspensão * (dd/mm/aaaa)">
-          </div>
-              <br>
-              <div class="form-button mt-3">
-                  <button type="submit" class="btn btn-primary" onclick="CadastrarSusp()">Atribuir suspensão</button>
+    <section id="hero" class="d-flex align-items-center">
+        <div class="login-box">
+          <form>
+            <h2>Verificar uma suspensão ?</h2>
+              <div class="user-box">
+                <input type="text" name="" required="" id="teste123" onkeyup="somenteNumeros(this);" placeholder="Digite o RA suspenso">
+                <label></label>
               </div>
-    
-          </form>
-      </div>
-  </div> 
-</section>
+                    <input id="buscar" type="submit" value="Procurar" onclick="CarregaFiltro()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+            </form>
+          </div>    
+      </section> 
+     
+      <div style="width: 70%; max-height: 400px; align-content: center; margin: 0 auto; margin-top: -25px;">
+        <table  class="table" style="text-align: center;  color: white;">
+            <tbody id ="tab"></tbody>
+        </table>
+    </div> 
 
   <main id="main">
     <section id="team" class="team" style="background-color: #37517e">      

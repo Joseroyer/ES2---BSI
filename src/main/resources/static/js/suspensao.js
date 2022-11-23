@@ -9,8 +9,20 @@ function somenteNumeros(num) {
       campo.style.border = "solid 2px red";
       return false;
     }
+
     else return true;
 }
+
+function NaoVazio() {
+    nome = document.querySelector("#teste123");
+    if (nome.value.length=="") {
+        alert("Dados não podem ser nulos.");
+        nome.style.border = "solid 2px red";
+        return false;
+    }
+    return true;
+}
+
 
 function validarNome() {
     nome = document.querySelector("#empsus");
