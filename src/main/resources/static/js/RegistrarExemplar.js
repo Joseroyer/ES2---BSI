@@ -50,10 +50,12 @@ function validarQuantidade() {
     }
 }
 function validarData() {
-    var now = new data;
-    var data = document.getElementById("ano_publicado");
-    console.log("🚀 ~ file: RegistrarExemplar.js ~ line 50 ~ validarData ~ data", data.value)
-    if (data.value > now.getDay() || data.value > now.getMonth() || data.value > now.getFullYear()) {
+    var data = document.getElementById("ano_publicado").replaceAll("-", "");
+    var hoje = new Date();
+    console.log("🚀 ~ file: RegistrarExemplar.js ~ line 55 ~ validarData ~ data", data)
+    alert(data);
+
+    if (data.value > Data().getYear()) {
         data.value = "";
         data.style.border = "solid 2px #00B9BC";
         document.getElementById("resultado_ano_publicado").style.display = "block";
