@@ -1,38 +1,40 @@
 package es2.projeto.librarytree.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@AllArgsConstructor
-@Data
-@NoArgsConstructor
 @Entity
 @Table(name = "generos")
 public class Genero {
+    
     @Id
     @Column(name = "id_genero")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id_genero;
+
     @Column(name="tipo_genero")
-    private String Genero;
+    private String tipo_genero;
 
-
-    public Genero(String genero) {
-        Genero = genero;
+    public Long getId_genero() {
+        return id_genero;
     }
 
-
-    public Genero(Long id) {
-        this.id = id;
+    public void setId_genero(Long id_genero) {
+        this.id_genero = id_genero;
     }
-    
 
+    public String getTipo_genero() {
+        return tipo_genero;
+    }
+
+    public void setTipo_genero(String tipo_genero) {
+        this.tipo_genero = tipo_genero;
+    }
+
+    public Genero(Long id_genero, String tipo_genero) {
+        this.id_genero = id_genero;
+        this.tipo_genero = tipo_genero;
+    }
+
+    public Genero()
+    {}
 }
