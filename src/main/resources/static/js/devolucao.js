@@ -88,15 +88,18 @@ function CarregaLista()
                             var mes_atual = date.getMonth()+1;
                             var ano_atual = date.getFullYear();
                             var devol = ano_atual+"-"+mes_atual+"-"+dia_atual
-                            
+                            var dt_emp = data[i].data_emprestimo.split("-");
+                            var aux = dt_emp[2]+"/"+dt_emp[1]+"/"+dt_emp[0];
+                            var dt_dv = data[i].data_devolucao.split("-");
+                            var aux2 = dt_dv[2]+"/"+dt_dv[1]+"/"+dt_dv[0];
                             if(devol>data[i].data_devolucao)
                             {
                               status="Atrasado"
                               table+=`<tr>
                                       <td>${data[i].id_emprestimo}</td>
                                       <td>${data[i].cliente.nome}</td>
-                                      <td>${data[i].data_emprestimo}</td>
-                                      <td>${data[i].data_devolucao}</td>
+                                      <td>${aux}</td>
+                                      <td>${aux2}</td>
                                       <td>${data[i].exemplar_id.livro_id_livro.titulo_livro}</td>
                                       
                                       <td style="color: red; font-weight: bold">${status}</td>
@@ -117,8 +120,8 @@ function CarregaLista()
                               table+=`<tr>
                                       <td>${data[i].id_emprestimo}</td>
                                       <td>${data[i].cliente.nome}</td>
-                                      <td>${data[i].data_emprestimo}</td>
-                                      <td>${data[i].data_devolucao}</td>
+                                      <td>${aux}</td>
+                                      <td>${aux2}</td>
                                       <td>${data[i].exemplar_id.livro_id_livro.titulo_livro}</td>
                                       
                                       <td style="color: green; font-weight: bold">${status}</td>
@@ -193,15 +196,18 @@ function CarregaFiltro()
                             var mes_atual = date.getMonth()+1;
                             var ano_atual = date.getFullYear();
                             var devol = ano_atual+"-"+mes_atual+"-"+dia_atual
-                            
+                            var dt_emp = data[i].data_emprestimo.split("-");
+                            var aux = dt_emp[2]+"/"+dt_emp[1]+"/"+dt_emp[0];                            
+                            var dt_dv = data[i].data_devolucao.split("-");
+                            var aux2 = dt_dv[2]+"/"+dt_dv[1]+"/"+dt_dv[0];
                             if(devol>data[i].data_devolucao)
                             {
                               status="Atrasado"
                               table+=`<tr>
                                       <td>${data[i].id_emprestimo}</td>
                                       <td>${data[i].cliente.nome}</td>
-                                      <td>${data[i].data_emprestimo}</td>
-                                      <td>${data[i].data_devolucao}</td>
+                                      <td>${aux}</td>
+                                      <td>${aux2}</td>
                                       <td>${data[i].exemplar_id.livro_id_livro.titulo_livro}</td>
                                       
                                       <td style="color: red; font-weight: bold">${status}</td>
@@ -222,8 +228,8 @@ function CarregaFiltro()
                               table+=`<tr>
                                       <td>${data[i].id_emprestimo}</td>
                                       <td>${data[i].cliente.nome}</td>
-                                      <td>${data[i].data_emprestimo}</td>
-                                      <td>${data[i].data_devolucao}</td>
+                                      <td>${aux}</td>
+                                      <td>${aux2}</td>
                                       <td>${data[i].exemplar_id.livro_id_livro.titulo_livro}</td>
                                       
                                       <td style="color: green; font-weight: bold">${status}</td>
