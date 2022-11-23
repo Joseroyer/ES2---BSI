@@ -86,8 +86,8 @@
       <div class="form-items">
           <h3>Atribuição de Suspensão!</h3>
           <p>Informe os dados corretamente para suspensão!</p>
-          <!-- class="requires-validation" -->
-          <form id="fdados" method="post">
+          
+          <form id="fdado" method="post">
             <div class="col-md-12">
               <input type="text" name="clientera"  id="clientera" onkeyup="somenteNumeros(this);" placeholder="RA do Usuário *">
             </div>
@@ -95,14 +95,14 @@
               <input type="text" name="empsus" id="empsus" onblur="validarNome()" placeholder="Título do empréstimo suspenso *">
             </div>
             <div class="col-md-12">
-              <input type="text" name="dtinisus" id="dtinisus" required pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="Data inicial da suspensão * (dd/mm/aaaa)">
+              <input type="text" name="dtinisus" id="dtinisus"  placeholder="Data inicial da suspensão * (dd/mm/aaaa)">
             </div>
             <div class="col-md-12">
-              <input type="text" name="dtfimsus" id="dtfimsus" required pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="Data final da suspensão * (dd/mm/aaaa)">
+              <input type="text" name="dtfimsus" id="dtfimsus" placeholder="Data final da suspensão * (dd/mm/aaaa)">
           </div>
               <br>
               <div class="form-button mt-3">
-                  <button type="button" class="btn btn-primary" onclick="CadastrarSusp()">Atribuir suspensão</button>
+                  <button type="submit" class="btn btn-primary" onclick="CadastrarSusp()">Atribuir suspensão</button>
               </div>
     
           </form>

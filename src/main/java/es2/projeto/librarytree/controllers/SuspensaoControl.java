@@ -41,30 +41,45 @@ public class SuspensaoControl {
     @RequestMapping("/remover-suspensao")
     public Suspensao remsuspensao(@RequestParam(value="id")Suspensao  id)
     {
-        Optional<Suspensao > suspensao = susRepository.findById(id.getIdsus());
-        id.setIdsus(suspensao.get().getIdsus());//id da suspensao
-        id.setEmpsus(suspensao.get().getEmpsus());//empréstimo suspenso 
-        //acredito que precise passar a chave estrangeira também..
+        Optional<Suspensao > susp = susRepository.findById(id.getIdsus());
+
+        id.setIdsus(susp.get().getIdsus());//id da suspensao
+        id.setEmpsus(susp.get().getEmpsus());//empréstimo suspenso 
         id.setIdsus(0);
+        System.out.println(id);
         return this.susRepository.save(id);
     }
 
     @RequestMapping("/editar-suspensao")
-    public Suspensao edisuspensao(@RequestParam(value="EditarSuspensao") Suspensao EditarSuspensao, @RequestParam(value="Nome") String Nome){
+    public Suspensao edisuspensao(@RequestParam(value="Identificador") Suspensao Identificador, @RequestParam(value="Nome") String Nome){
         {
-            Optional<Suspensao> Sus = susRepository.findById(EditarSuspensao.getIdsus());
-            EditarSuspensao.setIdsus(Sus.get().getIdsus());
-            EditarSuspensao.setEmpsus(Nome);
-            EditarSuspensao.setSuspstt(1);
-            return this.susRepository.save(EditarSuspensao);
+
+        //     Identificador.getId_livro());
+        //   Identificador.setId_livro(Tit.get().getId_livro());
+
+            Optional<Suspensao> Sus = susRepository.findById(Identificador.getIdsus());
+            Identificador.setIdsus(Sus.get().getIdsus());
+            Identificador.setEmpsus(Nome);
+            Identificador.setSuspstt(1);
+            return this.susRepository.save(Identificador);
 
         }
     }
 
-    @PostMapping("/Cadastrar-Suspensao")
-        public ResponseEntity<Object> AtribuirSuspensao(@RequestBody Suspensao sus){
-            sus.setSuspstt(1);
-            System.out.println(sus);
-            return new ResponseEntity<>(susRepository.save(sus),HttpStatus.OK);
+    @PostMapping("/CadastrarSuspensao")
+        public ResponseEntity<Object> AtribuirSuspensao(@RequestBody Suspensao Susp){
+            Susp.setSuspstt(1);
+            System.out.println(Susp);
+            return new ResponseEntity<>(susRepository.save(Susp),HttpStatus.OK);
         }
+
+        // @PostMapping("/CadastrarNovosTitulos")
+        // public ResponseEntity<Object> CadastrarNovoTitulo(@RequestBody GerenTitulos livro){
+        //   // GeneroLivro gen = new GeneroLivro(Long.parseLong("1"),"Animais");
+        //   livro.setLivrostt(1);
+        //   System.out.println(livro);
+        //   return new ResponseEntity<>(gerenTitulosRepository.save(livro),HttpStatus.OK);
+        // }
+
+
 }

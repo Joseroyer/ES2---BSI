@@ -52,8 +52,7 @@ public class GerenTitulosControl {
     {
       // String fil = Identificador.getTitulo_livro().toUpperCase();
       {
-          Optional<GerenTitulos> Tit = gerenTitulosRepository.findById
-          (Identificador.getId_livro());
+          Optional<GerenTitulos> Tit = gerenTitulosRepository.findById(Identificador.getId_livro());
           Identificador.setId_livro(Tit.get().getId_livro());
           Identificador.setTitulo_livro(Nome);
           Identificador.setLivrostt(1);
