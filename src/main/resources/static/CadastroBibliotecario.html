@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <title id="title">Cadastro</title>
+        <meta content="" name="description"/>
+        <meta content="" name="keywords"/>
+
+        <!-- Favicons -->
+        <!-- <link href="img/Library tree.png" rel="icon"/> -->
+        <link href="img/apple-touch-icon.png" rel="apple-touch-icon"/>
+
+        <!-- Google Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+            rel="stylesheet"
+            />
+        <script src="js/devolucao.js"></script>
+        <!-- Vendor CSS Files -->
+        <link href="assets/vendor/aos/aos.css" rel="stylesheet"/>
+        <link
+            href="assets/vendor/bootstrap/css/bootstrap.min.css"
+            rel="stylesheet"
+            />
+        <link
+            href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+            rel="stylesheet"
+            />
+        <link href="assets/vendor/boxicons/css/boxicons.min.css"
+            rel="stylesheet"/>
+        <link
+            href="assets/vendor/glightbox/css/glightbox.min.css"
+            rel="stylesheet"
+            />
+        <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet"/>
+        <link href="assets/vendor/swiper/swiper-bundle.min.css"
+            rel="stylesheet"/>
+        <!-- Template Main CSS File -->
+        <link href="./css/style.css" rel="stylesheet"/>
+        <link href="./css/stylesignup.css" rel="stylesheet"/>
+        <script src="js/login.js"></script>
+        <!-- =======================================================
+  * Template Name: Arsha - v4.9.1
+  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+    </head>
+
+    <body onload="isAdmin(), estilo(), verificarLogin()">
+        <!-- ======= Header ======= -->
+        <header id="header" class="fixed-top ">
+            <div class="container d-flex align-items-center">
+
+                <h1 class="logo me-auto" id="titulo"></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li><a class="nav-link scrollto active"
+                                href="index.html">Home</a></li>
+                        <li><a class="nav-link scrollto" id="consultar" href="">Consultar
+                                Acervo</a></li>
+                        <li><a class="nav-link scrollto" id="emprestimo"
+                                href="">Realizar Empréstimos</a></li>
+                        <li id="listaFunc" class="dropdown"><a href="#"><span>Área
+                                    do
+                                    Funcionário</span> <i class="bi
+                                    bi-chevron-down"></i></a>
+                            <ul>
+                                <li><a href="#">Cadastrar Exemplares</a></li>
+                                <li><a href="./CadastroBibliotecario.html">Cadastro
+                                        de Usuário</a></li>
+                                <li><a href="parametrizacao.html">Alterar
+                                        Parametrização</a></li>
+                                <li><a href="CadastroEditora.html">Cadastro de
+                                        Editora</a></li>
+                                <li><a href="Editora.html">Gerenciar Editora</a></li>
+                                <li><a href="Aprovacao.html">Aprovar
+                                        Solicitações</a></li>
+                                <li><a href="ExcluirUsuario.html">Alterar/Excluir
+                                        Usuários</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li id="logButton"><a class="getstarted scrollto"
+                                href="./LoginUser.html"
+                                target="_blank" id="log">Entre/Cadastre-se</a></li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav><!-- .navbar -->
+
+            </div>
+        </header><!-- End Header -->
+
+        <!-- ======= Hero Section ======= -->
+        <section id="hero1" class="d-flex justify-content-center">
+            <div class="container-css">
+                <div class="containerLog ">
+                    <div class="logo">Cadastro Bibliotecário</div>
+                    <div class="login-item">
+                        <form id="fdados" class="form form-login" method="post">
+                            <!-- Nome -->
+                                <div class="label-text">
+                                    <label class="" for="login-username">Nome
+                                        Completo:<span class="hidden"></span></label>
+                                </div>
+                                <div class="form-field">
+                                    <input
+                                        id="nome"
+                                        name="nome"
+                                        type="text"
+                                        class="form-input"
+                                        placeholder="Nome Completo *"
+                                        onblur="validarNome()"
+                                        required/>
+                                </div>
+                                <div class="label-text-resposta resultados_div">
+                                    <label id="resultado_nome" style="color:#ffff;
+                                        display: none;">O nome precisa conter
+                                        no mínimo 8 caracteres</p>
+                                </label>
+                            </div>
+                            <!-- /Nome -->
+                            <!-- Telefone -->
+                            <div class="label-text">
+                                <label class="" for="login-username">Celular:<span
+                                        class="hidden"></span></label>
+                            </div>
+                            <div class="form-field">
+                                <input
+                                    id="telefone"
+                                    name="telefone"
+                                    type="text"
+                                    class="form-input"
+                                    placeholder="Celular *"
+                                    onkeyup="mascara('(##)#####-####',this,event)"
+                                    onblur="validarTelefone()"
+                                    required />
+                            </div>
+                            <div class="label-text-resposta">
+                                <label id="resultado_telefone" style="display: none;">Informe corretamente o Celular</label>
+                            </div>
+                            <!-- /Telefone -->
+                            <!-- Email -->
+                            <div class="label-text">
+                                <label class="" for="login-username">E-mail:<span
+                                        class="hidden"></span></label>
+                            </div>
+                            <div class="form-field">
+                                <input
+                                    id="email"
+                                    name="email"
+                                    type="email"
+                                    class="form-input"
+                                    placeholder="E-mail *"
+                                    onblur="validarEmail()"
+                                    required/>
+                            </div>
+                            <div class="label-text-resposta resultados_div">
+                                <label id="resultado_email" style="color:#ffff;
+                                    display: none;">Preencha corretamente o
+                                    E-mail</label>
+                            </div>
+                            <!-- /Email -->
+                            <!-- CPF -->
+                            <div class="label-text">
+                                <label class="" for="login-username">CPF:<span
+                                        class="hidden"></span></label>
+                            </div>
+                            <div class="form-field">
+                                <input
+                                    id="cpf"
+                                    name="cpf"
+                                    type="text"
+                                    class="form-input"
+                                    placeholder="CPF *"
+                                    onkeyup="mascara('###.###.###-##',this,event)"
+                                    onblur="validarCPF()"
+                                    required/>
+                            </div>
+                            <div class="label-text-resposta resultados_div">
+                                <label id="resultado_CPF" style="color:#ffff;
+                                    display: none;">CPF inválido</label>
+                            </div>
+                            <!-- /CPF -->
+                            <!-- User -->
+                            <div class="label-text">
+                                <label class="" for="login-username">Nome de
+                                    Usuário:<span
+                                        class="hidden"></span></label>
+                            </div>
+                            <div class="form-field">
+                                <input
+                                    id="login"
+                                    name="login"
+                                    type="text"
+                                    class="form-input"
+                                    placeholder="Nome de Usuário *"
+                                    onblur="validarUser()"
+                                    required/>
+                            </div>
+                            <div class="label-text-resposta resultados_div">
+                                <label id="resultado_user" style="color:#ffff;
+                                    display: none;">Nome de Usuário precisa conter
+                                    no mínimo 5 caracteres</p>
+                                </label>
+                            </div>
+                            <!-- /User -->
+                            <!-- Senha -->
+                            <div class="label-text">
+                                <label class="lock" for="login-password">Senha:<span
+                                        class="hidden"></span></label>
+                            </div>
+                            <div class="form-field">
+                                <input
+                                    id="senha"
+                                    name="senha"
+                                    type="password"
+                                    class="form-input"
+                                    placeholder="Senha *"
+                                    onblur="validarSenha()"
+                                    required/>
+                            </div>
+                            <div class="label-text-resposta resultados_div">
+                                <label id="resultado_senha" style="color:#ffff;
+                                    display: none;">Senha precisa conter no
+                                    mínimo 5 caracteres
+                                </label>
+                            </div>
+                            <!-- /Senha -->
+                            <div class="label-text">
+                                <p id="obrigatorio" style="color: #ffff">*
+                                    Obrigatórios</p>
+                            </div>
+                            <!-- Validacao -->
+                            <div class="d-flex justify-content-center">
+                                <p id="cadastrado" style="font-size:18px; color: #ffff; display: none; ">Cadastrado com Sucesso</p>
+                                <p id="cpf_existente" style="color:#ffff; display: none;">CPF ou Login Existente</p>
+                            </div>
+                            <!-- Botao -->
+                            <div class="form-field">
+                                <input id="btn" type="submit" value="Registrar"
+                                    onclick="gravarUsuario()"/>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Hero -->
+
+    <main id="main">
+        <section
+            id="team"
+            class="team"
+            style="background-color: #37517e"></section>
+        <!-- End Team Section -->
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container footer-bottom clearfix">
+            <div class="container footer-bottom clearfix">
+                <div class="copyright">
+                    &copy; Copyright <strong><span id="footer2"></span></strong>.
+                    Todos os
+                    direitos reservados à <span id="empresa"></span>
+                </div>
+                <div class="credits">
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
+
+        <div id="preloader"></div>
+        <a
+            href="#"
+            class="back-to-top d-flex align-items-center
+            justify-content-center"><i
+                class="bi bi-arrow-up-short"></i></a>
+
+        <!-- Vendor JS Files -->
+        <script src="assets/vendor/aos/aos.js"></script>
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+        <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+        <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+        <script src="assets/vendor/php-email-form/validate.js"></script>
+        <!-- Template Main JS File -->
+        <script src="assets/js/main.js"></script>
+        <script src="./js/cadBibliotecario.js"></script>
+        <script src="js/parametrizacao.js"></script>
+
+    </body>
+</html>
