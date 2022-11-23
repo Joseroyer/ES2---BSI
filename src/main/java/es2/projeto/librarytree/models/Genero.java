@@ -29,4 +29,10 @@ public class Genero {
         Genero = genero;
     }
 
+
+    public Genero(Long id) {
+        this.id = id;
+    }
+    
+
 }

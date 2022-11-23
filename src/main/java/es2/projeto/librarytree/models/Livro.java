@@ -29,7 +29,7 @@ public class Livro {
 
     public Livro() {
     }
-
+    
     
     // @JsonCreator
     // public Livro(@JsonProperty("id") Long id, @JsonProperty("titulo") String
@@ -41,6 +41,11 @@ public class Livro {
     // this.quantidade = quantidade;
     // this.genero_fk = genero_fk;
     // }
+
+    public Livro(Long id) {
+        this.id = id;
+    }
+
 
     public Livro(Long id, String titulo, int quantidade, Genero genero_fk) {
         this.id = id;
