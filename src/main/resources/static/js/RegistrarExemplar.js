@@ -188,18 +188,17 @@ function editar(id) {
 function editar2() {
     // var Identificador=id;
     let Identificador = document.getElementById("id").value;
-    let Nome = document.getElementById("novo_nome").value;
-    let Telefone = document.getElementById("novo_telefone").value;
-    let Email = document.getElementById("novo_email").value;
+    let Quantidade = document.getElementById("novo_qtd").value;
+    let Data = document.getElementById("novo_ano_publicado").value;
 
-    const URL_TO_FETCH = `/apis/editarBibliotecario?Identificador=${Identificador}&Nome=${Nome}&Telefone=${Telefone}&Email=${Email}`;
+    const URL_TO_FETCH = `/apis/editarExemplar?Identificador=${Identificador}&Quantidade=${Quantidade}&Data=${Data}`;
     fetch(URL_TO_FETCH, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, method: 'POST' })
         .then(function (response) {
             return response.json();
         })
         .then(function (text) {
             document.getElementById("cadastrado").style.display = "block";
-            window.location.href = "ExcluirUsuario.html";
+            window.location.href = "RegistrarExemplar.html";
         })
         .catch(function (err) {
             console.log('error: ' + err);
