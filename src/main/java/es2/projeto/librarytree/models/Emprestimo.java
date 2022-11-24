@@ -111,9 +111,9 @@ public class Emprestimo implements Serializable {
         this.id_emprestimo = id_emprestimo;
         this.data_emprestimo = data_emprestimo;
         this.data_devolucao = data_devolucao;
-        this.forma_pagamento = "";
-        this.valor = 0;
-        this.qtde_parcelas = 0;
+        this.forma_pagamento = forma_pagamento;
+        this.valor = valor;
+        this.qtde_parcelas = qtde_parcelas;
         this.cliente = cliente;
         this.exemplar_id = exemplar_id;
         this.status = 0;
@@ -137,29 +137,9 @@ public class Emprestimo implements Serializable {
 
     public void setStatus(int status) {
         this.status = status;
-
     }
 
-    public Exemplar getExemplar_id() {
-        return exemplar_id;
-    }
-
-    public void setExemplar_id(Exemplar exemplar_id) {
-        this.exemplar_id = exemplar_id;
-    }
-
-
-
-    public int getStatus() {
-        return status;
-    }
-
-
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-      
+    
+    
     
 }
