@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import es2.projeto.librarytree.models.EmprestimoExemplar;
-
 import es2.projeto.librarytree.models.Emprestimo;
 import es2.projeto.librarytree.models.Parcelamento;
 import es2.projeto.librarytree.singleton.SingletonDevolucao;
