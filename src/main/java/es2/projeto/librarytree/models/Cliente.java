@@ -34,6 +34,7 @@ public class Cliente implements Serializable {
     @Column(name = "cli_senha")
     private String senha;
 
+
     public Cliente() {
         this(0L,"","","","","","");
     }
