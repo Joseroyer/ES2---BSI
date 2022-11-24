@@ -53,6 +53,11 @@ public class Editora implements Serializable
     
 
   
+    public Editora(Long id_editora) {
+        this.id_editora = id_editora;
+    }
+
+
     public Editora(Long id_editora, String nome_editora, String cidade_editora, String estado_editora, int status) {
         this.id_editora = id_editora;
         this.nome_editora = nome_editora;
@@ -84,5 +89,10 @@ public class Editora implements Serializable
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
     }
 }

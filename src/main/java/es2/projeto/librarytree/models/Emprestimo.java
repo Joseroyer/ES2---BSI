@@ -116,7 +116,28 @@ public class Emprestimo implements Serializable {
         this.qtde_parcelas = 0;
         this.cliente = cliente;
         this.exemplar_id = exemplar_id;
-        this.status = 1;
+        this.status = 0;
+    }
+
+    public Exemplar getExemplar_id() {
+        return exemplar_id;
+    }
+
+    public void setExemplar_id(Exemplar exemplar_id) {
+        this.exemplar_id = exemplar_id;
+    }
+
+
+
+    public int getStatus() {
+        return status;
+    }
+
+
+
+    public void setStatus(int status) {
+        this.status = status;
+
     }
 
     public Exemplar getExemplar_id() {

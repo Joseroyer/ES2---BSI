@@ -53,6 +53,7 @@
             <li><a class="nav-link scrollto" id="emprestimo" href="">Realizar Empréstimos</a></li>
             <li id="listaFunc" class="dropdown"><a href="#"><span>Área do Funcionário</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
+                <li><a href="devoluçao.html">Devolução de Exemplar</a></li>
                 <li><a href="./CadastroBibliotecario.html">Cadastro de Usuário</a></li>
                 <li><a href="parametrizacao.html">Alterar Parametrização</a></li>
                 <li><a href="CadastroEditora.html">Cadastro de Editora</a></li>
@@ -82,22 +83,30 @@
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
         </div>
         </div>
-        <div class="form-body">
+        <div class="" style="margin-top: 50px;">
             <div class="row">
                 <div class="form-holder">
                     <div class="form-content" >
-                        <div class="form-items">
-                            <h3>Parametrização do site</h3>
-                            <form id="fdados" method="post" >
+                        <div class="form-items" >
+                            <h3 style="margin-top: -22px;" >Parametrização do site</h3>
+                            <form id="fdados" method="post">
     
                                 <div class="col-md-12">
+                                  <label style="float: left ;" for="" class="form__label">Nome da Empresa</label>
                                    <input class="form-control" type="text" name="nome_empresa" id="nome_empresa" placeholder="Nome da empresa*" required="required" >
+                                   
+                                   <label for="" style="float: left ;" class="form__label">Cidade da Empresa</label>
                                    <input class="form-control" type="text" name="cidade" id="cidade" placeholder="Cidade da empresa*" required="required" >
+                                   
+                                   <label for="" style="float: left ;" class="form__label">Estado da Empresa</label>
                                    <input class="form-control" type="text" name="estado" id="estado" placeholder="Estado da empresa*" required="required" >
-                                   <input class="form-control" type="text" name="cnpj" id="cnpj" placeholder="CNPJ da empresa*" required="required" onkeyup="mascara('##.###.###/####-##',this,event)" onblur="validarCNPJ()"/>
+                                   
+                                   <label for="" style="float: left ;" class="form__label">CNPJ da Empresa</label>                                   <input class="form-control" type="text" name="cnpj" id="cnpj" placeholder="CNPJ da empresa*" required="required" onkeyup="mascara('##.###.###/####-##',this,event)" onblur="validarCNPJ()"/>
                                   </div>
                                 
-                                <div class="col-md-12" style="margin-top: 10px;  ">
+                                <div class="col-md-12" >
+                                  
+                                  <label for=""  class="form__label">Logo da Empresa</label>
                                     <input class="form-control" type="file" accept="image/*" id="logo" onchange="encodeImageFileAsURL()">
                                     <input type="text" id="imagem" name="imagem" style="display: none;">
                                                             
@@ -106,7 +115,7 @@
                                 <!-- <script type='text/javascript'>
                                   
                                 </script> -->
-                                <div class="form-button mt-3">
+                                <div class="form-button mt-3" style="margin-top: -22px; margin-bottom: -15px; ">
                                     <input type="submit" class="btn btn-primary" onclick="gravarParametrizacao()"></button>
                                 </div>
                             </form>

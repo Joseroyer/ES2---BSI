@@ -10,28 +10,48 @@ import javax.persistence.*;
 public class EmprestimoExemplar implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
+
+    @Column(name="qtde")
+    private int qtde;
+
+    @Column(name="renovacao_entrega")
+    private Date renovacao_entrega;
+
+    @Column(name="emprestimo_id_empr")
+    private int emprestimo_id_empr;
+
+    @Column(name="emprestimo_cli_id")
+    private int emprestimo_cli_id;
+
+    @Column(name="emprestimo_id_exemplar")
+    private int emprestimo_id_exemplar;
+
     @Id
     @Column(name = "id_emprEx")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_emprEx;
 
-    @Column(name = "qtde")
-    private int qtde;
     
-    @Column(name = "renovacao_entrega")
-    private Date renovacao_entrega;
+    
+    public EmprestimoExemplar() {
+    }
 
-    @ManyToOne
-    @JoinColumn(name="emprestimo_id_empr", nullable=false)
-    private Emprestimo emprestimo;
+    
+    public EmprestimoExemplar(int qtde, Date renovacao_entrega, int emprestimo_id_empr, int emprestimo_cli_id,
+            int emprestimo_id_exemplar, Long id_emprEx) {
+        this.qtde = qtde;
+        this.renovacao_entrega = renovacao_entrega;
+        this.emprestimo_id_empr = emprestimo_id_empr;
+        this.emprestimo_cli_id = emprestimo_cli_id;
+        this.emprestimo_id_exemplar = emprestimo_id_exemplar;
+        this.id_emprEx = id_emprEx;
+    }
 
-    @ManyToOne
-    @JoinColumn(name="emprestimo_cli_id", nullable=false)
-    private Cliente cliente;
 
-    @ManyToOne
-    @JoinColumn(name="emprestimo_id_exemplar", nullable=false)
-    private Exemplar emprestimo_id_exemplar;
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
 
     public int getQtde() {
         return qtde;
@@ -45,50 +65,43 @@ public class EmprestimoExemplar implements Serializable {
         return renovacao_entrega;
     }
 
-    
-    
-
-    public EmprestimoExemplar(int qtde, Date renovacao_entrega, Emprestimo emprestimo, Cliente cliente,
-            Exemplar emprestimo_id_exemplar) {
-        this.qtde = qtde;
-        this.renovacao_entrega = renovacao_entrega;
-        this.emprestimo = emprestimo;
-        this.cliente = cliente;
-        this.emprestimo_id_exemplar = emprestimo_id_exemplar;
-    }
-
-    public EmprestimoExemplar() {
-    }
-
     public void setRenovacao_entrega(Date renovacao_entrega) {
         this.renovacao_entrega = renovacao_entrega;
     }
 
-    public Emprestimo getEmprestimo() {
-        return emprestimo;
+    public int getEmprestimo_id_empr() {
+        return emprestimo_id_empr;
     }
 
-    public void setEmprestimo(Emprestimo emprestimo) {
-        this.emprestimo = emprestimo;
+    public void setEmprestimo_id_empr(int emprestimo_id_empr) {
+        this.emprestimo_id_empr = emprestimo_id_empr;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public int getEmprestimo_cli_id() {
+        return emprestimo_cli_id;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setEmprestimo_cli_id(int emprestimo_cli_id) {
+        this.emprestimo_cli_id = emprestimo_cli_id;
     }
 
-    public Exemplar getEmprestimo_id_exemplar() {
+    public int getEmprestimo_id_exemplar() {
         return emprestimo_id_exemplar;
     }
 
-    public void setEmprestimo_id_exemplar(Exemplar emprestimo_id_exemplar) {
+    public void setEmprestimo_id_exemplar(int emprestimo_id_exemplar) {
         this.emprestimo_id_exemplar = emprestimo_id_exemplar;
     }
-    
+
+    public Long getId_emprEx() {
+        return id_emprEx;
+    }
+
+    public void setId_emprEx(Long id_emprEx) {
+        this.id_emprEx = id_emprEx;
+    }
 
     
+
 }
     

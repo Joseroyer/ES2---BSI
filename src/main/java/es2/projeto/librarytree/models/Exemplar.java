@@ -29,6 +29,11 @@ public class Exemplar
     @JoinColumn(name = "editora_id_editora")
     private Editora editora_id_editora;
 
+    @Column(name="status")
+    private int status;
+
+
+
     public Long getId_exemplar() {
         return id_exemplar;
     }
@@ -78,16 +83,25 @@ public class Exemplar
     }
 
     public Exemplar(Long id_exemplar, int qtde, Date ano_publicado, int qtd_dias_empres, Livro livro_id_livro,
-            Editora editora_id_editora) {
+            Editora editora_id_editora, int status) {
         this.id_exemplar = id_exemplar;
         this.qtde = qtde;
         this.ano_publicado = ano_publicado;
         this.qtd_dias_empres = qtd_dias_empres;
         this.livro_id_livro = livro_id_livro;
         this.editora_id_editora = editora_id_editora;
+        this.status = status;
     }
 
     public Exemplar() {
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }   
     
 }
