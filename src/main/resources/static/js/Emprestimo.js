@@ -196,11 +196,17 @@ function Confirmar2()
                 });
             }
             else
-                alert("Cliente nao existente!");
+                alert("Cliente Não Existente!");
         }) 
         .catch(function (err) {
 
             console.log('error: ' + err);
 
         });
+}
+
+
+function teste()
+{
+    alert("Emprestimo Realizado");
 }

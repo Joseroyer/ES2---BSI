@@ -16,6 +16,7 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <script src="js/Emprestimo.js"></script>
+  <script src="js/cadBibliotecario.js"></script>
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,6 +26,12 @@
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   
+   <!-- Google Fonts -->
+   <link
+   href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+   rel="stylesheet"
+   />
+
   
   <!-- Template Main CSS File -->
   <link href="css/style.css" rel="stylesheet">
@@ -122,6 +129,7 @@
   table.table td i {
       font-size: 19px;
   }    
+  
   /* .pagination {
       float: right;
       margin: 0 0 5px;
@@ -258,27 +266,67 @@
         </div>  
     </div>  
     <div class="modal" tabindex="-1" role="dialog" id="modal" style="display: none;">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Confirmar Empréstimo</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar" onclick="closeModal()">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-             
-                
-              
-
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeModal()">Cancelar</button>
-              <input type="submit" value="Confirmar" class="btn btn-primary" onclick="Confirmar()">
-            </div>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Realizar Empréstimo</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar" onclick="closeModal()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-field">
+              <p>CPF:</p>
+              <input
+                id="cpf"
+                name="cpf"
+                type="text"
+                class="form-input"
+                placeholder="Digite o CPF *"
+                onblur="validarCPF()"
+                required
+              />
+           </div>
+           
+         <div class="form-field" style="margin-top:20px ;">
+          <p>Senha:</p>
+          <input
+            id="senha"
+            name="senha"
+            type="text"
+            class="form-input"
+            placeholder="Digite a senha *"
+            required
+          />
+       </div>
+       <div class="form-field" style="margin-top:20px ;">
+        <p>Data Empréstimo</p>
+        <input
+          id="data"
+          name="data"
+          type="text"
+          class="form-input"
+          disabled
+        />
+     </div>
+           <div class="form-field" style="margin-top:20px ;">
+            <p>Data Devolução:</p>
+            <input
+              id="devolucao"
+              name="devolucao"
+              type="text"
+              class="form-input"
+              disabled
+            />
+         </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeModal()">Cancelar</button>
+            <input type="submit" value="Confirmar Empréstimo" class="btn btn-primary" onclick="teste()">
           </div>
         </div>
       </div>
+    </div>
   
     <main id="main">
   
