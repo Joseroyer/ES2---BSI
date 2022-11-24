@@ -18,6 +18,7 @@ function ValidaUsuario()
                     console.log('error: ' + err);
                 });
         })
+
         .catch(function (err) {document.getElementById("modal").style.display = "block";
             console.log('error: ' + err);
 
@@ -45,6 +46,66 @@ function CarregaLista()
     .then(result=> 
         {
                 fetch("/apis/livros")
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    appendData(data);
+                })
+                .catch(function (err) {
+                    console.log('error: ' + err);
+                });
+                function appendData(data) {
+                    
+                    var table="";
+                 
+                    for (let i=0;i<data.length;i++)
+                    { 
+                        if(data[i].livro_id_livro.quantidade > 0)
+                        {
+                            table+=`<tr>
+                            <td>${data[i].id_exemplar}</td>
+                            <td>${data[i].livro_id_livro.titulo_livro}</td>
+                            <td>Teste</td>
+                            <td>${data[i].livro_id_livro.autor_livro}</td>
+                            <td>${data[i].editora_id_editora.nome_editora}</td>
+                            <td>Disponível</td>
+                            <td><img src="img/accept_green.png" onclick='Alugar()'/>
+                            </td>
+                            `;
+                        }
+                        else
+                        {
+                            table+=`<tr>
+                            <td>${data[i].id_exemplar}</td>
+                            <td>${data[i].livro_id_livro.titulo_livro}</td>
+                            <td>${data[i].livro_id_livro.genero_fk.tipo_genero}</td>
+                            <td>${data[i].livro_id_livro.autor_livro}</td>
+                            <td>${data[i].editora_id_editora.nome_editora}</td>
+                            <td>Indisponível</td>
+                            <td><img src="img/ban.png"/></td>
+                            `;
+                        }
+       
+                    }
+
+                    document.getElementById("qlq").innerHTML=table;
+                }
+            }
+        )
+    .catch(err=> console.error(err));
+}
+
+function Filtro()
+{
+    var filtro = document.getElementById("busca").value;
+    const URL_TO_FETCH = '/apis/filtro';
+    fetch(URL_TO_FETCH, {method: 'POST',
+       headers:{'Authorization':`${localStorage.getItem("token")}`,}})
+    .then(response=> response.text())
+    .then(result=> 
+        {
+                fetch("/apis/filtro?filtro="+filtro)
                 .then(function (response) {
                     return response.json();
                 })
@@ -134,11 +195,18 @@ function Confirmar2()
                 });
             }
             else
-                alert("Cliente nao existente!");
+                alert("Cliente Não Existente!");
+
         }) 
         .catch(function (err) {
 
             console.log('error: ' + err);
 
         });
+}
+
+
+function teste()
+{
+    alert("Emprestimo Realizado");
 }
