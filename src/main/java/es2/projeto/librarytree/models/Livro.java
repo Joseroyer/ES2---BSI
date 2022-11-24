@@ -20,6 +20,10 @@ public class Livro {
     @JoinColumn(name = "generos_id_genero")
     private Genero generos_id_genero;
 
+
+    @Column(name = "autor_livro")
+    private String autor_livro;
+
     @Column(name="status")
     private int status;
 
@@ -55,6 +59,7 @@ public class Livro {
         this.status = status;
     }
 
+
     public Long getId_livro() {
         return id_livro;
     }
@@ -85,6 +90,14 @@ public class Livro {
 
     public void setGenero_fk(Genero generos_id_genero) {
         this.generos_id_genero = generos_id_genero;
+    }
+
+    public String getAutor_livro() {
+        return autor_livro;
+    }
+
+    public void setAutor_livro(String autor_livro) {
+        this.autor_livro = autor_livro;
     }
 
     
