@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("apis")
 @RequiredArgsConstructor
-public class Exemplares {
+public class ExemplaresControl {
     private final SingletonExemplares singletonExemplares;
     private final SingletonLivro singletonLivro;
 
