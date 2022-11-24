@@ -27,7 +27,7 @@ function CarregaLista() {
                     string = aux[2] + "/" + aux[1] + "/" + aux[0];
                     table += `<tr>
                             <td>${data[i].id}</td>
-                            <td>${data[i].livro_fk.titulo}</td>
+                            <td>${data[i].livro_fk.titulo_livro}</td>
                             <td>${data[i].editora_fk.nome_editora}</td>
                             <td>${data[i].qtd}</td> 
                             <td>${string}</td>                            

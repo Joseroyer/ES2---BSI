@@ -1,5 +1,7 @@
 package es2.projeto.librarytree.models;
 
+import javax.persistence.*;
+
 @Entity
 @Table(name = "livro")
 public class Livro {
