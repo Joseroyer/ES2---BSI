@@ -18,8 +18,8 @@ function ValidaUsuario()
                     console.log('error: ' + err);
                 });
         })
-        .catch(function (err) {
-            alert("Cliente não existente!")
+
+        .catch(function (err) {document.getElementById("modal").style.display = "block";
             console.log('error: ' + err);
 
         });
@@ -95,7 +95,6 @@ function CarregaLista()
         )
     .catch(err=> console.error(err));
 }
-
 
 function Filtro()
 {
@@ -197,6 +196,7 @@ function Confirmar2()
             }
             else
                 alert("Cliente Não Existente!");
+
         }) 
         .catch(function (err) {
 

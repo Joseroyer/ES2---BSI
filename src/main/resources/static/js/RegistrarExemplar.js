@@ -1,21 +1,22 @@
 function CarregaLista() {
     const URL_TO_FETCH = '/apis/listar_exemplares';
     fetch(URL_TO_FETCH, {
-        method: 'Post',
-        headers: { 'Authorization': `${localStorage.getItem("token")}`, }
-    })
+            method: 'Post',
+            headers: { 'Authorization': `${localStorage.getItem("token")}`, }
+        })
         .then(response => response.text())
         .then(result => {
             fetch("/apis/listar_exemplares")
-                .then(function (response) {
+                .then(function(response) {
                     return response.json();
                 })
-                .then(function (data) {
+                .then(function(data) {
                     appendData(data);
                 })
-                .catch(function (err) {
+                .catch(function(err) {
                     console.log('error: ' + err);
                 });
+
             function appendData(data) {
                 console.log(data);
                 var table = "";
@@ -47,20 +48,21 @@ function salvar() {
     var jsontext = JSON.stringify(Object.fromEntries(
         new FormData(fdados)));
     fetch(URL, {
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        method: 'POST', body: jsontext
-    })
-        .then(function (response) {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            body: jsontext
+        })
+        .then(function(response) {
             if (response.ok) {
                 document.getElementById("error").style.display = 'none';
                 document.getElementById("cadastradoExemplar").style.display = "block";
                 window.location.href = "RegistrarExemplar.html";
                 return response.json();
             }
-        }).catch(function (error) {
+        }).catch(function(error) {
             document.getElementById("error").style.display = 'block';
         });
 
@@ -90,47 +92,50 @@ function excluir(id) {
     console.log(id);
     if (window.confirm("Deseja realmente excluir o Exemplar?")) {
         fetch("/apis/excluirExemplar?id=" + id)
-            .then(function (response) {
+            .then(function(response) {
                 return response.json();
             })
-            .then(function (text) {
+            .then(function(text) {
                 window.location.href = "RegistrarExemplar.html";
             })
-            .catch(function (err) {
+            .catch(function(err) {
                 console.log('error: ' + err);
             });
     }
 }
+
 function exibirLivros() {
     fetch("/apis/listar_livros")
-        .then(function (response) {
+        .then(function(response) {
             return response.json();
         })
-        .then(function (data) {
+        .then(function(data) {
             appendData(data);
         })
-        .catch(function (err) {
+        .catch(function(err) {
             console.log('error: ' + err);
         });
+
     function appendData(data) {
         var resp = "";
         for (let i = 0; i < data.length; i++)
-            resp += `<option value="` + (i + 1) + `">` + `${data[i].titulo}</option>`;
+            resp += `<option value="` + (i + 1) + `">` + `${data[i].titulo_livro}</option>`;
         document.getElementById("livro_fk").innerHTML = resp;
     }
 }
 
 function exibirEditoras() {
     fetch("/apis/listar-todas-editoras")
-        .then(function (response) {
+        .then(function(response) {
             return response.json();
         })
-        .then(function (data) {
+        .then(function(data) {
             appendData(data);
         })
-        .catch(function (err) {
+        .catch(function(err) {
             console.log('error: ' + err);
         });
+
     function appendData(data) {
         var resp = "";
         for (let i = 0; i < data.length; i++)
@@ -160,14 +165,15 @@ function editar(id) {
 
     const URL_TO_FETCH = `/apis/listar-bi?Identificador=${id}`;
     fetch(URL_TO_FETCH, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, method: 'POST' })
-        .then(function (response) {
+        .then(function(response) {
             response.json().then(valores => {
                 appendData(valores);
             });
         })
-        .catch(function (err) {
+        .catch(function(err) {
             console.log(err);
         });
+
     function appendData(data) {
         console.log(data);
         var nome = data.nome;
@@ -193,16 +199,15 @@ function editar2() {
 
     const URL_TO_FETCH = `/apis/editarExemplar?Identificador=${Identificador}&Quantidade=${Quantidade}&Data=${Data}`;
     fetch(URL_TO_FETCH, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, method: 'POST' })
-        .then(function (response) {
+        .then(function(response) {
             return response.json();
         })
-        .then(function (text) {
+        .then(function(text) {
             document.getElementById("cadastrado").style.display = "block";
             window.location.href = "RegistrarExemplar.html";
         })
-        .catch(function (err) {
+        .catch(function(err) {
             console.log('error: ' + err);
         });
 
 }
-
