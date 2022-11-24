@@ -1,22 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title id="title">Devolução</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
 
-  <title id="title">Devolução</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <!-- Favicons -->
+    <link href="img/Library tree.png" rel="icon" />
+    <link href="img/apple-touch-icon.png" rel="apple-touch-icon" />
 
-  <!-- Favicons -->
-  <link href="img/Library tree.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+    <script src="js/devolucao.js"></script>
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="css/style.css" rel="stylesheet" />
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <script src="js/devolucao.js"></script>
   <!-- Vendor CSS Files -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylsheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -24,105 +51,107 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  
-  
+  <!-- <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+   -->
   <!-- Template Main CSS File -->
-  <link href="css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/payment.css" rel="stylesheet">
+
+
+    <!-- =======================================================
   * Template Name: Arsha - v4.9.1
   * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-</head>
-<style>
-  body {
+  </head>
+  <style>
+    body {
       color: #566787;
       background-color: transparent;
-      font-family: 'Roboto', sans-serif;
-  }
-  .table
-  {
-    background-color: white;
-    
-  }
-  .table-responsive {
+      font-family: "Roboto", sans-serif;
+    }
+    .table {
+      background-color: white;
+    }
+    .table-responsive {
       margin: 30px 0;
       color: white;
-  }
-  .table-wrapper {
+    }
+    .table-wrapper {
       min-width: 1000px;
       background: transparent;
       padding: 20px;
       color: white;
-  }
-  .table-title {
+    }
+    .table-title {
       padding-bottom: 10px;
       margin: 0 0 10px;
       min-width: 100%;
-  }
-  .table-title h2 {
+    }
+    .table-title h2 {
       margin: 8px 0 0;
       font-size: 22px;
       color: white;
-  }
-  .search-box {
-      position: relative;        
+    }
+    .search-box {
+      position: relative;
       float: right;
-  }
-  .search-box input {
+    }
+    .search-box input {
       height: 34px;
       border-radius: 20px;
       padding-left: 35px;
       border-color: white;
       box-shadow: none;
-  }
-  .search-box input:focus {
-      border-color: #3FBAE4;
-  }
-  .search-box i {
+    }
+    .search-box input:focus {
+      border-color: #3fbae4;
+    }
+    .search-box i {
       color: #a0a5b1;
       position: absolute;
       font-size: 19px;
       top: 8px;
       left: 10px;
-  }
-  table.table tr th, table.table tr td {
+    }
+    table.table tr th,
+    table.table tr td {
       border-color: #e9e9e9;
-  }
-  /* table.table-striped tbody tr:nth-of-type(odd) {
+    }
+    /* table.table-striped tbody tr:nth-of-type(odd) {
       background-color: white;
   } */
 
-  
-
-  table.table th img {
+    table.table th img {
       font-size: 13px;
       margin: 0 5px;
       cursor: pointer;
-  }
-  table.table th  {
-    color: #37517e;}
+    }
+    table.table th {
+      color: #37517e;
+    }
 
-  table.table td  {
-    color: #37517e;
-  }
+    table.table td {
+      color: #37517e;
+    }
 
-
-  table.table td a.view {
-      color: #03A9F4;
-  }
-  table.table td a.edit {
-      color: #FFC107;
-  }
-  table.table td a.delete {
-      color: #E34724;
-  }
-  table.table td i {
+    table.table td a.view {
+      color: #03a9f4;
+    }
+    table.table td a.edit {
+      color: #ffc107;
+    }
+    table.table td a.delete {
+      color: #e34724;
+    }
+    table.table td i {
       font-size: 19px;
-  }    
-  /* .pagination {
+    }
+    /* .pagination {
       float: right;
       margin: 0 0 5px;
   }
@@ -159,66 +188,107 @@
       margin-top: 6px;
       font-size: 95%;
   }     */
-</style>
-<script>
-    $(document).ready(function(){
+  </style>
+  <script>
+    $(document).ready(function () {
       $('[data-toggle="tooltip"]').tooltip();
     });
-</script>
 
-<body onload="verificarLogin(), estilo()">
+  </script>
 
+
+<body onload="verificarLogin(), estilo(), CarregaLista()">
+
+  <body onload="verificarLogin(), estilo()">
     <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top ">
+    <header id="header" class="fixed-top">
       <div class="container d-flex align-items-center">
-  
         <h1 class="logo me-auto" id="titulo"></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-  
+
         <nav id="navbar" class="navbar">
           <ul>
-            <li><a class="nav-link scrollto active" href="index.html">Home</a></li>
-            <li><a class="nav-link scrollto" id="consultar"href="">Consultar Acervo</a></li>
-            <li><a class="nav-link scrollto"  id="emprestimo" href="">Realizar Empréstimos</a></li>
-            <li id="listaFunc" class="dropdown"><a href="#"><span>Área do
-                  Funcionário</span> <i class="bi bi-chevron-down"></i></a>
+            <li>
+              <a class="nav-link scrollto active" href="index.html">Home</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" id="consultar" href=""
+                >Consultar Acervo</a
+              >
+            </li>
+            <li>
+              <a class="nav-link scrollto" id="emprestimo" href=""
+                >Realizar Empréstimos</a
+              >
+            </li>
+            <li id="listaFunc" class="dropdown">
+              <a href="#"
+                ><span>Área do Funcionário</span>
+                <i class="bi bi-chevron-down"></i
+              ></a>
               <ul>
-                <li><a href="#">Cadastrar Exemplares</a></li>
+                <li>
+                  <a href="./RegistrarExemplar.html">Cadastrar Exemplares</a>
+                </li>
+                <li>
+                  <a href="./CadastroBibliotecario.html">Cadastro de Usuário</a>
+                </li>
+                <li>
+                  <a href="parametrizacao.html">Alterar Parametrização</a>
+                </li>
 
+               
+                <li><a href="devoluçao.html">Devolução de Exemplar</a></li>
                 <li><a href="./CadastroBibliotecario.html">Cadastro de Usuário</a></li>
                 <li><a href="parametrizacao.html">Alterar Parametrização</a></li>
+
                 <li><a href="CadastroEditora.html">Cadastro de Editora</a></li>
                 <li><a href="Editora.html">Gerenciar Editora</a></li>
                 <li><a href="Aprovacao.html">Aprovar Solicitações</a></li>
-                <li><a href="ExcluirUsuario.html">Alterar/Excluir Usuários</a></li>
-
+                <li>
+                  <a href="ExcluirUsuario.html">Alterar/Excluir Usuários</a>
+                </li>
               </ul>
             </li>
 
-            <li id="logButton"><a class="getstarted scrollto" href="./LoginUser.html"
-                target="_blank" id="log">Entre/Cadastre-se</a></li>
+            <li id="logButton">
+              <a
+                class="getstarted scrollto"
+                href="./LoginUser.html"
+                target="_blank"
+                id="log"
+                >Entre/Cadastre-se</a
+              >
+            </li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
-  
+        </nav>
+        <!-- .navbar -->
       </div>
-    </header><!-- End Header -->
-  
+    </header>
+    <!-- End Header -->
+
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
       <div class="container">
         <div class="row">
-        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-
-        <h2></h2>
-        <div class="d-flex justify-content-center justify-content-lg-start">
+          <div
+            class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <h2></h2>
+            <div
+              class="d-flex justify-content-center justify-content-lg-start"
+            ></div>
           </div>
+          <div
+            class="col-lg-6 order-1 order-lg-2 hero-img"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          ></div>
         </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-        </div>
-        </div>
-        
       </div>
     
       
@@ -232,130 +302,222 @@
                         <div class="col-sm-8"><h2>Realizar <b>Devolução</b></h2></div>
                         <div class="col-sm-4">
                             <div class="search-box">
-                                <input type="text" class="form-control" placeholder="Buscar usuário" >
+                                <input style="background-color: white;"type="text" id="busca" class="form-control" placeholder="Buscar usuário" onchange="CarregaFiltro()">
                                 
                             </div>
                         </div>
                     </div>
                 </div>
-                <table class="table table-bordered">
+                <table class="table table-bordered" style="text-align:center">
                     <thead>
                         <tr>
                             <th>#</th>
                             <th>Nome <i class="fa fa-sort"></i></th>
                             <th>Data do Empréstimo</th>
-                            <th>Data de Devolução <i class="fa fa-sort"></i></th>
+                            <th>Data de Devolução Prevista<i class="fa fa-sort"></i></th>
                             <th>Exemplar</th>
                             <th>Situação</th>
-                            <th>Ações</th>
+                            <th colspan="3">Ações</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Thomas Hardy</td>
-                            <td>89 Chiaroscuro Rd.</td>
-                            <td>Portland</td>
-                            <td>97219</td>
-                            <td>USA</td>
-                            <td>
-                                <a href="#" title="Devolver" data-toggle="tooltip"><img src="img/accept_green.png"></a>
-                                <a href="#" title="Suspensão" data-toggle="tooltip"><img src="img/ban.png"></a>
-                                <a href="#" title="Pagamento" data-toggle="tooltip"><img src="img/pay.png"></a>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Maria Anders</td>
-                            <td>Obere Str. 57</td>
-                            <td>Berlin</td>
-                            <td>12209</td>
-                            <td>Germany</td>
-                             <td>
-                                <a href="#" title="Devolver" data-toggle="tooltip"><img src="img/accept_green.png"></a>
-                                <a href="#" title="Suspensão" data-toggle="tooltip"><img src="img/ban.png"></a>
-                                <a href="#" title="Pagamento" data-toggle="tooltip"><img src="img/pay.png"></a>
-
-                            </td>
-                        </tr>
-                        <!-- 
-                        <tr>
-                            <td>3</td>
-                            <td>Fran Wilson</td>
-                            <td>C/ Araquil, 67</td>
-                            <td>Madrid</td>
-                            <td>28023</td>
-                            <td>Spain</td>
-                            <td>
-                                <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                                <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Dominique Perrier</td>
-                            <td>25, rue Lauriston</td>
-                            <td>Paris</td>
-                            <td>75016</td>
-                            <td>France</td>
-                            <td>
-                                <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                                <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Martin Blank</td>
-                            <td>Via Monte Bianco 34</td>
-                            <td>Turin</td>
-                            <td>10100</td>
-                            <td>Italy</td>
-                            <td>
-                                <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                                <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td>
-                        </tr>         -->
+                    <tbody id="qlq">
                     </tbody>
                 </table>
-                <!-- <div class="clearfix">
-                    <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                    <ul class="pagination">
-                        <li class="page-item disabled"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
-                        <li class="page-item"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                        <li class="page-item"><a href="#" class="page-link">4</a></li>
-                        <li class="page-item"><a href="#" class="page-link">5</a></li>
-                        <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-double-right"></i></a></li>
-                    </ul>
-                </div> -->
+                
             </div>
         </div>  
-    </div>   
+    </div>  
+    <div class="modal" tabindex="-1" role="dialog" id="modal" style="display: none; width: 100%;">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Realizar Pagamento</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar" onclick="closeModal()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" style="width: 100%;">
+                <div class="container">
+                    <div class="row">
+                        <!-- <div class="col-lg-4 mb-lg-0 mb-3">
+                            <div class="card p-3">
+                                <div class="img-box">
+                                    <img src="https://www.freepnglogos.com/uploads/visa-logo-download-png-21.png" alt="">
+                                </div>
+                                <div class="number">
+                                    <label class="fw-bold" for="">**** **** **** 1060</label>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <small><span class="fw-bold">Expiry date:</span><span>10/16</span></small>
+                                    <small><span class="fw-bold">Name:</span><span>Kumar</span></small>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- <div class="col-lg-4 mb-lg-0 mb-3">
+                            <div class="card p-3">
+                                <div class="img-box">
+                                    <img src="https://www.freepnglogos.com/uploads/mastercard-png/file-mastercard-logo-svg-wikimedia-commons-4.png"
+                                        alt="">
+                                </div>
+                                <div class="number">
+                                    <label class="fw-bold">**** **** **** 1060</label>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <small><span class="fw-bold">Expiry date:</span><span>10/16</span></small>
+                                    <small><span class="fw-bold">Name:</span><span>Kumar</span></small>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- <div class="col-lg-4 mb-lg-0 mb-3">
+                            <div class="card p-3">
+                                <div class="img-box">
+                                    <img src="https://www.freepnglogos.com/uploads/discover-png-logo/credit-cards-discover-png-logo-4.png"
+                                        alt="">
+                                </div>
+                                <div class="number">
+                                    <label class="fw-bold">**** **** **** 1060</label>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <small><span class="fw-bold">Expiry date:</span><span>10/16</span></small>
+                                    <small><span class="fw-bold">Name:</span><span>Kumar</span></small>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="col-12 mt-4" style="padding-top: -100px;">
+                            <div class="card p-3">
+                                <p class="mb-0 fw-bold h4">Métodos de Pagamento</p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="card p-3">
+                                <div class="card-body border p-0">
+                                    <p>
+                                        <a class="btn btn-primary w-100 h-100 d-flex align-items-center justify-content-between"
+                                            data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true"
+                                            aria-controls="collapseExample">
+                                            <span class="fw-bold">PIX</span>
+                                            <span class="fab fa-cc-paypal">
+                                            </span>
+                                        </a>
+                                    </p>
+                                    <div class="collapse p-3 pt-0" id="collapseExample">
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <p class="h4 mb-0">Resumo</p>
+                                                <p class="mb-0"><span class="fw-bold">Produto</span><span class="c-green">: Reembolso de Exemplar</span></p>
+                                                <p class="mb-0"><span class="fw-bold">Valor</span><span
+                                                        class="c-green">:R$50.00</span></p>
+                                                <p class="mb-0"></p>
+                                                </br>
+                                                <img style="margin: 0 auto; align-items: center; width: 80%; margin-left: 35%;"src="img/qr.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body border p-0">
+                                    <p>
+                                        <a class="btn btn-primary p-2 w-100 h-100 d-flex align-items-center justify-content-between"
+                                            data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true"
+                                            aria-controls="collapseExample">
+                                            <span class="fw-bold">Cartão de Crédito</span>
+                                            <span class="">
+                                                <span class="fab fa-cc-amex"></span>
+                                                <span class="fab fa-cc-mastercard"></span>
+                                                <span class="fab fa-cc-discover"></span>
+                                            </span>
+                                        </a>
+                                    </p>
+                                    <div class="collapse show p-3 pt-0" id="collapseExample">
+                                        <div class="row">
+                                            <div class="col-lg-5 mb-lg-0 mb-3">
+                                                <p class="h4 mb-0">Resumo</p>
+                                                <p class="mb-0"><span class="fw-bold">Produto</span><span class="c-green">: Reembolso de Exemplar</span>
+                                                </p>
+                                                <p class="mb-0">
+                                                    <span class="fw-bold">Valor</span>
+                                                    <span class="c-green">:R$50.00</span>
+                                                </p>
+                                                </br>
+                                                <p class="mb-0">
+                                                    <span class="fw-bold">Qtd. Parcelas</span>
+                                                    
+                                                    <input id="qtd_parc" type="number" style="width:80%; " value="1" onblur="validaParcela()" required>
+                                                    <p id="esconder" style="color: red; display: none"> *O número de parcelas deve estar entre 1 e 5</p>
+                                                </p>
+                                                <!-- <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque
+                                                    nihil neque
+                                                    quisquam aut
+                                                    repellendus, dicta vero? Animi dicta cupiditate, facilis provident quibusdam ab
+                                                    quis,
+                                                    iste harum ipsum hic, nemo qui!</p> -->
+                                            </div>
+                                            <div class="col-lg-7">
+                                                <form action="" class="form">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form__div">
+                                                                <input id="num_cart" type="text" class="form-control" placeholder=" " onblur="validaNumero()" onkeyup="mascara('####.###.####.####',this,event)" required >
+                                                                <label for="" class="form__label">Número do cartão</label>
+                                                            </div>
+                                                        </div>
+            
+                                                        <div class="col-6">
+                                                            <div class="form__div">
+                                                                <input type="text" class="form-control" placeholder=" " id="data" onkeyup="mascara('##/##',this,event)" onblur="validaData()" required>
+                                                                <label for="" class="form__label">MM / yy</label>
+                                                            </div>
+                                                        </div>
+            
+                                                        <div class="col-6">
+                                                            <div class="form__div">
+                                                                <input type="password" class="form-control" placeholder=" " id="cvv" onkeyup="mascara('###',this,event)" onblur="validaCVV()" required>
+                                                                <label for="" class="form__label">cvv</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form__div">
+                                                                <input type="text" class="form-control" placeholder=" " id="nome" required onblur="validaNome()">
+                                                                <label for="" class="form__label">Nome no cartão</label>
+                                                            </div>
+                                                        <!-- </div>
+                                                        <div class="col-12">
+                                                            <div class="btn btn-primary w-100"></div>
+                                                        </div> -->
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12" id="div_pag">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
   
     <main id="main">
-  
       <!-- ======= Clients Section ======= -->
-      
-  
+
       <!-- ======= About Us Section ======= -->
-     
-  
-  
+
       <!-- ======= Team Section ======= -->
-      <section id="team" class="team" style="background-color: #37517e">
-        
-      </section><!-- End Team Section -->
-  
-    </main><!-- End #main -->
+      <section
+        id="team"
+        class="team"
+        style="background-color: #37517e"
+      ></section>
+      <!-- End Team Section -->
+    </main>
+    <!-- End #main -->
     <!-- ======= Footer ======= -->
-    <footer id="footer" >
-  
-  
+    <footer id="footer">
       <div class="container footer-bottom clearfix">
         <div class="copyright">
           &copy; Copyright <strong><span id="footer2"></span></strong>. Todos os
@@ -366,14 +528,18 @@
           <!-- You can delete the links only if you purchased the pro version. -->
           <!-- Licensing information: https://bootstrapmade.com/license/ -->
           <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-         
         </div>
       </div>
-    </footer><!-- End Footer -->
-  
+    </footer>
+    <!-- End Footer -->
+
     <div id="preloader"></div>
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-  
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
     <!-- Vendor JS Files -->
     <script src="assets/vendor/aos/aos.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -382,13 +548,16 @@
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
     <script src="assets/vendor/php-email-form/validate.js"></script>
-    
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
   
+
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
     <script src="js/parametrizacao.js"></script>
     <script src="./js/login.js"></script>
-
-</body>
-
+  </body>
 </html>

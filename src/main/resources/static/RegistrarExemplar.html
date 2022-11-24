@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title id="title">Devolução</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="img/Library tree.png" rel="icon" />
+    <link href="img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+    <script src="js/devolucao.js"></script>
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="css/style.css" rel="stylesheet" />
+
+    <!-- =======================================================
+  * Template Name: Arsha - v4.9.1
+  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  </head>
+  <style>
+    body {
+      color: #566787;
+      background-color: transparent;
+      font-family: "Roboto", sans-serif;
+    }
+    .table {
+      background-color: white;
+    }
+    .table-responsive {
+      margin: 30px 0;
+      color: white;
+    }
+    .table-wrapper {
+      min-width: 1000px;
+      background: transparent;
+      padding: 20px;
+      color: white;
+    }
+    .table-title {
+      padding-bottom: 10px;
+      margin: 0 0 10px;
+      min-width: 100%;
+    }
+    .table-title h2 {
+      margin: 8px 0 0;
+      font-size: 22px;
+      color: white;
+    }
+    .search-box {
+      position: relative;
+      float: right;
+    }
+    .search-box input {
+      height: 34px;
+      border-radius: 20px;
+      padding-left: 35px;
+      border-color: white;
+      box-shadow: none;
+    }
+    .search-box input:focus {
+      border-color: #3fbae4;
+    }
+    .search-box i {
+      color: #a0a5b1;
+      position: absolute;
+      font-size: 19px;
+      top: 8px;
+      left: 10px;
+    }
+    table.table tr th,
+    table.table tr td {
+      border-color: #e9e9e9;
+    }
+    /* table.table-striped tbody tr:nth-of-type(odd) {
+      background-color: white;
+  } */
+
+    table.table th img {
+      font-size: 13px;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+    table.table th {
+      color: #37517e;
+    }
+
+    table.table td {
+      color: #37517e;
+    }
+
+    table.table td a.view {
+      color: #03a9f4;
+    }
+    table.table td a.edit {
+      color: #ffc107;
+    }
+    table.table td a.delete {
+      color: #e34724;
+    }
+    table.table td i {
+      font-size: 19px;
+    }
+    
+  </style>
+  <!-- <script>
+    
+    $(document).ready(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+  </script> -->
+
+  <body onload="verificarLogin(), estilo(), CarregaLista()">
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center">
+        <h1 class="logo me-auto" id="titulo"></h1>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li>
+              <a class="nav-link scrollto active" href="index.html">Home</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" id="consultar" href=""
+                >Consultar Acervo</a
+              >
+            </li>
+            <li>
+              <a class="nav-link scrollto" id="emprestimo" href=""
+                >Realizar Empréstimos</a
+              >
+            </li>
+            <li id="listaFunc" class="dropdown">
+              <a href="#"
+                ><span>Área do Funcionário</span>
+                <i class="bi bi-chevron-down"></i
+              ></a>
+              <ul>
+                <li><a href="./RegistrarExemplar.html">Cadastrar Exemplares</a></li>
+
+                <li>
+                  <a href="./CadastroBibliotecario.html">Cadastro de Usuário</a>
+                </li>
+                <li>
+                  <a href="parametrizacao.html">Alterar Parametrização</a>
+                </li>
+                <li><a href="CadastroEditora.html">Cadastro de Editora</a></li>
+                <li><a href="Editora.html">Gerenciar Editora</a></li>
+                <li><a href="Aprovacao.html">Aprovar Solicitações</a></li>
+                <li>
+                  <a href="ExcluirUsuario.html">Alterar/Excluir Usuários</a>
+                </li>
+              </ul>
+            </li>
+
+            <li id="logButton">
+              <a
+                class="getstarted scrollto"
+                href="./LoginUser.html"
+                target="_blank"
+                id="log"
+                >Entre/Cadastre-se</a
+              >
+            </li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div
+            class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <h2></h2>
+            <div
+              class="d-flex justify-content-center justify-content-lg-start"
+            ></div>
+          </div>
+          <div
+            class="col-lg-6 order-1 order-lg-2 hero-img"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          ></div>
+        </div>
+      </div>
+    </section>
+    <!-- End Hero -->
+    <div class="container-xl" style="margin-top: -500px; background-color: transparent">
+      <div class="table-responsive" style="background-color: transparent">
+        <div class="table-wrapper">
+          <div class="table-title">
+            <div class="row">
+              <div class="col">
+                <h2>Realizar <b>Registro de Exemplares</b></h2>
+              </div>
+              <div class="col-md-auto">
+                    <div class="search-box">
+                    <input
+                      id="busca"
+                        type="text"
+                        class="form-control"
+                        placeholder="Buscar Exemplar"
+                        onclick="CarregarFiltro()"
+                    />
+                    </div>
+              </div>
+              <div class="col col-lg-2">
+                  <button type="button" class="btn btn-primary" onclick="abrir()">Novo</button>
+              </div>
+            </div>
+          </div>
+
+          <table class="table" style="text-align: center;">
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="modal" style="display:
+        none;">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Registrar Exemplar</h5>
+              <button type="button" class="close" data-dismiss="modal"
+                aria-label="Fechar" onclick="closeModal()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!-- Cadastrar -->
+            <div class="modal-body" onload="FormsBibliotecario()">
+              <form id="fdados">
+                <div class="form-group" style="margin-top:20px ;">
+                  <label for="recipient-name" class="col-form-label">Livro:</label>
+                  <!-- <p>Identificador:</p> -->
+                  <select id="livro_fk" name="livro_fk" class="form-control" data-live-search="true">
+                          <option>Selecione um Livro</option>
+                          <option></option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Editora:</label>
+                  <select id="editora_fk" name="editora_fk" class="form-control">
+                      <option>Selecione uma Editora</option>
+                      <option></option>
+                  </select>
+                  <p id="resultado_editora_fk" style="font-size:14px; color:#212529;
+                    display: none;"></p>
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Quantidade:</label>
+                  <input
+                    id="qtd"
+                    name="qtd"
+                    type="number"
+                    class="form-control"
+                    required
+                    onblur=" validarQuantidade()"
+                    min="1"  max="9999"
+                    />
+                  <p id="error_quantidade" style="font-size:14px; color:#212529;
+                    display: none;">A quantidade precisa ser Maior que 0 e Menor que 9999
+                  </p>
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Ano Publicado:</label>
+                  <input
+                    id="ano_publicado"
+                    name="ano_publicado"
+                    type="date"
+                    class="form-control"
+                    required
+                    onblur="validarData()"
+                    />
+                  <p id="resultado_ano_publicado" style="font-size:14px;
+                    color:#212529; display:
+                    none;">Data Inválida</p>
+                </div>
+                <div id="resultados_div" class="">
+                  <div class="d-flex justify-content-center">
+                    <p class="message" id="cadastradoExemplar" style="font-size:18px;
+                      color: #212529; display: none;">Cadastrado com Sucesso</p>
+                    <p id="error" style="display: none; color: #212529;">Erro ao Cadastrar</p>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                  data-dismiss="modal" onclick="closeModal()">Cancelar</button>
+                <input type="submit" value="Registrar" class="btn btn-primary"
+                  onclick="salvar()">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Editar -->
+        <div class="modal" tabindex="-1" role="dialog" id="modal_editar" style="display:
+        none;">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Editar Exemplar</h5>
+              <button type="button" class="close" data-dismiss="modal"
+                aria-label="Fechar" onclick="closeModal()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!-- Cadastrar -->
+            <div class="modal-body" onload="FormsBibliotecario()">
+              <form id="fdados">
+                <div class="form-group" style="margin-top:20px ;">
+                  <label for="recipient-name" class="col-form-label">Identificador:</label>
+                  <!-- <p>Identificador:</p> -->
+                  <input
+                    id="id"
+                    name="id"
+                    type="text"
+                    class="form-control"
+                    placeholder="Identificador do Exemplar"
+                    disabled
+                    />
+                </div>
+                <div class="form-group" style="">
+                  <label for="recipient-name" class="col-form-label">Livro:</label>
+                  <!-- <p>Identificador:</p> -->
+                  <select id="novo_livro_fk" name="novo_livro_fk" class="form-control" data-live-search="true" disabled>
+                          <option>Selecione um Livro</option>
+                          <option></option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Editora:</label>
+                  <select id="novo_editora_fk" name="novo_editora_fk" class="form-control"disabled>
+                      <option>Selecione uma Editora</option>
+                      <option></option>
+                  </select>
+                  <p id="resultado_editora_fk" style="font-size:14px; color:#212529;
+                    display: none;"></p>
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Quantidade:</label>
+                  <input
+                    id="novo_qtd"
+                    name="novo_qtd"
+                    type="number"
+                    class="form-control"
+                    required
+                    onblur=" validarQuantidade()"
+                    min="1"  max="9999"
+                    />
+                  <p id="error_quantidade" style="font-size:14px; color:#212529;
+                    display: none;">A quantidade precisa ser Maior que 0 e Menor que 9999
+                  </p>
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Ano Publicado:</label>
+                  <input
+                    id="novo_ano_publicado"
+                    name="novo_ano_publicado"
+                    type="date"
+                    class="form-control"
+                    required
+                    onblur="validarData()"
+                    />
+                  <p id="resultado_ano_publicado" style="font-size:14px;
+                    color:#212529; display:
+                    none;">Data Inválida</p>
+                </div>
+                <div id="resultados_div" class="">
+                  <div class="d-flex justify-content-center">
+                    <p class="message" id="cadastradoExemplar" style="font-size:18px;
+                      color: #212529; display: none;">Cadastrado com Sucesso</p>
+                    <p id="error" style="display: none; color: #212529;">Erro ao Cadastrar</p>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                  data-dismiss="modal" onclick="closeModal()">Cancelar</button>
+                <input type="submit" value="Editar" class="btn btn-primary"
+                  onclick="editar()">
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <main id="main">
+      <section
+        id="team"
+        class="team"
+        style="background-color: #37517e"
+      ></section>
+      <!-- End Team Section -->
+    </main>
+    <!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="container footer-bottom clearfix">
+        <div class="copyright">
+          &copy; Copyright <strong><span id="footer2"></span></strong>. Todos os
+          direitos reservados à <span id="empresa"></span>
+        </div>
+        <div class="credits"></div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <div id="preloader"></div>
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <script src="js/parametrizacao.js"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/RegistrarExemplar.js"></script>
+
+  </body>
+</html>
