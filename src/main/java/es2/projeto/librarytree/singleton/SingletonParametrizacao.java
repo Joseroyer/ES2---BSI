@@ -1,13 +1,12 @@
 package es2.projeto.librarytree.singleton;
 
-import java.util.List;
-
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Service;
-
 import es2.projeto.librarytree.models.Parametrizacao;
 import es2.projeto.librarytree.repositories.ParametrizacaoRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @Service

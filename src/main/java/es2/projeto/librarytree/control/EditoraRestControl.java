@@ -25,7 +25,6 @@ public class EditoraRestControl {
     public ResponseEntity<Object> buscarTodas() {
         List<Editora> editora = singleton.buscarTodas();
         return new ResponseEntity<>(editora, HttpStatus.OK);
-
     }
 
     @RequestMapping("/listar-ed")
