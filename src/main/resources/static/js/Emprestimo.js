@@ -18,8 +18,7 @@ function ValidaUsuario()
                     console.log('error: ' + err);
                 });
         })
-        .catch(function (err) {
-            alert("Cliente não existente!")
+        .catch(function (err) {document.getElementById("modal").style.display = "block";
             console.log('error: ' + err);
 
         });
