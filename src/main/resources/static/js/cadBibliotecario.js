@@ -173,20 +173,27 @@ function gravarUsuario() {
     })
         .then(function (response) {
             if (response.ok) {
+                document.getElementById("cadastrado").style.display = "";
                 document.getElementById("cpf_existente").style.display = "none";
-                document.getElementById("resultados_div").style.display = "none";
-                document.getElementById("cadastrado").style.display = "block";
+                esconderResultadosDiv();
                 limparForms();
                 return response.json();
             }
             else if (response.status == 406) {
+                document.getElementById("cpf_existente").style.display = "";
                 document.getElementById("cadastrado").style.display = "none";
-                document.getElementById("resultados_div").style.display = "none";
-                document.getElementById("cpf_existente").style.display = "block";
+                esconderResultadosDiv();
             }
         })
         .catch(function (error) {
             // console.error();
         });
+    limparForms();
     event.preventDefault("fdados");
+}
+function esconderResultadosDiv() {
+    var elements = document.querySelectorAll(".resultados_div");
+    elements.forEach(function(element) {
+        element.style.display = "none";
+    });
 }
